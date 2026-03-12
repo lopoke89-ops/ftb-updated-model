@@ -1,0 +1,1900 @@
+{
+  "_meta": {
+    "season": "2025-26",
+    "description": "Player roster for FTB pipeline — maps abbreviated names to full names + positions.",
+    "position_codes": [
+      "PG",
+      "SG",
+      "SF",
+      "PF",
+      "C"
+    ],
+    "note": "primary_team reflects team at end of season or most recent trade destination"
+  },
+  "players": [
+    {
+      "abbreviated": "A. Bailey",
+      "full_name": "Ace Bailey",
+      "position": "SF",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "A. Black",
+      "full_name": "Anthony Black",
+      "position": "PG",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "A. Bona",
+      "full_name": "Adem Bona",
+      "position": "C",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "A. Davis",
+      "full_name": "Anthony Davis",
+      "position": "C",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "A. Dosunmu",
+      "full_name": "Ayo Dosunmu",
+      "position": "SG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "A. Drummond",
+      "full_name": "Andre Drummond",
+      "position": "C",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "A. Edwards",
+      "full_name": "Anthony Edwards",
+      "position": "SG",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "A. Gordon",
+      "full_name": "Aaron Gordon",
+      "position": "PF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "A. Green",
+      "full_name": "AJ Green",
+      "position": "SG",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "A. Horford",
+      "full_name": "Al Horford",
+      "position": "C",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "A. Mitchell",
+      "full_name": "Ajay Mitchell",
+      "position": "SG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "A. Nembhard",
+      "full_name": "Andrew Nembhard",
+      "position": "PG",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "A. Nesmith",
+      "full_name": "Aaron Nesmith",
+      "position": "SF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "A. Reaves",
+      "full_name": "Austin Reaves",
+      "position": "SG",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "A. Sarr",
+      "full_name": "Alexandre Sarr",
+      "position": "C",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "A. Sengun",
+      "full_name": "Alperen Sengun",
+      "position": "C",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "A. Simons",
+      "full_name": "Anfernee Simons",
+      "position": "SG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "A. Thompson",
+      "full_name": "Amen Thompson",
+      "position": "SF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "A. Wiggins",
+      "full_name": "Andrew Wiggins",
+      "position": "SF",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "Anthony Edwards",
+      "full_name": "Anthony Edwards",
+      "position": "SG",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "B. Adebayo",
+      "full_name": "Bam Adebayo",
+      "position": "C",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "B. Biyombo",
+      "full_name": "Bismack Biyombo",
+      "position": "C",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "B. Brown",
+      "full_name": "Bruce Brown",
+      "position": "SG",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "B. Carlson",
+      "full_name": "Brandon Carlson",
+      "position": "C",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "B. Carrington",
+      "full_name": "Carlton Carrington",
+      "position": "PG",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "B. Clarke",
+      "full_name": "Brandon Clarke",
+      "position": "PF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "B. Coulibaly",
+      "full_name": "Bilal Coulibaly",
+      "position": "SF",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "B. Hield",
+      "full_name": "Buddy Hield",
+      "position": "SG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "B. Hinson",
+      "full_name": "Brice Hinson",
+      "position": "SG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "B. Hyland",
+      "full_name": "Bones Hyland",
+      "position": "PG",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "B. Ingram",
+      "full_name": "Brandon Ingram",
+      "position": "SF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "B. Lopez",
+      "full_name": "Brook Lopez",
+      "position": "C",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "B. Mathurin",
+      "full_name": "Bennedict Mathurin",
+      "position": "SG",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "B. McGowens",
+      "full_name": "Bryce McGowens",
+      "position": "SG",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "B. Miller",
+      "full_name": "Brandon Miller",
+      "position": "SF",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "B. Podziemski",
+      "full_name": "Brandin Podziemski",
+      "position": "SG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "B. Portis",
+      "full_name": "Bobby Portis",
+      "position": "PF",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "B. Scheierman",
+      "full_name": "Baylor Scheierman",
+      "position": "SF",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "B. Sensabaugh",
+      "full_name": "Brice Sensabaugh",
+      "position": "SG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "B. Sheppard",
+      "full_name": "Ben Sheppard",
+      "position": "SG",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "B. Williams",
+      "full_name": "Brandon Williams",
+      "position": "SG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "Bam Adebayo",
+      "full_name": "Bam Adebayo",
+      "position": "C",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "C. Capela",
+      "full_name": "Clint Capela",
+      "position": "C",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "C. Carlson",
+      "full_name": "Brandon Carlson",
+      "position": "C",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "C. Coward",
+      "full_name": "Cedric Coward",
+      "position": "SF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "C. Cunningham",
+      "full_name": "Cade Cunningham",
+      "position": "PG",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "C. Flagg",
+      "full_name": "Cooper Flagg",
+      "position": "PF",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "C. Gillespie",
+      "full_name": "Collin Gillespie",
+      "position": "PG",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "C. Holmgren",
+      "full_name": "Chet Holmgren",
+      "position": "C",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "C. Johnson",
+      "full_name": "Christian Johnson",
+      "position": "SF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "C. Kispert",
+      "full_name": "Corey Kispert",
+      "position": "SF",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "C. Koloko",
+      "full_name": "Christian Koloko",
+      "position": "C",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "C. Martin",
+      "full_name": "Caleb Martin",
+      "position": "SF",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "C. McCollum",
+      "full_name": "CJ McCollum",
+      "position": "SG",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "C. Murray-Boyles",
+      "full_name": "Chol Murray-Boyles",
+      "position": "PF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "C. Sexton",
+      "full_name": "Collin Sexton",
+      "position": "SG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "C. Spencer",
+      "full_name": "Chandler Spencer",
+      "position": "SF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "C. Thomas",
+      "full_name": "Cam Thomas",
+      "position": "SG",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "C. Wallace",
+      "full_name": "Cason Wallace",
+      "position": "SG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "C. White",
+      "full_name": "Coby White",
+      "position": "SG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "C. Williams",
+      "full_name": "Cody Williams",
+      "position": "PG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "D. Avdija",
+      "full_name": "Deni Avdija",
+      "position": "SF",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "D. Ayton",
+      "full_name": "Deandre Ayton",
+      "position": "C",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "D. Bane",
+      "full_name": "Desmond Bane",
+      "position": "SG",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "D. Barlow",
+      "full_name": "Darius Barlow",
+      "position": "SG",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "D. Booker",
+      "full_name": "Devin Booker",
+      "position": "SG",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "D. Brooks",
+      "full_name": "Dillon Brooks",
+      "position": "SF",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "D. Cardwell",
+      "full_name": "Dalton Cardwell",
+      "position": "PF",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "D. Clingan",
+      "full_name": "Donovan Clingan",
+      "position": "C",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "D. Daniels",
+      "full_name": "Dyson Daniels",
+      "position": "SG",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "D. DeRozan",
+      "full_name": "DeMar DeRozan",
+      "position": "SG",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "D. DiVincenzo",
+      "full_name": "Donte DiVincenzo",
+      "position": "SG",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "D. Eubanks",
+      "full_name": "Drew Eubanks",
+      "position": "C",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "D. Fox",
+      "full_name": "De'Aaron Fox",
+      "position": "PG",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "D. Gafford",
+      "full_name": "Daniel Gafford",
+      "position": "C",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "D. Garland",
+      "full_name": "Darius Garland",
+      "position": "PG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "D. Green",
+      "full_name": "Draymond Green",
+      "position": "PF",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "D. Holmes II",
+      "full_name": "DaRon Holmes II",
+      "position": "PF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "D. Hunter",
+      "full_name": "De'Andre Hunter",
+      "position": "SF",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "D. Jenkins",
+      "full_name": "Dennis Jenkins",
+      "position": "SG",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "D. Jones Jr.",
+      "full_name": "Derrick Jones Jr.",
+      "position": "SF",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "D. Mitchell",
+      "full_name": "Donovan Mitchell",
+      "position": "SG",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "D. Murray",
+      "full_name": "Dejounte Murray",
+      "position": "PG",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "D. Powell",
+      "full_name": "Dwight Powell",
+      "position": "C",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "D. Queen",
+      "full_name": "Donovan Queen",
+      "position": "SG",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "D. Robinson",
+      "full_name": "Danilo Robinson",
+      "position": "SF",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "D. Russell",
+      "full_name": "D'Angelo Russell",
+      "position": "PG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "D. Sabonis",
+      "full_name": "Domantas Sabonis",
+      "position": "PF",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "D. Schröder",
+      "full_name": "Dennis Schroder",
+      "position": "PG",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "D. Sharpe",
+      "full_name": "Shaedon Sharpe",
+      "position": "SG",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "D. Vassell",
+      "full_name": "Devin Vassell",
+      "position": "SG",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "D. Wade",
+      "full_name": "Dean Wade",
+      "position": "PF",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "D. Wolf",
+      "full_name": "Dillon Wolf",
+      "position": "SF",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "E. Dëmin",
+      "full_name": "Egor Demin",
+      "position": "PG",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "E. Mobley",
+      "full_name": "Evan Mobley",
+      "position": "C",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "E. Thompson",
+      "full_name": "Enfield Thompson",
+      "position": "SF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "F. Wagner",
+      "full_name": "Franz Wagner",
+      "position": "SF",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "G. Allen",
+      "full_name": "Grayson Allen",
+      "position": "SG",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "G. Antetokounmpo",
+      "full_name": "Giannis Antetokounmpo",
+      "position": "PF",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "G. Harris",
+      "full_name": "Gary Harris",
+      "position": "SG",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "G. Jackson",
+      "full_name": "GG Jackson",
+      "position": "PF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "G. Santos",
+      "full_name": "Gui Santos",
+      "position": "SF",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "G. Trent Jr.",
+      "full_name": "Gary Trent Jr.",
+      "position": "SG",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "G. Vincent",
+      "full_name": "Gabe Vincent",
+      "position": "PG",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "G. Yabusele",
+      "full_name": "Guerschon Yabusele",
+      "position": "PF",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "H. Barnes",
+      "full_name": "Harrison Barnes",
+      "position": "SF",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "H. González",
+      "full_name": "Hamidou Diallo",
+      "position": "SG",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "H. Jones",
+      "full_name": "Herbert Jones",
+      "position": "SF",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "I. Collier",
+      "full_name": "Isaiah Collier",
+      "position": "PG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "I. Hartenstein",
+      "full_name": "Isaiah Hartenstein",
+      "position": "C",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "I. Jackson",
+      "full_name": "Isaiah Jackson",
+      "position": "C",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "I. Joe",
+      "full_name": "Isaiah Joe",
+      "position": "SG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "I. Okoro",
+      "full_name": "Isaac Okoro",
+      "position": "SF",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "I. Quickley",
+      "full_name": "Immanuel Quickley",
+      "position": "PG",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "I. Stewart",
+      "full_name": "Isaiah Stewart",
+      "position": "PF",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "I. Zubac",
+      "full_name": "Ivica Zubac",
+      "position": "C",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "J. Allen",
+      "full_name": "Jarrett Allen",
+      "position": "C",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "J. Brown",
+      "full_name": "Jaylen Brown",
+      "position": "SG",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "J. Brunson",
+      "full_name": "Jalen Brunson",
+      "position": "PG",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "J. Butler III",
+      "full_name": "Jimmy Butler",
+      "position": "SF",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "J. Champagnie",
+      "full_name": "Julian Champagnie",
+      "position": "SF",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "J. Collins",
+      "full_name": "John Collins",
+      "position": "PF",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "J. Duren",
+      "full_name": "Jalen Duren",
+      "position": "C",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "J. Edwards",
+      "full_name": "Jeff Edwards",
+      "position": "SF",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "J. Embiid",
+      "full_name": "Joel Embiid",
+      "position": "C",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "J. Fears",
+      "full_name": "Jaylen Fears",
+      "position": "PG",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "J. Furphy",
+      "full_name": "Johnny Furphy",
+      "position": "SF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "J. Giddey",
+      "full_name": "Josh Giddey",
+      "position": "PG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "J. Goodwin",
+      "full_name": "Jordan Goodwin",
+      "position": "PG",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "J. Grant",
+      "full_name": "Jerami Grant",
+      "position": "PF",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "J. Green",
+      "full_name": "Jalen Green",
+      "position": "SG",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "J. Harden",
+      "full_name": "James Harden",
+      "position": "PG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "J. Hart",
+      "full_name": "Josh Hart",
+      "position": "SF",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "J. Hayes",
+      "full_name": "Jaxson Hayes",
+      "position": "C",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "J. Holiday",
+      "full_name": "Jrue Holiday",
+      "position": "PG",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "J. Huff",
+      "full_name": "Jay Huff",
+      "position": "C",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "J. Jackson Jr.",
+      "full_name": "Jaren Jackson Jr.",
+      "position": "C",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "J. Johnson",
+      "full_name": "Jalen Johnson",
+      "position": "SF",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "J. Jones",
+      "full_name": "Skylar Jones",
+      "position": "SG",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "J. Kuminga",
+      "full_name": "Jonathan Kuminga",
+      "position": "SF",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "J. LaRavia",
+      "full_name": "Jake LaRavia",
+      "position": "SF",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "J. Landale",
+      "full_name": "Jock Landale",
+      "position": "C",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "J. McDaniels",
+      "full_name": "Jaden McDaniels",
+      "position": "SF",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "J. Minott",
+      "full_name": "Josh Minott",
+      "position": "SF",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "J. Morant",
+      "full_name": "Ja Morant",
+      "position": "PG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "J. Murray",
+      "full_name": "Jamal Murray",
+      "position": "PG",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "J. Nurkić",
+      "full_name": "Jusuf Nurkic",
+      "position": "C",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "J. Okogie",
+      "full_name": "Josh Okogie",
+      "position": "SF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "J. Pickett",
+      "full_name": "Julian Pickett",
+      "position": "SG",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "J. Poeltl",
+      "full_name": "Jakob Poeltl",
+      "position": "C",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "J. Poole",
+      "full_name": "Jordan Poole",
+      "position": "SG",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "J. Randle",
+      "full_name": "Julius Randle",
+      "position": "PF",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "J. Robinson-Earl",
+      "full_name": "Jeremiah Robinson-Earl",
+      "position": "PF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "J. Shead",
+      "full_name": "Jonathan Shead",
+      "position": "PG",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "J. Sims",
+      "full_name": "Jalen Sims",
+      "position": "PF",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "J. Smith",
+      "full_name": "Jalen Smith",
+      "position": "C",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "J. Smith Jr.",
+      "full_name": "Jabari Smith Jr.",
+      "position": "PF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "J. Strawther",
+      "full_name": "Julian Strawther",
+      "position": "SF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "J. Suggs",
+      "full_name": "Jalen Suggs",
+      "position": "PG",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "J. Tyson",
+      "full_name": "Jaylon Tyson",
+      "position": "SG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "J. Valančiūnas",
+      "full_name": "Jonas Valanciunas",
+      "position": "C",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "J. Walker",
+      "full_name": "Jordan Walker",
+      "position": "SG",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "J. Walsh",
+      "full_name": "Jordan Walsh",
+      "position": "SF",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "J. Walter",
+      "full_name": "Jaime Jaquez Jr.",
+      "position": "SF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "J. Wells",
+      "full_name": "Jaylen Wells",
+      "position": "SG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "J. Williams",
+      "full_name": "Jaylin Williams",
+      "position": "C",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "Jayson Tatum",
+      "full_name": "Jayson Tatum",
+      "position": "SF",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "K. Caldwell-Pope",
+      "full_name": "Kentavious Caldwell-Pope",
+      "position": "SG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "K. Dunn",
+      "full_name": "Kris Dunn",
+      "position": "PG",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "K. Durant",
+      "full_name": "Kevin Durant",
+      "position": "SF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "K. Ellis",
+      "full_name": "Keon Ellis",
+      "position": "SG",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "K. Filipowski",
+      "full_name": "Kyle Filipowski",
+      "position": "C",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "K. George",
+      "full_name": "Keyonte George",
+      "position": "PG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "K. Huerter",
+      "full_name": "Kevin Huerter",
+      "position": "SG",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "K. Jones",
+      "full_name": "Keon Jones",
+      "position": "SG",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "K. Knueppel",
+      "full_name": "Kon Knueppel",
+      "position": "SF",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "K. Kuzma",
+      "full_name": "Kyle Kuzma",
+      "position": "PF",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "K. Leonard",
+      "full_name": "Kawhi Leonard",
+      "position": "SF",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "K. Markkanen",
+      "full_name": "Lauri Markkanen",
+      "position": "PF",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "K. Middleton",
+      "full_name": "Khris Middleton",
+      "position": "SF",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "K. Murray",
+      "full_name": "Kris Murray",
+      "position": "PF",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "K. Oubre Jr.",
+      "full_name": "Kelly Oubre Jr.",
+      "position": "SF",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "K. Porter Jr.",
+      "full_name": "Kevin Porter Jr.",
+      "position": "SG",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "K. Porziņģis",
+      "full_name": "Kristaps Porzingis",
+      "position": "C",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "K. Sanders",
+      "full_name": "Kai Sanders",
+      "position": "SF",
+      "primary_team": "LAC"
+    },
+    {
+      "abbreviated": "K. Thompson",
+      "full_name": "Klay Thompson",
+      "position": "SG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "K. Ware",
+      "full_name": "Kel'el Ware",
+      "position": "C",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "Karl-Anthony Towns",
+      "full_name": "Karl-Anthony Towns",
+      "position": "C",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "Kevin Durant",
+      "full_name": "Kevin Durant",
+      "position": "SF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "L. Ball",
+      "full_name": "LaMelo Ball",
+      "position": "PG",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "L. Black",
+      "full_name": "Lex Black",
+      "position": "SG",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "L. Dončić",
+      "full_name": "Luka Doncic",
+      "position": "PG",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "L. Dort",
+      "full_name": "Luguentz Dort",
+      "position": "SG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "L. James",
+      "full_name": "LeBron James",
+      "position": "SF",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "L. Kornet",
+      "full_name": "Luke Kornet",
+      "position": "C",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "L. Lovering",
+      "full_name": "Luke Lovering",
+      "position": "C",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "L. Markkanen",
+      "full_name": "Lauri Markkanen",
+      "position": "PF",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "L. Shamet",
+      "full_name": "Landry Shamet",
+      "position": "SG",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "Luka Doncic",
+      "full_name": "Luka Doncic",
+      "position": "PG",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "M. Bagley III",
+      "full_name": "Marvin Bagley III",
+      "position": "PF",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "M. Bridges",
+      "full_name": "Mikal Bridges",
+      "position": "SF",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "M. Buzelis",
+      "full_name": "Matas Buzelis",
+      "position": "SF",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "M. Christie",
+      "full_name": "Max Christie",
+      "position": "SG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "M. Cisse",
+      "full_name": "Moussa Cisse",
+      "position": "C",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "M. Diabaté",
+      "full_name": "Moussa Diabate",
+      "position": "C",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "M. Diawara",
+      "full_name": "Moussa Diawara",
+      "position": "SG",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "M. Gardner",
+      "full_name": "Malik Gardner",
+      "position": "SF",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "M. Gueye",
+      "full_name": "Mouhamed Gueye",
+      "position": "PF",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "M. Kleber",
+      "full_name": "Maxi Kleber",
+      "position": "PF",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "M. McBride",
+      "full_name": "Miles McBride",
+      "position": "PG",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "M. Moody",
+      "full_name": "Moses Moody",
+      "position": "SG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "M. Plumlee",
+      "full_name": "Mason Plumlee",
+      "position": "C",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "M. Porter Jr.",
+      "full_name": "Michael Porter Jr.",
+      "position": "SF",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "M. Potter",
+      "full_name": "Micah Potter",
+      "position": "C",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "M. Raynaud",
+      "full_name": "Maxime Raynaud",
+      "position": "C",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "M. Smart",
+      "full_name": "Marcus Smart",
+      "position": "PG",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "M. Turner",
+      "full_name": "Myles Turner",
+      "position": "C",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "M. Williams",
+      "full_name": "Moussa Williams",
+      "position": "C",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "N. Alexander-Walker",
+      "full_name": "Nickeil Alexander-Walker",
+      "position": "SG",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "N. Claxton",
+      "full_name": "Nic Claxton",
+      "position": "C",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "N. Clifford",
+      "full_name": "Nick Clifford",
+      "position": "SF",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "N. Clowney",
+      "full_name": "Noah Clowney",
+      "position": "PF",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "N. Jokić",
+      "full_name": "Nikola Jokic",
+      "position": "C",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "N. Marshall",
+      "full_name": "Naji Marshall",
+      "position": "SF",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "N. Penda",
+      "full_name": "Naba Penda",
+      "position": "PF",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "N. Powell",
+      "full_name": "Norman Powell",
+      "position": "SG",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "N. Queta",
+      "full_name": "Neemias Queta",
+      "position": "C",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "N. Richards",
+      "full_name": "Nicolas Richards",
+      "position": "C",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "N. Tomlin",
+      "full_name": "Nick Tomlin",
+      "position": "SG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "N. Traore",
+      "full_name": "Nolan Traore",
+      "position": "PG",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "N. Vučević",
+      "full_name": "Nikola Vucevic",
+      "position": "C",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "Nikola Jokic",
+      "full_name": "Nikola Jokic",
+      "position": "C",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "O. Agbaji",
+      "full_name": "Ochai Agbaji",
+      "position": "SG",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "O. Anunoby",
+      "full_name": "OG Anunoby",
+      "position": "SF",
+      "primary_team": "NYK"
+    },
+    {
+      "abbreviated": "O. Dieng",
+      "full_name": "Ousmane Dieng",
+      "position": "SF",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "O. Ighodaro",
+      "full_name": "Oso Ighodaro",
+      "position": "C",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "O. Okongwu",
+      "full_name": "Onyeka Okongwu",
+      "position": "C",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "O. Prosper",
+      "full_name": "Olivier Prosper",
+      "position": "SF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "O. Robinson",
+      "full_name": "Orlando Robinson",
+      "position": "C",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "O. Toppin",
+      "full_name": "Obi Toppin",
+      "position": "PF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "P. Achiuwa",
+      "full_name": "Precious Achiuwa",
+      "position": "PF",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "P. Banchero",
+      "full_name": "Paolo Banchero",
+      "position": "PF",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "P. George",
+      "full_name": "Paul George",
+      "position": "SF",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "P. Larsson",
+      "full_name": "Pelle Larsson",
+      "position": "SG",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "P. Pritchard",
+      "full_name": "Payton Pritchard",
+      "position": "PG",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "P. Reed",
+      "full_name": "Paul Reed",
+      "position": "PF",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "P. Siakam",
+      "full_name": "Pascal Siakam",
+      "position": "PF",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "P. Spencer",
+      "full_name": "Patrick Spencer",
+      "position": "PG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "P. Washington",
+      "full_name": "PJ Washington",
+      "position": "PF",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "P. Watson",
+      "full_name": "Peyton Watson",
+      "position": "SF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "P. Williams",
+      "full_name": "Patrick Williams",
+      "position": "PF",
+      "primary_team": "CHI"
+    },
+    {
+      "abbreviated": "Q. Grimes",
+      "full_name": "Quentin Grimes",
+      "position": "SG",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "Q. Jackson",
+      "full_name": "Quenton Jackson",
+      "position": "SG",
+      "primary_team": "IND"
+    },
+    {
+      "abbreviated": "Q. Post",
+      "full_name": "Quinten Post",
+      "position": "C",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "R. Barrett",
+      "full_name": "RJ Barrett",
+      "position": "SF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "R. Dunn",
+      "full_name": "Ryan Dunn",
+      "position": "SF",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "R. Gobert",
+      "full_name": "Rudy Gobert",
+      "position": "C",
+      "primary_team": "MIN"
+    },
+    {
+      "abbreviated": "R. Hachimura",
+      "full_name": "Rui Hachimura",
+      "position": "SF",
+      "primary_team": "LAL"
+    },
+    {
+      "abbreviated": "R. Holland II",
+      "full_name": "Ron Holland II",
+      "position": "SF",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "R. Kalkbrenner",
+      "full_name": "Ryan Kalkbrenner",
+      "position": "C",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "R. Nembhard",
+      "full_name": "Ryan Nembhard",
+      "position": "PG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "R. O'Neale",
+      "full_name": "Royce O'Neale",
+      "position": "SF",
+      "primary_team": "PHX"
+    },
+    {
+      "abbreviated": "R. Rollins",
+      "full_name": "Ryan Rollins",
+      "position": "SG",
+      "primary_team": "MIL"
+    },
+    {
+      "abbreviated": "R. Sheppard",
+      "full_name": "Reed Sheppard",
+      "position": "PG",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "R. Westbrook",
+      "full_name": "Russell Westbrook",
+      "position": "PG",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "S. Adams",
+      "full_name": "Steven Adams",
+      "position": "C",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "S. Aldama",
+      "full_name": "Santi Aldama",
+      "position": "PF",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "S. Barnes",
+      "full_name": "Scottie Barnes",
+      "position": "SF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "S. Bey",
+      "full_name": "Saddiq Bey",
+      "position": "SF",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "S. Castle",
+      "full_name": "Stephon Castle",
+      "position": "PG",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "S. Cissoko",
+      "full_name": "Sidy Cissoko",
+      "position": "SG",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "S. Curry",
+      "full_name": "Stephen Curry",
+      "position": "PG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "S. Fontecchio",
+      "full_name": "Simone Fontecchio",
+      "position": "SF",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "S. Gilgeous-Alexander",
+      "full_name": "Shai Gilgeous-Alexander",
+      "position": "PG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "S. Hauser",
+      "full_name": "Sam Hauser",
+      "position": "SF",
+      "primary_team": "BOS"
+    },
+    {
+      "abbreviated": "S. James",
+      "full_name": "Sviatoslav James",
+      "position": "SG",
+      "primary_team": "CHA"
+    },
+    {
+      "abbreviated": "S. Jones",
+      "full_name": "Spencer Jones",
+      "position": "SG",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "S. Mamukelashvili",
+      "full_name": "Sandro Mamukelashvili",
+      "position": "PF",
+      "primary_team": "TOR"
+    },
+    {
+      "abbreviated": "S. Merrill",
+      "full_name": "Sam Merrill",
+      "position": "SG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "S. Mykhailiuk",
+      "full_name": "Sviatoslav Mykhailiuk",
+      "position": "SG",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "S. Pippen Jr.",
+      "full_name": "Scotty Pippen Jr.",
+      "position": "PG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "S. Sharpe",
+      "full_name": "Shaedon Sharpe",
+      "position": "SG",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "Shai Gilgeous-Alexander",
+      "full_name": "Shai Gilgeous-Alexander",
+      "position": "PG",
+      "primary_team": "OKC"
+    },
+    {
+      "abbreviated": "Stephen Curry",
+      "full_name": "Stephen Curry",
+      "position": "PG",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "T. Camara",
+      "full_name": "Toumani Camara",
+      "position": "SF",
+      "primary_team": "POR"
+    },
+    {
+      "abbreviated": "T. Eason",
+      "full_name": "Tari Eason",
+      "position": "PF",
+      "primary_team": "HOU"
+    },
+    {
+      "abbreviated": "T. Harris",
+      "full_name": "Tobias Harris",
+      "position": "PF",
+      "primary_team": "DET"
+    },
+    {
+      "abbreviated": "T. Herro",
+      "full_name": "Tyler Herro",
+      "position": "SG",
+      "primary_team": "MIA"
+    },
+    {
+      "abbreviated": "T. Jerome",
+      "full_name": "Ty Jerome",
+      "position": "PG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "T. Johnson",
+      "full_name": "Trajan Johnson",
+      "position": "SG",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "T. Jones",
+      "full_name": "Tre Jones",
+      "position": "PG",
+      "primary_team": "DAL"
+    },
+    {
+      "abbreviated": "T. Mann",
+      "full_name": "Terence Mann",
+      "position": "SF",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "T. Martin",
+      "full_name": "T.J. Martin",
+      "position": "SF",
+      "primary_team": "BKN"
+    },
+    {
+      "abbreviated": "T. Maxey",
+      "full_name": "Tyrese Maxey",
+      "position": "PG",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "T. Murphy III",
+      "full_name": "Trey Murphy III",
+      "position": "SF",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "T. Proctor",
+      "full_name": "Tristan Proctor",
+      "position": "PG",
+      "primary_team": "CLE"
+    },
+    {
+      "abbreviated": "T. Vukcevic",
+      "full_name": "Tristan Vukcevic",
+      "position": "C",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "T. Watford",
+      "full_name": "Trevelin Queen",
+      "position": "SF",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "T. Young",
+      "full_name": "Trae Young",
+      "position": "PG",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "T. da Silva",
+      "full_name": "Tristan da Silva",
+      "position": "SF",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "V. Edgecombe",
+      "full_name": "VJ Edgecombe",
+      "position": "SG",
+      "primary_team": "PHI"
+    },
+    {
+      "abbreviated": "V. Krejčí",
+      "full_name": "Vit Krejci",
+      "position": "SG",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "V. Wembanyama",
+      "full_name": "Victor Wembanyama",
+      "position": "C",
+      "primary_team": "SAS"
+    },
+    {
+      "abbreviated": "V. Williams Jr.",
+      "full_name": "Vince Williams Jr.",
+      "position": "SG",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "W. Carter Jr.",
+      "full_name": "Wendell Carter Jr.",
+      "position": "C",
+      "primary_team": "ORL"
+    },
+    {
+      "abbreviated": "W. Kessler",
+      "full_name": "Walker Kessler",
+      "position": "C",
+      "primary_team": "UTA"
+    },
+    {
+      "abbreviated": "W. Richard",
+      "full_name": "Waly Richard",
+      "position": "SF",
+      "primary_team": "GSW"
+    },
+    {
+      "abbreviated": "W. Riley",
+      "full_name": "Wendell Riley",
+      "position": "SG",
+      "primary_team": "WAS"
+    },
+    {
+      "abbreviated": "Z. Edey",
+      "full_name": "Zach Edey",
+      "position": "C",
+      "primary_team": "MEM"
+    },
+    {
+      "abbreviated": "Z. LaVine",
+      "full_name": "Zach LaVine",
+      "position": "SG",
+      "primary_team": "SAC"
+    },
+    {
+      "abbreviated": "Z. Nnaji",
+      "full_name": "Zeke Nnaji",
+      "position": "PF",
+      "primary_team": "DEN"
+    },
+    {
+      "abbreviated": "Z. Risacher",
+      "full_name": "Zaccharie Risacher",
+      "position": "SF",
+      "primary_team": "ATL"
+    },
+    {
+      "abbreviated": "Z. Williamson",
+      "full_name": "Zion Williamson",
+      "position": "PF",
+      "primary_team": "NOP"
+    },
+    {
+      "abbreviated": "Zach LaVine",
+      "full_name": "Zach LaVine",
+      "position": "SG",
+      "primary_team": "CHI"
+    }
+  ]
+}

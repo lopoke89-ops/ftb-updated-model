@@ -1,0 +1,5301 @@
+{
+  "playerFtb": {
+    "Luka Doncic": {
+      "ftbMade": 16,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 10,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "LAL",
+      "firstShotRate": 0.2462
+    },
+    "Anthony Edwards": {
+      "ftbMade": 20,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 3,
+        "mid": 7,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIN",
+      "firstShotRate": 0.303
+    },
+    "Jayson Tatum": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BOS",
+      "firstShotRate": 0.0152
+    },
+    "Karl-Anthony Towns": {
+      "ftbMade": 13,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "C",
+      "team": "NYK",
+      "firstShotRate": 0.197
+    },
+    "Stephen Curry": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "GSW",
+      "firstShotRate": 0.1385
+    },
+    "Kevin Durant": {
+      "ftbMade": 13,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 11,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "HOU",
+      "firstShotRate": 0.2063
+    },
+    "Nikola Jokic": {
+      "ftbMade": 16,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 7,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "DEN",
+      "firstShotRate": 0.2424
+    },
+    "Shai Gilgeous-Alexander": {
+      "ftbMade": 9,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 6,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "OKC",
+      "firstShotRate": 0.1406
+    },
+    "Bam Adebayo": {
+      "ftbMade": 18,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "C",
+      "team": "MIA",
+      "firstShotRate": 0.2687
+    },
+    "Zach LaVine": {
+      "ftbMade": 11,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 3,
+        "mid": 4,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "SAC",
+      "firstShotRate": 0.1667
+    },
+    "Neemias Queta": {
+      "ftbMade": 19,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 7,
+        "dunk": 9,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "BOS",
+      "firstShotRate": 0.2879
+    },
+    "Kelly Oubre Jr.": {
+      "ftbMade": 10,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHI",
+      "firstShotRate": 0.1538
+    },
+    "Nikola Vucevic": {
+      "ftbMade": 10,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "C",
+      "team": "CHI",
+      "firstShotRate": 0.1515
+    },
+    "Jalen Duren": {
+      "ftbMade": 17,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 11,
+        "dunk": 4,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "DET",
+      "firstShotRate": 0.2698
+    },
+    "Oso Ighodaro": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 2,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "PHX",
+      "firstShotRate": 0.0303
+    },
+    "Shaedon Sharpe": {
+      "ftbMade": 13,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 7,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SG",
+      "team": "BKN",
+      "firstShotRate": 0.2
+    },
+    "Donte DiVincenzo": {
+      "ftbMade": 15,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 12,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIN",
+      "firstShotRate": 0.2273
+    },
+    "Ja Morant": {
+      "ftbMade": 7,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 4,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "MEM",
+      "firstShotRate": 0.1129
+    },
+    "Jordan Poole": {
+      "ftbMade": 3,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "NOP",
+      "firstShotRate": 0.0448
+    },
+    "Zaccharie Risacher": {
+      "ftbMade": 13,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 5,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "ATL",
+      "firstShotRate": 0.2
+    },
+    "Brandon Ingram": {
+      "ftbMade": 18,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 4,
+        "mid": 9,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "TOR",
+      "firstShotRate": 0.2769
+    },
+    "AJ Green": {
+      "ftbMade": 11,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIL",
+      "firstShotRate": 0.1719
+    },
+    "Alexandre Sarr": {
+      "ftbMade": 9,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "WAS",
+      "firstShotRate": 0.1406
+    },
+    "Wendell Carter Jr.": {
+      "ftbMade": 13,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 3,
+        "dunk": 4,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "ORL",
+      "firstShotRate": 0.2131
+    },
+    "Norman Powell": {
+      "ftbMade": 12,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 10,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIA",
+      "firstShotRate": 0.1791
+    },
+    "Lauri Markkanen": {
+      "ftbMade": 13,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "UTA",
+      "firstShotRate": 0.197
+    },
+    "Ivica Zubac": {
+      "ftbMade": 17,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 3,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 8
+      },
+      "position": "C",
+      "team": "LAC",
+      "firstShotRate": 0.2656
+    },
+    "Kon Knueppel": {
+      "ftbMade": 14,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 5,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "CHA",
+      "firstShotRate": 0.2121
+    },
+    "Nic Claxton": {
+      "ftbMade": 11,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 6,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "BKN",
+      "firstShotRate": 0.1692
+    },
+    "Zion Williamson": {
+      "ftbMade": 9,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 5,
+        "dunk": 3,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "NOP",
+      "firstShotRate": 0.1343
+    },
+    "Victor Wembanyama": {
+      "ftbMade": 16,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 5,
+        "dunk": 4,
+        "mid": 3,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "SAS",
+      "firstShotRate": 0.254
+    },
+    "PJ Washington": {
+      "ftbMade": 8,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 4,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DAL",
+      "firstShotRate": 0.127
+    },
+    "Derrick Jones Jr.": {
+      "ftbMade": 7,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAC",
+      "firstShotRate": 0.1094
+    },
+    "Dillon Brooks": {
+      "ftbMade": 13,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 9,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHX",
+      "firstShotRate": 0.197
+    },
+    "Michael Porter Jr.": {
+      "ftbMade": 22,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 6,
+        "dunk": 2,
+        "mid": 5,
+        "threeP": 9,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BKN",
+      "firstShotRate": 0.3385
+    },
+    "Evan Mobley": {
+      "ftbMade": 15,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 4,
+        "mid": 5,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "CLE",
+      "firstShotRate": 0.2308
+    },
+    "Sam Hauser": {
+      "ftbMade": 8,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BOS",
+      "firstShotRate": 0.1212
+    },
+    "Deni Avdija": {
+      "ftbMade": 13,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 9,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "POR",
+      "firstShotRate": 0.197
+    },
+    "Draymond Green": {
+      "ftbMade": 13,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 8,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "GSW",
+      "firstShotRate": 0.2
+    },
+    "Dennis Schroder": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "SAC",
+      "firstShotRate": 0.0152
+    },
+    "Sviatoslav Mykhailiuk": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "UTA",
+      "firstShotRate": 0.0909
+    },
+    "Myles Turner": {
+      "ftbMade": 7,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MIL",
+      "firstShotRate": 0.1094
+    },
+    "Cade Cunningham": {
+      "ftbMade": 10,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "PG",
+      "team": "DET",
+      "firstShotRate": 0.1587
+    },
+    "Franz Wagner": {
+      "ftbMade": 4,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "ORL",
+      "firstShotRate": 0.0656
+    },
+    "Dyson Daniels": {
+      "ftbMade": 10,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 5,
+        "dunk": 1,
+        "mid": 3,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "ATL",
+      "firstShotRate": 0.1538
+    },
+    "Desmond Bane": {
+      "ftbMade": 16,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 7,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "ORL",
+      "firstShotRate": 0.2623
+    },
+    "Josh Giddey": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CHI",
+      "firstShotRate": 0.1061
+    },
+    "Ben Sheppard": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "IND",
+      "firstShotRate": 0.0156
+    },
+    "Onyeka Okongwu": {
+      "ftbMade": 15,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 3,
+        "mid": 2,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "ATL",
+      "firstShotRate": 0.2308
+    },
+    "Chet Holmgren": {
+      "ftbMade": 9,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "OKC",
+      "firstShotRate": 0.1406
+    },
+    "Christian Johnson": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DEN",
+      "firstShotRate": 0.0909
+    },
+    "Grayson Allen": {
+      "ftbMade": 9,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHX",
+      "firstShotRate": 0.1364
+    },
+    "Joel Embiid": {
+      "ftbMade": 13,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 10,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "PHI",
+      "firstShotRate": 0.2
+    },
+    "Brandon Miller": {
+      "ftbMade": 20,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 5,
+        "mid": 7,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "CHA",
+      "firstShotRate": 0.303
+    },
+    "Gary Trent Jr.": {
+      "ftbMade": 3,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIL",
+      "firstShotRate": 0.0469
+    },
+    "Klay Thompson": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "DAL",
+      "firstShotRate": 0.0159
+    },
+    "Jakob Poeltl": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "TOR",
+      "firstShotRate": 0.0769
+    },
+    "Jalen Brunson": {
+      "ftbMade": 16,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 11,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "NYK",
+      "firstShotRate": 0.2424
+    },
+    "Julius Randle": {
+      "ftbMade": 11,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 9,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MIN",
+      "firstShotRate": 0.1667
+    },
+    "Jay Huff": {
+      "ftbMade": 10,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 0,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "IND",
+      "firstShotRate": 0.1562
+    },
+    "Stephon Castle": {
+      "ftbMade": 9,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 3,
+        "dunk": 4,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "SAS",
+      "firstShotRate": 0.1429
+    },
+    "Cam Thomas": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "BKN",
+      "firstShotRate": 0.0308
+    },
+    "Keon Ellis": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "SAC",
+      "firstShotRate": 0.0303
+    },
+    "Rui Hachimura": {
+      "ftbMade": 6,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAL",
+      "firstShotRate": 0.0923
+    },
+    "Amen Thompson": {
+      "ftbMade": 22,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 10,
+        "dunk": 6,
+        "mid": 5,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SF",
+      "team": "HOU",
+      "firstShotRate": 0.3492
+    },
+    "Jaylen Brown": {
+      "ftbMade": 14,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 7,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "BOS",
+      "firstShotRate": 0.2121
+    },
+    "Jordan Walker": {
+      "ftbMade": 5,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "IND",
+      "firstShotRate": 0.0781
+    },
+    "Jarrett Allen": {
+      "ftbMade": 12,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 5,
+        "dunk": 4,
+        "mid": 2,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "CLE",
+      "firstShotRate": 0.1846
+    },
+    "Josh Minott": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BOS",
+      "firstShotRate": 0.0152
+    },
+    "RJ Barrett": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "TOR",
+      "firstShotRate": 0.0615
+    },
+    "Brandin Podziemski": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "GSW",
+      "firstShotRate": 0.0308
+    },
+    "Austin Reaves": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "LAL",
+      "firstShotRate": 0.1385
+    },
+    "Jaden McDaniels": {
+      "ftbMade": 9,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 3,
+        "mid": 3,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MIN",
+      "firstShotRate": 0.1364
+    },
+    "Aaron Gordon": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DEN",
+      "firstShotRate": 0.0606
+    },
+    "Walker Kessler": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "UTA",
+      "firstShotRate": 0.0152
+    },
+    "Ryan Dunn": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHX",
+      "firstShotRate": 0.0152
+    },
+    "Alperen Sengun": {
+      "ftbMade": 17,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 7,
+        "dunk": 0,
+        "mid": 6,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "HOU",
+      "firstShotRate": 0.2698
+    },
+    "Terence Mann": {
+      "ftbMade": 6,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BKN",
+      "firstShotRate": 0.0923
+    },
+    "Matas Buzelis": {
+      "ftbMade": 18,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 7,
+        "dunk": 4,
+        "mid": 1,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "CHI",
+      "firstShotRate": 0.2727
+    },
+    "Kristaps Porzingis": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "ATL",
+      "firstShotRate": 0.0769
+    },
+    "Anthony Davis": {
+      "ftbMade": 5,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "DAL",
+      "firstShotRate": 0.0794
+    },
+    "Luguentz Dort": {
+      "ftbMade": 10,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 8,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "OKC",
+      "firstShotRate": 0.1562
+    },
+    "Khris Middleton": {
+      "ftbMade": 13,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 7,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DAL",
+      "firstShotRate": 0.2063
+    },
+    "Tyrese Maxey": {
+      "ftbMade": 14,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "PHI",
+      "firstShotRate": 0.2154
+    },
+    "Kel'el Ware": {
+      "ftbMade": 7,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 3,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MIA",
+      "firstShotRate": 0.1045
+    },
+    "Ryan Kalkbrenner": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 3,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "CHA",
+      "firstShotRate": 0.0909
+    },
+    "Ryan Rollins": {
+      "ftbMade": 12,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 3,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIL",
+      "firstShotRate": 0.1875
+    },
+    "Mikal Bridges": {
+      "ftbMade": 17,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 4,
+        "dunk": 2,
+        "mid": 4,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NYK",
+      "firstShotRate": 0.2576
+    },
+    "Andrew Wiggins": {
+      "ftbMade": 19,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 9,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MIA",
+      "firstShotRate": 0.2836
+    },
+    "Russell Westbrook": {
+      "ftbMade": 10,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "SAC",
+      "firstShotRate": 0.1515
+    },
+    "Domantas Sabonis": {
+      "ftbMade": 3,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "SAC",
+      "firstShotRate": 0.0455
+    },
+    "Jalen Johnson": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "ATL",
+      "firstShotRate": 0.0769
+    },
+    "Donovan Clingan": {
+      "ftbMade": 11,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 3,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "POR",
+      "firstShotRate": 0.1667
+    },
+    "Jabari Smith Jr.": {
+      "ftbMade": 6,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "HOU",
+      "firstShotRate": 0.0952
+    },
+    "Moussa Williams": {
+      "ftbMade": 9,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 3,
+        "mid": 2,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "C",
+      "team": "PHX",
+      "firstShotRate": 0.1364
+    },
+    "Jock Landale": {
+      "ftbMade": 6,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "MEM",
+      "firstShotRate": 0.0968
+    },
+    "Jake LaRavia": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAL",
+      "firstShotRate": 0.0615
+    },
+    "Cooper Flagg": {
+      "ftbMade": 13,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 6,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PF",
+      "team": "DAL",
+      "firstShotRate": 0.2063
+    },
+    "Pascal Siakam": {
+      "ftbMade": 16,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 8,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PF",
+      "team": "IND",
+      "firstShotRate": 0.25
+    },
+    "Devin Vassell": {
+      "ftbMade": 14,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 9,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "SAS",
+      "firstShotRate": 0.2222
+    },
+    "Donovan Mitchell": {
+      "ftbMade": 22,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 7,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 10,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIA",
+      "firstShotRate": 0.3284
+    },
+    "Marcus Smart": {
+      "ftbMade": 6,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "LAL",
+      "firstShotRate": 0.0923
+    },
+    "Jamal Murray": {
+      "ftbMade": 16,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 5,
+        "dunk": 2,
+        "mid": 4,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "DEN",
+      "firstShotRate": 0.2424
+    },
+    "Devin Booker": {
+      "ftbMade": 12,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 8,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHX",
+      "firstShotRate": 0.1818
+    },
+    "Kyle Filipowski": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "UTA",
+      "firstShotRate": 0.0909
+    },
+    "Payton Pritchard": {
+      "ftbMade": 5,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "BOS",
+      "firstShotRate": 0.0758
+    },
+    "Scottie Barnes": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 5,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SF",
+      "team": "TOR",
+      "firstShotRate": 0.1385
+    },
+    "Herbert Jones": {
+      "ftbMade": 11,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 7,
+        "dunk": 2,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NOP",
+      "firstShotRate": 0.1642
+    },
+    "Aaron Nesmith": {
+      "ftbMade": 5,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "IND",
+      "firstShotRate": 0.0781
+    },
+    "Jonathan Kuminga": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "GSW",
+      "firstShotRate": 0.0154
+    },
+    "Keyonte George": {
+      "ftbMade": 21,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 9,
+        "dunk": 2,
+        "mid": 5,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PG",
+      "team": "UTA",
+      "firstShotRate": 0.3182
+    },
+    "Coby White": {
+      "ftbMade": 19,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 8,
+        "threeP": 10,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "BOS",
+      "firstShotRate": 0.2879
+    },
+    "De'Andre Hunter": {
+      "ftbMade": 9,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 3,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "SAC",
+      "firstShotRate": 0.1364
+    },
+    "Jaylen Fears": {
+      "ftbMade": 10,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "NOP",
+      "firstShotRate": 0.1493
+    },
+    "Collin Sexton": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CHI",
+      "firstShotRate": 0.0606
+    },
+    "OG Anunoby": {
+      "ftbMade": 12,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 3,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NYK",
+      "firstShotRate": 0.1818
+    },
+    "Immanuel Quickley": {
+      "ftbMade": 13,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 9,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "TOR",
+      "firstShotRate": 0.2
+    },
+    "Jaren Jackson Jr.": {
+      "ftbMade": 14,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "UTA",
+      "firstShotRate": 0.2121
+    },
+    "CJ McCollum": {
+      "ftbMade": 10,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "ATL",
+      "firstShotRate": 0.1538
+    },
+    "Jrue Holiday": {
+      "ftbMade": 8,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PG",
+      "team": "POR",
+      "firstShotRate": 0.1212
+    },
+    "Isaiah Jackson": {
+      "ftbMade": 3,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "IND",
+      "firstShotRate": 0.0469
+    },
+    "Giannis Antetokounmpo": {
+      "ftbMade": 8,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 3,
+        "mid": 2,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MIL",
+      "firstShotRate": 0.125
+    },
+    "Kawhi Leonard": {
+      "ftbMade": 10,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 6,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAC",
+      "firstShotRate": 0.1562
+    },
+    "Max Christie": {
+      "ftbMade": 11,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 5,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SG",
+      "team": "DAL",
+      "firstShotRate": 0.1746
+    },
+    "Quinten Post": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "GSW",
+      "firstShotRate": 0.1385
+    },
+    "James Harden": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CLE",
+      "firstShotRate": 0.0769
+    },
+    "Moses Moody": {
+      "ftbMade": 12,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 8,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "GSW",
+      "firstShotRate": 0.1846
+    },
+    "Ajay Mitchell": {
+      "ftbMade": 4,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "OKC",
+      "firstShotRate": 0.0625
+    },
+    "Saddiq Bey": {
+      "ftbMade": 13,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 6,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NOP",
+      "firstShotRate": 0.194
+    },
+    "Jaylen Wells": {
+      "ftbMade": 13,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 6,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MEM",
+      "firstShotRate": 0.2097
+    },
+    "Josh Okogie": {
+      "ftbMade": 6,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "HOU",
+      "firstShotRate": 0.0952
+    },
+    "Jaylon Tyson": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CLE",
+      "firstShotRate": 0.0769
+    },
+    "Darius Garland": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CLE",
+      "firstShotRate": 0.0462
+    },
+    "Noah Clowney": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "BKN",
+      "firstShotRate": 0.0769
+    },
+    "Drew Eubanks": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "SAC",
+      "firstShotRate": 0.0303
+    },
+    "Cason Wallace": {
+      "ftbMade": 11,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 8,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "OKC",
+      "firstShotRate": 0.1719
+    },
+    "Jusuf Nurkic": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "UTA",
+      "firstShotRate": 0.1061
+    },
+    "Julian Pickett": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "DEN",
+      "firstShotRate": 0.0606
+    },
+    "Deandre Ayton": {
+      "ftbMade": 10,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 4,
+        "dunk": 4,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "C",
+      "team": "LAL",
+      "firstShotRate": 0.1538
+    },
+    "Trevelin Queen": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHI",
+      "firstShotRate": 0.0462
+    },
+    "D'Angelo Russell": {
+      "ftbMade": 2,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "DAL",
+      "firstShotRate": 0.0317
+    },
+    "Isaiah Hartenstein": {
+      "ftbMade": 5,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 3,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "OKC",
+      "firstShotRate": 0.0781
+    },
+    "Rudy Gobert": {
+      "ftbMade": 9,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 5,
+        "dunk": 4,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MIN",
+      "firstShotRate": 0.1364
+    },
+    "Ron Holland II": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DET",
+      "firstShotRate": 0.0159
+    },
+    "Tre Jones": {
+      "ftbMade": 5,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CHI",
+      "firstShotRate": 0.0758
+    },
+    "De'Aaron Fox": {
+      "ftbMade": 14,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 5,
+        "dunk": 1,
+        "mid": 4,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "SAS",
+      "firstShotRate": 0.2222
+    },
+    "Kris Dunn": {
+      "ftbMade": 5,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "PG",
+      "team": "LAC",
+      "firstShotRate": 0.0781
+    },
+    "Toumani Camara": {
+      "ftbMade": 11,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 7,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SF",
+      "team": "POR",
+      "firstShotRate": 0.1667
+    },
+    "Andre Drummond": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "PHI",
+      "firstShotRate": 0.0462
+    },
+    "Egor Demin": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 8,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "BKN",
+      "firstShotRate": 0.1385
+    },
+    "Jalen Suggs": {
+      "ftbMade": 9,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PG",
+      "team": "ORL",
+      "firstShotRate": 0.1475
+    },
+    "Danilo Robinson": {
+      "ftbMade": 9,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 8,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DET",
+      "firstShotRate": 0.1429
+    },
+    "Brandon Williams": {
+      "ftbMade": 3,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "DAL",
+      "firstShotRate": 0.0476
+    },
+    "Trey Murphy III": {
+      "ftbMade": 9,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NOP",
+      "firstShotRate": 0.1343
+    },
+    "Vince Williams Jr.": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Jeremiah Robinson-Earl": {
+      "ftbMade": 2,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "IND",
+      "firstShotRate": 0.0312
+    },
+    "Waly Richard": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "GSW",
+      "firstShotRate": 0.0615
+    },
+    "Paul Reed": {
+      "ftbMade": 4,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DET",
+      "firstShotRate": 0.0635
+    },
+    "Jimmy Butler": {
+      "ftbMade": 5,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "GSW",
+      "firstShotRate": 0.0769
+    },
+    "Andrew Nembhard": {
+      "ftbMade": 10,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "IND",
+      "firstShotRate": 0.1562
+    },
+    "Paul George": {
+      "ftbMade": 7,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 3,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHI",
+      "firstShotRate": 0.1077
+    },
+    "Moussa Cisse": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "DAL",
+      "firstShotRate": 0.0159
+    },
+    "Pelle Larsson": {
+      "ftbMade": 4,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIA",
+      "firstShotRate": 0.0597
+    },
+    "Miles McBride": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "NYK",
+      "firstShotRate": 0.0606
+    },
+    "Peyton Watson": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DEN",
+      "firstShotRate": 0.0909
+    },
+    "Kevin Huerter": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CHI",
+      "firstShotRate": 0.0152
+    },
+    "Nickeil Alexander-Walker": {
+      "ftbMade": 9,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "ATL",
+      "firstShotRate": 0.1385
+    },
+    "Cedric Coward": {
+      "ftbMade": 6,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MEM",
+      "firstShotRate": 0.0968
+    },
+    "Jeff Edwards": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHI",
+      "firstShotRate": 0.0308
+    },
+    "Precious Achiuwa": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 5,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PF",
+      "team": "SAC",
+      "firstShotRate": 0.1061
+    },
+    "Buddy Hield": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "GSW",
+      "firstShotRate": 0.0308
+    },
+    "Landry Shamet": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "NYK",
+      "firstShotRate": 0.0152
+    },
+    "Bennedict Mathurin": {
+      "ftbMade": 6,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "LAC",
+      "firstShotRate": 0.0938
+    },
+    "LaMelo Ball": {
+      "ftbMade": 11,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CHA",
+      "firstShotRate": 0.1667
+    },
+    "DeMar DeRozan": {
+      "ftbMade": 17,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 16,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "SAC",
+      "firstShotRate": 0.2576
+    },
+    "Tristan da Silva": {
+      "ftbMade": 4,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "ORL",
+      "firstShotRate": 0.0656
+    },
+    "Bilal Coulibaly": {
+      "ftbMade": 10,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 4,
+        "dunk": 3,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "WAS",
+      "firstShotRate": 0.1562
+    },
+    "Sidy Cissoko": {
+      "ftbMade": 3,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "POR",
+      "firstShotRate": 0.0455
+    },
+    "Santi Aldama": {
+      "ftbMade": 3,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MEM",
+      "firstShotRate": 0.0484
+    },
+    "Bobby Portis": {
+      "ftbMade": 4,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PF",
+      "team": "MIL",
+      "firstShotRate": 0.0625
+    },
+    "Kris Murray": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "POR",
+      "firstShotRate": 0.1061
+    },
+    "Sandro Mamukelashvili": {
+      "ftbMade": 6,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 6,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "TOR",
+      "firstShotRate": 0.0923
+    },
+    "LeBron James": {
+      "ftbMade": 11,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 4,
+        "mid": 3,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAL",
+      "firstShotRate": 0.1692
+    },
+    "Orlando Robinson": {
+      "ftbMade": 1,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "ORL",
+      "firstShotRate": 0.0164
+    },
+    "Jerami Grant": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "POR",
+      "firstShotRate": 0.1061
+    },
+    "Jordan Goodwin": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "PHX",
+      "firstShotRate": 0.0152
+    },
+    "Luke Kornet": {
+      "ftbMade": 3,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "SAS",
+      "firstShotRate": 0.0476
+    },
+    "Mason Plumlee": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "CHA",
+      "firstShotRate": 0.0152
+    },
+    "Kyle Kuzma": {
+      "ftbMade": 6,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "PF",
+      "team": "MIL",
+      "firstShotRate": 0.0938
+    },
+    "Zach Edey": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Nicolas Richards": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "PHX",
+      "firstShotRate": 0.0152
+    },
+    "Corey Kispert": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "ATL",
+      "firstShotRate": 0.0462
+    },
+    "Jordan Walsh": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BOS",
+      "firstShotRate": 0.0303
+    },
+    "Tyler Herro": {
+      "ftbMade": 2,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIA",
+      "firstShotRate": 0.0299
+    },
+    "Reed Sheppard": {
+      "ftbMade": 2,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "HOU",
+      "firstShotRate": 0.0317
+    },
+    "Darius Barlow": {
+      "ftbMade": 6,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 4,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHI",
+      "firstShotRate": 0.0923
+    },
+    "Tobias Harris": {
+      "ftbMade": 11,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 4,
+        "dunk": 0,
+        "mid": 5,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DET",
+      "firstShotRate": 0.1746
+    },
+    "Kevin Porter Jr.": {
+      "ftbMade": 8,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 2,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIL",
+      "firstShotRate": 0.125
+    },
+    "T.J. Martin": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BKN",
+      "firstShotRate": 0.0154
+    },
+    "Ace Bailey": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "UTA",
+      "firstShotRate": 0.0909
+    },
+    "Jaime Jaquez Jr.": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "TOR",
+      "firstShotRate": 0.0154
+    },
+    "Donovan Queen": {
+      "ftbMade": 9,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 4,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SG",
+      "team": "NOP",
+      "firstShotRate": 0.1343
+    },
+    "Dennis Jenkins": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "DET",
+      "firstShotRate": 0.0159
+    },
+    "Collin Gillespie": {
+      "ftbMade": 7,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "PHX",
+      "firstShotRate": 0.1061
+    },
+    "John Collins": {
+      "ftbMade": 14,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 7,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 2
+      },
+      "position": "PF",
+      "team": "LAC",
+      "firstShotRate": 0.2188
+    },
+    "Josh Hart": {
+      "ftbMade": 5,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "NYK",
+      "firstShotRate": 0.0758
+    },
+    "Harrison Barnes": {
+      "ftbMade": 3,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "SAS",
+      "firstShotRate": 0.0476
+    },
+    "Jaylin Williams": {
+      "ftbMade": 9,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "OKC",
+      "firstShotRate": 0.1406
+    },
+    "Sviatoslav James": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CHA",
+      "firstShotRate": 0.0152
+    },
+    "Al Horford": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "GSW",
+      "firstShotRate": 0.0462
+    },
+    "Bryce McGowens": {
+      "ftbMade": 1,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "NOP",
+      "firstShotRate": 0.0149
+    },
+    "Gabe Vincent": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "LAL",
+      "firstShotRate": 0.0154
+    },
+    "Ryan Nembhard": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "DAL",
+      "firstShotRate": 0.0159
+    },
+    "Nick Tomlin": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CLE",
+      "firstShotRate": 0.0154
+    },
+    "Bismack Biyombo": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "SAS",
+      "firstShotRate": 0.0159
+    },
+    "Clint Capela": {
+      "ftbMade": 1,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "HOU",
+      "firstShotRate": 0.0159
+    },
+    "Paolo Banchero": {
+      "ftbMade": 7,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 4,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "ORL",
+      "firstShotRate": 0.1148
+    },
+    "Ayo Dosunmu": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CHI",
+      "firstShotRate": 0.0303
+    },
+    "Anthony Black": {
+      "ftbMade": 5,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "ORL",
+      "firstShotRate": 0.082
+    },
+    "Carlton Carrington": {
+      "ftbMade": 4,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "WAS",
+      "firstShotRate": 0.0625
+    },
+    "Isaac Okoro": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 5,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SF",
+      "team": "CHI",
+      "firstShotRate": 0.0909
+    },
+    "Enfield Thompson": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "IND",
+      "firstShotRate": 0.0156
+    },
+    "Bones Hyland": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "MIN",
+      "firstShotRate": 0.0303
+    },
+    "Marvin Bagley III": {
+      "ftbMade": 2,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "WAS",
+      "firstShotRate": 0.0312
+    },
+    "Moussa Diawara": {
+      "ftbMade": 3,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SG",
+      "team": "NYK",
+      "firstShotRate": 0.0455
+    },
+    "Naji Marshall": {
+      "ftbMade": 4,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 3,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DAL",
+      "firstShotRate": 0.0635
+    },
+    "Ochai Agbaji": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "TOR",
+      "firstShotRate": 0.0462
+    },
+    "Maxime Raynaud": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 2,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "SAC",
+      "firstShotRate": 0.0909
+    },
+    "Bruce Brown": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "DEN",
+      "firstShotRate": 0.0152
+    },
+    "Tristan Proctor": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "CLE",
+      "firstShotRate": 0.0154
+    },
+    "Spencer Jones": {
+      "ftbMade": 5,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "SG",
+      "team": "DEN",
+      "firstShotRate": 0.0758
+    },
+    "Brandon Clarke": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Tristan Vukcevic": {
+      "ftbMade": 2,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "WAS",
+      "firstShotRate": 0.0312
+    },
+    "Brice Sensabaugh": {
+      "ftbMade": 3,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "UTA",
+      "firstShotRate": 0.0455
+    },
+    "Brandon Carlson": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "OKC",
+      "firstShotRate": 0.0156
+    },
+    "Sam Merrill": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CLE",
+      "firstShotRate": 0.0615
+    },
+    "Tari Eason": {
+      "ftbMade": 3,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "HOU",
+      "firstShotRate": 0.0476
+    },
+    "Brook Lopez": {
+      "ftbMade": 5,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "LAC",
+      "firstShotRate": 0.0781
+    },
+    "Daniel Gafford": {
+      "ftbMade": 7,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 3,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 3
+      },
+      "position": "C",
+      "team": "DAL",
+      "firstShotRate": 0.1111
+    },
+    "VJ Edgecombe": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHI",
+      "firstShotRate": 0.0462
+    },
+    "Trajan Johnson": {
+      "ftbMade": 7,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 2,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "WAS",
+      "firstShotRate": 0.1094
+    },
+    "Steven Adams": {
+      "ftbMade": 2,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "HOU",
+      "firstShotRate": 0.0317
+    },
+    "Jonas Valanciunas": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 3,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "DEN",
+      "firstShotRate": 0.0606
+    },
+    "Dean Wade": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "CLE",
+      "firstShotRate": 0.0308
+    },
+    "Royce O'Neale": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 5,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "PHX",
+      "firstShotRate": 0.0909
+    },
+    "Cody Williams": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 2,
+        "dunk": 2,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "UTA",
+      "firstShotRate": 0.0606
+    },
+    "Christian Koloko": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Jalen Smith": {
+      "ftbMade": 6,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 4,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "CHI",
+      "firstShotRate": 0.0909
+    },
+    "Micah Potter": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "IND",
+      "firstShotRate": 0.0156
+    },
+    "Chandler Spencer": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Kai Sanders": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "LAC",
+      "firstShotRate": 0.0156
+    },
+    "Isaiah Stewart": {
+      "ftbMade": 2,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DET",
+      "firstShotRate": 0.0317
+    },
+    "Mouhamed Gueye": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "ATL",
+      "firstShotRate": 0.0154
+    },
+    "DaRon Holmes II": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DEN",
+      "firstShotRate": 0.0152
+    },
+    "Jonathan Shead": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "TOR",
+      "firstShotRate": 0.0308
+    },
+    "Dillon Wolf": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BKN",
+      "firstShotRate": 0.0308
+    },
+    "Naba Penda": {
+      "ftbMade": 1,
+      "gamesStarted": 61,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "ORL",
+      "firstShotRate": 0.0164
+    },
+    "Moussa Diabate": {
+      "ftbMade": 5,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 2,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "CHA",
+      "firstShotRate": 0.0758
+    },
+    "Chol Murray-Boyles": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 3,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "TOR",
+      "firstShotRate": 0.0615
+    },
+    "Vit Krejci": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "ATL",
+      "firstShotRate": 0.0154
+    },
+    "Dwight Powell": {
+      "ftbMade": 2,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "BKN",
+      "firstShotRate": 0.0308
+    },
+    "Quenton Jackson": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "IND",
+      "firstShotRate": 0.0156
+    },
+    "Baylor Scheierman": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "BOS",
+      "firstShotRate": 0.0303
+    },
+    "Maxi Kleber": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "LAL",
+      "firstShotRate": 0.0154
+    },
+    "Isaiah Collier": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 4,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "UTA",
+      "firstShotRate": 0.0606
+    },
+    "Johnny Furphy": {
+      "ftbMade": 3,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "IND",
+      "firstShotRate": 0.0469
+    },
+    "Gary Harris": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MIL",
+      "firstShotRate": 0.0156
+    },
+    "Julian Champagnie": {
+      "ftbMade": 4,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "SAS",
+      "firstShotRate": 0.0635
+    },
+    "Zeke Nnaji": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "DEN",
+      "firstShotRate": 0.0152
+    },
+    "Dalton Cardwell": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "SAC",
+      "firstShotRate": 0.0152
+    },
+    "Patrick Spencer": {
+      "ftbMade": 4,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "GSW",
+      "firstShotRate": 0.0615
+    },
+    "Nick Clifford": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "SAC",
+      "firstShotRate": 0.0152
+    },
+    "Malik Gardner": {
+      "ftbMade": 1,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MIA",
+      "firstShotRate": 0.0149
+    },
+    "Patrick Williams": {
+      "ftbMade": 3,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 3,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "CHI",
+      "firstShotRate": 0.0455
+    },
+    "Ty Jerome": {
+      "ftbMade": 3,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "MEM",
+      "firstShotRate": 0.0484
+    },
+    "Caleb Martin": {
+      "ftbMade": 2,
+      "gamesStarted": 63,
+      "shots": {
+        "layup": 2,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DAL",
+      "firstShotRate": 0.0317
+    },
+    "Simone Fontecchio": {
+      "ftbMade": 1,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MIA",
+      "firstShotRate": 0.0149
+    },
+    "Olivier Prosper": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Wendell Riley": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "WAS",
+      "firstShotRate": 0.0156
+    },
+    "Kentavious Caldwell-Pope": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Guerschon Yabusele": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "CHI",
+      "firstShotRate": 0.0152
+    },
+    "Julian Strawther": {
+      "ftbMade": 2,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "DEN",
+      "firstShotRate": 0.0303
+    },
+    "Jaxson Hayes": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "LAL",
+      "firstShotRate": 0.0154
+    },
+    "GG Jackson": {
+      "ftbMade": 4,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MEM",
+      "firstShotRate": 0.0645
+    },
+    "Adem Bona": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 1
+      },
+      "position": "C",
+      "team": "PHI",
+      "firstShotRate": 0.0154
+    },
+    "Jalen Sims": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 1,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "MIL",
+      "firstShotRate": 0.0156
+    },
+    "Isaiah Joe": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "OKC",
+      "firstShotRate": 0.0156
+    },
+    "Anfernee Simons": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "CHI",
+      "firstShotRate": 0.0152
+    },
+    "Luke Lovering": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "C",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Keon Jones": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "IND",
+      "firstShotRate": 0.0156
+    },
+    "Jalen Green": {
+      "ftbMade": 4,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 2,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHX",
+      "firstShotRate": 0.0606
+    },
+    "Dejounte Murray": {
+      "ftbMade": 2,
+      "gamesStarted": 67,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "NOP",
+      "firstShotRate": 0.0299
+    },
+    "Nolan Traore": {
+      "ftbMade": 3,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "BKN",
+      "firstShotRate": 0.0462
+    },
+    "Obi Toppin": {
+      "ftbMade": 2,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PF",
+      "team": "IND",
+      "firstShotRate": 0.0312
+    },
+    "Scotty Pippen Jr.": {
+      "ftbMade": 1,
+      "gamesStarted": 62,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "MEM",
+      "firstShotRate": 0.0161
+    },
+    "Brice Hinson": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 1,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "UTA",
+      "firstShotRate": 0.0152
+    },
+    "Ousmane Dieng": {
+      "ftbMade": 3,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 3,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "MIL",
+      "firstShotRate": 0.0469
+    },
+    "Hamidou Diallo": {
+      "ftbMade": 1,
+      "gamesStarted": 66,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "BOS",
+      "firstShotRate": 0.0152
+    },
+    "Quentin Grimes": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "PHI",
+      "firstShotRate": 0.0154
+    },
+    "Trae Young": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "PG",
+      "team": "WAS",
+      "firstShotRate": 0.0156
+    },
+    "Lex Black": {
+      "ftbMade": 1,
+      "gamesStarted": 64,
+      "shots": {
+        "layup": 0,
+        "dunk": 0,
+        "mid": 1,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SG",
+      "team": "WAS",
+      "firstShotRate": 0.0156
+    },
+    "Gui Santos": {
+      "ftbMade": 1,
+      "gamesStarted": 65,
+      "shots": {
+        "layup": 1,
+        "dunk": 0,
+        "mid": 0,
+        "threeP": 0,
+        "ft": 0,
+        "tip": 0,
+        "hook": 0
+      },
+      "position": "SF",
+      "team": "GSW",
+      "firstShotRate": 0.0154
+    }
+  },
+  "teamStats": {
+    "ATL": {
+      "games": 65,
+      "firstFGWins": 30,
+      "firstFGPct": 46.2,
+      "firstPointPct": 46.2,
+      "tipPct": 46.2
+    },
+    "BKN": {
+      "games": 65,
+      "firstFGWins": 28,
+      "firstFGPct": 43.1,
+      "firstPointPct": 43.1,
+      "tipPct": 43.1
+    },
+    "BOS": {
+      "games": 66,
+      "firstFGWins": 36,
+      "firstFGPct": 54.5,
+      "firstPointPct": 54.5,
+      "tipPct": 54.5
+    },
+    "CHA": {
+      "games": 66,
+      "firstFGWins": 34,
+      "firstFGPct": 51.5,
+      "firstPointPct": 51.5,
+      "tipPct": 51.5
+    },
+    "CHI": {
+      "games": 66,
+      "firstFGWins": 21,
+      "firstFGPct": 31.8,
+      "firstPointPct": 31.8,
+      "tipPct": 31.8
+    },
+    "CLE": {
+      "games": 65,
+      "firstFGWins": 39,
+      "firstFGPct": 60.0,
+      "firstPointPct": 60.0,
+      "tipPct": 60.0
+    },
+    "DAL": {
+      "games": 63,
+      "firstFGWins": 28,
+      "firstFGPct": 44.4,
+      "firstPointPct": 44.4,
+      "tipPct": 44.4
+    },
+    "DEN": {
+      "games": 66,
+      "firstFGWins": 36,
+      "firstFGPct": 54.5,
+      "firstPointPct": 54.5,
+      "tipPct": 54.5
+    },
+    "DET": {
+      "games": 63,
+      "firstFGWins": 34,
+      "firstFGPct": 54.0,
+      "firstPointPct": 54.0,
+      "tipPct": 54.0
+    },
+    "GSW": {
+      "games": 65,
+      "firstFGWins": 33,
+      "firstFGPct": 50.8,
+      "firstPointPct": 50.8,
+      "tipPct": 50.8
+    },
+    "HOU": {
+      "games": 63,
+      "firstFGWins": 29,
+      "firstFGPct": 46.0,
+      "firstPointPct": 46.0,
+      "tipPct": 46.0
+    },
+    "IND": {
+      "games": 64,
+      "firstFGWins": 28,
+      "firstFGPct": 43.8,
+      "firstPointPct": 43.8,
+      "tipPct": 43.8
+    },
+    "LAC": {
+      "games": 64,
+      "firstFGWins": 28,
+      "firstFGPct": 43.8,
+      "firstPointPct": 43.8,
+      "tipPct": 43.8
+    },
+    "LAL": {
+      "games": 65,
+      "firstFGWins": 37,
+      "firstFGPct": 56.9,
+      "firstPointPct": 56.9,
+      "tipPct": 56.9
+    },
+    "MEM": {
+      "games": 62,
+      "firstFGWins": 27,
+      "firstFGPct": 43.5,
+      "firstPointPct": 43.5,
+      "tipPct": 43.5
+    },
+    "MIA": {
+      "games": 67,
+      "firstFGWins": 38,
+      "firstFGPct": 56.7,
+      "firstPointPct": 56.7,
+      "tipPct": 56.7
+    },
+    "MIL": {
+      "games": 64,
+      "firstFGWins": 27,
+      "firstFGPct": 42.2,
+      "firstPointPct": 42.2,
+      "tipPct": 42.2
+    },
+    "MIN": {
+      "games": 66,
+      "firstFGWins": 40,
+      "firstFGPct": 60.6,
+      "firstPointPct": 60.6,
+      "tipPct": 60.6
+    },
+    "NOP": {
+      "games": 67,
+      "firstFGWins": 31,
+      "firstFGPct": 46.3,
+      "firstPointPct": 46.3,
+      "tipPct": 46.3
+    },
+    "NYK": {
+      "games": 66,
+      "firstFGWins": 39,
+      "firstFGPct": 59.1,
+      "firstPointPct": 59.1,
+      "tipPct": 59.1
+    },
+    "OKC": {
+      "games": 64,
+      "firstFGWins": 34,
+      "firstFGPct": 53.1,
+      "firstPointPct": 53.1,
+      "tipPct": 53.1
+    },
+    "ORL": {
+      "games": 61,
+      "firstFGWins": 33,
+      "firstFGPct": 54.1,
+      "firstPointPct": 54.1,
+      "tipPct": 54.1
+    },
+    "PHI": {
+      "games": 65,
+      "firstFGWins": 33,
+      "firstFGPct": 50.8,
+      "firstPointPct": 50.8,
+      "tipPct": 50.8
+    },
+    "PHX": {
+      "games": 66,
+      "firstFGWins": 36,
+      "firstFGPct": 54.5,
+      "firstPointPct": 54.5,
+      "tipPct": 54.5
+    },
+    "POR": {
+      "games": 66,
+      "firstFGWins": 28,
+      "firstFGPct": 42.4,
+      "firstPointPct": 42.4,
+      "tipPct": 42.4
+    },
+    "SAC": {
+      "games": 66,
+      "firstFGWins": 31,
+      "firstFGPct": 47.0,
+      "firstPointPct": 47.0,
+      "tipPct": 47.0
+    },
+    "SAS": {
+      "games": 63,
+      "firstFGWins": 33,
+      "firstFGPct": 52.4,
+      "firstPointPct": 52.4,
+      "tipPct": 52.4
+    },
+    "TOR": {
+      "games": 65,
+      "firstFGWins": 39,
+      "firstFGPct": 60.0,
+      "firstPointPct": 60.0,
+      "tipPct": 60.0
+    },
+    "UTA": {
+      "games": 66,
+      "firstFGWins": 39,
+      "firstFGPct": 59.1,
+      "firstPointPct": 59.1,
+      "tipPct": 59.1
+    },
+    "WAS": {
+      "games": 64,
+      "firstFGWins": 23,
+      "firstFGPct": 35.9,
+      "firstPointPct": 35.9,
+      "tipPct": 35.9
+    }
+  },
+  "positionData": {
+    "ATL": {
+      "PG": 22,
+      "SG": 20,
+      "SF": 31,
+      "PF": 8,
+      "C": 20,
+      "totalGames": 65
+    },
+    "BKN": {
+      "PG": 18,
+      "SG": 18,
+      "SF": 25,
+      "PF": 12,
+      "C": 26,
+      "totalGames": 65
+    },
+    "BOS": {
+      "PG": 14,
+      "SG": 15,
+      "SF": 35,
+      "PF": 17,
+      "C": 20,
+      "totalGames": 66
+    },
+    "CHA": {
+      "PG": 14,
+      "SG": 18,
+      "SF": 29,
+      "PF": 12,
+      "C": 27,
+      "totalGames": 66
+    },
+    "CHI": {
+      "PG": 9,
+      "SG": 17,
+      "SF": 32,
+      "PF": 17,
+      "C": 26,
+      "totalGames": 66
+    },
+    "CLE": {
+      "PG": 20,
+      "SG": 26,
+      "SF": 28,
+      "PF": 14,
+      "C": 12,
+      "totalGames": 65
+    },
+    "DAL": {
+      "PG": 14,
+      "SG": 19,
+      "SF": 27,
+      "PF": 11,
+      "C": 29,
+      "totalGames": 63
+    },
+    "DEN": {
+      "PG": 17,
+      "SG": 23,
+      "SF": 24,
+      "PF": 15,
+      "C": 21,
+      "totalGames": 66
+    },
+    "DET": {
+      "PG": 10,
+      "SG": 29,
+      "SF": 32,
+      "PF": 10,
+      "C": 21,
+      "totalGames": 63
+    },
+    "GSW": {
+      "PG": 15,
+      "SG": 18,
+      "SF": 31,
+      "PF": 14,
+      "C": 22,
+      "totalGames": 65
+    },
+    "HOU": {
+      "PG": 13,
+      "SG": 25,
+      "SF": 27,
+      "PF": 6,
+      "C": 29,
+      "totalGames": 63
+    },
+    "IND": {
+      "PG": 14,
+      "SG": 14,
+      "SF": 33,
+      "PF": 16,
+      "C": 23,
+      "totalGames": 64
+    },
+    "LAC": {
+      "PG": 12,
+      "SG": 28,
+      "SF": 27,
+      "PF": 12,
+      "C": 20,
+      "totalGames": 64
+    },
+    "LAL": {
+      "PG": 20,
+      "SG": 20,
+      "SF": 29,
+      "PF": 15,
+      "C": 15,
+      "totalGames": 65
+    },
+    "MEM": {
+      "PG": 21,
+      "SG": 26,
+      "SF": 24,
+      "PF": 10,
+      "C": 19,
+      "totalGames": 62
+    },
+    "MIA": {
+      "PG": 21,
+      "SG": 24,
+      "SF": 18,
+      "PF": 13,
+      "C": 24,
+      "totalGames": 67
+    },
+    "MIL": {
+      "PG": 12,
+      "SG": 31,
+      "SF": 23,
+      "PF": 11,
+      "C": 22,
+      "totalGames": 64
+    },
+    "MIN": {
+      "PG": 21,
+      "SG": 35,
+      "SF": 18,
+      "PF": 15,
+      "C": 11,
+      "totalGames": 66
+    },
+    "NOP": {
+      "PG": 13,
+      "SG": 31,
+      "SF": 27,
+      "PF": 9,
+      "C": 19,
+      "totalGames": 67
+    },
+    "NYK": {
+      "PG": 17,
+      "SG": 32,
+      "SF": 21,
+      "PF": 12,
+      "C": 18,
+      "totalGames": 66
+    },
+    "OKC": {
+      "PG": 28,
+      "SG": 22,
+      "SF": 17,
+      "PF": 9,
+      "C": 23,
+      "totalGames": 64
+    },
+    "ORL": {
+      "PG": 11,
+      "SG": 25,
+      "SF": 38,
+      "PF": 3,
+      "C": 23,
+      "totalGames": 61
+    },
+    "PHI": {
+      "PG": 17,
+      "SG": 25,
+      "SF": 31,
+      "PF": 6,
+      "C": 22,
+      "totalGames": 65
+    },
+    "PHX": {
+      "PG": 14,
+      "SG": 24,
+      "SF": 21,
+      "PF": 9,
+      "C": 32,
+      "totalGames": 66
+    },
+    "POR": {
+      "PG": 14,
+      "SG": 27,
+      "SF": 26,
+      "PF": 11,
+      "C": 23,
+      "totalGames": 66
+    },
+    "SAC": {
+      "PG": 17,
+      "SG": 24,
+      "SF": 23,
+      "PF": 5,
+      "C": 32,
+      "totalGames": 66
+    },
+    "SAS": {
+      "PG": 14,
+      "SG": 29,
+      "SF": 25,
+      "PF": 3,
+      "C": 29,
+      "totalGames": 63
+    },
+    "TOR": {
+      "PG": 17,
+      "SG": 18,
+      "SF": 29,
+      "PF": 14,
+      "C": 22,
+      "totalGames": 65
+    },
+    "UTA": {
+      "PG": 14,
+      "SG": 15,
+      "SF": 26,
+      "PF": 15,
+      "C": 30,
+      "totalGames": 66
+    },
+    "WAS": {
+      "PG": 19,
+      "SG": 17,
+      "SF": 19,
+      "PF": 11,
+      "C": 34,
+      "totalGames": 64
+    }
+  },
+  "savedAt": "2026-03-12T05:04:38.292642Z",
+  "source": "xlsx-pipeline",
+  "meta": {
+    "totalGames": 972,
+    "totalEvents": 1944,
+    "playersTracked": 302,
+    "positionsMapped": 302,
+    "positionsUnknown": 0,
+    "season": "2025-26",
+    "dataSource": "NBA_First_Basket_2025-26.xlsx"
+  }
+}

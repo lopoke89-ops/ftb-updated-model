@@ -1,0 +1,101 @@
+{
+  "version": "3.0",
+  "engine": {
+    "name": "FTB Analytics Engine v3",
+    "description": "High-performance first basket analytics with advanced grading",
+    "cache_ttl_hours": 24,
+    "batch_size": 1000,
+    "enable_performance_monitoring": true
+  },
+  "data_processing": {
+    "min_games_started": 3,
+    "min_ftb_for_display": 1,
+    "position_confidence_threshold": 0.7,
+    "fallback_position": "SF",
+    "excel_sheet_name": "First Baskets"
+  },
+  "grading_system": {
+    "weights": {
+      "ftb_rate": 0.4,
+      "first_shot_rate": 0.3,
+      "consistency": 0.2,
+      "position_score": 0.1
+    },
+    "grade_boundaries": {
+      "A+": 0.9,
+      "A": 0.85,
+      "A-": 0.8,
+      "B+": 0.75,
+      "B": 0.7,
+      "B-": 0.65,
+      "C+": 0.6,
+      "C": 0.55,
+      "C-": 0.5,
+      "D": 0.4
+    }
+  },
+  "position_weights": {
+    "PG": {
+      "threeP": 0.4,
+      "mid": 0.3,
+      "layup": 0.2,
+      "ft": 0.1
+    },
+    "SG": {
+      "threeP": 0.35,
+      "mid": 0.25,
+      "layup": 0.25,
+      "ft": 0.15
+    },
+    "SF": {
+      "threeP": 0.3,
+      "mid": 0.25,
+      "layup": 0.3,
+      "dunk": 0.15
+    },
+    "PF": {
+      "mid": 0.3,
+      "layup": 0.25,
+      "dunk": 0.25,
+      "threeP": 0.2
+    },
+    "C": {
+      "layup": 0.35,
+      "dunk": 0.35,
+      "mid": 0.2,
+      "hook": 0.1
+    }
+  },
+  "cache": {
+    "directory": "cache",
+    "max_entries": 1000,
+    "cleanup_interval_hours": 6
+  },
+  "api": {
+    "rate_limit_per_second": 1,
+    "timeout_seconds": 30,
+    "retry_attempts": 3,
+    "proxies": [
+      "https://api.allorigins.win/get?url=",
+      "https://corsproxy.io/?"
+    ]
+  },
+  "output": {
+    "formats": ["json", "js", "csv"],
+    "compression": false,
+    "include_metadata": true
+  },
+  "parlay_generation": {
+    "max_legs": 4,
+    "min_probability_threshold": 0.15,
+    "max_risk_score": 0.8,
+    "diversify_positions": true,
+    "avoid_same_team": true
+  },
+  "monitoring": {
+    "log_level": "INFO",
+    "enable_metrics": true,
+    "metrics_port": 8000,
+    "health_check_interval": 300
+  }
+}

@@ -1,0 +1,3357 @@
+{
+  "timestamp": "2026-03-12T02:04:03.416998",
+  "games": {
+    "GSW": {
+      "game_id": "GSW",
+      "top_candidates": [
+        {
+          "name": "W. Richard",
+          "position": "SF",
+          "team": "GSW",
+          "ftb_probability": 0.6880921066303567,
+          "grade": "B-",
+          "consistency": 0.8784313725490196,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "M. Moody",
+          "position": "SF",
+          "team": "GSW",
+          "ftb_probability": 0.686504681880648,
+          "grade": "B-",
+          "consistency": 0.8375571250519318,
+          "shot_distribution": {
+            "layup": 9,
+            "dunk": 2,
+            "mid": 3,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Butler III",
+          "position": "SF",
+          "team": "GSW",
+          "ftb_probability": 0.6853303781514363,
+          "grade": "B-",
+          "consistency": 0.8083140877598153,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Curry",
+          "position": "SF",
+          "team": "GSW",
+          "ftb_probability": 0.6848571180365812,
+          "grade": "B-",
+          "consistency": 0.827331486611265,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 7,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "P. Spencer",
+          "position": "SF",
+          "team": "GSW",
+          "ftb_probability": 0.6847703448401387,
+          "grade": "B-",
+          "consistency": 0.83271375464684,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 65,
+        "shot_distribution": {
+          "layup": 0.3230769230769231,
+          "dunk": 0.06923076923076923,
+          "mid": 0.16923076923076924,
+          "threeP": 0.4153846153846154,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.023076923076923078
+        },
+        "primary_positions": {
+          "SF": 12,
+          "PG": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "POR": {
+      "game_id": "POR",
+      "top_candidates": [
+        {
+          "name": "S. Sharpe",
+          "position": "SF",
+          "team": "POR",
+          "ftb_probability": 0.687793761687916,
+          "grade": "B-",
+          "consistency": 0.8679479231246126,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 2,
+            "mid": 5,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Avdija",
+          "position": "SF",
+          "team": "POR",
+          "ftb_probability": 0.6874680561043542,
+          "grade": "B-",
+          "consistency": 0.851998559596687,
+          "shot_distribution": {
+            "layup": 11,
+            "dunk": 2,
+            "mid": 5,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Clingan",
+          "position": "SF",
+          "team": "POR",
+          "ftb_probability": 0.6855468113378178,
+          "grade": "B-",
+          "consistency": 0.8722966014418125,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 3,
+            "mid": 9,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Grant",
+          "position": "SF",
+          "team": "POR",
+          "ftb_probability": 0.6828481757246612,
+          "grade": "B-",
+          "consistency": 0.7777777777777779,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Cissoko",
+          "position": "SF",
+          "team": "POR",
+          "ftb_probability": 0.6817537464455184,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 0,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 63,
+        "shot_distribution": {
+          "layup": 0.3253968253968254,
+          "dunk": 0.09523809523809523,
+          "mid": 0.1984126984126984,
+          "threeP": 0.3492063492063492,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.031746031746031744
+        },
+        "primary_positions": {
+          "SF": 7
+        },
+        "average_grade": "B-"
+      }
+    },
+    "DET": {
+      "game_id": "DET",
+      "top_candidates": [
+        {
+          "name": "T. Harris",
+          "position": "SF",
+          "team": "DET",
+          "ftb_probability": 0.6872200734323686,
+          "grade": "B-",
+          "consistency": 0.8390292223873205,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 0,
+            "mid": 7,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "C. Cunningham",
+          "position": "SF",
+          "team": "DET",
+          "ftb_probability": 0.6855536910765179,
+          "grade": "B-",
+          "consistency": 0.8755472170106317,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 0,
+            "mid": 5,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "P. Reed",
+          "position": "SF",
+          "team": "DET",
+          "ftb_probability": 0.6851583896653097,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Duren",
+          "position": "SF",
+          "team": "DET",
+          "ftb_probability": 0.6826219022773579,
+          "grade": "B-",
+          "consistency": 0.8494646231366786,
+          "shot_distribution": {
+            "layup": 17,
+            "dunk": 4,
+            "mid": 6,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "D. Robinson",
+          "position": "SF",
+          "team": "DET",
+          "ftb_probability": 0.6796311532835007,
+          "grade": "B-",
+          "consistency": 0.8146551724137931,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 6,
+            "threeP": 9,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 63,
+        "shot_distribution": {
+          "layup": 0.38095238095238093,
+          "dunk": 0.07142857142857142,
+          "mid": 0.23809523809523808,
+          "threeP": 0.2698412698412698,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.03968253968253968
+        },
+        "primary_positions": {
+          "SF": 9
+        },
+        "average_grade": "C-"
+      }
+    },
+    "DEN": {
+      "game_id": "DEN",
+      "top_candidates": [
+        {
+          "name": "A. Gordon",
+          "position": "SF",
+          "team": "DEN",
+          "ftb_probability": 0.6880921066303567,
+          "grade": "B-",
+          "consistency": 0.8784313725490196,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Pickett",
+          "position": "SF",
+          "team": "DEN",
+          "ftb_probability": 0.6872703448401387,
+          "grade": "B-",
+          "consistency": 0.83271375464684,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "N. Joki\u0107",
+          "position": "SF",
+          "team": "DEN",
+          "ftb_probability": 0.6866104151585872,
+          "grade": "B-",
+          "consistency": 0.8636144578313253,
+          "shot_distribution": {
+            "layup": 11,
+            "dunk": 1,
+            "mid": 11,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Murray",
+          "position": "SF",
+          "team": "DEN",
+          "ftb_probability": 0.6863646110020065,
+          "grade": "B-",
+          "consistency": 0.9080314162655181,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 5,
+            "mid": 8,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "C. Johnson",
+          "position": "SF",
+          "team": "DEN",
+          "ftb_probability": 0.6853636041914899,
+          "grade": "B-",
+          "consistency": 0.8303130148270181,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 67,
+        "shot_distribution": {
+          "layup": 0.31343283582089554,
+          "dunk": 0.08208955223880597,
+          "mid": 0.22388059701492538,
+          "threeP": 0.35074626865671643,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.029850746268656716
+        },
+        "primary_positions": {
+          "SF": 12,
+          "C": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "PHI": {
+      "game_id": "PHI",
+      "top_candidates": [
+        {
+          "name": "T. Maxey",
+          "position": "SF",
+          "team": "PHI",
+          "ftb_probability": 0.6881602855873328,
+          "grade": "B-",
+          "consistency": 0.8808988764044945,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 3,
+            "mid": 9,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Embiid",
+          "position": "SF",
+          "team": "PHI",
+          "ftb_probability": 0.6843098839510752,
+          "grade": "B-",
+          "consistency": 0.8434937611408199,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 2,
+            "mid": 11,
+            "threeP": 9,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Oubre Jr.",
+          "position": "SF",
+          "team": "PHI",
+          "ftb_probability": 0.6830130358716184,
+          "grade": "B-",
+          "consistency": 0.8951406649616368,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 4,
+            "mid": 2,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "P. George",
+          "position": "SF",
+          "team": "PHI",
+          "ftb_probability": 0.6813041641806495,
+          "grade": "B-",
+          "consistency": 0.890909090909091,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 3,
+            "mid": 5,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "T. Watford",
+          "position": "SF",
+          "team": "PHI",
+          "ftb_probability": 0.678420413112185,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 0,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 63,
+        "shot_distribution": {
+          "layup": 0.23015873015873015,
+          "dunk": 0.15873015873015872,
+          "mid": 0.30952380952380953,
+          "threeP": 0.25396825396825395,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.047619047619047616
+        },
+        "primary_positions": {
+          "SF": 11
+        },
+        "average_grade": "C"
+      }
+    },
+    "IND": {
+      "game_id": "IND",
+      "top_candidates": [
+        {
+          "name": "A. Nembhard",
+          "position": "SF",
+          "team": "IND",
+          "ftb_probability": 0.688218867981285,
+          "grade": "B-",
+          "consistency": 0.8871989860583016,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 3,
+            "mid": 5,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Nesmith",
+          "position": "SF",
+          "team": "IND",
+          "ftb_probability": 0.6879187224618746,
+          "grade": "B-",
+          "consistency": 0.8641975308641976,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Walker",
+          "position": "SF",
+          "team": "IND",
+          "ftb_probability": 0.6850870797788517,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "P. Siakam",
+          "position": "SF",
+          "team": "IND",
+          "ftb_probability": 0.6846939907379043,
+          "grade": "B-",
+          "consistency": 0.8507002136244955,
+          "shot_distribution": {
+            "layup": 14,
+            "dunk": 2,
+            "mid": 10,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Furphy",
+          "position": "SF",
+          "team": "IND",
+          "ftb_probability": 0.683832302708788,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 59,
+        "shot_distribution": {
+          "layup": 0.3389830508474576,
+          "dunk": 0.1016949152542373,
+          "mid": 0.2033898305084746,
+          "threeP": 0.3305084745762712,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.025423728813559324
+        },
+        "primary_positions": {
+          "SF": 14
+        },
+        "average_grade": "D"
+      }
+    },
+    "UTA": {
+      "game_id": "UTA",
+      "top_candidates": [
+        {
+          "name": "A. Bailey",
+          "position": "SF",
+          "team": "UTA",
+          "ftb_probability": 0.6882025091984636,
+          "grade": "B-",
+          "consistency": 0.8920353982300885,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 2,
+            "mid": 3,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Mykhailiuk",
+          "position": "SF",
+          "team": "UTA",
+          "ftb_probability": 0.6871656360421213,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 4,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "L. Markkanen",
+          "position": "SF",
+          "team": "UTA",
+          "ftb_probability": 0.6865292184354722,
+          "grade": "B-",
+          "consistency": 0.8695332598309444,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 2,
+            "mid": 6,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Nurki\u0107",
+          "position": "SF",
+          "team": "UTA",
+          "ftb_probability": 0.6863041641806495,
+          "grade": "B-",
+          "consistency": 0.890909090909091,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 1,
+            "mid": 4,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "K. Filipowski",
+          "position": "SF",
+          "team": "UTA",
+          "ftb_probability": 0.6848238710055841,
+          "grade": "B-",
+          "consistency": 0.8499156829679595,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 1,
+            "mid": 5,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 51,
+        "shot_distribution": {
+          "layup": 0.28431372549019607,
+          "dunk": 0.09803921568627451,
+          "mid": 0.29411764705882354,
+          "threeP": 0.30392156862745096,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.0196078431372549
+        },
+        "primary_positions": {
+          "SF": 10
+        },
+        "average_grade": "C"
+      }
+    },
+    "LAL": {
+      "game_id": "LAL",
+      "top_candidates": [
+        {
+          "name": "L. James",
+          "position": "SF",
+          "team": "LAL",
+          "ftb_probability": 0.6881368754778359,
+          "grade": "B-",
+          "consistency": 0.8981972428419938,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 4,
+            "mid": 6,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "L. Don\u010di\u0107",
+          "position": "SF",
+          "team": "LAL",
+          "ftb_probability": 0.6862676159716034,
+          "grade": "B-",
+          "consistency": 0.854353132628153,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 2,
+            "mid": 11,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Reaves",
+          "position": "SF",
+          "team": "LAL",
+          "ftb_probability": 0.6859166400581856,
+          "grade": "B-",
+          "consistency": 0.9108433734939759,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 4,
+            "mid": 3,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. LaRavia",
+          "position": "SF",
+          "team": "LAL",
+          "ftb_probability": 0.6851583896653097,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Ayton",
+          "position": "SF",
+          "team": "LAL",
+          "ftb_probability": 0.6840620825213017,
+          "grade": "B-",
+          "consistency": 0.9156311314584696,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 4,
+            "mid": 4,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 65,
+        "shot_distribution": {
+          "layup": 0.24615384615384617,
+          "dunk": 0.14615384615384616,
+          "mid": 0.26153846153846155,
+          "threeP": 0.3076923076923077,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.038461538461538464
+        },
+        "primary_positions": {
+          "SF": 10,
+          "PG": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "MEM": {
+      "game_id": "MEM",
+      "top_candidates": [
+        {
+          "name": "G. Jackson",
+          "position": "SF",
+          "team": "MEM",
+          "ftb_probability": 0.6855921066303567,
+          "grade": "B-",
+          "consistency": 0.8784313725490196,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 2,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "C. Coward",
+          "position": "SF",
+          "team": "MEM",
+          "ftb_probability": 0.6853636041914899,
+          "grade": "B-",
+          "consistency": 0.8303130148270181,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Wells",
+          "position": "SF",
+          "team": "MEM",
+          "ftb_probability": 0.6849055235075271,
+          "grade": "B-",
+          "consistency": 0.8456040028591851,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 2,
+            "mid": 10,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Morant",
+          "position": "SF",
+          "team": "MEM",
+          "ftb_probability": 0.6817090534090682,
+          "grade": "B-",
+          "consistency": 0.823529411764706,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 7,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Jackson Jr.",
+          "position": "SF",
+          "team": "MEM",
+          "ftb_probability": 0.6814209776620742,
+          "grade": "B-",
+          "consistency": 0.9083109919571045,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 2,
+            "mid": 5,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 4
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 62,
+        "shot_distribution": {
+          "layup": 0.18548387096774194,
+          "dunk": 0.10483870967741936,
+          "mid": 0.2661290322580645,
+          "threeP": 0.3548387096774194,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.08870967741935484
+        },
+        "primary_positions": {
+          "SF": 17
+        },
+        "average_grade": "D"
+      }
+    },
+    "CHA": {
+      "game_id": "CHA",
+      "top_candidates": [
+        {
+          "name": "K. Knueppel",
+          "position": "SF",
+          "team": "CHA",
+          "ftb_probability": 0.6862581807523132,
+          "grade": "B-",
+          "consistency": 0.8868778280542986,
+          "shot_distribution": {
+            "layup": 11,
+            "dunk": 5,
+            "mid": 4,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "L. Ball",
+          "position": "SF",
+          "team": "CHA",
+          "ftb_probability": 0.6858237907289646,
+          "grade": "B-",
+          "consistency": 0.8474148802017655,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 0,
+            "mid": 7,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "B. Miller",
+          "position": "SF",
+          "team": "CHA",
+          "ftb_probability": 0.6841720702471857,
+          "grade": "B-",
+          "consistency": 0.87173100871731,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 5,
+            "mid": 11,
+            "threeP": 17,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "R. Kalkbrenner",
+          "position": "SF",
+          "team": "CHA",
+          "ftb_probability": 0.6829441908206761,
+          "grade": "B-",
+          "consistency": 0.8811188811188811,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 4,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "M. Diabat\u00e9",
+          "position": "SF",
+          "team": "CHA",
+          "ftb_probability": 0.6800130358716184,
+          "grade": "B-",
+          "consistency": 0.8951406649616368,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 2,
+            "mid": 4,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 62,
+        "shot_distribution": {
+          "layup": 0.25806451612903225,
+          "dunk": 0.1532258064516129,
+          "mid": 0.23387096774193547,
+          "threeP": 0.31451612903225806,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.04032258064516129
+        },
+        "primary_positions": {
+          "SF": 8
+        },
+        "average_grade": "C"
+      }
+    },
+    "DAL": {
+      "game_id": "DAL",
+      "top_candidates": [
+        {
+          "name": "K. Middleton",
+          "position": "SF",
+          "team": "DAL",
+          "ftb_probability": 0.6871656360421213,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "B. Williams",
+          "position": "SF",
+          "team": "DAL",
+          "ftb_probability": 0.6871656360421213,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "M. Christie",
+          "position": "SF",
+          "team": "DAL",
+          "ftb_probability": 0.6845005118414723,
+          "grade": "B-",
+          "consistency": 0.8981972428419935,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 2,
+            "mid": 8,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "A. Davis",
+          "position": "SF",
+          "team": "DAL",
+          "ftb_probability": 0.6844386678679171,
+          "grade": "B-",
+          "consistency": 0.879396984924623,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "P. Washington",
+          "position": "SF",
+          "team": "DAL",
+          "ftb_probability": 0.6837395112977451,
+          "grade": "B-",
+          "consistency": 0.9161554192229038,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 4,
+            "mid": 5,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 62,
+        "shot_distribution": {
+          "layup": 0.3064516129032258,
+          "dunk": 0.12096774193548387,
+          "mid": 0.2661290322580645,
+          "threeP": 0.22580645161290322,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.08064516129032258
+        },
+        "primary_positions": {
+          "SF": 14
+        },
+        "average_grade": "C-"
+      }
+    },
+    "BOS": {
+      "game_id": "BOS",
+      "top_candidates": [
+        {
+          "name": "J. Brown",
+          "position": "SF",
+          "team": "BOS",
+          "ftb_probability": 0.6847356247287408,
+          "grade": "B-",
+          "consistency": 0.8466522678185744,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 2,
+            "mid": 12,
+            "threeP": 9,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "N. Queta",
+          "position": "SF",
+          "team": "BOS",
+          "ftb_probability": 0.6844868514517796,
+          "grade": "B-",
+          "consistency": 0.9140893470790379,
+          "shot_distribution": {
+            "layup": 10,
+            "dunk": 11,
+            "mid": 6,
+            "threeP": 9,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "P. Pritchard",
+          "position": "SF",
+          "team": "BOS",
+          "ftb_probability": 0.6843303781514362,
+          "grade": "B-",
+          "consistency": 0.8083140877598153,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 3,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Hauser",
+          "position": "SF",
+          "team": "BOS",
+          "ftb_probability": 0.6801520327859089,
+          "grade": "B-",
+          "consistency": 0.7677806341045416,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. White",
+          "position": "SF",
+          "team": "BOS",
+          "ftb_probability": 0.6792040337969371,
+          "grade": "B-",
+          "consistency": 0.784742951907131,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 2,
+            "mid": 9,
+            "threeP": 14,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 66,
+        "shot_distribution": {
+          "layup": 0.16666666666666666,
+          "dunk": 0.13636363636363635,
+          "mid": 0.26515151515151514,
+          "threeP": 0.4166666666666667,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.015151515151515152
+        },
+        "primary_positions": {
+          "SF": 10
+        },
+        "average_grade": "C-"
+      }
+    },
+    "MIL": {
+      "game_id": "MIL",
+      "top_candidates": [
+        {
+          "name": "M. Turner",
+          "position": "SF",
+          "team": "MIL",
+          "ftb_probability": 0.6881781673704422,
+          "grade": "B-",
+          "consistency": 0.8596491228070176,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Green",
+          "position": "SF",
+          "team": "MIL",
+          "ftb_probability": 0.6865818423036315,
+          "grade": "B-",
+          "consistency": 0.850828729281768,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 2,
+            "mid": 5,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Porter Jr.",
+          "position": "SF",
+          "team": "MIL",
+          "ftb_probability": 0.6858680842530442,
+          "grade": "B-",
+          "consistency": 0.8436911487758945,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 5,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "G. Antetokounmpo",
+          "position": "SF",
+          "team": "MIL",
+          "ftb_probability": 0.6844450548701714,
+          "grade": "B-",
+          "consistency": 0.8607108549471661,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 3,
+            "mid": 4,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "R. Rollins",
+          "position": "SF",
+          "team": "MIL",
+          "ftb_probability": 0.683832302708788,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 4,
+            "mid": 4,
+            "threeP": 12,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 64,
+        "shot_distribution": {
+          "layup": 0.2421875,
+          "dunk": 0.09375,
+          "mid": 0.2578125,
+          "threeP": 0.390625,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.015625
+        },
+        "primary_positions": {
+          "SF": 11
+        },
+        "average_grade": "C"
+      }
+    },
+    "WAS": {
+      "game_id": "WAS",
+      "top_candidates": [
+        {
+          "name": "B. Coulibaly",
+          "position": "SF",
+          "team": "WAS",
+          "ftb_probability": 0.6879154754769319,
+          "grade": "B-",
+          "consistency": 0.899165061014772,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 4,
+            "mid": 5,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. George",
+          "position": "SF",
+          "team": "WAS",
+          "ftb_probability": 0.6864345395189023,
+          "grade": "B-",
+          "consistency": 0.8271334792122538,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 0,
+            "mid": 5,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "B. Carrington",
+          "position": "SF",
+          "team": "WAS",
+          "ftb_probability": 0.6851583896653097,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Sarr",
+          "position": "SF",
+          "team": "WAS",
+          "ftb_probability": 0.6836626895906739,
+          "grade": "B-",
+          "consistency": 0.8716372021521906,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 2,
+            "mid": 6,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "T. Johnson",
+          "position": "SF",
+          "team": "WAS",
+          "ftb_probability": 0.6800968529733383,
+          "grade": "B-",
+          "consistency": 0.9074074074074076,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 3
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 47,
+        "shot_distribution": {
+          "layup": 0.3404255319148936,
+          "dunk": 0.0851063829787234,
+          "mid": 0.26595744680851063,
+          "threeP": 0.23404255319148937,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.07446808510638298
+        },
+        "primary_positions": {
+          "SF": 11
+        },
+        "average_grade": "D"
+      }
+    },
+    "BKN": {
+      "game_id": "BKN",
+      "top_candidates": [
+        {
+          "name": "M. Porter Jr.",
+          "position": "SF",
+          "team": "BKN",
+          "ftb_probability": 0.687247773203206,
+          "grade": "B-",
+          "consistency": 0.891578947368421,
+          "shot_distribution": {
+            "layup": 13,
+            "dunk": 3,
+            "mid": 10,
+            "threeP": 15,
+            "ft": 0,
+            "tip": 0,
+            "hook": 3
+          }
+        },
+        {
+          "name": "N. Traore",
+          "position": "SF",
+          "team": "BKN",
+          "ftb_probability": 0.6862775241540094,
+          "grade": "B-",
+          "consistency": 0.8811188811188811,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Sharpe",
+          "position": "SF",
+          "team": "BKN",
+          "ftb_probability": 0.6824793615323175,
+          "grade": "B-",
+          "consistency": 0.9264705882352942,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "T. Mann",
+          "position": "SF",
+          "team": "BKN",
+          "ftb_probability": 0.6816703089393177,
+          "grade": "B-",
+          "consistency": 0.7850467289719627,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "N. Claxton",
+          "position": "SF",
+          "team": "BKN",
+          "ftb_probability": 0.6791683733998508,
+          "grade": "B-",
+          "consistency": 0.8948758584257792,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 6,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 3
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 64,
+        "shot_distribution": {
+          "layup": 0.328125,
+          "dunk": 0.09375,
+          "mid": 0.171875,
+          "threeP": 0.3515625,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.0546875
+        },
+        "primary_positions": {
+          "SF": 10
+        },
+        "average_grade": "C"
+      }
+    },
+    "SAC": {
+      "game_id": "SAC",
+      "top_candidates": [
+        {
+          "name": "Z. LaVine",
+          "position": "SF",
+          "team": "SAC",
+          "ftb_probability": 0.6861141826154292,
+          "grade": "B-",
+          "consistency": 0.8911521323997454,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 4,
+            "mid": 7,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "R. Westbrook",
+          "position": "SF",
+          "team": "SAC",
+          "ftb_probability": 0.684793761687916,
+          "grade": "B-",
+          "consistency": 0.8679479231246126,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 0,
+            "mid": 5,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "P. Achiuwa",
+          "position": "SF",
+          "team": "SAC",
+          "ftb_probability": 0.6824102994247158,
+          "grade": "B-",
+          "consistency": 0.8448275862068966,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "D. Sabonis",
+          "position": "SF",
+          "team": "SAC",
+          "ftb_probability": 0.6817537464455183,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 0,
+            "mid": 3,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Murray",
+          "position": "SF",
+          "team": "SAC",
+          "ftb_probability": 0.6806509128383523,
+          "grade": "B-",
+          "consistency": 0.7915194346289752,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 4,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 67,
+        "shot_distribution": {
+          "layup": 0.23880597014925373,
+          "dunk": 0.1044776119402985,
+          "mid": 0.40298507462686567,
+          "threeP": 0.22388059701492538,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.029850746268656716
+        },
+        "primary_positions": {
+          "SF": 14
+        },
+        "average_grade": "C-"
+      }
+    },
+    "HOU": {
+      "game_id": "HOU",
+      "top_candidates": [
+        {
+          "name": "J. Okogie",
+          "position": "SF",
+          "team": "HOU",
+          "ftb_probability": 0.6848238710055841,
+          "grade": "B-",
+          "consistency": 0.8499156829679595,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 5,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Sengun",
+          "position": "SF",
+          "team": "HOU",
+          "ftb_probability": 0.682479033171308,
+          "grade": "B-",
+          "consistency": 0.8681339712918661,
+          "shot_distribution": {
+            "layup": 14,
+            "dunk": 1,
+            "mid": 12,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 4
+          }
+        },
+        {
+          "name": "J. Smith Jr.",
+          "position": "SF",
+          "team": "HOU",
+          "ftb_probability": 0.6818250563319765,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 4,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Durant",
+          "position": "SF",
+          "team": "HOU",
+          "ftb_probability": 0.6802342461716856,
+          "grade": "B-",
+          "consistency": 0.7915194346289752,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 13,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "T. Eason",
+          "position": "SF",
+          "team": "HOU",
+          "ftb_probability": 0.6650870797788517,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 0,
+            "dunk": 0,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 50,
+        "shot_distribution": {
+          "layup": 0.24,
+          "dunk": 0.06,
+          "mid": 0.35,
+          "threeP": 0.29,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.06
+        },
+        "primary_positions": {
+          "SF": 8
+        },
+        "average_grade": "C-"
+      }
+    },
+    "LAC": {
+      "game_id": "LAC",
+      "top_candidates": [
+        {
+          "name": "J. Collins",
+          "position": "SF",
+          "team": "LAC",
+          "ftb_probability": 0.685946949012744,
+          "grade": "B-",
+          "consistency": 0.8730512249443207,
+          "shot_distribution": {
+            "layup": 9,
+            "dunk": 2,
+            "mid": 4,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "D. Jones Jr.",
+          "position": "SF",
+          "team": "LAC",
+          "ftb_probability": 0.6856950548701713,
+          "grade": "B-",
+          "consistency": 0.8607108549471661,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 3,
+            "mid": 2,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Leonard",
+          "position": "SF",
+          "team": "LAC",
+          "ftb_probability": 0.684793761687916,
+          "grade": "B-",
+          "consistency": 0.8679479231246126,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 3,
+            "mid": 8,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Dunn",
+          "position": "SF",
+          "team": "LAC",
+          "ftb_probability": 0.6823371656619269,
+          "grade": "B-",
+          "consistency": 0.9283819628647214,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "B. Lopez",
+          "position": "SF",
+          "team": "LAC",
+          "ftb_probability": 0.6823371656619269,
+          "grade": "B-",
+          "consistency": 0.9283819628647214,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 3,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 61,
+        "shot_distribution": {
+          "layup": 0.26229508196721313,
+          "dunk": 0.13934426229508196,
+          "mid": 0.23770491803278687,
+          "threeP": 0.2540983606557377,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.10655737704918032
+        },
+        "primary_positions": {
+          "SF": 8
+        },
+        "average_grade": "C"
+      }
+    },
+    "NOP": {
+      "game_id": "NOP",
+      "top_candidates": [
+        {
+          "name": "J. Fears",
+          "position": "SF",
+          "team": "NOP",
+          "ftb_probability": 0.6884386678679171,
+          "grade": "B-",
+          "consistency": 0.8793969849246233,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 2,
+            "mid": 6,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Queen",
+          "position": "SF",
+          "team": "NOP",
+          "ftb_probability": 0.6869872120607895,
+          "grade": "B-",
+          "consistency": 0.9159935379644588,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 3,
+            "mid": 5,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "S. Bey",
+          "position": "SF",
+          "team": "NOP",
+          "ftb_probability": 0.6848948417957174,
+          "grade": "B-",
+          "consistency": 0.8878048780487805,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 1,
+            "mid": 6,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 3
+          }
+        },
+        {
+          "name": "T. Murphy III",
+          "position": "SF",
+          "team": "NOP",
+          "ftb_probability": 0.6844013774869883,
+          "grade": "B-",
+          "consistency": 0.8623574144486692,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 4,
+            "mid": 3,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "H. Jones",
+          "position": "SF",
+          "team": "NOP",
+          "ftb_probability": 0.6813824192589046,
+          "grade": "B-",
+          "consistency": 0.7897435897435896,
+          "shot_distribution": {
+            "layup": 13,
+            "dunk": 2,
+            "mid": 3,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 67,
+        "shot_distribution": {
+          "layup": 0.3208955223880597,
+          "dunk": 0.14925373134328357,
+          "mid": 0.19402985074626866,
+          "threeP": 0.29850746268656714,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.03731343283582089
+        },
+        "primary_positions": {
+          "SF": 9
+        },
+        "average_grade": "C"
+      }
+    },
+    "NYK": {
+      "game_id": "NYK",
+      "top_candidates": [
+        {
+          "name": "O. Anunoby",
+          "position": "SF",
+          "team": "NYK",
+          "ftb_probability": 0.6867420983395138,
+          "grade": "B-",
+          "consistency": 0.852431289640592,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 3,
+            "mid": 3,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Brunson",
+          "position": "SF",
+          "team": "NYK",
+          "ftb_probability": 0.6844579918886641,
+          "grade": "B-",
+          "consistency": 0.8233402251320928,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 0,
+            "mid": 14,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "K. Towns",
+          "position": "SF",
+          "team": "NYK",
+          "ftb_probability": 0.6841166333157618,
+          "grade": "B-",
+          "consistency": 0.8678433060697374,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 2,
+            "mid": 4,
+            "threeP": 11,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "M. Bridges",
+          "position": "SF",
+          "team": "NYK",
+          "ftb_probability": 0.6829989693754547,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 9,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Hart",
+          "position": "SF",
+          "team": "NYK",
+          "ftb_probability": 0.6807987456618083,
+          "grade": "B-",
+          "consistency": 0.7829977628635347,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 66,
+        "shot_distribution": {
+          "layup": 0.22727272727272727,
+          "dunk": 0.05303030303030303,
+          "mid": 0.25757575757575757,
+          "threeP": 0.4318181818181818,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.030303030303030304
+        },
+        "primary_positions": {
+          "SF": 8,
+          "C": 1
+        },
+        "average_grade": "C"
+      }
+    },
+    "CLE": {
+      "game_id": "CLE",
+      "top_candidates": [
+        {
+          "name": "J. Allen",
+          "position": "SF",
+          "team": "CLE",
+          "ftb_probability": 0.6852979245120907,
+          "grade": "B-",
+          "consistency": 0.8838228846996931,
+          "shot_distribution": {
+            "layup": 10,
+            "dunk": 4,
+            "mid": 5,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Tyson",
+          "position": "SF",
+          "team": "CLE",
+          "ftb_probability": 0.6820311889458606,
+          "grade": "B-",
+          "consistency": 0.8353221957040573,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "E. Mobley",
+          "position": "SF",
+          "team": "CLE",
+          "ftb_probability": 0.681550427351441,
+          "grade": "B-",
+          "consistency": 0.9005145797598628,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 5,
+            "mid": 12,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 3
+          }
+        },
+        {
+          "name": "D. Garland",
+          "position": "SF",
+          "team": "CLE",
+          "ftb_probability": 0.6751831799017706,
+          "grade": "B-",
+          "consistency": 0.7368421052631579,
+          "shot_distribution": {
+            "layup": 0,
+            "dunk": 0,
+            "mid": 3,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Merrill",
+          "position": "SF",
+          "team": "CLE",
+          "ftb_probability": 0.6741720462985317,
+          "grade": "B-",
+          "consistency": 0.6892307692307692,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 0,
+            "mid": 1,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 44,
+        "shot_distribution": {
+          "layup": 0.2159090909090909,
+          "dunk": 0.125,
+          "mid": 0.2727272727272727,
+          "threeP": 0.32954545454545453,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.056818181818181816
+        },
+        "primary_positions": {
+          "SF": 9
+        },
+        "average_grade": "C-"
+      }
+    },
+    "TOR": {
+      "game_id": "TOR",
+      "top_candidates": [
+        {
+          "name": "B. Ingram",
+          "position": "SF",
+          "team": "TOR",
+          "ftb_probability": 0.6854247314206858,
+          "grade": "B-",
+          "consistency": 0.8920353982300885,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 6,
+            "mid": 13,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "C. Murray-Boyles",
+          "position": "SF",
+          "team": "TOR",
+          "ftb_probability": 0.6844951525815616,
+          "grade": "B-",
+          "consistency": 0.8549618320610687,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "I. Quickley",
+          "position": "SF",
+          "team": "TOR",
+          "ftb_probability": 0.6842454463365452,
+          "grade": "B-",
+          "consistency": 0.8351570773032122,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 3,
+            "mid": 6,
+            "threeP": 13,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Poeltl",
+          "position": "SF",
+          "team": "TOR",
+          "ftb_probability": 0.6830311889458605,
+          "grade": "B-",
+          "consistency": 0.8353221957040573,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "R. Barrett",
+          "position": "SF",
+          "team": "TOR",
+          "ftb_probability": 0.6826583896653098,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 4,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 65,
+        "shot_distribution": {
+          "layup": 0.24615384615384617,
+          "dunk": 0.1076923076923077,
+          "mid": 0.3,
+          "threeP": 0.3230769230769231,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.023076923076923078
+        },
+        "primary_positions": {
+          "SF": 10
+        },
+        "average_grade": "C"
+      }
+    },
+    "MIN": {
+      "game_id": "MIN",
+      "top_candidates": [
+        {
+          "name": "A. Edwards",
+          "position": "SF",
+          "team": "MIN",
+          "ftb_probability": 0.6873131639528072,
+          "grade": "B-",
+          "consistency": 0.8931419457735247,
+          "shot_distribution": {
+            "layup": 9,
+            "dunk": 5,
+            "mid": 13,
+            "threeP": 12,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. McDaniels",
+          "position": "SF",
+          "team": "MIN",
+          "ftb_probability": 0.6861354361643175,
+          "grade": "B-",
+          "consistency": 0.8908091123330716,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 4,
+            "mid": 5,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. DiVincenzo",
+          "position": "SF",
+          "team": "MIN",
+          "ftb_probability": 0.6852777678983765,
+          "grade": "B-",
+          "consistency": 0.8511213185625507,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 0,
+            "mid": 7,
+            "threeP": 13,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "R. Gobert",
+          "position": "SF",
+          "team": "MIN",
+          "ftb_probability": 0.6841342089426882,
+          "grade": "B-",
+          "consistency": 0.8763523956723338,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 5,
+            "mid": 3,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Randle",
+          "position": "SF",
+          "team": "MIN",
+          "ftb_probability": 0.6788687441560711,
+          "grade": "B-",
+          "consistency": 0.8055159296243461,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 12,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 67,
+        "shot_distribution": {
+          "layup": 0.23134328358208955,
+          "dunk": 0.11194029850746269,
+          "mid": 0.31343283582089554,
+          "threeP": 0.31343283582089554,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.029850746268656716
+        },
+        "primary_positions": {
+          "SF": 6,
+          "SG": 1
+        },
+        "average_grade": "C"
+      }
+    },
+    "ATL": {
+      "game_id": "ATL",
+      "top_candidates": [
+        {
+          "name": "J. Johnson",
+          "position": "SF",
+          "team": "ATL",
+          "ftb_probability": 0.6884386678679171,
+          "grade": "B-",
+          "consistency": 0.8793969849246233,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "Z. Risacher",
+          "position": "SF",
+          "team": "ATL",
+          "ftb_probability": 0.6878209581466534,
+          "grade": "B-",
+          "consistency": 0.8901429646350639,
+          "shot_distribution": {
+            "layup": 9,
+            "dunk": 5,
+            "mid": 5,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "N. Alexander-Walker",
+          "position": "SF",
+          "team": "ATL",
+          "ftb_probability": 0.6847678728522357,
+          "grade": "B-",
+          "consistency": 0.8271334792122538,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 0,
+            "mid": 8,
+            "threeP": 5,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Daniels",
+          "position": "SF",
+          "team": "ATL",
+          "ftb_probability": 0.6841837584425967,
+          "grade": "B-",
+          "consistency": 0.8318478906714201,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 1,
+            "mid": 8,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "O. Okongwu",
+          "position": "SF",
+          "team": "ATL",
+          "ftb_probability": 0.682679702538285,
+          "grade": "B-",
+          "consistency": 0.8951406649616368,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 3,
+            "mid": 7,
+            "threeP": 12,
+            "ft": 0,
+            "tip": 0,
+            "hook": 4
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 63,
+        "shot_distribution": {
+          "layup": 0.2698412698412698,
+          "dunk": 0.10317460317460317,
+          "mid": 0.30952380952380953,
+          "threeP": 0.2777777777777778,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.03968253968253968
+        },
+        "primary_positions": {
+          "SF": 9
+        },
+        "average_grade": "C"
+      }
+    },
+    "MIA": {
+      "game_id": "MIA",
+      "top_candidates": [
+        {
+          "name": "D. Mitchell",
+          "position": "SF",
+          "team": "MIA",
+          "ftb_probability": 0.6867321180365812,
+          "grade": "B-",
+          "consistency": 0.827331486611265,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 0,
+            "mid": 4,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "B. Adebayo",
+          "position": "SF",
+          "team": "MIA",
+          "ftb_probability": 0.6864017352828284,
+          "grade": "B-",
+          "consistency": 0.851968835544325,
+          "shot_distribution": {
+            "layup": 11,
+            "dunk": 0,
+            "mid": 12,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "K. Ware",
+          "position": "SF",
+          "team": "MIA",
+          "ftb_probability": 0.6824306463940882,
+          "grade": "B-",
+          "consistency": 0.8521739130434782,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 4,
+            "mid": 1,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "N. Powell",
+          "position": "SF",
+          "team": "MIA",
+          "ftb_probability": 0.6766569046605087,
+          "grade": "B-",
+          "consistency": 0.7765793528505393,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 3,
+            "mid": 3,
+            "threeP": 15,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "P. Larsson",
+          "position": "SF",
+          "team": "MIA",
+          "ftb_probability": 0.6735203448401387,
+          "grade": "B-",
+          "consistency": 0.83271375464684,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 1,
+            "threeP": 1,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 53,
+        "shot_distribution": {
+          "layup": 0.25471698113207547,
+          "dunk": 0.07547169811320754,
+          "mid": 0.20754716981132076,
+          "threeP": 0.41509433962264153,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.04716981132075472
+        },
+        "primary_positions": {
+          "SF": 8,
+          "C": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "PHX": {
+      "game_id": "PHX",
+      "top_candidates": [
+        {
+          "name": "C. Gillespie",
+          "position": "SF",
+          "team": "PHX",
+          "ftb_probability": 0.6852877892512311,
+          "grade": "B-",
+          "consistency": 0.8521739130434782,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 6,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Brooks",
+          "position": "SF",
+          "team": "PHX",
+          "ftb_probability": 0.6851603637966619,
+          "grade": "B-",
+          "consistency": 0.851998559596687,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 2,
+            "mid": 11,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "G. Allen",
+          "position": "SF",
+          "team": "PHX",
+          "ftb_probability": 0.6845003141392805,
+          "grade": "B-",
+          "consistency": 0.8577912254160363,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 5,
+            "threeP": 8,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "J. Green",
+          "position": "SF",
+          "team": "PHX",
+          "ftb_probability": 0.6844951525815616,
+          "grade": "B-",
+          "consistency": 0.8549618320610687,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 3,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Booker",
+          "position": "SF",
+          "team": "PHX",
+          "ftb_probability": 0.6824303222457879,
+          "grade": "B-",
+          "consistency": 0.8093135287033321,
+          "shot_distribution": {
+            "layup": 5,
+            "dunk": 0,
+            "mid": 12,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 66,
+        "shot_distribution": {
+          "layup": 0.18181818181818182,
+          "dunk": 0.12121212121212122,
+          "mid": 0.3560606060606061,
+          "threeP": 0.30303030303030304,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.03787878787878788
+        },
+        "primary_positions": {
+          "SF": 12
+        },
+        "average_grade": "C-"
+      }
+    },
+    "OKC": {
+      "game_id": "OKC",
+      "top_candidates": [
+        {
+          "name": "A. Mitchell",
+          "position": "SF",
+          "team": "OKC",
+          "ftb_probability": 0.6872703448401387,
+          "grade": "B-",
+          "consistency": 0.83271375464684,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "A. Wiggins",
+          "position": "SF",
+          "team": "OKC",
+          "ftb_probability": 0.6870311889458605,
+          "grade": "B-",
+          "consistency": 0.8353221957040573,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 3,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "C. Holmgren",
+          "position": "SF",
+          "team": "OKC",
+          "ftb_probability": 0.6845003141392805,
+          "grade": "B-",
+          "consistency": 0.8577912254160363,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 4,
+            "mid": 2,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Williams",
+          "position": "SF",
+          "team": "OKC",
+          "ftb_probability": 0.6831124234299382,
+          "grade": "B-",
+          "consistency": 0.810578984989278,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 8,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Gilgeous-Alexander",
+          "position": "SF",
+          "team": "OKC",
+          "ftb_probability": 0.6826583896653098,
+          "grade": "B-",
+          "consistency": 0.8115942028985507,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 0,
+            "mid": 8,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 64,
+        "shot_distribution": {
+          "layup": 0.265625,
+          "dunk": 0.078125,
+          "mid": 0.25,
+          "threeP": 0.3828125,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.0234375
+        },
+        "primary_positions": {
+          "SF": 10,
+          "PG": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "CHI": {
+      "game_id": "CHI",
+      "top_candidates": [
+        {
+          "name": "M. Buzelis",
+          "position": "SF",
+          "team": "CHI",
+          "ftb_probability": 0.6857173132298922,
+          "grade": "B-",
+          "consistency": 0.8421834385443743,
+          "shot_distribution": {
+            "layup": 15,
+            "dunk": 5,
+            "mid": 3,
+            "threeP": 13,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "P. Williams",
+          "position": "SF",
+          "team": "CHI",
+          "ftb_probability": 0.683832302708788,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "C. White",
+          "position": "SF",
+          "team": "CHI",
+          "ftb_probability": 0.682490237993842,
+          "grade": "B-",
+          "consistency": 0.7765793528505393,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 0,
+            "mid": 2,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Giddey",
+          "position": "SF",
+          "team": "CHI",
+          "ftb_probability": 0.6820418265183119,
+          "grade": "B-",
+          "consistency": 0.784,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Smith",
+          "position": "SF",
+          "team": "CHI",
+          "ftb_probability": 0.6820302708581565,
+          "grade": "B-",
+          "consistency": 0.8303130148270181,
+          "shot_distribution": {
+            "layup": 2,
+            "dunk": 0,
+            "mid": 3,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 62,
+        "shot_distribution": {
+          "layup": 0.3467741935483871,
+          "dunk": 0.0967741935483871,
+          "mid": 0.1693548387096774,
+          "threeP": 0.3467741935483871,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.04032258064516129
+        },
+        "primary_positions": {
+          "SF": 11,
+          "SG": 1
+        },
+        "average_grade": "C-"
+      }
+    },
+    "SAS": {
+      "game_id": "SAS",
+      "top_candidates": [
+        {
+          "name": "V. Wembanyama",
+          "position": "SF",
+          "team": "SAS",
+          "ftb_probability": 0.687594319737683,
+          "grade": "B-",
+          "consistency": 0.8953285036222832,
+          "shot_distribution": {
+            "layup": 9,
+            "dunk": 7,
+            "mid": 6,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "S. Castle",
+          "position": "SF",
+          "team": "SAS",
+          "ftb_probability": 0.6857219685984539,
+          "grade": "B-",
+          "consistency": 0.8811188811188811,
+          "shot_distribution": {
+            "layup": 7,
+            "dunk": 4,
+            "mid": 4,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Fox",
+          "position": "SF",
+          "team": "SAS",
+          "ftb_probability": 0.6852877892512311,
+          "grade": "B-",
+          "consistency": 0.8521739130434782,
+          "shot_distribution": {
+            "layup": 8,
+            "dunk": 2,
+            "mid": 12,
+            "threeP": 6,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "H. Barnes",
+          "position": "SF",
+          "team": "SAS",
+          "ftb_probability": 0.683832302708788,
+          "grade": "B-",
+          "consistency": 0.84,
+          "shot_distribution": {
+            "layup": 1,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 3,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "J. Champagnie",
+          "position": "SF",
+          "team": "SAS",
+          "ftb_probability": 0.6817537464455184,
+          "grade": "B-",
+          "consistency": 0.802547770700637,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 0,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 63,
+        "shot_distribution": {
+          "layup": 0.2619047619047619,
+          "dunk": 0.16666666666666666,
+          "mid": 0.31746031746031744,
+          "threeP": 0.24603174603174602,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.007936507936507936
+        },
+        "primary_positions": {
+          "SF": 8
+        },
+        "average_grade": "C+"
+      }
+    },
+    "ORL": {
+      "game_id": "ORL",
+      "top_candidates": [
+        {
+          "name": "T. da Silva",
+          "position": "SF",
+          "team": "ORL",
+          "ftb_probability": 0.6880921066303567,
+          "grade": "B-",
+          "consistency": 0.8784313725490196,
+          "shot_distribution": {
+            "layup": 3,
+            "dunk": 1,
+            "mid": 2,
+            "threeP": 2,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "D. Bane",
+          "position": "SF",
+          "team": "ORL",
+          "ftb_probability": 0.6875960488439932,
+          "grade": "B-",
+          "consistency": 0.8984707946853847,
+          "shot_distribution": {
+            "layup": 10,
+            "dunk": 3,
+            "mid": 7,
+            "threeP": 10,
+            "ft": 0,
+            "tip": 0,
+            "hook": 2
+          }
+        },
+        {
+          "name": "J. Suggs",
+          "position": "SF",
+          "team": "ORL",
+          "ftb_probability": 0.686690991719873,
+          "grade": "B-",
+          "consistency": 0.8908091123330716,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 2,
+            "mid": 4,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        },
+        {
+          "name": "A. Black",
+          "position": "SF",
+          "team": "ORL",
+          "ftb_probability": 0.6860311889458606,
+          "grade": "B-",
+          "consistency": 0.8353221957040573,
+          "shot_distribution": {
+            "layup": 4,
+            "dunk": 1,
+            "mid": 1,
+            "threeP": 4,
+            "ft": 0,
+            "tip": 0,
+            "hook": 0
+          }
+        },
+        {
+          "name": "W. Carter Jr.",
+          "position": "SF",
+          "team": "ORL",
+          "ftb_probability": 0.6856132245175306,
+          "grade": "B-",
+          "consistency": 0.9142194744976817,
+          "shot_distribution": {
+            "layup": 6,
+            "dunk": 7,
+            "mid": 5,
+            "threeP": 7,
+            "ft": 0,
+            "tip": 0,
+            "hook": 1
+          }
+        }
+      ],
+      "team_analysis": {
+        "total_ftb": 61,
+        "shot_distribution": {
+          "layup": 0.29508196721311475,
+          "dunk": 0.13934426229508196,
+          "mid": 0.22131147540983606,
+          "threeP": 0.30327868852459017,
+          "ft": 0.0,
+          "tip": 0.0,
+          "hook": 0.040983606557377046
+        },
+        "primary_positions": {
+          "SF": 10
+        },
+        "average_grade": "C-"
+      }
+    }
+  },
+  "top_candidates": [
+    {
+      "name": "J. Fears",
+      "position": "SF",
+      "team": "NOP",
+      "ftb_probability": 0.6884386678679171,
+      "grade": "B-",
+      "consistency": 0.8793969849246233
+    },
+    {
+      "name": "J. Johnson",
+      "position": "SF",
+      "team": "ATL",
+      "ftb_probability": 0.6884386678679171,
+      "grade": "B-",
+      "consistency": 0.8793969849246233
+    },
+    {
+      "name": "A. Nembhard",
+      "position": "SF",
+      "team": "IND",
+      "ftb_probability": 0.688218867981285,
+      "grade": "B-",
+      "consistency": 0.8871989860583016
+    },
+    {
+      "name": "A. Bailey",
+      "position": "SF",
+      "team": "UTA",
+      "ftb_probability": 0.6882025091984636,
+      "grade": "B-",
+      "consistency": 0.8920353982300885
+    },
+    {
+      "name": "M. Turner",
+      "position": "SF",
+      "team": "MIL",
+      "ftb_probability": 0.6881781673704422,
+      "grade": "B-",
+      "consistency": 0.8596491228070176
+    },
+    {
+      "name": "T. Maxey",
+      "position": "SF",
+      "team": "PHI",
+      "ftb_probability": 0.6881602855873328,
+      "grade": "B-",
+      "consistency": 0.8808988764044945
+    },
+    {
+      "name": "L. James",
+      "position": "SF",
+      "team": "LAL",
+      "ftb_probability": 0.6881368754778359,
+      "grade": "B-",
+      "consistency": 0.8981972428419938
+    },
+    {
+      "name": "W. Richard",
+      "position": "SF",
+      "team": "GSW",
+      "ftb_probability": 0.6880921066303567,
+      "grade": "B-",
+      "consistency": 0.8784313725490196
+    },
+    {
+      "name": "A. Gordon",
+      "position": "SF",
+      "team": "DEN",
+      "ftb_probability": 0.6880921066303567,
+      "grade": "B-",
+      "consistency": 0.8784313725490196
+    },
+    {
+      "name": "T. da Silva",
+      "position": "SF",
+      "team": "ORL",
+      "ftb_probability": 0.6880921066303567,
+      "grade": "B-",
+      "consistency": 0.8784313725490196
+    },
+    {
+      "name": "A. Nesmith",
+      "position": "SF",
+      "team": "IND",
+      "ftb_probability": 0.6879187224618746,
+      "grade": "B-",
+      "consistency": 0.8641975308641976
+    },
+    {
+      "name": "B. Coulibaly",
+      "position": "SF",
+      "team": "WAS",
+      "ftb_probability": 0.6879154754769319,
+      "grade": "B-",
+      "consistency": 0.899165061014772
+    },
+    {
+      "name": "Z. Risacher",
+      "position": "SF",
+      "team": "ATL",
+      "ftb_probability": 0.6878209581466534,
+      "grade": "B-",
+      "consistency": 0.8901429646350639
+    },
+    {
+      "name": "S. Sharpe",
+      "position": "SF",
+      "team": "POR",
+      "ftb_probability": 0.687793761687916,
+      "grade": "B-",
+      "consistency": 0.8679479231246126
+    },
+    {
+      "name": "D. Bane",
+      "position": "SF",
+      "team": "ORL",
+      "ftb_probability": 0.6875960488439932,
+      "grade": "B-",
+      "consistency": 0.8984707946853847
+    },
+    {
+      "name": "V. Wembanyama",
+      "position": "SF",
+      "team": "SAS",
+      "ftb_probability": 0.687594319737683,
+      "grade": "B-",
+      "consistency": 0.8953285036222832
+    },
+    {
+      "name": "D. Avdija",
+      "position": "SF",
+      "team": "POR",
+      "ftb_probability": 0.6874680561043542,
+      "grade": "B-",
+      "consistency": 0.851998559596687
+    },
+    {
+      "name": "A. Edwards",
+      "position": "SF",
+      "team": "MIN",
+      "ftb_probability": 0.6873131639528072,
+      "grade": "B-",
+      "consistency": 0.8931419457735247
+    },
+    {
+      "name": "J. Pickett",
+      "position": "SF",
+      "team": "DEN",
+      "ftb_probability": 0.6872703448401387,
+      "grade": "B-",
+      "consistency": 0.83271375464684
+    },
+    {
+      "name": "A. Mitchell",
+      "position": "SF",
+      "team": "OKC",
+      "ftb_probability": 0.6872703448401387,
+      "grade": "B-",
+      "consistency": 0.83271375464684
+    }
+  ],
+  "position_matchups": {},
+  "team_tendencies": {}
+}
