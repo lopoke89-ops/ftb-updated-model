@@ -74,6 +74,28 @@ class Publication(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Unsafe season version path'):
                 pages.validate(pages.SOURCE)
 
+    def test_shooting_evidence_mismatch_blocks_export(self):
+        original = pages.read
+        def altered(path):
+            data = original(path)
+            if path.name == 'parlay_data.json':
+                data['meta']['parentEvidenceContentHash'] = 'wrong'
+            return data
+        with patch.object(pages, 'read', side_effect=altered):
+            with self.assertRaisesRegex(ValueError, 'Parlay evidence mismatch'):
+                pages.validate(pages.SOURCE)
+
+    def test_shooting_browser_payload_mismatch_blocks_export(self):
+        original = pages.javascript_payload
+        def altered(path, variable):
+            data = original(path, variable)
+            if variable == '__FTB_PARLAY_DATA__':
+                data['games'].pop(next(iter(data['games'])))
+            return data
+        with patch.object(pages, 'javascript_payload', side_effect=altered):
+            with self.assertRaisesRegex(ValueError, 'Browser shooting evidence differs'):
+                pages.validate(pages.SOURCE)
+
 
 if __name__ == '__main__':
     unittest.main()

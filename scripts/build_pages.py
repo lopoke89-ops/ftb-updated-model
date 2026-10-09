@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('analyst.js', 'scouting_history.js', 'analyst_ui.js',
+ASSETS = ('analyst.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_ui.js', 'parlay_data.js',
           'analyst_data.js', 'analyst_evaluation.js', 'scout-theme.css')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -61,6 +61,23 @@ def validate(source):
     require(digest(source / 'analyst.js') == evaluation['modelCodeHash'], 'Evaluated model code mismatch')
     require(javascript_payload(source / 'analyst_data.js', '__FTB_ANALYST_DATA__') == analysis, 'Browser evidence differs from JSON')
     require(javascript_payload(source / 'analyst_evaluation.js', '__FTB_ANALYST_EVALUATION__') == evaluation, 'Browser evaluation differs from JSON')
+    parlay = read(source / 'parlay_data.json')
+    require(parlay['meta']['parentEvidenceContentHash'] == a['evidenceContentHash'], 'Parlay evidence mismatch')
+    require(javascript_payload(source / 'parlay_data.js', '__FTB_PARLAY_DATA__') == parlay, 'Browser shooting evidence differs from JSON')
+    require(hashlib.sha256(json.dumps(parlay['games'], separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest() == parlay['meta']['contentHash'], 'Parlay shooting content hash mismatch')
+    require(set(parlay['games']) == {g['id'] for g in games}, 'Parlay game coverage mismatch')
+    for g in games:
+        for team, box in g['teams'].items():
+            rows = parlay['games'][g['id']][team]
+            require(set(rows) == {p['id'] for p in box['players'] if p['played']}, 'Parlay appearance mismatch')
+            require(sum(r['points'] for r in rows.values()) == box['points'], 'Parlay team score mismatch')
+            for p in box['players']:
+                if not p['played']:
+                    continue
+                r = rows[p['id']]
+                require(all(r[k] == p[k] for k in ('points','fga','fta','minutes','threeMade','threeAttempted')), 'Parlay frozen statistic mismatch')
+                require(0 <= r['threeMade'] <= r['fgm'] <= r['fga'] and r['threeMade'] <= r['threeAttempted'] <= r['fga'] and 0 <= r['ftm'] <= r['fta'], 'Parlay invalid shooting totals')
+                require(2*r['fgm']+r['threeMade']+r['ftm'] == r['points'], 'Parlay points mismatch')
     html = (source / 'ftb-scout.html').read_text(encoding='utf-8')
     embedded = html.split('window.__FTB_MERGED__ = ', 1)[1]
     require(json.JSONDecoder().raw_decode(embedded)[0] == canonical, 'Embedded canonical dataset differs from JSON')
@@ -82,7 +99,7 @@ def validate(source):
         failed = read(attempt)
         if failed['checkedAt'] > health['checkedAt']:
             health = {**health, 'lastFailedAttempt': failed}
-    return {'canonical': canonical, 'analysis': analysis, 'evaluation': evaluation}, {**current, 'health': health}, html
+    return {'canonical': canonical, 'analysis': analysis, 'evaluation': evaluation, 'parlay': parlay}, {**current, 'health': health}, html
 
 
 def build(source=SOURCE, output=ROOT / '_site', published_date=None):
