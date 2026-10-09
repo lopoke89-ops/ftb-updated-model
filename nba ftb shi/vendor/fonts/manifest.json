@@ -1,0 +1,62 @@
+[
+  {
+    "file": "barlow-300-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3p-kc4A.ttf",
+    "sha256": "639ac4d54919fd167b6ab52cb5daec616b5c7f60ae0a1cbad4e81936d13d3b24"
+  },
+  {
+    "file": "barlow-400-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7EPCw.ttf",
+    "sha256": "a35caa4687f434d66453c1fe423d7074cfa9fd7ab80c19b0780f3862887d2fc9"
+  },
+  {
+    "file": "barlow-500-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3_-gc4A.ttf",
+    "sha256": "91c841fdfa8e7b94ffedbb983a363947ba6ed720f3bbf0c71d48b618053655bc"
+  },
+  {
+    "file": "barlow-condensed-400-italic.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTT3w.ttf",
+    "sha256": "75308732678e826c37eabbadc7befc6fc96a3901240388596d730689fe727919"
+  },
+  {
+    "file": "barlow-condensed-300-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47rx_3E.ttf",
+    "sha256": "1e384bc40b3d8bd2d6d985b7fe38648c5f58681aaa2fddf402c4749bbd8bf02d"
+  },
+  {
+    "file": "barlow-condensed-400-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTx3L3I-JCGChYJ8VI-L6OO_au7B2xY.ttf",
+    "sha256": "c82d65280835cb3cd1b499863cf68cae8c6193c45ffae9495d28d01f749a9ae2"
+  },
+  {
+    "file": "barlow-condensed-600-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873_3E.ttf",
+    "sha256": "0d85af813fc3ed87db0c6265515689b2eef5cbaf7aab17922528dfc95a2cd73f"
+  },
+  {
+    "file": "barlow-condensed-700-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2_3E.ttf",
+    "sha256": "7dde307fa887fc65ff5830cfada77a7decc5dae8d3c816c9d39ba3f1af1c4ed7"
+  },
+  {
+    "file": "barlow-condensed-800-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1_3E.ttf",
+    "sha256": "73bc9e17231e9073780d3c81574c7253cecd5645c93544df1a935054b39a364f"
+  },
+  {
+    "file": "barlow-condensed-900-normal.ttf",
+    "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0_3E.ttf",
+    "sha256": "0ec6b3cca2df54f108f8dc239597e0eab386343a230afad8a0f445c7d21c3e77"
+  },
+  {
+    "file": "barlow-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlow/OFL.txt",
+    "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+  },
+  {
+    "file": "barlowcondensed-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+    "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+  }
+]

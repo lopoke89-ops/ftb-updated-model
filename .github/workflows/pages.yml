@@ -1,0 +1,52 @@
+name: Publish FTB Scout
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check browser code and analytics
+        run: |
+          node --check "nba ftb shi/analyst_ui.js"
+          node "nba ftb shi/tests/test_browser.cjs"
+          node "nba ftb shi/tests/test_analyst.cjs"
+          node "nba ftb shi/tests/test_scouting.cjs"
+          node "nba ftb shi/tests/test_pages.cjs"
+      - name: Validate and export public files
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_*.py'
+          python3 scripts/build_pages.py
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          path: _site
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

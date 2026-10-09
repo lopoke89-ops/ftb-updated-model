@@ -1,0 +1,11 @@
+# Preserve the bytes that the dataset, model and vendor manifests authenticate.
+*.js -text
+*.json -text
+*.html -text
+*.css -text
+*.ttf -text
+*.txt -text
+*.py text eol=lf
+*.cjs text eol=lf
+*.yml text eol=lf
+*.md text eol=lf

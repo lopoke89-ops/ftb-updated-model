@@ -1,1 +1,41 @@
-# ftb-updated-model
+# FTB Scout
+
+**Website:** https://lopoke89-ops.github.io/ftb-updated-model/
+
+NBA first team score research, including made free throws. The published app preserves the v5 design and the corrected 2025–26 canonical dataset through June 13, 2026.
+
+## What works on GitHub Pages
+
+- 1,322 completed games and 2,644 team first scores, including 249 made free throws.
+- Historical player grades, scoring and opportunity statistics, expanded player details, and position charts.
+- Regular season, playoffs, regular season plus playoffs, play-in and Cup-final filters; independent head-to-head and rolling-history filters.
+- Historical review and dated pregame research, keeping selected-game and later results out of pregame evidence.
+- Separate 2026–27 history, with prior-season scouting available when the new season has no completed sample.
+- Browser requests for ESPN schedules, current rosters, injury reports and play-by-play. Provider availability is shown in the app. Rosters do not confirm upcoming starters.
+- **Reload verified history**, using a coherent published JSON snapshot.
+
+The Python game collector, workbook rebuild/import, capture archives and saved research journal run in the local application. Their write controls are disabled on Pages. The website does not have a shared database or collect new completed games automatically. Historical grades describe observed performance; 2026–27 forecast probabilities remain withheld until evaluated for that season.
+
+## Publishing and updating
+
+Pushes to `main` run `.github/workflows/pages.yml`: test the analytics, validate data and model hashes, export an allowlisted `_site` artifact, then deploy through GitHub Pages. Failed checks prevent deployment.
+
+The active website source is `nba ftb shi`. Older files retained elsewhere in this repository are excluded from the public website. The exporter includes only HTML, app JavaScript, styles, verified vendor assets and public dataset snapshots. Workbooks, executables, caches, local journals and server code are excluded from the Pages artifact.
+
+To publish newly verified data, collect/rebuild in the local app first. Bring the coherent `merged_dataset.json`, `analyst_data.json`, `analyst_data.js`, `analyst_evaluation.json`, `analyst_evaluation.js` and embedded canonical preload in `ftb-scout.html` into this source directory together. For 2026–27, also update its manifest and active version under `seasons/2026-27`. Update `site-config.json` with the publication date, run the checks below, then commit and push. Do not hand-edit scoring outcomes or season counts to make validation pass.
+
+## Local static preview
+
+Requires Python 3.10+ and Node.js. No package installation is needed for the exporter and JavaScript checks.
+
+```sh
+node "nba ftb shi/tests/test_browser.cjs"
+node "nba ftb shi/tests/test_analyst.cjs"
+node "nba ftb shi/tests/test_scouting.cjs"
+node "nba ftb shi/tests/test_pages.cjs"
+python -m unittest discover -s scripts -p 'test_*.py'
+python scripts/build_pages.py
+python -m http.server 8002 --bind 127.0.0.1 --directory _site
+```
+
+Open http://127.0.0.1:8002/ . The exporter requires a new or empty output folder; use `--output` to choose a fresh folder for subsequent builds. `deployment-manifest.json` records published asset hashes and dataset coverage.
