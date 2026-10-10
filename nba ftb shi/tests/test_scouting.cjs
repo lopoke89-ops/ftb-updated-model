@@ -106,28 +106,29 @@ test('combined rolling scope contains only the last eligible games per team',()=
   assert(Object.values(s.teamStats).every(t=>t.games===5));assert(s.games.every(g=>['regular-season','playoffs'].includes(g.phase)));
 });
 const gradedSnap=H.snapshotForScope(A,archive,{mode:'review',phase:'regular-and-playoffs'}),gradeContext=H.gradeContext(gradedSnap);
+const gradeSample=(starts,wins,{gp=starts,ftbMade=wins,teamGames=gp}={})=>({teamGames,scoutingDetail:{starts,starterWins:wins,gp,ftbMade}});
 test('grade baseline uses starters in the selected historical sample',()=>{
   assert.equal(gradeContext.starts,13150);assert.equal(gradeContext.wins,2626);assert.equal(gradeContext.baseline,2626/13150);
 });
 test('historical grade blends starter results and uses exact samples',()=>{
   const p=H.playerEvidence(gradedSnap,'5104157','SAS',true),g=H.historicalGrade(p,gradeContext);
   assert(g.rated);assert.equal(g.letter,'S');assert.equal(g.starts,77);assert.equal(g.wins,32);
-  assert.equal(g.score,(32+20*gradeContext.baseline)/97);assert.equal(g.rawRate,32/77);
+  assert.equal(g.adjustedStartRate,(32+20*gradeContext.baseline)/97);assert.equal(g.score,Math.min(g.adjustedStartRate,32/p.scoutingDetail.gp));assert.equal(g.rawRate,32/77);
 });
 test('small positive and zero starter samples cannot receive fabricated grades',()=>{
   for(const starts of [0,1,4]){const g=H.historicalGrade({scoutingDetail:{starts,starterWins:starts}},gradeContext);assert.equal(g.letter,'NR');assert.equal(g.score,null);assert(!g.rated);}
-  const g=H.historicalGrade({scoutingDetail:{starts:5,starterWins:0}},gradeContext);assert(g.rated);assert(g.smallSample);assert(g.score>0);assert.equal(g.letter,'B');
+  const g=H.historicalGrade(gradeSample(5,0),gradeContext);assert(g.rated);assert(g.smallSample);assert.equal(g.score,0);assert.equal(g.letter,'D');
 });
 test('grades mark small samples and reject inconsistent or unsupported inputs',()=>{
-  assert(H.historicalGrade({scoutingDetail:{starts:19,starterWins:4}},gradeContext).smallSample);
-  assert(!H.historicalGrade({scoutingDetail:{starts:20,starterWins:4}},gradeContext).smallSample);
+  assert(H.historicalGrade(gradeSample(19,4),gradeContext).smallSample);
+  assert(!H.historicalGrade(gradeSample(20,4),gradeContext).smallSample);
   assert(!H.historicalGrade({scoutingDetail:{starts:5,starterWins:6}},gradeContext).rated);
   assert(!H.historicalGrade({scoutingDetail:{starts:20,starterWins:5}},{...gradeContext,trusted:false}).rated);
   assert(!H.historicalGrade({scoutingDetail:{starts:20,starterWins:5}},{...gradeContext,target:'first-game-score-including-free-throws'}).rated);
 });
 test('grade boundaries follow the published historical tiers',()=>{
   for(const [score,letter] of [[.25,'S'],[.2499,'A'],[.18,'A'],[.1799,'B'],[.12,'B'],[.1199,'C'],[.06,'C'],[.0599,'D']]){
-    const starts=10000,wins=Math.round(starts*score),g=H.historicalGrade({scoutingDetail:{starts,starterWins:wins}},{...gradeContext,baseline:score});assert.equal(g.letter,letter);
+    const starts=10000,wins=Math.round(starts*score),g=H.historicalGrade(gradeSample(starts,wins),{...gradeContext,baseline:score});assert.equal(g.letter,letter);
   }
 });
 test('competition changes recompute the grade and its starter sample',()=>{
@@ -143,6 +144,28 @@ test('traded-player grade uses prior starter history instead of a new-team zero'
 test('historical grade sorting keeps ungraded players last without changing forecast probabilities',()=>{
   const list=[{name:'NR',historicalGrade:{score:null},probability:.9},{name:'B',historicalGrade:{score:.14},probability:.5},{name:'S',historicalGrade:{score:.3},probability:.1}];
   const copy=JSON.stringify(list);assert.deepEqual(H.sortPlayers(list,'grade').map(p=>p.name),['S','B','NR']);assert.equal(JSON.stringify(list),copy);
+});
+test('Diawara cannot receive an elite grade from four first scores in seven starts',()=>{
+  const s=H.snapshotForScope(A,archive,{mode:'review'}),p=H.playerEvidence(s,'5289900','NYK'),g=H.historicalGrade(p,H.gradeContext(s));
+  assert.equal(p.teamFtbMade,4);assert.equal(p.teamGames,102);assert.equal(g.rawRate,4/7);assert(g.adjustedStartRate>.25);
+  assert.equal(g.score,4/102);assert.equal(g.letter,'D');assert(g.shareLimited&&g.smallSample);
+  const rows=['NYK','PHI'].flatMap(team=>(s.rosters[team]||[]).map(r=>{const p=H.playerEvidence(s,r.id,team);return {...p,name:r.name,historicalGrade:H.historicalGrade(p,H.gradeContext(s))};}));
+  const sorted=H.sortPlayers(rows,'grade'),index=sorted.findIndex(p=>p.id==='5289900');assert(index>5);
+  for(const p of sorted.slice(0,index).filter(p=>p.historicalGrade.rated))assert(p.historicalGrade.score>=g.score);
+});
+test('all graded players respect observed scoring share across competition and rolling scopes',()=>{
+  for(const phase of Object.keys(H.PHASES))for(const window of [0,5,20]){
+    const s=H.snapshotForScope(A,archive,{mode:'review',phase,window}),context=H.gradeContext(s);
+    for(const row of Object.values(s.players))for(const team of Object.keys(row.ftbByTeam))for(const acrossStints of [false,true]){
+      const p=H.playerEvidence(s,row.id,team,acrossStints),g=H.historicalGrade(p,context);if(!g.rated)continue;
+      assert(g.score<=p.firstBasketRate+1e-12,row.name+' '+phase+' '+window);assert(g.score<=g.adjustedStartRate);
+      if(g.letter==='S')assert(p.firstBasketRate>=.25);if(g.letter==='A')assert(p.firstBasketRate>=.18);
+    }
+  }
+});
+test('incomplete and contradictory scoring-share counts cannot bypass the grade cap',()=>{
+  for(const p of [{scoutingDetail:{starts:7,starterWins:4}},gradeSample(7,4,{gp:6,teamGames:102}),gradeSample(7,4,{gp:75,ftbMade:3,teamGames:102}),gradeSample(7,4,{gp:75,teamGames:74})])assert(!H.historicalGrade(p,gradeContext).rated);
+  const p=gradeSample(7,4,{gp:75,teamGames:null}),g=H.historicalGrade(p,gradeContext);assert.equal(g.shareBasis,'appearance');assert.equal(g.shareDenominator,75);assert.equal(g.score,4/75);assert.equal(g.letter,'D');
 });
 const pair={home:'OKC',away:'SAS'},pairKey=g=>[g.home,g.away].sort().join('|');
 const scoped=(phase='all',extra={})=>H.snapshotForScope(A,archive,{mode:'review',phase,positionReferences:refs,historyMatchups:[pair],...extra});
@@ -210,7 +233,7 @@ test('no playoff meetings remain empty while the regular-season sample still exi
 test('head-to-head grades use exact team-side starts and the same broader league baseline',()=>{
   const s=scoped('regular-and-playoffs'),p=H.playerEvidence(s,'5104157','SAS',true),g=H.historicalGrade(p,gradeContext);
   assert.equal(p.scoutingDetail.starts,9);assert.equal(p.teamFtbMade,2);assert.equal(p.teamGames,12);assert.equal(p.firstBasketRate,2/12);
-  assert.equal(g.score,(2+20*gradeContext.baseline)/29);assert.equal(g.baseline,gradeContext.baseline);assert(g.smallSample);assert.equal(g.letter,'A');
+  assert.equal(g.adjustedStartRate,(2+20*gradeContext.baseline)/29);assert.equal(g.score,2/12);assert.equal(g.baseline,gradeContext.baseline);assert(g.smallSample);assert.equal(g.letter,'B');
 });
 function sideGame(id,date,home,away,actorTeam,points){
   const row=team=>({id:team===actorTeam?'1':'2',name:team===actorTeam?'Traded Player':'Other Player',rawPosition:'C',starter:true,played:true,points,threeMade:1,threeAttempted:2});
@@ -241,7 +264,7 @@ function renderUI(overrides={}){
 }
 test('UI head-to-head recomputes grades and keeps the current-season forecast input separate',()=>{
   const r=renderUI(),p=r.cards[0];assert.equal(p.teamFtbMade,2);assert.equal(p.scoutingDetail.starts,9);assert.equal(p.gp,12);assert.equal(p.ppg,283/12);
-  assert(p.headToHead);assert.equal(p.opponent,'OKC');assert.equal(p.statsSeason,'2025-26');assert.equal(p.gradeBasis,'history');assert.equal(p.historicalGrade.letter,'A');
+  assert(p.headToHead);assert.equal(p.opponent,'OKC');assert.equal(p.statsSeason,'2025-26');assert.equal(p.gradeBasis,'history');assert.equal(p.historicalGrade.letter,'B');
   assert(p.forecastWithheld);assert.equal(p.probability,undefined);assert(r.calls.every(s=>s.games.length===0));assert(r.text.includes('12 matching historical fixtures'));
 });
 test('UI changing competition and period recomputes head-to-head counts and grade eligibility',()=>{
@@ -263,5 +286,12 @@ test('UI does not expose forecast percentages even in supported season when head
 test('UI alternate target explains unsupported grades without claiming default-target rates',()=>{
   const r=renderUI({target:'first-team-made-field-goal'});assert(r.cards.every(p=>!p.historicalGrade.rated));
   assert(r.text.includes('Historical grades are unavailable for this scoring target'));assert(!r.text.includes('Grades use sample-adjusted first-score rates while starting'));
+});
+test('analysis filters default to a native collapsed panel and retain every control',()=>{
+  const r=renderUI(),nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
+  const panel=nodes.find(n=>n.type==='details'&&n.props?.className==='filter-panel');assert(panel);assert(!panel.props.open);
+  const children=[];function collect(n){if(!n||typeof n!=='object')return;children.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(collect):collect(c);}collect(panel);
+  assert(children.some(n=>n.type==='summary'));for(const label of ['Season','Analysis mode','Grading basis','Game date','Competition phase','Opponent history','Statistics period','Scoring target','Matchup'])assert(children.some(n=>n.props?.['aria-label']===label),label);
+  assert(children.some(n=>n.props?.['aria-label']==='Selected-date matchups'));assert(r.text.includes('Head-to-head · Full sample'));
 });
 console.log(JSON.stringify({passed:count}));

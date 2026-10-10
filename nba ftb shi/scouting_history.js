@@ -10,7 +10,7 @@
     all:'All competitions · includes Play-in & Cup final',
     'play-in':'Play-in','nba-cup-final':'NBA Cup final'
   };
-  const GRADE_POLICY={minimumStarts:5,priorStarts:20,smallSampleStarts:20,
+  const GRADE_POLICY={minimumStarts:5,priorStarts:20,smallSampleStarts:20,shareCap:true,
     bands:[['S',.25,'#FFD700'],['A',.18,'#4ADE80'],['B',.12,'#60A5FA'],['C',.06,'#FB923C'],['D',0,'#94a3b8']]};
   function snapshotForScope(A,data,options={}){
     const headToHead=Array.isArray(options.historyMatchups),phase=options.phase||'all';
@@ -85,11 +85,21 @@
     if(!Number.isFinite(context.baseline))return unrated('No starter sample');
     if(!Number.isInteger(starts)||!Number.isInteger(wins)||wins<0||wins>starts)return unrated('Invalid starter sample');
     if(starts<GRADE_POLICY.minimumStarts)return unrated(`Needs ${GRADE_POLICY.minimumStarts} starts · has ${starts}`);
-    const score=(wins+GRADE_POLICY.priorStarts*context.baseline)/(starts+GRADE_POLICY.priorStarts);
+    // A conditional success rate from a few starts cannot establish an elite
+    // full-sample record. Cap the grade at observed scoring share in that same
+    // scope. Prior history across trades uses appearances, not old-team totals.
+    const gp=d.gp,totalScores=d.ftbMade,shareBasis=player.teamGames===null?'appearance':'team-game';
+    const shareDenominator=shareBasis==='appearance'?gp:player.teamGames;
+    if(!Number.isInteger(gp)||gp<starts||!Number.isInteger(totalScores)||totalScores<wins||totalScores>gp||
+       !Number.isInteger(shareDenominator)||shareDenominator<gp||shareDenominator<=0)return unrated('Complete scoring-share sample unavailable');
+    const share=totalScores/shareDenominator;
+    const adjustedStartRate=(wins+GRADE_POLICY.priorStarts*context.baseline)/(starts+GRADE_POLICY.priorStarts);
+    const score=Math.min(adjustedStartRate,share),shareLimited=share<adjustedStartRate;
     const [letter,,color]=GRADE_POLICY.bands.find(([,minimum])=>score>=minimum);
     return {rated:true,letter,color,score,starts,wins,rawRate:wins/starts,baseline:context.baseline,
+      adjustedStartRate,share,shareBasis,shareDenominator,shareNumerator:totalScores,shareLimited,
       priorStarts:GRADE_POLICY.priorStarts,smallSample:starts<GRADE_POLICY.smallSampleStarts,
-      reason:`Historical grade · ${starts} starts${starts<GRADE_POLICY.smallSampleStarts?' · small sample':''}`};
+      reason:`Historical grade · ${starts} starts${shareLimited?' · scoring-share cap':''}${starts<GRADE_POLICY.smallSampleStarts?' · small sample':''}`};
   }
   function sortPlayers(players,key){
     const descriptive=key==='probability'&&players.every(p=>p.forecastWithheld||!Number.isFinite(p.probability));

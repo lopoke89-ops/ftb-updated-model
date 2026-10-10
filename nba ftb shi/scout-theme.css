@@ -33,6 +33,13 @@ small{color:#94a3b8}
 .controls label{max-width:100%;min-width:0;display:flex;flex-direction:column;gap:3px;font-size:11px;color:#94a3b8;letter-spacing:.5px}
 .controls input[type=checkbox]{accent-color:#ef4444}
 .analysis-controls{padding-bottom:7px;border-bottom:1px solid #161f35}
+.filter-panel{margin:5px 0 9px;border:1px solid #26334b;border-radius:7px;background:#0b0f1a}
+.filter-panel>summary{padding:8px 10px;color:#cbd5e1;line-height:1.45}
+.filter-title{font-weight:700;letter-spacing:.5px;margin-right:12px}
+.filter-summary{font-size:12px;color:#94a3b8;overflow-wrap:anywhere}
+.filter-panel[open]>summary{border-bottom:1px solid #161f35;margin-bottom:9px}
+.filter-panel .analysis-controls{padding:0 10px 8px;margin-bottom:7px}
+.filter-panel .matchup-chips{padding:0 10px 3px}
 .date-caption{font-size:12px;font-weight:700;letter-spacing:1.5px;color:#64748b;text-transform:uppercase;margin:5px 0 7px}
 .matchup-chips{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 7px}
 .matchup-chips button,.sort-chips button{padding:3px 10px;border-radius:18px;border-color:#161f35;font-size:13px;color:#94a3b8;white-space:nowrap}
