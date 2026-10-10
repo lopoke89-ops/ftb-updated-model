@@ -29,6 +29,7 @@ jobs:
           node --check "nba ftb shi/parlay.js"
           node --check "nba ftb shi/parlay_ui.js"
           node "nba ftb shi/tests/test_parlay.cjs"
+          python3 -m unittest discover -s "nba ftb shi/tests" -p 'test_opening_gamebooks.py'
       - name: Validate and export public files
         run: |
           python3 -m unittest discover -s scripts -p 'test_*.py'

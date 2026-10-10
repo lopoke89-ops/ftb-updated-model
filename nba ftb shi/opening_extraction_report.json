@@ -1,0 +1,35 @@
+{
+  "gamesExpected": 1322,
+  "verified": 1322,
+  "errors": {},
+  "firstScoreDifferences": [],
+  "firstFieldGoalDifferences": [],
+  "unresolvedOpeningAttempts": [
+    {
+      "game": "401810423",
+      "target": "firstFieldGoalAttempts",
+      "team": "OKC",
+      "event": {
+        "sequence": 10,
+        "period": 1,
+        "clock": "10:55",
+        "team": "OKC",
+        "text": "MISS J.Williams 13' Fadeaway Shot",
+        "page": 9,
+        "line": 16,
+        "athleteIds": [
+          "4432823",
+          "4593803"
+        ],
+        "actorToken": "J.Williams",
+        "points": 0,
+        "scoringPlay": false,
+        "isAttempt": true,
+        "isFreeThrow": false,
+        "homeScore": 2,
+        "awayScore": 4,
+        "identityUnresolved": true
+      }
+    }
+  ]
+}

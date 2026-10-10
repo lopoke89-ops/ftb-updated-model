@@ -96,6 +96,23 @@ class Publication(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Browser shooting evidence differs'):
                 pages.validate(pages.SOURCE)
 
+    def test_opening_content_changes_block_export(self):
+        original = pages.read
+        original_script = pages.javascript_payload
+        def alter(data):
+            opening = data['openingEvidence']
+            next(iter(opening['games'].values()))['firstScores'].clear()
+            return data
+        def changed(path):
+            data = original(path)
+            return alter(data) if path.name == 'parlay_data.json' else data
+        def changed_script(path, variable):
+            data = original_script(path, variable)
+            return alter(data) if variable == '__FTB_PARLAY_DATA__' else data
+        with patch.object(pages, 'read', side_effect=changed), patch.object(pages, 'javascript_payload', side_effect=changed_script):
+            with self.assertRaisesRegex(ValueError, 'Opening content hash mismatch'):
+                pages.validate(pages.SOURCE)
+
 
 if __name__ == '__main__':
     unittest.main()

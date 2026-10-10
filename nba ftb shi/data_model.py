@@ -121,6 +121,18 @@ def build_dataset(ftb_path=CANONICAL_DATA,lineup_path=None,ppg_path=None,roster_
             if source_names.get(text(r[side+'_PLAYER_ID']))!=key(r[side+'_FIRST_SCORER']):raise ValueError('Scoring athlete identity disagrees with player statistics')
     for df,cols in [(ftb,['HOME_FIRST_SCORER','AWAY_FIRST_SCORER']),(line,[f'STARTER_{i}' for i in range(1,6)])]:
         if any(not text(v) for c in cols for v in df[c]):raise ValueError('Incomplete source scorer/lineup records')
+    from official_stats import load, load_opening
+    official=load();opening=load_opening(official)
+    full_names={text(r.PLAYER_ID):text(r.FULL_NAME) for r in ppg.itertuples()}
+    for index,r in ftb.iterrows():
+        game=opening['games'][text(r.ESPN_EVENT_ID)]
+        for side in ('HOME','AWAY'):
+            event=game['firstScores'][text(r[side+'_TEAM'])]
+            if event['id'] not in full_names:raise ValueError('Official scorer absent from canonical identities')
+            values={'PLAYER_ID':event['id'],'FIRST_SCORER':full_names[event['id']],
+                    'SHOT_DESC':event['text'],'POINTS':event['points'],'TIME':event['clock'],
+                    'PERIOD':event['period'],'SEQUENCE':event['sequence']}
+            for field,value in values.items():ftb.at[index,side+'_'+field]=value
     ftb=ftb.sort_values(['GAME_DATE','GAME_ID']);line=line.sort_values(['GAME_DATE','GAME_ID'])
     ids=Identities(roster,ppg,line);players={};events=[];team_fixtures=defaultdict(set);phase_fixtures=defaultdict(lambda:defaultdict(set));teams=defaultdict(lambda:{'games':0,'firstPointWins':0,'ties':0})
     def ensure(k,name,pos=''):
@@ -183,6 +195,8 @@ def build_dataset(ftb_path=CANONICAL_DATA,lineup_path=None,ppg_path=None,roster_
     for p in players.values():p['asOfDate']=meta['asOfDate'];p['schemaVersion']=4;p['datasetId']=DATASET_ID;p['scoringDefinition']=SCORING_DEFINITION
     from official_stats import load,apply_canonical
     apply_canonical(players,meta,load())
+    meta['sources']['officialOpening']={'file':'opening_data.json','contentHash':opening['meta']['contentHash']}
+    for p in players.values():p['provenance']['ftb']='NBA official gamebook opening play-by-play'
     merged={'meta':meta,'players':players,'source':'canonical-season-workbook-and-NBA-gamebooks','schemaVersion':4}
     pipeline={'meta':meta,'schemaVersion':4,'playerFtb':{p['name']:p for p in players.values() if p['ftbMade']>0},'teamStats':team_stats,'positionData':positions,'savedAt':meta['generatedAt'],'source':'canonical-season-workbook','gamesProcessed':len(ftb)}
     return merged,pipeline,{'meta':meta,'issues':issues,'events':events}

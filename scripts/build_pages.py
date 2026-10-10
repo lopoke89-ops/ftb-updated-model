@@ -66,7 +66,28 @@ def validate(source):
     require(javascript_payload(source / 'parlay_data.js', '__FTB_PARLAY_DATA__') == parlay, 'Browser shooting evidence differs from JSON')
     require(hashlib.sha256(json.dumps(parlay['games'], separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest() == parlay['meta']['contentHash'], 'Parlay shooting content hash mismatch')
     require(set(parlay['games']) == {g['id'] for g in games}, 'Parlay game coverage mismatch')
+    opening = parlay.get('openingEvidence')
+    require(bool(opening), 'Official opening evidence is required')
+    require(opening['meta']['parentEvidenceContentHash'] == a['evidenceContentHash'], 'Opening evidence parent mismatch')
+    require(set(opening['games']) == {g['id'] for g in games} and opening['meta']['games'] == len(games), 'Opening fixture coverage mismatch')
+    opening_hash = hashlib.sha256(json.dumps(opening['games'], separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest()
+    require(opening_hash == opening['meta']['contentHash'] == parlay['meta']['openingContentHash'], 'Opening content hash mismatch')
     for g in games:
+        op = opening['games'][g['id']]
+        require(op['source'] == g['source'] and op['sourceHash'] == g['sourceHash'], 'Opening PDF provenance mismatch')
+        for team in (g['home'], g['away']):
+            for key in ('firstScores','firstFieldGoals'):
+                event = op[key][team]
+                require(event['period'] == 1 and event['points'] > 0 and event['page'] > 1, 'Invalid official opening score')
+                require(any(p['played'] and p['id'] == event['id'] for p in g['teams'][team]['players']), 'Opening scorer not in official appearance ledger')
+                require(all(g[key][team][field] == event[field] for field in ('id','clock','period','sequence','points','shot')), 'Shared scorer differs from official opening ledger')
+            field = op['firstFieldGoals'][team]
+            require(not field['isFreeThrow'] and field['points'] in (2,3), 'First field goal cannot be a free throw')
+            for ft in field['andOneFreeThrows']:
+                require(ft['clock'] == field['clock'] and ft['athleteIds'] == [field['id']] and ft['linkedBasketSequence'] == field['sequence'], 'Invalid and-one basket link')
+                foul = next((e for e in op['orderedEvents'] if e['sequence'] == ft['linkedFoulSequence']), None)
+                require(foul and foul['team'] != team and 'S.FOUL' in foul['text'], 'And-one shooting foul not supported')
+                require('1 of 1' in ft['text'] and not re.search(r'technical|flagrant|clear path|take foul|transition',ft['text'],re.I), 'Special free throw misclassified as and-one')
         for team, box in g['teams'].items():
             rows = parlay['games'][g['id']][team]
             require(set(rows) == {p['id'] for p in box['players'] if p['played']}, 'Parlay appearance mismatch')
@@ -139,6 +160,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
                 'phaseCounts': PHASES, 'currentSeasonGames': len(current['games']),
                 'canonicalWorkbookHash': history['analysis']['meta']['canonicalWorkbookHash'],
                 'modelCodeHash': history['evaluation']['modelCodeHash'],
+                'openingContentHash': history['parlay']['meta']['openingContentHash'],
                 'files': {p.relative_to(output).as_posix(): {'sha256': digest(p), 'bytes': p.stat().st_size}
                           for p in sorted(output.rglob('*')) if p.is_file()}}
     (output / 'deployment-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')

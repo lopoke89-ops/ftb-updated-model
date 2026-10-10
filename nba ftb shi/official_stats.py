@@ -1,6 +1,7 @@
 """NBA gamebook final boxes are authoritative for the completed 2025-26 stats.
 
-The workbook continues to supply first-score events and specific role references.
+NBA opening play-by-play supplies first scores and first made field goals.
+The workbook continues to supply specific role references.
 Original ESPN captures and workbooks are retained as historical source evidence.
 """
 import hashlib
@@ -37,8 +38,11 @@ def apply_analysis(data, official):
     if {g['id'] for g in data['games']} != set(official['games']):
         raise ValueError('Official game coverage differs from analysis')
     prior = data['meta'].get('supersedesEvidenceContentHash', data['meta']['evidenceContentHash'])
+    opening = load_opening(official)
+    positions = {p['sourcePlayerId']: p['position'] for p in json.loads((BASE/'merged_dataset.json').read_text(encoding='utf-8'))['players'].values() if p.get('sourcePlayerId')}
     for game in data['games']:
         source = official['games'][game['id']]
+        plays = opening['games'][game['id']]
         if (game['date'], game['home'], game['away'], game['phase']) != tuple(source[k] for k in ('date', 'home', 'away', 'phase')):
             raise ValueError('Official fixture mismatch: ' + game['id'])
         for team, box in game['teams'].items():
@@ -65,11 +69,24 @@ def apply_analysis(data, official):
             old_order = [pid for pid in box['starters'] if pid in starters]
             box['players'] = players
             box['starters'] = old_order + [pid for pid in starters if pid not in old_order]
+            for field in ('firstScores', 'firstFieldGoals'):
+                old_actor = game[field][team]
+                event = plays[field][team]
+                game[field][team] = {k: event[k] for k in ('id', 'name', 'shot', 'clock', 'period', 'sequence', 'points')}
+                game[field][team]['position'] = old_actor.get('position', '') if old_actor['id'] == event['id'] else positions.get(event['id'], '')
             for actors in (game['firstScores'], game['firstFieldGoals']):
                 if actors[team]['id'] not in actual:
                     raise ValueError('First-scoring actor missing from official final box')
         if 'openingSource' not in game:
             game['openingSource'], game['openingSourceHash'] = game['source'], game['sourceHash']
+        # Tip recipient evidence remains separately sourced; all scoring and
+        # attempt features now use the same official PDF opening sequence.
+        retained = game.get('opening', {})
+        game['opening'] = {**retained, **{k: plays[k] for k in ('orderedEvents', 'firstScores', 'firstFieldGoals')},
+                           'firstAttempts': {t:e for t,e in plays['firstAttempts'].items() if not e.get('identityUnresolved')},
+                           'firstFieldGoalAttempts': {t:e for t,e in plays['firstFieldGoalAttempts'].items() if not e.get('identityUnresolved')},
+                           'canonicalDifferences': [], 'source': plays['source'], 'sourceHash': plays['sourceHash'],
+                           'possessionSource': game['openingSource'], 'possessionSourceHash': game['openingSourceHash']}
         game.update(source=source['source'], sourceHash=source['sha256'],
                     boxScoreSource='NBA official final box', capturedAt=source['capturedAt'],
                     lineupSource='NBA official final box')
@@ -78,9 +95,27 @@ def apply_analysis(data, official):
                         supersedesEvidenceContentHash=prior,
                         statisticalAuthority='Downloaded NBA official gamebook final boxes; PDF wins every conflict',
                         officialBoxscoreContentHash=official['meta']['contentHash'],
+                        officialOpeningContentHash=opening['meta']['contentHash'],
                         optionalStatGaps={},
-                        sourceCaptureMeaning='NBA final-box PDF statistics; retained ESPN opening-play evidence and dated role references')
+                        sourceCaptureMeaning='NBA PDF final boxes, first scores and first made field goals; separately retained ESPN jump-ball/possession evidence and dated role references')
     data['meta']['evidenceContentHash'] = content_hash({'games': data['games'], 'datedRoleEvidence': data['datedRoleEvidence']})
+    return data
+
+
+def load_opening(official, base=BASE):
+    data = json.loads((Path(base)/'opening_data.json').read_text(encoding='utf-8'))
+    if content_hash(data['games']) != data['meta']['contentHash'] or set(data['games']) != set(official['games']):
+        raise ValueError('Official opening evidence is incomplete or changed')
+    for gid, game in data['games'].items():
+        source = official['games'][gid]
+        if game['sourceHash'] != source['sha256'] or (game['date'], game['phase']) != (source['date'], source['phase']):
+            raise ValueError('Official opening source mismatch: '+gid)
+        for field in ('firstScores', 'firstFieldGoals'):
+            if set(game[field]) != set(source['teams']):
+                raise ValueError('Official opening team coverage mismatch: '+gid)
+            for team, event in game[field].items():
+                if event['id'] not in source['teams'][team] or event['points'] not in (1, 2, 3):
+                    raise ValueError('Unverified official scorer: '+gid)
     return data
 
 

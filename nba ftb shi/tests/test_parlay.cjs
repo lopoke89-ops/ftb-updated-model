@@ -50,6 +50,34 @@ test('missing or mismatched shooting evidence cannot manufacture selections',()=
 test('excluded players never appear in any market',()=>{const before=rank(regular),ids=before.map(s=>s.pick.id),after=rank(regular,'SAS','NYK',{excludedIds:ids});assert(after.every(s=>!s.pick||!ids.includes(s.pick.id)));});
 test('missing lines do not invent prop sides or prices',()=>{for(const s of rank(regular))if(s.market!=='first-team-basket'){assert.equal(s.pick.decision.line,null);assert.equal(s.pick.decision.side,null);assert.equal(s.pick.decision.status,'Market line unavailable');}});
 test('manual lines yield reproducible observed over under and push counts',()=>{const rows=[{points:10},{points:20},{points:30}],d=P.lineDecision(rows,'points',20);assert.equal(d.side,null);assert.deepEqual([d.over,d.under,d.push,d.n],[1,1,1,3]);assert.equal(P.lineDecision(rows,'points',19.5).side,'Over');assert.equal(P.lineDecision(rows,'points',20.5).side,'Under');assert.equal(P.lineDecision(rows,'points',-1).line,null);});
+test('official opening evidence covers every fixture and retains source hashes',()=>{
+  const o=extra.openingEvidence;assert.equal(o.meta.games,1322);assert.equal(o.meta.parentEvidenceContentHash,data.meta.evidenceContentHash);assert(regular.scope.openingVerified);
+  for(const g of data.games){const x=o.games[g.id];assert.equal(x.sourceHash,g.sourceHash);assert.equal(x.source,g.source);for(const team of [g.home,g.away]){for(const key of ['firstScores','firstFieldGoals']){const e=x[key][team];assert(g.teams[team].players.some(p=>p.played&&p.id===e.id));assert.equal(e.period,1);assert(e.page>1);for(const field of ['id','clock','period','sequence','points','shot'])assert.equal(g[key][team][field],e[field]);}assert(!x.firstFieldGoals[team].isFreeThrow);}}
+});
+test('basket definition changes actual counts while points and threes stay independent',()=>{
+  const fg=P.build(A,H,data,extra,{mode:'review',phase:'regular-season',positionReferences:refs,firstBasketTarget:P.FIRST_TARGETS[1]});
+  assert.equal(regular.snapshot.meta.target,P.FIRST_TARGETS[0]);assert.equal(fg.snapshot.meta.target,P.FIRST_TARGETS[1]);
+  const a=regular.snapshot.games.find(g=>g.id==='401809235'),b=fg.snapshot.games.find(g=>g.id===a.id);assert(a.firstScores.SAS.isFreeThrow);assert(!b.firstFieldGoals.SAS.isFreeThrow);
+  assert.notDeepEqual(regular.scope.byTeam.SAS.first,fg.scope.byTeam.SAS.first);
+  const first=rank(regular),second=rank(fg);for(let i=1;i<3;i++){assert.equal(first[i].pick.id,second[i].pick.id);assert.equal(first[i].pick.score,second[i].pick.score);}
+  assert(second[0].label.includes('Field Goal'));assert.throws(()=>P.build(A,H,data,extra,{firstBasketTarget:'other'}));
+});
+test('and-one awards retain made and missed free throws with supporting events',()=>{
+  const o=extra.openingEvidence.games;
+  const made=o['401809243'].firstFieldGoals.OKC,missed=o['401809949'].firstFieldGoals.NOP;
+  assert(made.andOneAwarded&&missed.andOneAwarded);assert.equal(made.andOneMade,1);assert.equal(missed.andOneMade,0);assert.equal(missed.andOneAttempts,1);
+  let count=0;for(const g of Object.values(o))for(const e of Object.values(g.firstFieldGoals))for(const ft of e.andOneFreeThrows){count++;assert.equal(ft.clock,e.clock);assert.equal(ft.athleteIds[0],e.id);assert.equal(ft.linkedBasketSequence,e.sequence);const foul=g.orderedEvents.find(x=>x.sequence===ft.linkedFoulSequence);assert(foul&&foul.team!==e.team&&foul.text.includes('S.FOUL'));assert(!/technical|flagrant|clear path|take foul|transition/i.test(ft.text));}
+  assert(count>0);
+});
+test('missing opening evidence withholds only the first-basket slot',()=>{
+  const model=P.build(A,H,data,{...extra,openingEvidence:null},{mode:'review',phase:'regular-season',positionReferences:refs});const slots=rank(model);assert(!slots[0].pick);assert(slots[0].reason.includes('opening play-by-play'));assert(slots[1].pick&&slots[2].pick);
+});
+test('season target uses the full competition average despite a rolling sample',()=>{
+  const five=P.build(A,H,data,extra,{mode:'review',phase:'regular-season',window:5,positionReferences:refs});
+  for(const s of rank(five,'SAS','NYK',{seasonScope:regular.scope}).filter(s=>s.market!=='first-team-basket'&&s.pick)){const p=s.pick,target=p.seasonTarget;assert.equal(target.n,p.stats.gp);assert(p.seasonStats.gp>p.stats.gp);assert.equal(target.threshold,Math.ceil(target.average-1e-10));assert.equal(target.hits,p.rows.filter(r=>r[s.market==='points'?'points':'threeMade']>=target.threshold).length);}
+  assert.equal(P.seasonDecision([{points:22},{points:23}],'points',{ppg:22.4}).hits,1);
+  assert.equal(P.seasonDecision([{threeMade:2},{threeMade:3}],'threes',{threePm:2.3}).hits,1);
+});
 test('five specific positions remain distinct and broad labels are never guessed',()=>{assert.equal(P.positionGroup({rawPosition:'G'}),'unknown');assert.equal(P.positionGroup({position:'SG'}),'SG');assert.equal(P.positionGroup({position:'PF'}),'PF');assert.equal(P.positionGroup({rawPosition:'F-C'}),'unknown');});
 test('Parlay UI renders six slots and separate season comparison tables',()=>{
   const states=['regular-season',{}];let i=0;const w={FTBParlay:P,__FTB_PARLAY_DATA__:extra};
