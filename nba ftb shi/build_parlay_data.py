@@ -1,4 +1,4 @@
-"""Recover complete shooting evidence without altering the frozen analyst model."""
+"""Build Parlay statistics from authoritative NBA gamebooks when available."""
 import hashlib
 import json
 from collections import Counter
@@ -13,6 +13,17 @@ def build(base=BASE, cache=None):
     base = Path(base)
     cache = Path(cache or base.parent / 'season_merge_2026-10-04/source_cache')
     evidence = json.loads((base / 'analyst_data.json').read_text(encoding='utf-8'))
+    from official_stats import load,supplement
+    official=load(base)
+    if official is not None:
+        if evidence['meta'].get('officialBoxscoreContentHash') != official['meta']['contentHash']:
+            raise ValueError('Analysis must be rebuilt from this official ledger first')
+        result=supplement(evidence,official)
+        text=json.dumps(result,separators=(',', ':'),ensure_ascii=False,allow_nan=False)
+        (base/'parlay_data.json').write_text(text,encoding='utf-8')
+        (base/'parlay_data.js').write_text('window.__FTB_PARLAY_DATA__ = '+text+';\n',encoding='utf-8')
+        print(json.dumps(result['meta'],indent=2))
+        return result
     games, phases, totals = {}, Counter(), Counter()
     for game in evidence['games']:
         file = cache / ('summary_' + game['id'] + '.json')

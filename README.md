@@ -4,6 +4,13 @@
 
 NBA first team score research, including made free throws. The published app preserves the v5 design and the corrected 2025–26 canonical dataset through June 13, 2026.
 
+Player appearances and box-score statistics now use all 1,322 downloaded NBA
+gamebook final boxes as the authority. Parlay shows the full stat line with
+regular season and playoffs separated. See [the statistical source policy](nba%20ftb%20shi/OFFICIAL_STATS_POLICY.md)
+and [the correction release](OFFICIAL_STATS_RELEASE_2026-10-10.md). Original
+workbooks, PDFs and source capture archives remain in the local workspace;
+they are required for a full source rebuild and are not hosted on this site.
+
 ## What works on GitHub Pages
 
 - 1,322 completed games and 2,644 team first scores, including 249 made free throws.

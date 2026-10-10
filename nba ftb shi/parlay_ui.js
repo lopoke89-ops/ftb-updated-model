@@ -5,13 +5,13 @@
   const panel={background:'#0d1120',border:'1px solid #161f35',borderRadius:11,padding:14,marginBottom:12};
   const muted={color:'#94a3b8',fontSize:12,lineHeight:1.6};
   function compareTable(id,comparison){
+    const phases=['regular-season','playoffs'],stats=phases.map(phase=>P.summarize(comparison[phase].scope.byPlayer[id]?.all||[]));
+    const metrics=[['GP',s=>String(s.gp)],['MIN',s=>num(s.mpg)],['PTS',s=>num(s.ppg)],['REB',s=>num(s.rpg)],['AST',s=>num(s.apg)],['STL',s=>num(s.spg)],['BLK',s=>num(s.bpg)],['+/-',s=>num(s.plusMinus)],['FGM / FGA',s=>`${num(s.fgm)} / ${num(s.fga)}`],['FG%',s=>pct(s.fgPct)],['3PM / 3PA',s=>`${num(s.threePm)} / ${num(s.threePa)}`],['3P%',s=>pct(s.threePct)],['FTM / FTA',s=>`${num(s.ftm)} / ${num(s.fta)}`],['FT%',s=>pct(s.ftPct)],['TO',s=>num(s.tov)],['PF',s=>num(s.pf)],['OREB',s=>num(s.oreb)],['DREB',s=>num(s.dreb)],['TS%',s=>pct(s.tsPct)]];
     return h('div',{style:{overflowX:'auto'}},h('table',{style:{width:'100%',textAlign:'left',fontSize:12}},
       h('caption',null,'Season averages across team stints · same date cutoff · excludes rolling and opponent filters'),
-      h('thead',null,h('tr',null,['Competition','GP','MPG','PPG','FGM / FGA','FG%','3PM / 3PA','3P%'].map(v=>h('th',{key:v,scope:'col'},v)))),
-      h('tbody',null,['regular-season','playoffs'].map(phase=>{const s=P.summarize(comparison[phase].scope.byPlayer[id]?.all||[]);return h('tr',{key:phase},
-        h('th',{scope:'row'},phase==='playoffs'?'Postseason · Playoffs':'Regular season'),h('td',null,s.gp),h('td',null,num(s.mpg)),h('td',null,num(s.ppg)),
-        h('td',null,`${num(s.fgm)} / ${num(s.fga)}`),h('td',null,pct(s.fgPct)),h('td',null,`${num(s.threePm)} / ${num(s.threePa)}`),h('td',null,pct(s.threePct)));}))),
-      h('small',{style:muted},'Shooting columns are per appearance. Percentages use total makes / total attempts. Play-in and the standalone Cup final are excluded.'));
+      h('thead',null,h('tr',null,['Stat','Regular season','Postseason · Playoffs'].map(v=>h('th',{key:v,scope:'col'},v)))),
+      h('tbody',null,metrics.map(([label,format])=>h('tr',{key:label},h('th',{scope:'row'},label),...stats.map((s,i)=>h('td',{key:phases[i]},format(s))))))),
+      h('small',{style:muted},'Counts are per appearance except GP. Minutes use NBA gamebook seconds. Percentages use summed shooting counts; TS% = PTS / [2 × (FGA + 0.44 × FTA)]. Play-in and the standalone Cup final are excluded.'));
   }
   window.FTBParlayPanel=function ParlayPanel({A,H,data,supplement,options,phase,period,teams,fixtures,rosters,acrossStints,excludedIds,trusted,teamColors={}}){
     const [competition,setCompetition]=useState(['regular-season','playoffs'].includes(phase)?phase:'regular-season'),[lines,setLines]=useState({});

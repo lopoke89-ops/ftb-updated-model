@@ -19,6 +19,7 @@
     return ['PG','SG','SF','PF','C'].includes(raw)?raw:raw==='CENTER'?'C':'unknown';
   }
   function shootingRow(game,team,p,supplement,valid){
+    if(game.boxScoreSource==='NBA official final box'&&!valid)return null;
     const extra=valid?supplement.games?.[game.id]?.[team]?.[p.id]:null;
     // Newly collected seasons carry these fields directly. Older/mismatched supplements cannot fill them.
     const row={...p,...(extra||{})};
@@ -28,11 +29,18 @@
   }
   function summarize(rows){
     const gp=rows.length,total=Object.fromEntries(['points','fga','fgm','threeMade','threeAttempted','ftm','fta'].map(k=>[k,sum(rows,k)]));
+    for(const k of ['rebounds','assists','steals','blocks','turnovers','fouls','offensiveRebounds','defensiveRebounds','plusMinus'])total[k]=gp&&rows.every(r=>Number.isFinite(r[k]))?sum(rows,k):null;
     const minutes=rows.filter(r=>Number.isFinite(r.minutes));
+    const exactMinutes=gp&&rows.every(r=>Number.isFinite(r.minutesSeconds))?sum(rows,'minutesSeconds')/60:null;
+    const average=k=>gp&&Number.isFinite(total[k])?total[k]/gp:null;
     return {gp,total,ppg:gp?total.points/gp:null,fgm:gp?total.fgm/gp:null,fga:gp?total.fga/gp:null,
       threePm:gp?total.threeMade/gp:null,threePa:gp?total.threeAttempted/gp:null,ftm:gp?total.ftm/gp:null,
       fgPct:total.fga?total.fgm/total.fga:null,threePct:total.threeAttempted?total.threeMade/total.threeAttempted:null,
-      mpg:minutes.length?sum(minutes,'minutes')/minutes.length:null,minutesGames:minutes.length,
+      fta:gp?total.fta/gp:null,ftPct:total.fta?total.ftm/total.fta:null,
+      tsPct:total.fga+.44*total.fta?total.points/(2*(total.fga+.44*total.fta)):null,
+      rpg:average('rebounds'),apg:average('assists'),spg:average('steals'),bpg:average('blocks'),
+      tov:average('turnovers'),pf:average('fouls'),oreb:average('offensiveRebounds'),dreb:average('defensiveRebounds'),plusMinus:average('plusMinus'),
+      mpg:exactMinutes!==null?exactMinutes/gp:minutes.length?sum(minutes,'minutes')/minutes.length:null,minutesGames:minutes.length,
       fgCorrelation:correlation(rows,'fga','fgm'),threeCorrelation:correlation(rows,'threeAttempted','threeMade')};
   }
   function sample(snapshot,supplement){

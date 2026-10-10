@@ -7,7 +7,32 @@ const regular=P.build(A,H,data,extra,{mode:'review',phase:'regular-season',posit
 const playoffs=P.build(A,H,data,extra,{mode:'review',phase:'playoffs',positionReferences:refs});
 let count=0;function test(name,fn){fn();count++;console.log('PASS '+name);}
 const rank=(model,team='SAS',opponent='NYK',overrides={})=>P.rankTeam({team,opponent,roster:model.snapshot.rosters[team],snapshot:model.snapshot,sample:model.scope,...overrides});
-test('recovered evidence matches all frozen game hashes and totals',()=>{assert.equal(extra.meta.games,1322);assert.equal(extra.meta.parentEvidenceContentHash,data.meta.evidenceContentHash);assert.equal(extra.meta.totals.points,304328);assert.equal(2*extra.meta.totals.fgm+extra.meta.totals.threeMade+extra.meta.totals.ftm,304328);assert(regular.scope.supplementValid);});
+test('official evidence matches released game hashes and totals',()=>{assert.equal(extra.meta.games,1322);assert.equal(extra.meta.parentEvidenceContentHash,data.meta.evidenceContentHash);assert.equal(extra.meta.totals.points,304328);assert.equal(2*extra.meta.totals.fgm+extra.meta.totals.threeMade+extra.meta.totals.ftm,304328);assert(regular.scope.supplementValid);});
+
+test('NBA corrected participation governs averages and paired correlations',()=>{
+  const v=P.summarize(regular.scope.byPlayer['6478'].all),o=P.summarize(regular.scope.byPlayer['5107156'].all);
+  assert.equal(v.gp,64);assert.equal(v.total.points,965);assert.equal(v.ppg,965/64);assert.equal(v.fgCorrelation.n,64);
+  assert.equal(o.gp,37);assert.equal(o.total.fga,77);assert.equal(o.total.threeAttempted,19);assert.equal(o.total.rebounds,112);assert.equal(o.total.assists,42);
+  assert.equal(o.mpg,20654/60/37);assert(!data.games.find(g=>g.id==='401810583').teams.BOS.players.find(p=>p.id==='6478').played);
+  assert(data.games.find(g=>g.date==='2025-12-01'&&g.away==='CHI'&&g.home==='ORL').teams.CHI.players.find(p=>p.id==='5107156').played);
+});
+
+test('all released box stats equal the authoritative NBA ledger',()=>{
+  const official=read('official_boxscores.json'),keys=['points','fgm','fga','threeMade','threeAttempted','ftm','fta','rebounds','assists','steals','blocks','turnovers','fouls','offensiveRebounds','defensiveRebounds','plusMinus','minutesSeconds'];let appearances=0;
+  assert.equal(data.meta.officialBoxscoreContentHash,official.meta.contentHash);assert.equal(extra.meta.officialBoxscoreContentHash,official.meta.contentHash);
+  for(const g of data.games){assert.equal(g.source,official.games[g.id].source);assert.equal(g.sourceHash,official.games[g.id].sha256);
+    for(const [team,box] of Object.entries(g.teams)){
+      const rows=official.games[g.id].teams[team];assert.deepEqual(box.players.filter(p=>p.played).map(p=>p.id).sort(),Object.keys(rows).sort());
+      for(const p of box.players.filter(p=>p.played)){appearances++;const r=extra.games[g.id][team][p.id];for(const key of keys){assert.equal(p[key],rows[p.id][key]);assert.equal(r[key],rows[p.id][key]);}assert.equal(p.minutes,p.minutesSeconds/60);assert.equal(p.starter,rows[p.id].starter);}
+    }
+  }assert.equal(appearances,28716);
+});
+
+test('full stat percentages derive from totals and missing fields remain unavailable',()=>{
+  const s=P.summarize(regular.scope.byPlayer['5107156'].all),t=s.total;
+  assert.equal(s.rpg,112/37);assert.equal(s.apg,42/37);assert.equal(s.fgPct,t.fgm/t.fga);assert.equal(s.tsPct,t.points/(2*(t.fga+.44*t.fta)));
+  assert.equal(P.summarize([{points:0,fga:0,fgm:0,threeMade:0,threeAttempted:0,ftm:0,fta:0,minutes:0}]).rpg,null);
+});
 test('regular season and postseason never pool',()=>{assert.equal(regular.snapshot.games.length,1230);assert.equal(playoffs.snapshot.games.length,85);assert.throws(()=>P.build(A,H,data,extra,{phase:'all'}));assert.throws(()=>P.build(A,H,data,extra,{phase:'regular-and-playoffs'}));});
 test('every player phase average matches canonical phase averages',()=>{for(const phase of ['regular-season','playoffs']){const model=phase==='playoffs'?playoffs:regular;for(const p of Object.values(canonical.players)){const s=P.summarize(model.scope.byPlayer[p.sourcePlayerId]?.all||[]),c=p.ppgByPhase[phase];assert.equal(s.gp,c.gp,p.name+' '+phase);if(s.gp)assert(Math.abs(s.ppg-c.ppg)<1e-10,p.name+' '+phase);}}});
 test('every played shooting row reconciles makes attempts and points',()=>{for(const g of data.games)for(const [t,box] of Object.entries(g.teams)){let points=0;for(const p of box.players){if(!p.played)continue;const r=P.shootingRow(g,t,p,extra,true);assert(r);points+=r.points;assert.equal(2*r.fgm+r.threeMade+r.ftm,r.points);}assert.equal(points,box.points);}});
