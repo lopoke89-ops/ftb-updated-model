@@ -31,6 +31,10 @@ class Publication(unittest.TestCase):
             self.assertEqual(manifest['firstFreeThrows'], 249)
             self.assertEqual(pages.digest(output / 'scout-theme.css'), pages.digest(pages.SOURCE / 'scout-theme.css'))
             self.assertEqual((output / 'index.html').read_bytes(), (output / 'ftb-scout.html').read_bytes())
+            html = (output / 'index.html').read_text(encoding='utf-8')
+            for name in pages.ASSETS:
+                self.assertIn(name + '?v=' + pages.digest(output / name)[:16] + '"', html)
+                self.assertNotIn('="' + name + '"', html)
             history = pages.read(output / 'data/history.json')
             self.assertEqual(len(history['analysis']['games']), 1322)
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['meta']['season'], '2026-27')
@@ -38,6 +42,20 @@ class Publication(unittest.TestCase):
             self.assertFalse((output / 'cache').exists())
             for relative, expected in manifest['files'].items():
                 self.assertEqual(pages.digest(output / relative), expected['sha256'])
+
+    def test_changed_assets_get_new_urls_while_unchanged_assets_keep_their_urls(self):
+        with temporary_output() as folder:
+            for name in pages.ASSETS:
+                (folder / name).write_text(name, encoding='utf-8')
+            html = '<script src="analyst_ui.js"></script><link href="scout-theme.css"/>'
+            first = pages.version_asset_references(html, folder)
+            self.assertEqual(first, pages.version_asset_references(html, folder))
+            (folder / 'analyst_ui.js').write_text('updated interface', encoding='utf-8')
+            second = pages.version_asset_references(html, folder)
+            self.assertNotEqual(first.split('</script>')[0], second.split('</script>')[0])
+            self.assertEqual(first.split('</script>')[1], second.split('</script>')[1])
+            self.assertIn('src="analyst_ui.js?v=', second)
+            self.assertIn('href="scout-theme.css?v=', second)
 
     def test_missing_archive_game_fails_before_any_export(self):
         original = pages.read

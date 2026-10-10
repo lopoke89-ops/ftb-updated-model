@@ -24,6 +24,15 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def version_asset_references(html, folder):
+    # A changed file gets a new URL even when the browser cached the last release.
+    for name in ASSETS:
+        version = digest(folder / name)[:16]
+        for attribute in ('src', 'href'):
+            html = html.replace(f'{attribute}="{name}"', f'{attribute}="{name}?v={version}"')
+    return html
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -148,6 +157,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     marker = '<script src="analyst_ui.js"></script>'
     require(html.count(marker) == 1 and '__FTB_HOSTING__' not in html, 'Hosting insertion marker changed')
     html = html.replace(marker, '<script>window.__FTB_HOSTING__ = ' + json.dumps(hosting) + ';</script>\n' + marker)
+    html = version_asset_references(html, output)
     for name in ('index.html', 'ftb-scout.html'):
         (output / name).write_text(html, encoding='utf-8', newline='\n')
     for name, payload in [('history.json', history), ('seasons/2026-27.json', current)]:
