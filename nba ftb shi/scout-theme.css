@@ -101,6 +101,8 @@ small{color:#94a3b8}
 .parlay-card label{display:flex;flex-direction:column;gap:5px;font-size:13px}.parlay-card input{width:100%;max-width:100%;box-sizing:border-box;background:#111827;border:1px solid #1e2d4a;border-radius:6px;color:#f1f5f9;padding:7px 9px;font:inherit}.parlay-card input:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}.parlay-card details{border-top:1px solid #1e2d4a;padding-top:10px}.parlay-card .card-accent{margin-top:auto;min-height:3px}
 .mini-stats{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0;color:#94a3b8;font-size:12px}
 .mini-stats span{background:#111827;border:1px solid #1e2d4a;border-radius:4px;padding:3px 5px}
+.shot-counts span{display:inline-flex;align-items:center;gap:5px;color:var(--shot-color);border-color:color-mix(in srgb,var(--shot-color) 45%,#1e2d4a)}
+.shot-counts i{width:7px;height:7px;border-radius:2px;background:var(--shot-color);flex-shrink:0}
 .player-detail{border-top:1px solid #1e2d4a;padding:12px 0 0;margin-top:10px}
 .player-detail p{margin:9px 0}
 .position-row{display:grid;grid-template-columns:55px 1fr 50px;gap:8px;align-items:center;font-size:13px;margin:9px 0}
