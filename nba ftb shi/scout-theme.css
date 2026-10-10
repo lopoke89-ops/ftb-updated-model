@@ -85,6 +85,13 @@ small{color:#94a3b8}
 .stat-right small{display:block;font-size:9px;color:#94a3b8;letter-spacing:.5px;text-transform:uppercase;margin-top:2px}
 .card-probability{font-size:10px;color:#94a3b8;font-weight:400;margin-top:2px}
 .card-accent{height:3px;border-radius:2px;margin-top:7px;background:var(--team-color,#64748b);opacity:.7}
+.analyst-grid.parlay-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));align-items:stretch}
+.parlay-team-heading{margin:0 0 12px}.parlay-team-heading .team-badge{font-size:15px;padding:4px 9px;letter-spacing:1px}
+.parlay-card{display:flex;flex-direction:column;min-width:0;margin-bottom:0;padding:15px 16px;background:linear-gradient(135deg,color-mix(in srgb,var(--team-color,#64748b) 7%,#0d1120),#0d1120);border-color:color-mix(in srgb,var(--team-color,#64748b) 25%,#161f35)}
+.parlay-card .parlay-market{margin:0 0 9px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#94a3b8}
+.parlay-card .parlay-player-name{font-family:'Barlow Condensed',Barlow,sans-serif;font-size:25px;line-height:1.1;color:#f1f5f9;color:color-mix(in srgb,var(--team-color,#94a3b8) 50%,#fff);margin:0 0 8px}
+.parlay-card p{font-size:13px;line-height:1.6;overflow-wrap:anywhere}.parlay-card .player-meta{font-size:11px;margin:0 0 10px}
+.parlay-card label{display:flex;flex-direction:column;gap:5px;font-size:13px}.parlay-card input{width:100%;max-width:100%;box-sizing:border-box;background:#111827;border:1px solid #1e2d4a;border-radius:6px;color:#f1f5f9;padding:7px 9px;font:inherit}.parlay-card input:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}.parlay-card details{border-top:1px solid #1e2d4a;padding-top:10px}.parlay-card .card-accent{margin-top:auto;min-height:3px}
 .mini-stats{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0;color:#94a3b8;font-size:12px}
 .mini-stats span{background:#111827;border:1px solid #1e2d4a;border-radius:4px;padding:3px 5px}
 .player-detail{border-top:1px solid #1e2d4a;padding:12px 0 0;margin-top:10px}
