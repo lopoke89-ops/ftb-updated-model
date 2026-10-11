@@ -1,4 +1,5 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const L=require('../lineups.js');
 const A=require('../analyst.js'),H=require('../scouting_history.js'),P=require('../parlay.js'),base=path.join(__dirname,'..');
 const read=name=>JSON.parse(fs.readFileSync(path.join(base,name)));
 const data=read('analyst_data.json'),extra=read('parlay_data.json'),canonical=read('merged_dataset.json');
@@ -37,7 +38,7 @@ test('regular season and postseason never pool',()=>{assert.equal(regular.snapsh
 test('every player phase average matches canonical phase averages',()=>{for(const phase of ['regular-season','playoffs']){const model=phase==='playoffs'?playoffs:regular;for(const p of Object.values(canonical.players)){const s=P.summarize(model.scope.byPlayer[p.sourcePlayerId]?.all||[]),c=p.ppgByPhase[phase];assert.equal(s.gp,c.gp,p.name+' '+phase);if(s.gp)assert(Math.abs(s.ppg-c.ppg)<1e-10,p.name+' '+phase);}}});
 test('every played shooting row reconciles makes attempts and points',()=>{for(const g of data.games)for(const [t,box] of Object.entries(g.teams)){let points=0;for(const p of box.players){if(!p.played)continue;const r=P.shootingRow(g,t,p,extra,true);assert(r);points+=r.points;assert.equal(2*r.fgm+r.threeMade+r.ftm,r.points);}assert.equal(points,box.points);}});
 test('two teams receive exactly six distinct market slots',()=>{const slots=[...rank(regular,'SAS','NYK'),...rank(regular,'NYK','SAS')];assert.equal(slots.length,6);for(const team of ['SAS','NYK'])assert.deepEqual(slots.filter(s=>s.team===team).map(s=>s.market),P.MARKETS);assert(slots.every(s=>s.pick));});
-test('all markets use identical documented component weights',()=>{assert.deepEqual(P.WEIGHTS,{offense:1/3,defense:1/3,opportunity:1/3});for(const {pick:p} of rank(regular)){assert(Math.abs(p.score-100*(p.components.offense+p.components.defense+p.components.opportunity)/3)<1e-10);assert(p.score>=0&&p.score<=100);}});
+test('all markets use identical documented component weights',()=>{assert.deepEqual(P.WEIGHTS,{offense:1/3,defense:1/3,opportunity:1/3});for(const {pick:p} of rank(regular)){assert(Math.abs(p.score-100*(p.components.offense+p.components.defense+p.components.opportunity)/3*p.qualityFactor)<1e-10);assert(p.score>=0&&p.score<=100);}});
 test('points and threes use their own positive paired correlation',()=>{for(const team of Object.keys(regular.snapshot.rosters))for(const slot of rank(regular,team,team==='SAS'?'NYK':'SAS'))if(slot.pick&&slot.market!=='first-team-basket'){const p=slot.pick,three=slot.market==='threes',corr=P.correlation(p.rows,three?'threeAttempted':'fga',three?'threeMade':'fgm');assert(corr.r>0);assert.equal(p.correlation.r,corr.r);assert.equal(p.correlation.n,p.stats.gp);}});
 test('constant negative and sparse correlations do not qualify',()=>{const positive=[1,2,3,4,5].map(n=>({a:n,b:n})),negative=positive.map(p=>({...p,b:6-p.a}));assert.equal(P.correlation(positive,'a','b').r,1);assert.equal(P.correlation(negative,'a','b').r,-1);assert.equal(P.correlation(positive.slice(0,4),'a','b').r,null);assert.equal(P.correlation(positive.map(p=>({...p,b:1})),'a','b').r,null);});
 test('three-only opportunity is based on 3PA and 3PM',()=>{const p=rank(regular).find(s=>s.market==='threes').pick;assert.equal(p.stats.threePa,p.rows.reduce((n,r)=>n+r.threeAttempted,0)/p.rows.length);assert.equal(p.stats.threePct,p.stats.total.threeMade/p.stats.total.threeAttempted);});
@@ -94,7 +95,8 @@ test('upcoming first basket remains provisional without confirmed starters',()=>
 });
 test('current starter confirmation can finalize an otherwise eligible first basket',()=>{
   const leader=rank(regular)[0].pick.id;
-  const slots=rank(regular,'SAS','NYK',{upcoming:true,confirmedStarters:{[leader]:true},eligibility:{[leader]:{provisional:false,reason:'Confirmed available'}}});
+  const now=Date.parse('2026-10-20T22:00Z'),fixture={id:'future',date:'2026-10-20',home:'SAS',away:'NYK',status:'pre',scheduledTipoff:'2026-10-20T23:00Z'},confirmation={id:leader,nbaId:'123',team:'SAS',position:'C',status:'confirmed',date:fixture.date,fixtureId:fixture.id,source:L.urlFor(fixture.date),capturedAt:new Date(now).toISOString()};
+  const slots=rank(regular,'SAS','NYK',{upcoming:true,fixture,now,confirmedStarters:{[leader]:confirmation},eligibility:{[leader]:{provisional:false,reason:'Confirmed available'}}});
   assert.equal(slots[0].pick.id,leader);assert(slots[0].pick.finalized);
 });
 test('questionable confirmed starters still cannot become final picks',()=>{

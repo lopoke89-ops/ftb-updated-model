@@ -23,6 +23,13 @@ def temporary_output():
 
 
 class Publication(unittest.TestCase):
+    def test_stale_readiness_model_or_evaluator_blocks_publication(self):
+        original = pages.digest
+        for changed in ('parlay.js', 'scouting_history.js', 'evaluate_readiness.cjs'):
+            with self.subTest(changed=changed), patch.object(pages, 'digest', side_effect=lambda path: 'changed' if path.name == changed else original(path)):
+                with self.assertRaisesRegex(ValueError, 'Readiness evaluat'):
+                    pages.validate(pages.SOURCE)
+
     def test_export_is_allowlisted_and_preserves_design(self):
         with temporary_output() as folder:
             output = Path(folder) / 'site'

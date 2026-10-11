@@ -133,6 +133,31 @@ def official_game(g, record, events):
     return result
 
 
+def dated_lineup_roles(game, payload, url, captured_at):
+    """Postgame role observations, never evidence of a pregame announcement."""
+    matches = [g for g in payload.get('games', []) if g.get('homeTeam', {}).get('teamAbbreviation') == game['home']
+               and g.get('awayTeam', {}).get('teamAbbreviation') == game['away'] and g.get('gameStatus') == 3]
+    if len(matches) != 1:
+        return []
+    roles = []
+    for side, team in (('homeTeam', game['home']), ('awayTeam', game['away'])):
+        starters = {p['id']: p for p in game['teams'][team]['players'] if p['starter']}
+        listed = [p for p in matches[0][side].get('players', []) if p.get('position') in ('PG', 'SG', 'SF', 'PF', 'C')]
+        if len(starters) != 5 or len(listed) != 5 or len({p['position'] for p in listed}) != 5:
+            continue
+        mapped = []
+        for p in listed:
+            ids = [pid for pid, row in starters.items() if boxes.norm(row['name']) == boxes.norm(p.get('playerName', ''))]
+            if len(ids) != 1 or p.get('lineupStatus') != 'Confirmed' or p.get('rosterStatus') != 'Active':
+                break
+            mapped.append(dict(playerId=ids[0], position=p['position'], team=team, effectiveGameDate=game['date'],
+                               source=url, sourceHash=digest(payload, True), capturedAt=captured_at,
+                               nbaPlayerId=str(p['personId']), status='Postgame NBA lineup role; not pregame confirmation'))
+        if len(mapped) == 5 and len({p['playerId'] for p in mapped}) == 5:
+            roles.extend(mapped)
+    return roles
+
+
 def ingest(f, state, fetcher, store, force=False):
     summary_url = 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=' + f['id']
     summary = fetcher(summary_url)
@@ -156,7 +181,17 @@ def ingest(f, state, fetcher, store, force=False):
         raise ValueError('NBA opening events: ' + error)
     record['opening'] = events
     save(library / 'records' / (gid + '.json'), record)
-    return official_game(g, record, events)
+    result = official_game(g, record, events)
+    lineup_url = 'https://stats.nba.com/js/data/leaders/00_daily_lineups_' + f['date'].replace('-', '') + '.json'
+    try:
+        lineup = fetcher(lineup_url)
+        captured_at = stamp()
+        roles = dated_lineup_roles(result, lineup, lineup_url, captured_at)
+        save(library / 'lineups' / (digest(lineup, True) + '.json'), lineup)
+        result.update(roleEvidence=roles, roleSourceStatus='Matched NBA/PDF starters' if roles else 'Specific roles unavailable or unmatched')
+    except Exception as exc:
+        result.update(roleEvidence=[], roleSourceStatus='NBA role source unavailable: ' + str(exc))
+    return result
 
 
 def payload_for(games, health):
@@ -177,7 +212,8 @@ def payload_for(games, health):
                       'openingContentHash':ohash,'verification':'Final statistics and opening events verified against archived NBA official gamebook PDFs.'},
               'games':shooting, 'openingEvidence':{'meta':{'season':SEASON,'parentEvidenceContentHash':content,
                   'contentHash':ohash,'games':len(games),'source':'NBA official first-quarter play-by-play'},'games':openings}}
-    return {'meta':meta,'games':games,'datedRoleEvidence':[], 'parlay':parlay}, {**meta,**health,'activeVersion':content+'.json'}
+    roles = [role for g in games for role in g.get('roleEvidence', [])]
+    return {'meta':meta,'games':games,'datedRoleEvidence':roles, 'parlay':parlay}, {**meta,**health,'activeVersion':content+'.json'}
 
 
 def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_json, store=None, ingester=ingest):

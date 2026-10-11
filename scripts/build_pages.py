@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('analyst.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_ui.js', 'parlay_data.js',
+ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_ui.js', 'parlay_data.js',
           'analyst_data.js', 'analyst_evaluation.js', 'scout-theme.css')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -72,6 +72,14 @@ def validate(source):
     require(javascript_payload(source / 'analyst_data.js', '__FTB_ANALYST_DATA__') == analysis, 'Browser evidence differs from JSON')
     require(javascript_payload(source / 'analyst_evaluation.js', '__FTB_ANALYST_EVALUATION__') == evaluation, 'Browser evaluation differs from JSON')
     parlay = read(source / 'parlay_data.json')
+    readiness = read(source / 'readiness_policy.json')
+    validation = read(source / 'readiness_evaluation.json')
+    require(javascript_payload(source / 'readiness_policy.js', '__FTB_READINESS__') == readiness, 'Browser readiness policy mismatch')
+    require(javascript_payload(source / 'readiness_evaluation.js', '__FTB_READINESS_REPORT__') == validation, 'Browser readiness evaluation mismatch')
+    require(readiness['status'] == 'retrospective-selected' and readiness['thresholds'] == validation['thresholds'], 'Readiness evaluation not selected')
+    require(digest(source / 'readiness_evaluation.json') == readiness['evaluationHash'], 'Readiness report hash mismatch')
+    require(digest(ROOT / 'scripts/evaluate_readiness.cjs') == validation['evaluatorHash'], 'Readiness evaluator changed; rerun chronological evaluation')
+    require(all(digest(source / name) == expected for name, expected in validation['sourceHashes'].items()), 'Readiness evaluation source changed; rerun chronological evaluation')
     require(parlay['meta']['parentEvidenceContentHash'] == a['evidenceContentHash'], 'Parlay evidence mismatch')
     require(javascript_payload(source / 'parlay_data.js', '__FTB_PARLAY_DATA__') == parlay, 'Browser shooting evidence differs from JSON')
     require(hashlib.sha256(json.dumps(parlay['games'], separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest() == parlay['meta']['contentHash'], 'Parlay shooting content hash mismatch')
@@ -125,6 +133,7 @@ def validate(source):
     require(all(g['phase'] in PHASES for g in current['games']), 'Preseason cannot enter scoring history')
     current_hash = hashlib.sha256(json.dumps(current['games'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     require(current_hash == health['evidenceContentHash'] == current['meta']['evidenceContentHash'] == version[:-5], 'Current season hash mismatch')
+    require(current.get('datedRoleEvidence', []) == [role for g in current['games'] for role in g.get('roleEvidence', [])], 'Current dated roles differ from authenticated game records')
     if current['games']:
         p = current.get('parlay', {})
         require(p.get('meta', {}).get('parentEvidenceContentHash') == current_hash, 'Current shooting evidence mismatch')

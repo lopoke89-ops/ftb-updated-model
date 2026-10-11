@@ -56,9 +56,30 @@ Leaving Upcoming stops its polling timer. Browsers may throttle background tabs.
 Out and Doubtful players are excluded from selections. Questionable players stay
 provisional until an explicit availability update; omission alone is not clearance.
 Failed or stale sources cannot confirm availability. First Basket rankings remain
-provisional until a current starter confirmation is supplied. Prior boxes and user
-lineup assumptions never confirm starters. A verified pregame starter source is not
-currently connected, so automatic refresh alone does not finalize First Basket.
+provisional until the official NBA Daily Lineups feed supplies an explicit Confirmed,
+Active five-position lineup matched to the same fixture and current roster. Bench
+rows without a position do not count. All five identities must match uniquely.
+The record must be captured within five minutes, on today's game date, and before
+tipoff. Prior boxes, expected lineups and user assumptions never confirm starters.
+Missing, stale or ambiguous NBA data leaves First Basket provisional. A fresh NBA
+active-starter confirmation can explicitly clear Questionable; Out and Doubtful
+remain excluded until their restriction is explicitly cleared by the injury source.
+
+The NBA endpoint can block direct cross-origin browser requests. The separate
+**Refresh official NBA lineups** GitHub workflow checks every five minutes and
+captures NBA JSON only when a scheduled pregame fixture is within two hours of
+tipoff. It publishes `live-lineups.json` on the small `nba-live-lineups` branch;
+no Pages rebuild is needed. The browser can read that response through GitHub raw.
+It preserves the NBA capture time and rejects captures older than five minutes.
+GitHub scheduling or CDN delays can therefore leave selections provisional.
+The bridge never substitutes ESPN or final-box starters for an NBA announcement.
+It uses its own concurrency group and does not change the morning archive branch.
+
+The morning collector also retains NBA Daily Lineups JSON and matches its final
+starting five to the authoritative PDF starters. Those roles become dated evidence
+for later games. They are labeled postgame observations and cannot establish when
+a pregame announcement was available. An unavailable role feed does not block an
+otherwise verified final box; broad G/F roles stay unknown.
 
 ## Verification and limits
 
@@ -75,6 +96,42 @@ through a manual forced run. Scheduled workflows in public repositories can be
 disabled by GitHub after prolonged repository inactivity; check Actions if updates
 stop. No new paid service is required by this setup.
 
-This implements collection, storage, live refresh and eligibility status. The
-broader opening-night work order's transition backtesting and ranking validation
-remain separate work.
+## Selection readiness and audit records
+
+Automatic history is assessed for each team/opponent pair and market, in the selected
+competition, period and opponent scope. Both teams need five verified games.
+First Basket and Points need five player appearances; Threes needs eight.
+First Basket also needs five starts and supported scoring-share evidence.
+Current-season statistics remain visible before readiness; prior-season selection
+evidence is labeled and kept separate. Manual current-only and archive controls
+remain available. Empty head-to-head samples stay empty.
+
+First Basket ranking uses the same capped historical-grade policy as Picks.
+The equal one-third offense, defense and opportunity score is multiplied by the
+capped grade divided by its league baseline, at most one. This prevents a small
+conditional starting sample from overpowering low observed scoring share.
+Points and Threes retain the requested positive paired correlation requirement.
+Season averages use the entire selected competition before the selected date,
+independently of the rolling hit-rate sample.
+
+Parlay's **Save selection evidence** downloads JSON and stores the last 20 snapshots
+in that browser. A record includes filter assumptions, source capture status,
+NBA confirmation, dataset and PDF hashes, player samples, targets, scores,
+provisional status and exclusions. This is a local audit trail, not shared storage
+or a prospective performance claim.
+
+Run `node scripts/evaluate_readiness.cjs` to regenerate the policy and evaluation
+after changing selection code or its archived evidence. The saved protocol separates
+development dates through December 15, 2025 from later tests. The report includes
+coverage, DNP counts, descriptive intervals, fixture and weekly bootstrap sensitivity,
+traded-player slices, and separate conditional known-starter analysis. The builder
+rejects stale model, evaluator or report hashes.
+
+The retrospective tests did not establish consistent gains from positional or
+correlation signals. Threes underperformed the simple attempt-volume baseline.
+Pregame dated specific-role coverage is sparse; later season-role references are
+excluded from that test. Completed-archive analysis may apply reviewed season roles
+retrospectively, which does not prove each game's exact position. No verified
+2024-25 archive exists here to validate cross-season transfer. The app exposes these
+limits in Data and retains the user-requested weights without claiming calibrated
+matchup or joint probabilities.

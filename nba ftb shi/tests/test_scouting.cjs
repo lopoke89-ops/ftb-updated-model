@@ -13,9 +13,9 @@ test('opening night automatically exposes verified prior history without changin
   assert.equal(s.season,'2025-26');assert(s.isArchive);assert.equal(s.snapshot.games.length,1322);
   assert.equal(JSON.stringify(empty),before);assert.equal(current.games.length,0);
 });
-test('completed current-season sample wins automatic selection and seasons are never pooled',()=>{
+test('one unrelated new-season game cannot erase prior-season evidence',()=>{
   const one={...current,games:[{id:'new'}]},s=H.selectEvidence(A,one,archive,options);
-  assert.equal(s.snapshot,one);assert.equal(s.season,'2026-27');assert(!s.isArchive);
+  assert(s.isArchive);assert.equal(s.season,'2025-26');assert.equal(s.snapshot.games.length,1322);
   const forced=H.selectEvidence(A,one,archive,{...options,basis:'archive'});
   assert(forced.isArchive);assert.equal(forced.snapshot.games.length,1322);
 });
@@ -283,9 +283,9 @@ test('UI does not expose forecast percentages even in supported season when head
   const r=renderUI({data:archive,mode:'review',season:'2025-26',date:fixture.date,schedule:[fixture],phase:'all',gradeBasis:'forecast'});
   assert(r.cards.length);assert(r.cards.every(p=>p.forecastWithheld&&p.probability===undefined));assert(r.calls.every(s=>s.games.length===1322));
 });
-test('UI alternate target explains unsupported grades without claiming default-target rates',()=>{
-  const r=renderUI({target:'first-team-made-field-goal'});assert(r.cards.every(p=>!p.historicalGrade.rated));
-  assert(r.text.includes('Historical grades are unavailable for this scoring target'));assert(!r.text.includes('Grades use sample-adjusted first-score rates while starting'));
+test('UI field-goal grades use their own scorer counts and shared scoring-share cap',()=>{
+  const r=renderUI({target:'first-team-made-field-goal'});assert(r.cards.some(p=>p.historicalGrade.rated));
+  assert(!r.text.includes('Historical grades are unavailable for this scoring target'));
 });
 test('analysis filters default to a native collapsed panel and retain every control',()=>{
   const r=renderUI(),nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);

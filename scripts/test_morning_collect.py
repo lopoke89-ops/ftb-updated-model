@@ -58,6 +58,28 @@ def new_source(folder):
 
 
 class MorningCollection(unittest.TestCase):
+    def test_postgame_roles_require_same_game_five_pdf_starters_and_never_confirm_pregame(self):
+        game = copy.deepcopy(GAME)
+        for team, box in game['teams'].items():
+            for i, p in enumerate(box['players']):
+                p['starter'] = i < 5
+        sides = {}
+        for side in ('home', 'away'):
+            team = game[side]
+            starters = [p for p in game['teams'][team]['players'] if p['starter']]
+            sides[side+'Team'] = dict(teamAbbreviation=team, players=[dict(personId=i+1, playerName=p['name'], position=position,
+                lineupStatus='Confirmed', rosterStatus='Active') for i, (p, position) in enumerate(zip(starters, ('PG','SG','SF','PF','C')))])
+        payload = {'games':[dict(gameStatus=3, **sides)]}
+        roles = collect.dated_lineup_roles(game, payload, 'official-url', 'captured-time')
+        self.assertEqual(len(roles), 10)
+        self.assertTrue(all(r['effectiveGameDate'] == game['date'] and 'not pregame' in r['status'] for r in roles))
+        result, _ = collect.payload_for([{**game, 'roleEvidence':roles, 'opening':{}, 'firstScores':{}, 'firstFieldGoals':{}, 'source':'official', 'sourceHash':'hash'}], {})
+        self.assertEqual(result['datedRoleEvidence'], roles)
+        payload['games'][0]['homeTeam']['players'][0]['playerName'] = 'Unknown Person'
+        self.assertEqual(len(collect.dated_lineup_roles(game, payload, 'official-url', 'captured-time')), 5)
+        payload['games'][0]['gameStatus'] = 1
+        self.assertEqual(collect.dated_lineup_roles(game, payload, 'official-url', 'captured-time'), [])
+
     def test_unicode_hashes_match_season_and_supplement_contracts(self):
         value = {'name':'Nikola Jokić'}
         expected = hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()

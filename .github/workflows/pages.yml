@@ -33,6 +33,7 @@ jobs:
           node "nba ftb shi/tests/test_browser.cjs"
           node "nba ftb shi/tests/test_analyst.cjs"
           node "nba ftb shi/tests/test_scouting.cjs"
+          node "nba ftb shi/tests/test_readiness.cjs"
           node "nba ftb shi/tests/test_pages.cjs"
           node --check "nba ftb shi/parlay.js"
           node --check "nba ftb shi/parlay_ui.js"

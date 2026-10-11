@@ -1,0 +1,26 @@
+{
+  "version": "parlay-readiness-evaluation-v1",
+  "declaredBeforeThisRun": true,
+  "developmentEnd": "2025-12-15",
+  "testStart": "2025-12-16",
+  "testEnd": "2026-06-13",
+  "teamGameCandidates": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "playerGameCandidates": [
+    5,
+    8,
+    10
+  ],
+  "minimumDevelopmentCoverageFraction": 0.6,
+  "selectionRule": "Among thresholds retaining at least 60% of development selections at 5/5, maximize descriptive Wilson lower bound of hit rate; ties use smaller thresholds. Lock before evaluating later dates.",
+  "candidateRule": "Most recent earlier box roster; no selected-day results, participation or injuries used. DNP counts as a missed selection, separately reported.",
+  "firstBasketConditionalRule": "Separate sensitivity only: filter earlier eligible candidates to eventual final-box starters; never included in pregame metrics or tuning.",
+  "limits": "Corrected 2025-26 archive was already inspected. Retrospective time-ordered holdout, not unseen live evidence. No 2024-25 gamebook archive to validate cross-season fallback.",
+  "bootstrapSeed": 20261010,
+  "bootstrapReplicates": 500,
+  "weights": "Keep one-third offense, defense and opportunity. No weight optimization."
+}

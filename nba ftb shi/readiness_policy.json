@@ -1,0 +1,20 @@
+{
+  "version": "opening-readiness-v1",
+  "status": "retrospective-selected",
+  "thresholds": {
+    "first-team-basket": {
+      "teamGames": 5,
+      "playerGames": 5
+    },
+    "points": {
+      "teamGames": 5,
+      "playerGames": 5
+    },
+    "threes": {
+      "teamGames": 5,
+      "playerGames": 8
+    }
+  },
+  "evaluationHash": "7f4a110f35df0d79714db72fc154d63401250b27d8fb7a3210fef2e1e0ee1d3d",
+  "interpretation": "2025-26 chronological retrospective selection; cross-season transfer unvalidated. Prior seasons stay separate."
+}

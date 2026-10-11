@@ -1,8 +1,8 @@
 /* Descriptive scopes and grades. Prior archive and grade outputs do not feed forecasts. */
 (function(root,factory){
-  if(typeof module==='object'&&module.exports)module.exports=factory();
-  else root.FTBScoutingHistory=factory();
-})(typeof window!=='undefined'?window:this,function(){
+  if(typeof module==='object'&&module.exports)module.exports=factory(require('./readiness_policy.json'));
+  else root.FTBScoutingHistory=factory(root.__FTB_READINESS__);
+})(typeof window!=='undefined'?window:this,function(READINESS){
   'use strict';
   const PHASES={
     'regular-and-playoffs':'Regular season + Playoffs',
@@ -12,6 +12,17 @@
   };
   const GRADE_POLICY={minimumStarts:5,priorStarts:20,smallSampleStarts:20,shareCap:true,
     bands:[['S',.25,'#FFD700'],['A',.18,'#4ADE80'],['B',.12,'#60A5FA'],['C',.06,'#FB923C'],['D',0,'#94a3b8']]};
+  function readiness(snapshot,team,opponent,market='first-team-basket'){
+    const rule=READINESS?.thresholds?.[market];
+    const teamGames=snapshot.teamStats?.[team]?.games||0,opponentGames=snapshot.teamStats?.[opponent]?.games||0;
+    const playerReady=market!=='first-team-basket'||(snapshot.rosters?.[team]||[]).some(p=>{
+      const e=playerEvidence(snapshot,p.id,team),q=firstBasketQuality(e,gradeContext(snapshot));
+      return e.scoutingDetail.gp>=rule?.playerGames&&q.rated&&q.factor>0;
+    });
+    const ready=!!rule&&teamGames>=rule.teamGames&&opponentGames>=rule.teamGames&&playerReady;
+    return {ready,teamGames,opponentGames,requiredTeamGames:rule?.teamGames??null,requiredPlayerGames:rule?.playerGames??5,
+      reason:ready?'Team and opponent samples ready':`Needs ${rule?.teamGames??'evaluated'} games for both teams and an eligible player; ${team||'team'} ${teamGames}, ${opponent||'opponent'} ${opponentGames}`};
+  }
   function snapshotForScope(A,data,options={}){
     const headToHead=Array.isArray(options.historyMatchups),phase=options.phase||'all';
     const pairKey=g=>[g.home,g.away].sort().join('|');
@@ -35,17 +46,19 @@
       const stats=players[p.id]||(players[p.id]={gp:0,points:0,threeMade:0,threeAttempted:0});
       stats.gp++;stats.points+=p.points||0;stats.threeMade+=p.threeMade||0;stats.threeAttempted+=p.threeAttempted||0;
     }
-    return {...result,meta,games,gameTeams,teamPlayerStats};
+    const gradeBaseline=headToHead?gradeContext(snapshotForScope(A,data,{...options,historyMatchups:undefined})):null;
+    return {...result,meta,games,gameTeams,teamPlayerStats,gradeBaseline};
   }
   function selectEvidence(A,current,archive,options={}){
-    const {season,mode,date,basis='auto',archiveTrusted=false,...scope}=options;
+    const {season,mode,date,basis='auto',archiveTrusted=false,team,opponent,market='first-team-basket',...scope}=options;
     const eligible=mode==='upcoming'&&archiveTrusted&&archive?.meta?.season<season&&/^\d{4}-\d{2}-\d{2}$/.test(date||'');
-    const useArchive=eligible&&(basis==='archive'||basis==='auto'&&!current.games.length);
-    if(!useArchive)return {snapshot:current,season,isArchive:false,blocked:basis==='archive'&&!eligible};
+    const state=readiness(current,team,opponent,market);
+    const useArchive=eligible&&(basis==='archive'||basis==='auto'&&!state.ready);
+    if(!useArchive)return {snapshot:current,season,isArchive:false,readiness:state,blocked:basis==='archive'&&!eligible};
     // A fully completed earlier archive can use its verified season roles. Earlier dates
     // retain the strict pregame cutoff, so a future result cannot enter this display.
     const snapshot=snapshotForScope(A,archive,{...scope,date,mode:date>archive.meta.asOfDate?'review':'pregame'});
-    return {snapshot,season:archive.meta.season,isArchive:true,blocked:false};
+    return {snapshot,season:archive.meta.season,isArchive:true,readiness:state,blocked:false};
   }
   function playerEvidence(snapshot,id,team,acrossStints=false){
     let p=snapshot.players[String(id)]||{id:String(id),gp:0,ftbByTeam:{},ppg:null,threePm:null,threePa:null};
@@ -73,6 +86,7 @@
       openingAttemptRate:detail.openingSample?(detail.openingAttempts||0)/detail.openingSample:null};
   }
   function gradeContext(snapshot,trusted=true){
+    if(snapshot.gradeBaseline)return {...snapshot.gradeBaseline,trusted,target:snapshot.meta.target};
     const players=Object.values(snapshot.players||{});
     const starts=players.reduce((n,p)=>n+(p.starts||0),0),wins=players.reduce((n,p)=>n+(p.starterWins||0),0);
     return {trusted,target:snapshot.meta.target,starts,wins,baseline:starts&&wins>=0&&wins<=starts?wins/starts:null};
@@ -81,7 +95,7 @@
     const d=player.scoutingDetail||{},starts=d.starts||0,wins=d.starterWins||0;
     const unrated=reason=>({rated:false,letter:'NR',color:'#64748b',score:null,starts,wins,reason});
     if(!context?.trusted)return unrated('History not verified');
-    if(context.target!=='first-team-score-including-free-throws')return unrated('Target not graded');
+    if(!['first-team-score-including-free-throws','first-team-made-field-goal'].includes(context.target))return unrated('Target not graded');
     if(!Number.isFinite(context.baseline))return unrated('No starter sample');
     if(!Number.isInteger(starts)||!Number.isInteger(wins)||wins<0||wins>starts)return unrated('Invalid starter sample');
     if(starts<GRADE_POLICY.minimumStarts)return unrated(`Needs ${GRADE_POLICY.minimumStarts} starts · has ${starts}`);
@@ -100,6 +114,10 @@
       adjustedStartRate,share,shareBasis,shareDenominator,shareNumerator:totalScores,shareLimited,
       priorStarts:GRADE_POLICY.priorStarts,smallSample:starts<GRADE_POLICY.smallSampleStarts,
       reason:`Historical grade · ${starts} starts${shareLimited?' · scoring-share cap':''}${starts<GRADE_POLICY.smallSampleStarts?' · small sample':''}`};
+  }
+  function firstBasketQuality(player,context){
+    const grade=historicalGrade(player,context);
+    return {...grade,factor:grade.rated&&context.baseline>0?Math.min(1,grade.score/context.baseline):0};
   }
   function sortPlayers(players,key){
     const descriptive=key==='probability'&&players.every(p=>p.forecastWithheld||!Number.isFinite(p.probability));
@@ -159,5 +177,5 @@
     if(!context.fresh||context.date!==context.today||injury?.carriedForward)return {excluded:false,provisional:true,reason:'Current availability evidence unavailable or stale'};
     return {excluded:false,provisional:false,reason:status||'No injury listed in current report'};
   }
-  return {PHASES,GRADE_POLICY,snapshotForScope,gradeContext,historicalGrade,selectEvidence,playerEvidence,sortPlayers,injuryPlayerId,parseInjuries,LIVE_REFRESH_MILLIS,startLiveRefresh,mergeInjuries,pickEligibility,validateCollectedSeason};
+  return {PHASES,GRADE_POLICY,READINESS,readiness,firstBasketQuality,snapshotForScope,gradeContext,historicalGrade,selectEvidence,playerEvidence,sortPlayers,injuryPlayerId,parseInjuries,LIVE_REFRESH_MILLIS,startLiveRefresh,mergeInjuries,pickEligibility,validateCollectedSeason};
 });
