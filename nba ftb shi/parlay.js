@@ -78,9 +78,9 @@
     const threshold=Math.ceil(average-1e-10),hits=rows.filter(r=>r[key]>=threshold).length;
     return {average,threshold,n:rows.length,hits,rate:hits/rows.length};
   }
-  function rankTeam({team,opponent,roster=[],snapshot,sample:scope,seasonScope=scope,acrossStints=false,lines={},excludedIds=[],trusted=true}){
+  function rankTeam({team,opponent,roster=[],snapshot,sample:scope,seasonScope=scope,acrossStints=false,lines={},excludedIds=[],trusted=true,eligibility={},upcoming=false,confirmedStarters={}}){
     const t=scope.byTeam[team],def=opponent?scope.byTeam[opponent]:null,excluded=new Set(excludedIds.map(String));
-    const candidates=roster.filter(p=>!excluded.has(String(p.id))).map(p=>{
+    const candidates=roster.filter(p=>!excluded.has(String(p.id))&&!eligibility[p.id]?.excluded).map(p=>{
       const source=scope.byPlayer[String(p.id)],rows=acrossStints?source?.all||[]:source?.teams[team]||[],stats=summarize(rows),group=positionGroup({...snapshot.players[p.id],...p,position:snapshot.players[p.id]?.position});
       const detail=snapshot.players[p.id]?.ftbByTeam||{},details=acrossStints?Object.values(detail):[detail[team]||{}];
       const count=k=>details.reduce((n,d)=>n+(d[k]||0),0),starts=count('starts'),wins=count('starterWins'),openingSample=count('openingSample');
@@ -107,14 +107,18 @@
         const opportunity=first?.5*((p.wins+1)/(p.starts+5))/maximum.first+.3*(p.openingRate||0)+.2*Math.min(1,p.starts/p.stats.gp):
           .4*((p.stats.mpg||0)/maximum.mpg)+.3*(p.stats[three?'threePa':'fga']/maximum[three?'threePa':'fga'])+.2*(p.stats[three?'threePct':'fgPct']||0)+.1*Math.max(0,corr.r);
         const score=100*(WEIGHTS.offense*offense+WEIGHTS.defense*defense+WEIGHTS.opportunity*opportunity);
+        const availability=eligibility[p.id]||{provisional:upcoming,reason:'Availability unconfirmed'};
+        const starterConfirmed=!!confirmedStarters[p.id];
+        const provisional=upcoming&&(availability.provisional||first&&!starterConfirmed);
         ranked.push({...p,score,components:{offense,defense,opportunity},correlation:first?null:corr,market,
+          provisional,finalized:upcoming&&!provisional,eligibilityReason:first&&upcoming&&!starterConfirmed?'Starter confirmation unavailable':availability.reason,
           seasonTarget:first?null:seasonDecision(p.rows,market,p.seasonStats),
           decision:first?{line:null,side:null,status:snapshot.meta.target==='first-team-made-field-goal'?'First team made field goal · free throws excluded':'First team score · made free throws included'}:lineDecision(p.rows,market,lines[p.id+'|'+market]),
           sampleQuality:p.stats.gp<20?'Small sample':'20+ observed games',
           unknownOffense:(t[key].unknown||0)/t.totals[key],unknownDefense:(def[allowed].unknown||0)/def.totals[allowed]});
       }
       ranked.sort((a,b)=>b.score-a.score||b.stats.gp-a.stats.gp||a.name.localeCompare(b.name));
-      return {team,opponent,market,label:market==='first-team-basket'?(snapshot.meta.target==='first-team-made-field-goal'?'First Team Basket · Field Goal':'First Team Score · Includes FT'):LABELS[market],pick:ranked[0]||null,candidates:ranked.length,
+      return {team,opponent,market,label:market==='first-team-basket'?(snapshot.meta.target==='first-team-made-field-goal'?'First Team Basket · Field Goal':'First Team Score · Includes FT'):LABELS[market],pick:(upcoming?ranked.find(p=>p.finalized):null)||ranked[0]||null,candidates:ranked.length,
         reason:ranked.length?null:reason||`No eligible player: needs ${MIN_GAMES} complete appearances, known position${market==='first-team-basket'?` and ${MIN_GAMES} starts`: ' and positive attempts/makes correlation'}`};
     });
   }

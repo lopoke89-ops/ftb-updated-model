@@ -88,6 +88,24 @@ test('Parlay UI renders six slots and separate season comparison tables',()=>{
   assert.equal(nodes.filter(n=>n.props?.['data-market']).length,6);assert.equal(nodes.filter(n=>n.type==='table').length,6);assert.equal(nodes.filter(n=>n.type==='input').length,4);
   assert.equal(nodes.find(n=>n.type==='select').props.value,'regular-season');
 });
+test('upcoming first basket remains provisional without confirmed starters',()=>{
+  const slots=rank(regular,'SAS','NYK',{upcoming:true,eligibility:{}});
+  assert(slots[0].pick.provisional);assert(!slots[0].pick.finalized);
+});
+test('current starter confirmation can finalize an otherwise eligible first basket',()=>{
+  const leader=rank(regular)[0].pick.id;
+  const slots=rank(regular,'SAS','NYK',{upcoming:true,confirmedStarters:{[leader]:true},eligibility:{[leader]:{provisional:false,reason:'Confirmed available'}}});
+  assert.equal(slots[0].pick.id,leader);assert(slots[0].pick.finalized);
+});
+test('questionable confirmed starters still cannot become final picks',()=>{
+  const leader=rank(regular)[0].pick.id;
+  const slots=rank(regular,'SAS','NYK',{upcoming:true,confirmedStarters:{[leader]:true},eligibility:{[leader]:{provisional:true,reason:'Questionable'}}});
+  assert(!slots[0].pick.finalized);
+});
+test('availability exclusions apply to all three markets',()=>{
+  const ids=rank(regular).map(s=>s.pick.id),eligibility=Object.fromEntries(ids.map(id=>[id,{excluded:true,reason:'DOUBTFUL'}]));
+  for(const slot of rank(regular,'SAS','NYK',{upcoming:true,eligibility}))assert(!slot.pick||!ids.includes(slot.pick.id));
+});
 test('frozen evaluated model and evidence files retain their hashes',()=>{const crypto=require('node:crypto'),e=read('analyst_evaluation.json'),hash=name=>crypto.createHash('sha256').update(fs.readFileSync(path.join(base,name))).digest('hex');assert.equal(hash('analyst.js'),e.modelCodeHash);assert.equal(hash('analyst_data.json'),e.evidenceHash);});
 test('parent UI forwards exclusions even when excluded rows are hidden',()=>{
   const report=read('analyst_evaluation.json'),excluded='5104157';

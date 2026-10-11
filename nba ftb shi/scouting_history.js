@@ -125,5 +125,39 @@
     }
     return {entries,unresolved,total};
   }
-  return {PHASES,GRADE_POLICY,snapshotForScope,gradeContext,historicalGrade,selectEvidence,playerEvidence,sortPlayers,injuryPlayerId,parseInjuries};
+  const LIVE_REFRESH_MILLIS=5*60*1000;
+  function validateCollectedSeason(d){
+    if(d?.meta?.season!=='2026-27'||d.meta.parentDatasetId!=='nba-2026-27-canonical'||!Array.isArray(d.games)||d.meta.totalGames!==d.games.length||new Set(d.games.map(g=>g.id)).size!==d.games.length)throw Error('Invalid collected season snapshot');
+    if(d.games.length&&(!d.parlay||d.parlay.meta.parentEvidenceContentHash!==d.meta.evidenceContentHash||d.parlay.openingEvidence?.meta?.parentEvidenceContentHash!==d.meta.evidenceContentHash))throw Error('Collected shooting/opening evidence does not match');
+    for(const g of d.games){
+      if(g.boxScoreSource!=='NBA official final box'||!g.sourceHash||d.parlay.openingEvidence.games[g.id]?.sourceHash!==g.sourceHash)throw Error('Unverified NBA gamebook evidence');
+      for(const box of Object.values(g.teams)){
+        const played=box.players.filter(p=>p.played);
+        if(played.reduce((n,p)=>n+p.points,0)!==box.points||played.filter(p=>p.starter).length!==5||played.some(p=>p.statsSourceHash!==g.sourceHash||2*p.fgm+p.threeMade+p.ftm!==p.points))throw Error('Collected NBA stat lines do not reconcile');
+      }
+    }
+    return true;
+  }
+  function startLiveRefresh(refresh,{setTimer=setInterval,clearTimer=clearInterval}={}){
+    let busy=false,stopped=false;
+    const tick=async()=>{if(stopped||busy)return;busy=true;try{await refresh();}finally{busy=false;}};
+    const timer=setTimer(()=>{tick().catch(()=>{});},LIVE_REFRESH_MILLIS);
+    return ()=>{stopped=true;clearTimer(timer);};
+  }
+  function mergeInjuries(previous,incoming){
+    const merged={...incoming};
+    // Omission from a later report is not an explicit clearance of a known restriction.
+    for(const [id,p] of Object.entries(previous))if((!merged[id]&&['OUT','DOUBTFUL','QUESTIONABLE'].includes(p.status))||(p.status==='QUESTIONABLE'&&merged[id]&&!['AVAILABLE','ACTIVE','CLEARED','WILL PLAY','WILLPLAY','OUT','DOUBTFUL','QUESTIONABLE'].includes(merged[id].status)))merged[id]={...p,carriedForward:true,reportedStatus:merged[id]?.status};
+    return merged;
+  }
+  function pickEligibility(id,context){
+    if(!context?.upcoming)return {excluded:false,provisional:false,reason:'Historical evidence'};
+    const injury=context.injuries?.[id],status=injury?.status;
+    if(['OUT','DOUBTFUL'].includes(status))return {excluded:true,provisional:false,reason:status+(injury.carriedForward?' · awaiting explicit clearance':'')};
+    if(status==='QUESTIONABLE')return {excluded:false,provisional:true,reason:'Questionable · availability unconfirmed'};
+    if(status&&!['AVAILABLE','ACTIVE','CLEARED','WILL PLAY','WILLPLAY','PROBABLE'].includes(status))return {excluded:false,provisional:true,reason:'Availability status unresolved'};
+    if(!context.fresh||context.date!==context.today||injury?.carriedForward)return {excluded:false,provisional:true,reason:'Current availability evidence unavailable or stale'};
+    return {excluded:false,provisional:false,reason:status||'No injury listed in current report'};
+  }
+  return {PHASES,GRADE_POLICY,snapshotForScope,gradeContext,historicalGrade,selectEvidence,playerEvidence,sortPlayers,injuryPlayerId,parseInjuries,LIVE_REFRESH_MILLIS,startLiveRefresh,mergeInjuries,pickEligibility,validateCollectedSeason};
 });

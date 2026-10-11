@@ -5,8 +5,9 @@ import json
 import re
 import shutil
 from collections import Counter
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
@@ -124,6 +125,29 @@ def validate(source):
     require(all(g['phase'] in PHASES for g in current['games']), 'Preseason cannot enter scoring history')
     current_hash = hashlib.sha256(json.dumps(current['games'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     require(current_hash == health['evidenceContentHash'] == current['meta']['evidenceContentHash'] == version[:-5], 'Current season hash mismatch')
+    if current['games']:
+        p = current.get('parlay', {})
+        require(p.get('meta', {}).get('parentEvidenceContentHash') == current_hash, 'Current shooting evidence mismatch')
+        require(digest_value(p['games']) == p['meta']['contentHash'], 'Current shooting hash mismatch')
+        opening = p['openingEvidence']
+        require(opening['meta']['parentEvidenceContentHash'] == current_hash and digest_value(opening['games']) == opening['meta']['contentHash'], 'Current opening hash mismatch')
+        require(set(p['games']) == set(opening['games']) == {g['id'] for g in current['games']}, 'Current supplemental coverage mismatch')
+        for g in current['games']:
+            require(g.get('boxScoreSource') == 'NBA official final box' and g.get('archivedSource', '').startswith('https://github.com/'), 'Current game lacks archived NBA authority')
+            require(opening['games'][g['id']]['sourceHash'] == g['sourceHash'], 'Current opening PDF mismatch')
+            for team, box in g['teams'].items():
+                played = [r for r in box['players'] if r['played']]
+                require(len({r['id'] for r in played}) == len(played) and sum(r['starter'] for r in played) == 5, 'Invalid current appearances/starters')
+                require(sum(r['points'] for r in played) == box['points'], 'Current NBA team score mismatch')
+                require(set(p['games'][g['id']][team]) == {r['id'] for r in played}, 'Current shooting appearance mismatch')
+                for r in played:
+                    require(all(r.get(k) is not None for k in ('points','fgm','fga','threeMade','threeAttempted','ftm','fta','minutesSeconds','rebounds','assists','steals','blocks','turnovers','fouls','offensiveRebounds','defensiveRebounds','plusMinus')), 'Current full stat line incomplete')
+                    require(r['statsSourceHash'] == g['sourceHash'] and r == p['games'][g['id']][team][r['id']], 'Current row provenance mismatch')
+                    require(0 <= r['threeMade'] <= r['fgm'] <= r['fga'] and r['threeMade'] <= r['threeAttempted'] <= r['fga'] and 0 <= r['ftm'] <= r['fta'], 'Current shooting inequality')
+                    require(2*r['fgm']+r['threeMade']+r['ftm'] == r['points'], 'Current points equation failed')
+                for key in ('firstScores','firstFieldGoals'):
+                    event = opening['games'][g['id']][key][team]
+                    require(g[key][team] == event and any(r['id'] == event['id'] for r in played), 'Current NBA opening scorer mismatch')
     attempt = folder / 'last_attempt.json'
     if attempt.exists():
         failed = read(attempt)
@@ -132,9 +156,13 @@ def validate(source):
     return {'canonical': canonical, 'analysis': analysis, 'evaluation': evaluation, 'parlay': parlay}, {**current, 'health': health}, html
 
 
+def digest_value(value):
+    return hashlib.sha256(json.dumps(value, separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest()
+
+
 def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     config = read(ROOT / 'site-config.json')
-    published_date = published_date or config['publishedDate']
+    published_date = published_date or datetime.now(ZoneInfo('America/Chicago')).date().isoformat()
     date.fromisoformat(published_date)
     history, current, html = validate(source)
     require(not output.exists() or not any(output.iterdir()), 'Output must be a new or empty directory')
@@ -153,7 +181,8 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
         target = output / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / relative, target)
-    hosting = {'mode': 'github-pages', 'publishedDate': published_date}
+    published_at = datetime.now(timezone.utc).isoformat()
+    hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at}
     marker = '<script src="analyst_ui.js"></script>'
     require(html.count(marker) == 1 and '__FTB_HOSTING__' not in html, 'Hosting insertion marker changed')
     html = html.replace(marker, '<script>window.__FTB_HOSTING__ = ' + json.dumps(hosting) + ';</script>\n' + marker)
@@ -165,7 +194,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(payload, separators=(',', ':'), ensure_ascii=False, allow_nan=False), encoding='utf-8')
     (output / '.nojekyll').write_text('', encoding='utf-8')
-    manifest = {'publishedDate': published_date, 'archiveThrough': history['analysis']['meta']['asOfDate'],
+    manifest = {'publishedDate': published_date, 'publishedAt': published_at, 'collection': current.get('health', {}).get('collection'), 'archiveThrough': history['analysis']['meta']['asOfDate'],
                 'archiveGames': 1322, 'firstScores': 2644, 'firstFreeThrows': 249,
                 'phaseCounts': PHASES, 'currentSeasonGames': len(current['games']),
                 'canonicalWorkbookHash': history['analysis']['meta']['canonicalWorkbookHash'],

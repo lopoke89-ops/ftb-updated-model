@@ -13,7 +13,7 @@
       h('tbody',null,metrics.map(([label,format])=>h('tr',{key:label},h('th',{scope:'row'},label),...stats.map((s,i)=>h('td',{key:phases[i]},format(s))))))),
       h('small',{style:muted},'Counts are per appearance except GP. Minutes use NBA gamebook seconds. Percentages use summed shooting counts; TS% = PTS / [2 × (FGA + 0.44 × FTA)]. Play-in and the standalone Cup final are excluded.'));
   }
-  window.FTBParlayPanel=function ParlayPanel({A,H,data,supplement,options,phase,period,teams,fixtures,rosters,acrossStints,excludedIds,trusted,teamColors={}}){
+  window.FTBParlayPanel=function ParlayPanel({A,H,data,supplement,options,phase,period,teams,fixtures,rosters,acrossStints,excludedIds,trusted,teamColors={},liveContext}){
     const [competition,setCompetition]=useState(['regular-season','playoffs'].includes(phase)?phase:'regular-season'),[lines,setLines]=useState({}),[firstBasketTarget,setFirstBasketTarget]=useState(P.FIRST_TARGETS[0]);
     useEffect(()=>{if(['regular-season','playoffs'].includes(phase))setCompetition(phase);},[phase]);
     const contextKey=[data.meta.season,options.date,options.mode,competition,period,JSON.stringify(options.historyMatchups||[]),JSON.stringify(excludedIds),JSON.stringify(fixtures)].join('|');
@@ -22,7 +22,8 @@
     const comparison=useMemo(()=>Object.fromEntries(['regular-season','playoffs'].map(phase=>[phase,P.build(A,H,data,supplement,{...options,phase,window:0,historyMatchups:undefined})])),[A,H,data,supplement,options.date,options.mode,options.positionReferences]);
     const displayed=fixtures.length?[...new Set(fixtures.flatMap(g=>[g.home,g.away]))]:teams;
     const slots=displayed.flatMap(team=>{const fixture=fixtures.find(g=>g.home===team||g.away===team),opponent=fixture?(fixture.home===team?fixture.away:fixture.home):null;
-      return P.rankTeam({team,opponent,roster:rosters[team]||[],snapshot:model.snapshot,sample:model.scope,seasonScope:comparison[competition].scope,acrossStints:acrossStints&&!options.historyMatchups,excludedIds,lines,trusted});});
+      const eligibility=Object.fromEntries((rosters[team]||[]).map(p=>[p.id,H.pickEligibility(p.id,liveContext)]));
+      return P.rankTeam({team,opponent,roster:rosters[team]||[],snapshot:model.snapshot,sample:model.scope,seasonScope:comparison[competition].scope,acrossStints:acrossStints&&!options.historyMatchups,excludedIds,lines,trusted,eligibility,upcoming:!!liveContext?.upcoming,confirmedStarters:liveContext?.confirmedStarters||{}});});
     return h('section',{'aria-label':'Parlay Machine'},h('h2',null,'Parlay Machine'),
       h('div',{className:'analyst-notice',role:'status'},`${model.season} ${competition==='playoffs'?'postseason / playoff':'regular-season'} history through ${model.through||'no eligible games'}. ${options.mode==='review'&&model.complete?'Completed archive.':'Statistics available before the selected game date.'} ${Number(period)?`Last ${period} eligible team games. `:''}${options.historyMatchups?'Selected opponents only. ':''}Three market slots per team. Rankings describe evidence strength; they are not calibrated probabilities.`),
       h('div',{className:'controls'},h('label',null,'Parlay statistical sample ',h('select',{'aria-label':'Parlay statistical sample',value:competition,onChange:e=>setCompetition(e.target.value)},h('option',{value:'regular-season'},'Regular season'),h('option',{value:'playoffs'},'Postseason · Playoffs'))),
@@ -36,6 +37,7 @@
         const p=slot.pick;if(!p)return h('article',{key:slot.market,className:'player-card parlay-card','data-market':slot.market,'data-team':team},h('h4',{className:'parlay-market'},slot.label),h('p',null,'Selection unavailable'),h('small',{style:muted},slot.reason),h('div',{className:'card-accent'}));
         const key=p.id+'|'+slot.market,c=p.components,s=p.stats;
         return h('article',{key:slot.market,className:'player-card parlay-card','data-market':slot.market,'data-team':team},h('h4',{className:'parlay-market'},slot.label),h('strong',{className:'player-name parlay-player-name'},p.name),h('p',{className:'player-meta'},h('span',{className:'team-badge'},team),` vs ${slot.opponent} · ${p.group}`),
+          liveContext?.upcoming&&h('p',{className:'analyst-notice'},h('strong',null,p.provisional?'Provisional ranking':'Finalized selection'),` · ${p.eligibilityReason}`),
           h('p',null,`Evidence score ${num(p.score)} / 100 · ${p.sampleQuality}`),h('p',{style:muted},`Position scoring share ${pct(c.offense)} · opponent allowance share ${pct(c.defense)} · player opportunity ${pct(c.opportunity)}`),
           h('p',{style:muted},`${s.gp} appearances · ${num(s.mpg)} historical MPG (${s.minutesGames} recorded) · ${p.lineup}`),
           h('p',null,`${num(s.ppg)} PPG · FGM/FGA ${num(s.fgm)}/${num(s.fga)} (${pct(s.fgPct)}) · 3PM/3PA ${num(s.threePm)}/${num(s.threePa)} (${pct(s.threePct)}) · ${num(s.ftm)} FTM`),
