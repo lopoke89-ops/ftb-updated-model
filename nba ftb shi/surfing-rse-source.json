@@ -1,0 +1,106 @@
+{
+  "title": "Surfing",
+  "collection": "Pok\u00e9mon Ruby/Sapphire/Emerald",
+  "sourceFile": "Surfing.mid",
+  "sourceSha256": "945be2301194283c7c9d41942c03aa7a4c8ed9c557a5130a566fb37701409b3c",
+  "audioSha256": "f695637d434195a1487417405f7ba5fa98920111da77c8186bf6e179a0abb830",
+  "seconds": 71.3414325,
+  "sampleRate": 44100,
+  "channels": 2,
+  "notes": 984,
+  "renderer": "FluidSynth 2.6.1",
+  "soundfontCollectionCredit": "Exabyte U; MIDI names: Pokemon Rater and theIpatix",
+  "soundfonts": [
+    {
+      "program": 1,
+      "file": "Organs & Pianos/Synth Variants/Bright Piano (Surfing).sf2",
+      "sha256": "841c3849bc21688869dc2e1753827e6168ee03b964b91aa5a844d995a76e056f"
+    },
+    {
+      "program": 2,
+      "file": "Organs & Pianos/Synth Variants/Acoustic Piano (Surfing).sf2",
+      "sha256": "1e3dc351197f5abb7e8d44e465456cadd890dbcdbc53bf63b251ca4bb90ef24d"
+    },
+    {
+      "program": 45,
+      "file": "Strings/Pizz. Strings (A Journey in the Hoenn Region).sf2",
+      "sha256": "5047ac5299492c4f5aaed2030aafbeb92bcd2ccb3c1f968ce4e1de59594a738f"
+    },
+    {
+      "program": 46,
+      "file": "Strings/Harp (Surfing).sf2",
+      "sha256": "194748aaebade2f201f1560f57bb3de7f4590bd8e6e54fb74fea995a5a94c136"
+    },
+    {
+      "program": 48,
+      "file": "Strings/Strings (Battle! Elite Four).sf2",
+      "sha256": "38fd20c4dc4283d28b412ece574e1502b6ca16a2c4e6b801b27d9be1ec26677a"
+    },
+    {
+      "program": 58,
+      "file": "Brass/Tuba (Battle! Team A-M Grunts).sf2",
+      "sha256": "e75925d56db1eeeb817008d61661762ef56beb6fd65b4e8826e6171794a1b839"
+    },
+    {
+      "program": 60,
+      "file": "Brass/French Horn (A Journey in the Hoenn Region).sf2",
+      "sha256": "b2aed804f0b33e2fc8df2659441d8f4dfb74f8c19b2b10167fd707371aec3f57"
+    },
+    {
+      "program": 73,
+      "file": "Woodwinds/Flute (Littleroot Town).sf2",
+      "sha256": "29231ae10f38b5ef3be7bf4e848df540fd18e90de15fb3d263ea6fdf00ddb663"
+    },
+    {
+      "program": 80,
+      "file": "Synths+/Square's/Square Wave (Surfing).sf2",
+      "sha256": "7297c832a4b6a22ca6cf80f144409a9c62ec3287e3957fa970f760cc795f90ee"
+    },
+    {
+      "program": 82,
+      "file": "Synths+/Synth Calliope's/Synth Calliope (Surfing).sf2",
+      "sha256": "296ab754189e6c27a411795311f44552e1b4e8abb68d688553c1813245ec87ff"
+    },
+    {
+      "program": 83,
+      "file": "Synths+/Chiffer's/Chiffer Lead (Surfing).sf2",
+      "sha256": "4132e41e6b2ca0cbf6ae3ded4caf8cde58e32ef637fb58980f3e2e43541cd4e7"
+    },
+    {
+      "program": 84,
+      "file": "Synths+/Charang's/Charang (Surfing).sf2",
+      "sha256": "9001217bd829f1a1176e628ac7aa52984c8eeb1f705265a35683523313b5369a"
+    },
+    {
+      "program": 86,
+      "file": "Synths+/Sawtooth's/5th Saw Wave (Surfing).sf2",
+      "sha256": "746a4e44e01fdc93b8a420a7830d89d1bbdc5aa144b41f6c70d807ba530c18a8"
+    },
+    {
+      "program": 87,
+      "file": "Synths+/Bass & Lead's/Bass & Lead (Surfing).sf2",
+      "sha256": "59fc6873d323c4fa9bae56ac1d174463f65bbf37e9b3beee0a770773a2926d28"
+    },
+    {
+      "program": 88,
+      "file": "Synths+/Fantasia's/Fantasia (Surfing).sf2",
+      "sha256": "89b7f66908a375b78946836c1cbdac75645a838d50af681285832f536d4f5e05"
+    },
+    {
+      "program": 89,
+      "file": "Synths+/Warm Pad (Surfing).sf2",
+      "sha256": "5b4e092e3f5cf032ea14edc4b9d02de1aa10ac326ce0bc5687696843aa9c1f45"
+    },
+    {
+      "program": 90,
+      "file": "Synths+/Polysynth's/Polysynth (Surfing).sf2",
+      "sha256": "4daefffbc653cfad5846c35d77f6dd53a1c78e1191c19ec3a3b2c22588da2484"
+    }
+  ],
+  "sourceMarkersSeconds": {
+    "Converted by SequenceRipper 2.0": 0.0,
+    "loopStart": 1.09756,
+    "loopEnd": 71.341432
+  },
+  "loopPlayback": "Full rendered arrangement, including intro, repeats."
+}

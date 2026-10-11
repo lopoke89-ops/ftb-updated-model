@@ -1,0 +1,86 @@
+{
+  "title": "Mt. Pyre Peak",
+  "collection": "Pok\u00e9mon Ruby/Sapphire/Emerald",
+  "sourceFile": "Mt. Pyre Peak.mid",
+  "sourceSha256": "c00fdab8b7c0c86861d69da627630b06b71661d50dabf2c81bc24b964ed835b5",
+  "audioSha256": "a45cb60009877eed696aab7b1a4946b4a37c2f4da89d4d2920aa013ebfa7007f",
+  "seconds": 82.35289999999999,
+  "sampleRate": 44100,
+  "channels": 2,
+  "notes": 3118,
+  "renderer": "FluidSynth 2.6.1",
+  "soundfontCollectionCredit": "Exabyte U; MIDI names: Pokemon Rater and theIpatix",
+  "soundfonts": [
+    {
+      "program": 0,
+      "file": "Percussion/Drumkit (Battle! Gym Leader).sf2",
+      "sha256": "b7af6ca22de2fc79b21564d5638e919d9446fc1ba715b2f6dea82f1b75def5d9"
+    },
+    {
+      "program": 24,
+      "file": "Guitars/Nylon Guitar (Dewford Town).sf2",
+      "sha256": "8e5aa64618ce207aabf76c55faeb024a6650dda73563b8b8707b6d49002a0f67"
+    },
+    {
+      "program": 38,
+      "file": "Bass/Synth Bass (Battle! Elite Four).sf2",
+      "sha256": "2900730b4232a979221d3a608d6fd766eeea508b0850854349a362977ced8b01"
+    },
+    {
+      "program": 47,
+      "file": "Percussion/Single Sets/Timpani (Battle! Champion).sf2",
+      "sha256": "31e476c7c4d0746b8cb60363c0f97a2786496b94cf0015adea89604eeb6a2fe4"
+    },
+    {
+      "program": 48,
+      "file": "Strings/Strings (Battle! Elite Four).sf2",
+      "sha256": "38fd20c4dc4283d28b412ece574e1502b6ca16a2c4e6b801b27d9be1ec26677a"
+    },
+    {
+      "program": 60,
+      "file": "Brass/French Horn (A Journey in the Hoenn Region).sf2",
+      "sha256": "b2aed804f0b33e2fc8df2659441d8f4dfb74f8c19b2b10167fd707371aec3f57"
+    },
+    {
+      "program": 73,
+      "file": "Woodwinds/Flute (Littleroot Town).sf2",
+      "sha256": "29231ae10f38b5ef3be7bf4e848df540fd18e90de15fb3d263ea6fdf00ddb663"
+    },
+    {
+      "program": 80,
+      "file": "Synths+/Square's/Square Wave (Mt. Pyre Peak).sf2",
+      "sha256": "67aa13687bbdf9ba4816e638dfecf331ebb05b7a037f968682fc871a749cc79f"
+    },
+    {
+      "program": 81,
+      "file": "Synths+/Sawtooth's/Saw Wave (Mt. Pyre Peak).sf2",
+      "sha256": "76e43bb0a7c044d56e6080821ea9a1e15069851b761223db65ad44f0e58f9fac"
+    },
+    {
+      "program": 82,
+      "file": "Synths+/Synth Calliope's/Synth Calliope (Mt. Pyre Peak).sf2",
+      "sha256": "086fbf965581b81cb14592082d4668776f1420551eaa4f723ef585f9abb150c1"
+    },
+    {
+      "program": 83,
+      "file": "Synths+/Chiffer's/Chiffer Lead (Mt. Pyre Peak).sf2",
+      "sha256": "474356b341bac8126e7bae32ffc2c7ed202fc559ca9fddc1a0f1e6d012ec74b3"
+    },
+    {
+      "program": 126,
+      "file": "Percussion/NES/Noise/NES Noise (Mt. Pyre Peak).sf2",
+      "sha256": "df8c25aa4347250ebdd12dfc1edf471e46c166c18da84b36fea6341cf5a728fc"
+    },
+    {
+      "program": 127,
+      "file": "Percussion/NES/Hats/NES Hats (Mt. Pyre Peak).sf2",
+      "sha256": "4ef35600018cd892cabd2492bdbc466ab82138bb9dc5185a7a76ee4c40673463"
+    }
+  ],
+  "sourceMarkersSeconds": {
+    "Converted by SequenceRipper 2.0": 0.0,
+    "loopStart": 21.17646,
+    "loopEnd": 82.3529
+  },
+  "loopPlayback": "Full rendered arrangement, including intro, repeats."
+}

@@ -1,0 +1,76 @@
+{
+  "title": "Diving",
+  "collection": "Pok\u00e9mon Ruby/Sapphire/Emerald",
+  "sourceFile": "Diving.mid",
+  "sourceSha256": "50b788d32f98b4e623bbe68c84e10aa9375d17556c70fca780141b4f5083a4cd",
+  "audioSha256": "1540410925ba9c6450a2aca08622da243aac101d6d43ce62994459a3b7863292",
+  "seconds": 86.511576,
+  "sampleRate": 44100,
+  "channels": 2,
+  "notes": 2909,
+  "renderer": "FluidSynth 2.6.1",
+  "soundfontCollectionCredit": "Exabyte U; MIDI names: Pokemon Rater and theIpatix",
+  "soundfonts": [
+    {
+      "program": 0,
+      "file": "Percussion/Drumkit (Battle! Gym Leader).sf2",
+      "sha256": "b7af6ca22de2fc79b21564d5638e919d9446fc1ba715b2f6dea82f1b75def5d9"
+    },
+    {
+      "program": 9,
+      "file": "Chrom. Perc/Glockenspiel (Diving).sf2",
+      "sha256": "43400f1104287157b4d8105ba800e405e6debf1a6a9e964828e4364356a28b53"
+    },
+    {
+      "program": 23,
+      "file": "SFX+/Bubbles (Diving).sf2",
+      "sha256": "51ca1a25fe916dc8cdd4298aaf1f3f1f29030ba75c481751010036b1b7599328"
+    },
+    {
+      "program": 35,
+      "file": "Bass/Fretless Bass (Littleroot Town Test).sf2",
+      "sha256": "66aa98c75f622da0b33dbc1304cfebc1387732289d3dca35461a5018160feb05"
+    },
+    {
+      "program": 45,
+      "file": "Strings/Pizz. Strings (A Journey in the Hoenn Region).sf2",
+      "sha256": "5047ac5299492c4f5aaed2030aafbeb92bcd2ccb3c1f968ce4e1de59594a738f"
+    },
+    {
+      "program": 46,
+      "file": "Strings/Harp (Battle! Team A-M Grunts).sf2",
+      "sha256": "3b165ecf79516b22f3823b838973ad6e65399c0b32f365b72814b0a01523137b"
+    },
+    {
+      "program": 80,
+      "file": "Synths+/Square's/Square Wave (Diving).sf2",
+      "sha256": "78dcb1092e03e901a3444c4fc11a5468e884f9b641c240e5cc49159647903a8a"
+    },
+    {
+      "program": 82,
+      "file": "Synths+/Synth Calliope's/Synth Calliope (Diving).sf2",
+      "sha256": "e7662f55ca14ea96e3a2760b0fbb6b51d0ca36183dfae173671b794b757e707e"
+    },
+    {
+      "program": 92,
+      "file": "Synths+/Bowed Glass/Bowed Glass (Diving).sf2",
+      "sha256": "26c73cd07205cc36014fc747d27ff13e803ef37158c78777fdd63c6d8a547606"
+    },
+    {
+      "program": 126,
+      "file": "Percussion/NES/Noise/NES Noise (Diving).sf2",
+      "sha256": "d9a0b3ef3428e5951c020901e6b1a94e3a0770ab5031c2022fb92e59e429dc58"
+    },
+    {
+      "program": 127,
+      "file": "Percussion/NES/Hats/NES Hats (Diving).sf2",
+      "sha256": "ec5c42f1c12a891dda0768f97a52558b14ae2d69eb4d90daa0a386161f3ddbf0"
+    }
+  ],
+  "sourceMarkersSeconds": {
+    "Converted by SequenceRipper 2.0": 0.0,
+    "loopStart": 25.116264,
+    "loopEnd": 86.511576
+  },
+  "loopPlayback": "Full rendered arrangement, including intro, repeats."
+}

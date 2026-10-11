@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const {createController}=require('../scout_music.js');
+const {createController,TRACKS}=require('../scout_music.js');
 class AudioStub{
-  constructor(){this.paused=true;this.error=null;this.events=new Map();this.calls=0;this.loads=0;this.sources={'data-roundball-src':'roundball-rock-8bit.mp3?v=nba','data-may-brendan-src':'may-brendan-rse.mp3?v=rse'};this.src=this.sources['data-roundball-src'];}
+  constructor(){this.paused=true;this.error=null;this.events=new Map();this.calls=0;this.loads=0;this.sources=Object.fromEntries(TRACKS.map(t=>['data-'+t.id+'-src',t.file+'?v='+t.id]));this.sources['data-roundball-src']='roundball-rock-8bit.mp3?v=nba';this.sources['data-may-brendan-src']='may-brendan-rse.mp3?v=rse';this.src=this.sources['data-roundball-src'];}
   set src(value){this._src=value;this.currentTime=0;this.paused=true;}
   get src(){return this._src;}
   getAttribute(name){return name==='src'?this.src:this.sources[name];}
@@ -31,6 +31,34 @@ let passed=0;async function test(name,fn){await fn();passed++;console.log('PASS 
   await test('rapid switching invalidates the old play promise and stale pause event',async()=>{const r=setup();let reject;r.audio.pending=new Promise((_,fail)=>reject=fail);const old=r.controller.play();r.audio.pending=null;await r.controller.selectTrack('may-brendan');r.audio.emit('pause');reject({name:'AbortError'});await old;assert.equal(r.last().track,'may-brendan');assert.equal(r.last().status,'playing');await r.controller.selectTrack('roundball');assert.equal(r.audio.src,'roundball-rock-8bit.mp3?v=nba');assert.equal(r.last().status,'playing');});
   await test('remount retains both immutable source URLs after the previous track changed',async()=>{const r=setup();r.controller.selectTrack('may-brendan');r.controller.destroy();const c=createController(r.audio);assert.equal(r.audio.src,'roundball-rock-8bit.mp3?v=nba');c.destroy();});
   await test('unknown track IDs and late selections after unmount do not change playback',()=>{const r=setup();r.controller.selectTrack('missing');assert.equal(r.audio.loads,0);r.controller.destroy();r.controller.selectTrack('may-brendan');assert.equal(r.audio.loads,0);});
+  await test('all six tracks switch during playback and restore silently on reload',async()=>{
+    assert.equal(TRACKS.length,6);assert.equal(new Set(TRACKS.map(t=>t.id)).size,6);
+    const r=setup('.31');await r.controller.play();
+    for(const track of TRACKS){
+      await r.controller.selectTrack(track.id);
+      assert.equal(r.last().status,'playing');assert.equal(r.audio.paused,false);assert.equal(r.audio.loop,true);assert.equal(r.audio.volume,.31);
+      assert.equal(r.audio.src,r.audio.sources['data-'+track.id+'-src']);
+      const fresh=setup('.31',track.id);assert.equal(fresh.last().track,track.id);assert.equal(fresh.audio.calls,0);assert.equal(fresh.audio.src,fresh.audio.sources['data-'+track.id+'-src']);fresh.controller.destroy();
+    }
+    r.controller.destroy();
+  });
+  await test('four added RSE tracks retain source provenance and complete audio references',()=>{
+    const base=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(base,'ftb-scout.html'),'utf8'),hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    const expected=[
+      ['gym-leader','Battle! Gym Leader',19,1566,75.918256,'4f04c8783e463915910e47c7649b6334c6531713177f5f97be0c2d0ecf34a392'],
+      ['mt-pyre-peak','Mt. Pyre Peak',13,3118,82.3529,'c00fdab8b7c0c86861d69da627630b06b71661d50dabf2c81bc24b964ed835b5'],
+      ['surfing','Surfing',17,984,71.3414325,'945be2301194283c7c9d41942c03aa7a4c8ed9c557a5130a566fb37701409b3c'],
+      ['diving','Diving',11,2909,86.511576,'50b788d32f98b4e623bbe68c84e10aa9375d17556c70fca780141b4f5083a4cd']
+    ];
+    for(const [id,title,fontCount,notes,seconds,sourceHash]of expected){
+      const track=TRACKS.find(t=>t.id===id),meta=JSON.parse(fs.readFileSync(path.join(base,id+'-rse-source.json'))),mapping=JSON.parse(fs.readFileSync(path.join(base,'../scripts/music',id+'-soundfonts.json')));
+      assert.equal(track.file,id+'-rse.mp3');assert(html.includes('data-'+id+'-src="'+track.file+'"'));assert.equal(hash(path.join(base,track.file)),meta.audioSha256);
+      assert.equal(meta.title,title);assert.equal(meta.sourceFile,title+'.mid');assert.equal(meta.sourceSha256,sourceHash);assert.equal(meta.channels,2);assert.equal(meta.sampleRate,44100);assert.equal(meta.notes,notes);assert(Math.abs(meta.seconds-seconds)<.000001);assert.equal(meta.soundfonts.length,fontCount);
+      assert.deepEqual(meta.soundfonts.map(f=>f.program).sort((a,b)=>a-b),Object.keys(mapping).map(Number).sort((a,b)=>a-b));
+      for(const font of meta.soundfonts){assert.equal(font.file,mapping[font.program]);assert.match(font.sha256,/^[a-f0-9]{64}$/);}
+      assert(meta.sourceMarkersSeconds.loopStart>=0&&meta.sourceMarkersSeconds.loopStart<meta.sourceMarkersSeconds.loopEnd);assert(Math.abs(meta.sourceMarkersSeconds.loopEnd-meta.seconds)<.000001);
+    }
+  });
   await test('RSE render matches supplied MIDI and records every mapped soundfont',()=>{const base=path.resolve(__dirname,'..'),meta=JSON.parse(fs.readFileSync(path.join(base,'rse_music_source.json'))),hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),mapping=JSON.parse(fs.readFileSync(path.join(base,'../scripts/music/may-brendan-soundfonts.json')));assert.equal(hash(path.join(base,'may-brendan-rse.mp3')),meta.audioSha256);assert.equal(meta.sourceFile,'Battle! May-Brendan.mid');assert.equal(meta.sourceSha256,'7df06d5d68b8b02a30a2a44326d29ac5bebeaa7c78527c0980f45e7a16cbab61');assert.equal(meta.soundfonts.length,15);assert.deepEqual(meta.soundfonts.map(f=>f.program).sort((a,b)=>a-b),Object.keys(mapping).map(Number).sort((a,b)=>a-b));for(const f of meta.soundfonts){assert.equal(f.file,mapping[f.program]);assert.match(f.sha256,/^[a-f0-9]{64}$/);}assert.equal(meta.channels,2);assert.equal(meta.notes,1235);assert.equal(meta.seconds,64.897864);});
   await test('published soundtrack matches source manifest and starts with no prefetch or autoplay',()=>{const base=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(base,'ftb-scout.html'),'utf8'),tag=html.match(/<audio\b[^>]*>/g);assert.equal(tag.length,1);assert.match(tag[0],/loop/);assert.match(tag[0],/preload="none"/);assert.doesNotMatch(tag[0],/autoplay/);const meta=JSON.parse(fs.readFileSync(path.join(base,'scout_music_source.json'))),hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');assert.equal(hash(path.join(base,'roundball-rock-8bit.mp3')),meta.audioSha256);assert.equal(hash(path.join(base,'../scripts/music/nba-nbc.mid')),meta.sourceSha256);assert(meta.seconds>70&&meta.seconds<80);});
   console.log(JSON.stringify({passed}));

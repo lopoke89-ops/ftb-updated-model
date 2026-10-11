@@ -1,4 +1,4 @@
-"""Offline render of the supplied May-Brendan MIDI using the user's RSE SF2 files.
+"""Offline render of a supplied MIDI using a per-song map of the user's RSE SF2 files.
 
 Requires numpy, mido, imageio-ffmpeg and a FluidSynth shared library. Only the
 rendered MP3 ships to browsers; the original soundfont library stays local.
@@ -24,8 +24,9 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def render(source, soundfonts, library, output):
-    mapping = json.loads((ROOT / 'scripts/music/may-brendan-soundfonts.json').read_text())
+def render(source, soundfonts, library, output, mapping_path, manifest, title=None):
+    mapping = json.loads(mapping_path.read_text())
+    title = title or source.stem
     # Retain the DLL directory handle while Windows resolves shared dependencies.
     dll_dir = os.add_dll_directory(str(library.resolve().parent)) if os.name == 'nt' else None
     lib = ct.CDLL(str(library.resolve()))
@@ -127,16 +128,17 @@ def render(source, soundfonts, library, output):
             stream.writeframes((mix * 32767).astype('<i2').tobytes())
         subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), '-v', 'error', '-y', '-i', str(wav),
                         '-codec:a', 'libmp3lame', '-b:a', '128k', '-map_metadata', '-1',
-                        '-metadata', 'title=Battle! May-Brendan - Pokemon RSE', str(output)], check=True)
+                        '-metadata', 'title=' + title + ' - Pokemon RSE', str(output)], check=True)
     finally:
         wav.unlink(missing_ok=True)
-    report = {'title': 'Battle! May–Brendan', 'collection': 'Pokémon Ruby/Sapphire/Emerald',
+    report = {'title': title, 'collection': 'Pokémon Ruby/Sapphire/Emerald',
               'sourceFile': source.name, 'sourceSha256': digest(source), 'audioSha256': digest(output),
               'seconds': midi.length, 'sampleRate': RATE, 'channels': 2, 'notes': notes,
               'renderer': 'FluidSynth ' + renderer_version, 'soundfontCollectionCredit': 'Exabyte U; MIDI names: Pokemon Rater and theIpatix',
               'soundfonts': provenance, 'sourceMarkersSeconds': markers,
               'loopPlayback': 'Full rendered arrangement, including intro, repeats.'}
-    (output.parent / 'rse_music_source.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
+    manifest.parent.mkdir(parents=True, exist_ok=True)
+    manifest.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
     return report
 
 
@@ -145,7 +147,10 @@ if __name__ == '__main__':
     parser.add_argument('--soundfonts', type=Path, required=True)
     parser.add_argument('--library', type=Path, required=True)
     parser.add_argument('--source', type=Path, required=True)
-    parser.add_argument('--output', type=Path, default=ROOT / 'nba ftb shi/may-brendan-rse.mp3')
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--mapping', type=Path, required=True)
+    parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--title')
     args = parser.parse_args()
-    result = render(args.source, args.soundfonts, args.library, args.output)
+    result = render(args.source, args.soundfonts, args.library, args.output, args.mapping, args.manifest, args.title)
     print(json.dumps({key: value for key, value in result.items() if key != 'soundfonts'}, indent=2))

@@ -29,11 +29,15 @@
   const TRACK_KEY='ftb-scout-music-track-v1';
   const TRACKS=Object.freeze([
     Object.freeze({id:'roundball',label:'NBA on NBC · 8-bit',file:'roundball-rock-8bit.mp3',credit:'John Tesh · MIDI: BitMidi',href:'https://bitmidi.com/nba-nbc-mid'}),
-    Object.freeze({id:'may-brendan',label:'Battle! May–Brendan · RSE',file:'may-brendan-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'})
+    Object.freeze({id:'may-brendan',label:'Battle! May–Brendan · RSE',file:'may-brendan-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'}),
+    Object.freeze({id:'gym-leader',label:'Battle! Gym Leader · RSE',file:'gym-leader-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'}),
+    Object.freeze({id:'mt-pyre-peak',label:'Mt. Pyre Peak · RSE',file:'mt-pyre-peak-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'}),
+    Object.freeze({id:'surfing',label:'Surfing · RSE',file:'surfing-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'}),
+    Object.freeze({id:'diving',label:'Diving · RSE',file:'diving-rse.mp3',credit:'Pokémon RSE · Soundfonts: Exabyte U'})
   ]);
   function createController(audio,{storage,onChange=()=>{}}={}){
     let volume=.18,status='off',request=0,disposed=false,wanted=false,track='roundball';
-    const sources={'roundball':audio?.getAttribute?.('data-roundball-src')||TRACKS[0].file,'may-brendan':audio?.getAttribute?.('data-may-brendan-src')||TRACKS[1].file};
+    const sources=Object.fromEntries(TRACKS.map(t=>[t.id,audio?.getAttribute?.('data-'+t.id+'-src')||t.file]));
     try{const raw=storage?.getItem(KEY);const saved=raw===null||raw===undefined?NaN:Number(raw);if(Number.isFinite(saved)&&saved>=0&&saved<=1)volume=saved;}catch(_){}
     try{const saved=storage?.getItem(TRACK_KEY);if(TRACKS.some(t=>t.id===saved))track=saved;}catch(_){}
     const publish=()=>{if(!disposed)onChange({status,volume,track});};
