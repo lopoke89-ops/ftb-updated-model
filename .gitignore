@@ -1,0 +1,5 @@
+library/pdf/
+library/text/opening_quarter/
+library/gamebooks.sqlite
+_runtime/
+*.stage
