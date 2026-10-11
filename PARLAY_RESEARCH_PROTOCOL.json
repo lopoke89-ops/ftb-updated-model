@@ -1,0 +1,25 @@
+{
+  "version": "parlay-transition-protocol-v1",
+  "status": "frozen-before-prospective-evaluation",
+  "developmentEnd": "2025-12-15",
+  "historicalDiagnosticStart": "2025-12-16",
+  "prospectiveSeason": "2026-27",
+  "checkpoint": "first valid receipt in the 15 minutes before verified scheduled tipoff; revisions retained but not substituted",
+  "targets": "candidate-specific production-basis season average frozen before ranking; FT definition saved separately",
+  "comparisons": ["production", "adaptive", "volume", "mean", "no-position", "no-correlation"],
+  "primaryOutcome": "all recorded selections, DNP counts as miss; participating-only secondary",
+  "uncertainty": "95% paired fixture-block bootstrap, 2000 replicates, fixed seed 20261010; weekly-block sensitivity",
+  "promotion": {
+    "perMarket": true,
+    "genuineSeasonTransitionRequired": true,
+    "minimumPairedSelections": 1000,
+    "minimumDistinctFixtures": 500,
+    "minimumEarlySeasonPairedSelections": 100,
+    "earlySeasonTeamGamesMax": 10,
+    "minimumPairedHitRateImprovement": 0.02,
+    "pairedDifferenceLower95BoundAbove": 0,
+    "minimumCoverageRelativeToProduction": 0.95,
+    "earlySeasonDifferenceLower95BoundAtLeast": -0.03
+  },
+  "interpretation": "Operational research promotion criteria chosen before new-season outcomes, not fitted predictive guarantees. Conditional historical lineups do not satisfy prospective confirmation. Insufficient data means no promotion. Probability calibration is outside this model."
+}
