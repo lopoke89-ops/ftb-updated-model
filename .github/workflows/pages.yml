@@ -31,6 +31,7 @@ jobs:
         run: |
           node --check "nba ftb shi/analyst_ui.js"
           node "nba ftb shi/tests/test_browser.cjs"
+          node "nba ftb shi/tests/test_music.cjs"
           node "nba ftb shi/tests/test_analyst.cjs"
           node "nba ftb shi/tests/test_scouting.cjs"
           node "nba ftb shi/tests/test_readiness.cjs"

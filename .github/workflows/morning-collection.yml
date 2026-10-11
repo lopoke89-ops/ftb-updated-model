@@ -74,6 +74,7 @@ jobs:
           python -m unittest discover -s scripts -p 'test_*.py'
           python -m unittest discover -s "nba ftb shi/tests" -p 'test_opening_gamebooks.py'
           node "nba ftb shi/tests/test_browser.cjs"
+          node "nba ftb shi/tests/test_music.cjs"
           node "nba ftb shi/tests/test_analyst.cjs"
           node "nba ftb shi/tests/test_scouting.cjs"
           node "nba ftb shi/tests/test_readiness.cjs"
