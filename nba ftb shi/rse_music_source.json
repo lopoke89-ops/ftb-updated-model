@@ -1,0 +1,96 @@
+{
+  "title": "Battle! May\u2013Brendan",
+  "collection": "Pok\u00e9mon Ruby/Sapphire/Emerald",
+  "sourceFile": "Battle! May-Brendan.mid",
+  "sourceSha256": "7df06d5d68b8b02a30a2a44326d29ac5bebeaa7c78527c0980f45e7a16cbab61",
+  "audioSha256": "b77cdbf1c6de5873c33c89cf527226bf8a4d9e51878ba715a827f68b0f2c7450",
+  "seconds": 64.897864,
+  "sampleRate": 44100,
+  "channels": 2,
+  "notes": 1235,
+  "renderer": "FluidSynth 2.6.1",
+  "soundfontCollectionCredit": "Exabyte U; MIDI names: Pokemon Rater and theIpatix",
+  "soundfonts": [
+    {
+      "program": 0,
+      "file": "Percussion/Drumkit (Battle! Gym Leader).sf2",
+      "sha256": "b7af6ca22de2fc79b21564d5638e919d9446fc1ba715b2f6dea82f1b75def5d9"
+    },
+    {
+      "program": 1,
+      "file": "Organs & Pianos/Grand Piano (Bicycle Theme).sf2",
+      "sha256": "da2011a01d63795a2b6cada1dd585708a6177c8930bab39cd679683c532bd2b3"
+    },
+    {
+      "program": 4,
+      "file": "Organs & Pianos/Synth Variants/E. Piano (Battle! May-Brendan).sf2",
+      "sha256": "7ae9cd7638a25d262e3be46cff2ba8c7cf112f4106e85b675935e12b87dcd035"
+    },
+    {
+      "program": 5,
+      "file": "Organs & Pianos/Synth Variants/E. Piano 2 (Battle! May-Brendan).sf2",
+      "sha256": "56ab995813fe1d45e26e4ca243b740cc37f27ee87f346c302d7211ac1c8c22cd"
+    },
+    {
+      "program": 33,
+      "file": "Bass/Finger Bass (Battle! Wild Pokemon).sf2",
+      "sha256": "488ce00142fc3a496f463e23fe172b26f2c561dccedb9cae3dfa8740f8ccf6c6"
+    },
+    {
+      "program": 46,
+      "file": "Strings/Harp (Battle! Team A-M Grunts).sf2",
+      "sha256": "3b165ecf79516b22f3823b838973ad6e65399c0b32f365b72814b0a01523137b"
+    },
+    {
+      "program": 47,
+      "file": "Percussion/Single Sets/Timpani (Battle! Champion).sf2",
+      "sha256": "31e476c7c4d0746b8cb60363c0f97a2786496b94cf0015adea89604eeb6a2fe4"
+    },
+    {
+      "program": 48,
+      "file": "Strings/Strings (Battle! Elite Four).sf2",
+      "sha256": "38fd20c4dc4283d28b412ece574e1502b6ca16a2c4e6b801b27d9be1ec26677a"
+    },
+    {
+      "program": 56,
+      "file": "Brass/Trumpet (Battle! Trainer).sf2",
+      "sha256": "2701f6f9184f1bed36726c2267804be1c4e194c4ee2524638fd3ad4663876d2c"
+    },
+    {
+      "program": 60,
+      "file": "Brass/French Horn (A Journey in the Hoenn Region).sf2",
+      "sha256": "b2aed804f0b33e2fc8df2659441d8f4dfb74f8c19b2b10167fd707371aec3f57"
+    },
+    {
+      "program": 80,
+      "file": "Synths+/Square's/Square Wave (Battle! May-Brendan).sf2",
+      "sha256": "e49a9988eeb5dd011c6642da3cb471df7ed8a18b7ac3754d9d44697790fe6fe9"
+    },
+    {
+      "program": 81,
+      "file": "Synths+/Sawtooth's/Saw Wave (Battle! May-Brendan).sf2",
+      "sha256": "7ea681546089581d25f92f0a58da228e4c98a7a3caf5638e23ee9ee786c3ba78"
+    },
+    {
+      "program": 82,
+      "file": "Synths+/Synth Calliope's/Synth Calliope (Battle! May-Brendan).sf2",
+      "sha256": "976119cf032d71f65cf1d7ce9ac584988ac6c038407815fff15a8ccabf47acbf"
+    },
+    {
+      "program": 84,
+      "file": "Synths+/Charang's/Charang (Battle! May-Brendan).sf2",
+      "sha256": "ec4410f760c880a91fb394bf6fda3f9b0a61e5afd38f221886309e2378a90785"
+    },
+    {
+      "program": 86,
+      "file": "Synths+/Sawtooth's/5th Saw Wave (Battle! May-Brendan).sf2",
+      "sha256": "ed0a0fdd5dd39801488e93ad342197406fb4620a2ca4f6de462a40e5497c6b52"
+    }
+  ],
+  "sourceMarkersSeconds": {
+    "Converted by SequenceRipper 2.0": 0.0,
+    "loopStart": 12.24488,
+    "loopEnd": 64.897864
+  },
+  "loopPlayback": "Full rendered arrangement, including intro, repeats."
+}
