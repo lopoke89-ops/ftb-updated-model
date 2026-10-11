@@ -100,8 +100,8 @@ test('G/F/C comparisons preserve pregame cutoffs and the same shooting totals',(
   for(const id of Object.keys(fine.scope.byPlayer))assert.deepEqual(P.summarize(broad.scope.byPlayer[id].all),P.summarize(fine.scope.byPlayer[id].all));
 });
 test('Parlay UI renders six slots and separate season comparison tables',()=>{
-  const states=['regular-season',{}];let i=0;const w={FTBParlay:P,__FTB_PARLAY_DATA__:extra};
-  const context=vm.createContext({window:w,React:{createElement:(type,props,...children)=>({type,props,children}),useState:initial=>[states[i++]??initial,()=>{}],useMemo:fn=>fn(),useEffect:()=>{}}});
+  const states=['regular-season',{}];let i=0;const w={FTBParlay:P,FTBParlayTransition:require('../parlay_transition.js'),__FTB_PARLAY_DATA__:extra};
+  const context=vm.createContext({window:w,React:{createElement:(type,props,...children)=>({type,props,children}),useState:initial=>[states[i++]??initial,()=>{}],useMemo:fn=>fn(),useEffect:()=>{},useRef:()=>({current:null})}});
   vm.runInContext(fs.readFileSync(path.join(base,'parlay_ui.js'),'utf8'),context);
   const tree=w.FTBParlayPanel({A,H,data,supplement:extra,options:{mode:'review',positionReferences:refs},phase:'all',period:0,teams:['SAS','NYK'],fixtures:[{home:'SAS',away:'NYK'}],rosters:regular.snapshot.rosters,acrossStints:false,excludedIds:[],trusted:true});
   const nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
@@ -109,7 +109,8 @@ test('Parlay UI renders six slots and separate season comparison tables',()=>{
   assert.equal(nodes.filter(n=>n.type==='summary'&&n.children[0]==='Compare market candidates').length,6);
   const selectedCards=nodes.filter(n=>n.props?.className==='player-name parlay-player-name').length;
   assert.equal(nodes.filter(n=>n.type==='caption'&&String(n.children[0]).includes('season averages')).length,selectedCards);
-  assert(nodes.filter(n=>n.type==='input').length<=4);
+  assert(nodes.filter(n=>n.type==='input'&&n.props?.type==='number').length<=4);
+  const researchControl=nodes.find(n=>n.type==='input'&&n.props?.type==='checkbox');assert(researchControl);assert.equal(researchControl.props.checked,false);assert.equal(researchControl.props.disabled,true);
   assert.equal(nodes.find(n=>n.type==='select').props.value,'regular-season');
   const positions=nodes.find(n=>n.props?.['aria-label']==='Position comparison');assert.equal(positions.props.value,'auto');assert.equal(positions.children.length,3);
   assert(nodes.some(n=>n.type==='strong'&&n.children[0]==='G/F/C comparison'));

@@ -30,6 +30,12 @@ class Publication(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Readiness evaluat'):
                     pages.validate(pages.SOURCE)
 
+    def test_stale_research_fit_or_browser_configuration_blocks_publication(self):
+        original = pages.digest
+        with patch.object(pages, 'digest', side_effect=lambda path: 'changed' if path.name=='fit_parlay_transition.cjs' else original(path)):
+            with self.assertRaisesRegex(ValueError, 'Research'):
+                pages.validate(pages.SOURCE)
+
     def test_export_is_allowlisted_and_preserves_design(self):
         with temporary_output() as folder:
             output = Path(folder) / 'site'

@@ -79,6 +79,8 @@ jobs:
           node "nba ftb shi/tests/test_readiness.cjs"
           node "nba ftb shi/tests/test_parlay.cjs"
           node "nba ftb shi/tests/test_live_refresh.cjs"
+          node "nba ftb shi/tests/test_transition.cjs"
+          node "nba ftb shi/tests/test_transition_export.cjs"
           node "nba ftb shi/tests/test_pages.cjs"
           python scripts/build_pages.py
       - name: Save verified records and retry state

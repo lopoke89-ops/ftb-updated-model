@@ -1,0 +1,462 @@
+{
+  "version": "parlay-adaptive-v1",
+  "defaultEnabled": false,
+  "phase": "regular-season",
+  "status": "development-fitted; season-transfer unvalidated",
+  "developmentEnd": "2025-12-15",
+  "evidenceHash": "8d2652cc2026af472a61bf645a0e80e231bb19c6d029b6a842742fa49df5cffa",
+  "developmentContentHash": "a41e45419b052bd7a1500b160e59249d0ed81bad56ed6686873c837768b672c3",
+  "fitScriptHash": "e5bfdecb1bb579d07fe30e56c1734a94fcb08d817bd9c049edd3fd1a3a8a75d2",
+  "method": "within-season prefix-10 pseudo-transition; next-observation loss",
+  "strengths": {
+    "minutes": {
+      "strength": 3,
+      "loss": 39.48831644299085,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 39.78214563707626
+        },
+        {
+          "strength": 3,
+          "loss": 39.48831644299085
+        },
+        {
+          "strength": 5,
+          "loss": 40.13760461648886
+        },
+        {
+          "strength": 10,
+          "loss": 41.7849737251442
+        },
+        {
+          "strength": 20,
+          "loss": 43.8628986033716
+        },
+        {
+          "strength": 40,
+          "loss": 45.76274607414488
+        }
+      ]
+    },
+    "fga": {
+      "strength": 3,
+      "loss": 13.932649737090944,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 14.371924651606411
+        },
+        {
+          "strength": 3,
+          "loss": 13.932649737090944
+        },
+        {
+          "strength": 5,
+          "loss": 13.946514396755518
+        },
+        {
+          "strength": 10,
+          "loss": 14.200373631277072
+        },
+        {
+          "strength": 20,
+          "loss": 14.621161045279237
+        },
+        {
+          "strength": 40,
+          "loss": 15.047874051349488
+        }
+      ]
+    },
+    "threePa": {
+      "strength": 5,
+      "loss": 4.482544257665566,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 4.702476994298104
+        },
+        {
+          "strength": 3,
+          "loss": 4.513824647049653
+        },
+        {
+          "strength": 5,
+          "loss": 4.482544257665566
+        },
+        {
+          "strength": 10,
+          "loss": 4.505038644145225
+        },
+        {
+          "strength": 20,
+          "loss": 4.5789715053560505
+        },
+        {
+          "strength": 40,
+          "loss": 4.664668672012067
+        }
+      ]
+    },
+    "fgConversion": {
+      "strength": 40,
+      "loss": 6.361450358470089,
+      "unit": "attempts",
+      "observations": 3541,
+      "losses": [
+        {
+          "strength": 5,
+          "loss": 6.401691331327933
+        },
+        {
+          "strength": 10,
+          "loss": 6.382573285668673
+        },
+        {
+          "strength": 20,
+          "loss": 6.3684855287309965
+        },
+        {
+          "strength": 40,
+          "loss": 6.361450358470089
+        },
+        {
+          "strength": 80,
+          "loss": 6.361727141522909
+        },
+        {
+          "strength": 160,
+          "loss": 6.367373580067335
+        }
+      ]
+    },
+    "starting": {
+      "strength": 1,
+      "loss": 0.5271075028394298,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.5271075028394298
+        },
+        {
+          "strength": 3,
+          "loss": 0.5398164570940939
+        },
+        {
+          "strength": 5,
+          "loss": 0.5543603021126227
+        },
+        {
+          "strength": 10,
+          "loss": 0.5833323272196669
+        },
+        {
+          "strength": 20,
+          "loss": 0.6209076695785721
+        },
+        {
+          "strength": 40,
+          "loss": 0.663082419309546
+        }
+      ]
+    },
+    "opening-inclusive": {
+      "strength": 5,
+      "loss": 0.47582995061507377,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.4954847652424554
+        },
+        {
+          "strength": 3,
+          "loss": 0.47882711021304214
+        },
+        {
+          "strength": 5,
+          "loss": 0.47582995061507377
+        },
+        {
+          "strength": 10,
+          "loss": 0.4766988409271134
+        },
+        {
+          "strength": 20,
+          "loss": 0.48226952277613755
+        },
+        {
+          "strength": 40,
+          "loss": 0.49073300268232817
+        }
+      ]
+    },
+    "threeConversion": {
+      "strength": 40,
+      "loss": 2.9878113268454563,
+      "unit": "attempts",
+      "observations": 3016,
+      "losses": [
+        {
+          "strength": 5,
+          "loss": 3.014191594933312
+        },
+        {
+          "strength": 10,
+          "loss": 2.9964930741015414
+        },
+        {
+          "strength": 20,
+          "loss": 2.9879410093713847
+        },
+        {
+          "strength": 40,
+          "loss": 2.9878113268454563
+        },
+        {
+          "strength": 80,
+          "loss": 2.9936288209781208
+        },
+        {
+          "strength": 160,
+          "loss": 3.0018547349959506
+        }
+      ]
+    },
+    "firstRate-inclusive": {
+      "strength": 10,
+      "loss": 0.7928672948884788,
+      "unit": "starts",
+      "observations": 1727,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.8342640367604173
+        },
+        {
+          "strength": 3,
+          "loss": 0.8003199802205921
+        },
+        {
+          "strength": 5,
+          "loss": 0.7934432018944543
+        },
+        {
+          "strength": 10,
+          "loss": 0.7928672948884788
+        },
+        {
+          "strength": 20,
+          "loss": 0.8002912898103873
+        },
+        {
+          "strength": 40,
+          "loss": 0.8124709122364007
+        }
+      ]
+    },
+    "position-first-inclusive": {
+      "strength": 10,
+      "loss": 0.22681273631431334,
+      "unit": "opening-events",
+      "observations": 2664,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.23956119790151023
+        },
+        {
+          "strength": 3,
+          "loss": 0.22995659904538923
+        },
+        {
+          "strength": 5,
+          "loss": 0.22746737364155653
+        },
+        {
+          "strength": 10,
+          "loss": 0.22681273631431334
+        },
+        {
+          "strength": 20,
+          "loss": 0.22876582755240638
+        },
+        {
+          "strength": 40,
+          "loss": 0.23180831124420176
+        }
+      ]
+    },
+    "position-points": {
+      "strength": 500,
+      "loss": 0.00949001594886143,
+      "unit": "points",
+      "observations": 2664,
+      "losses": [
+        {
+          "strength": 50,
+          "loss": 0.00999060101201157
+        },
+        {
+          "strength": 100,
+          "loss": 0.009776696661508046
+        },
+        {
+          "strength": 250,
+          "loss": 0.009541771083194034
+        },
+        {
+          "strength": 500,
+          "loss": 0.00949001594886143
+        },
+        {
+          "strength": 1000,
+          "loss": 0.009595084094365647
+        },
+        {
+          "strength": 2000,
+          "loss": 0.009835342535913331
+        }
+      ]
+    },
+    "position-threes": {
+      "strength": 50,
+      "loss": 0.023348005668458897,
+      "unit": "made-threes",
+      "observations": 2664,
+      "losses": [
+        {
+          "strength": 10,
+          "loss": 0.024256150813847948
+        },
+        {
+          "strength": 25,
+          "loss": 0.023629379506079552
+        },
+        {
+          "strength": 50,
+          "loss": 0.023348005668458897
+        },
+        {
+          "strength": 100,
+          "loss": 0.02336889163540565
+        },
+        {
+          "strength": 200,
+          "loss": 0.023694724513187847
+        },
+        {
+          "strength": 400,
+          "loss": 0.024177939209653568
+        }
+      ]
+    },
+    "opening-fg": {
+      "strength": 5,
+      "loss": 0.48529826939048104,
+      "unit": "games",
+      "observations": 3639,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.504987811762596
+        },
+        {
+          "strength": 3,
+          "loss": 0.4883260473668846
+        },
+        {
+          "strength": 5,
+          "loss": 0.48529826939048104
+        },
+        {
+          "strength": 10,
+          "loss": 0.48609238603784605
+        },
+        {
+          "strength": 20,
+          "loss": 0.49157009449355166
+        },
+        {
+          "strength": 40,
+          "loss": 0.4999642052503702
+        }
+      ]
+    },
+    "firstRate-fg": {
+      "strength": 5,
+      "loss": 0.8326520292931597,
+      "unit": "starts",
+      "observations": 1727,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.8698508123700843
+        },
+        {
+          "strength": 3,
+          "loss": 0.837991788312715
+        },
+        {
+          "strength": 5,
+          "loss": 0.8326520292931597
+        },
+        {
+          "strength": 10,
+          "loss": 0.8348211548187641
+        },
+        {
+          "strength": 20,
+          "loss": 0.8456698643384583
+        },
+        {
+          "strength": 40,
+          "loss": 0.8617246883359009
+        }
+      ]
+    },
+    "position-first-fg": {
+      "strength": 10,
+      "loss": 0.22566134459079856,
+      "unit": "opening-events",
+      "observations": 2664,
+      "losses": [
+        {
+          "strength": 1,
+          "loss": 0.23829312047880444
+        },
+        {
+          "strength": 3,
+          "loss": 0.2286295048878688
+        },
+        {
+          "strength": 5,
+          "loss": 0.22618499148577562
+        },
+        {
+          "strength": 10,
+          "loss": 0.22566134459079856
+        },
+        {
+          "strength": 20,
+          "loss": 0.22778816606878627
+        },
+        {
+          "strength": 40,
+          "loss": 0.23099464009103576
+        }
+      ]
+    }
+  },
+  "configurationHash": "022427ecb8a4e828c03ad4bea536d88b3e7c617fede04b2dca3b60d25ad04aa0"
+}

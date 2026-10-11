@@ -4,3 +4,5 @@ __pycache__/
 .build-tests/
 .collection-state/
 .pdf-probe/
+
+.parlay-research/

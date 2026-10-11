@@ -81,7 +81,7 @@ class MorningCollection(unittest.TestCase):
         self.assertEqual(collect.dated_lineup_roles(game, payload, 'official-url', 'captured-time'), [])
 
     def test_unicode_hashes_match_season_and_supplement_contracts(self):
-        value = {'name':'Nikola Jokić'}
+        value = {'name':'Nikola JokiÄ‡'}
         expected = hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         self.assertEqual(collect.digest(value,True),expected)
         self.assertEqual(collect.digest(value),pages.digest_value(value))
@@ -177,6 +177,30 @@ class MorningCollection(unittest.TestCase):
             collect.collect(state,source,'2026-10-20',**kwargs)
             result = collect.collect(state,source,'2026-10-20',force=True,**kwargs)
             self.assertEqual(result['verified_games'],1)
+
+    def test_forced_official_correction_creates_new_version_and_retains_previous(self):
+        with temporary_output() as folder:
+            state,source=folder/'state',new_source(folder)
+            kwargs=dict(fetcher=lambda url:{'events':[event('2026-10-20')]},store=FakeArchive())
+            collect.collect(state,source,'2026-10-20',ingester=fake_ingest,**kwargs)
+            first=archive_store.read(source/'seasons/2026-27/manifest.json')['activeVersion']
+            before=archive_store.read(source/'seasons/2026-27/versions'/first)
+            def corrected(*args,**kwargs):
+                game=fake_ingest(*args,**kwargs);game['sourceHash']='b'*64
+                for box in game['teams'].values():
+                    for row in box['players']:
+                        if row['played']:row['statsSourceHash']=game['sourceHash']
+                team=game['home'];row=next(p for p in game['teams'][team]['players'] if p['played']);row['assists']+=1
+                return game
+            collect.collect(state,source,'2026-10-20',ingester=corrected,force=True,**kwargs)
+            second=archive_store.read(source/'seasons/2026-27/manifest.json')['activeVersion']
+            after=archive_store.read(source/'seasons/2026-27/versions'/second)
+            self.assertNotEqual(first,second);self.assertEqual(len(after['games']),1)
+            self.assertEqual(archive_store.read(source/'seasons/2026-27/versions'/first),before)
+            team=after['games'][0]['home'];old=next(p for p in before['games'][0]['teams'][team]['players'] if p['played'])
+            new=next(p for p in after['games'][0]['teams'][team]['players'] if p['id']==old['id'])
+            self.assertEqual(new['assists'],old['assists']+1)
+            self.assertEqual(after['parlay']['games'][after['games'][0]['id']][team][new['id']],new)
 
     def test_failed_new_game_preserves_verified_history(self):
         with temporary_output() as folder:

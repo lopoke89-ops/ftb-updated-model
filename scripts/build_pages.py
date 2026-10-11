@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_ui.js', 'parlay_data.js',
+ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
           'analyst_data.js', 'analyst_evaluation.js', 'scout-theme.css')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -47,6 +47,13 @@ def javascript_payload(path, variable):
 
 
 def validate(source):
+    research = read(source / 'parlay_research_config.json')
+    require(javascript_payload(source / 'parlay_research_config.js', '__FTB_PARLAY_RESEARCH_CONFIG__') == research, 'Research browser configuration differs')
+    literal = (source / 'parlay_research_config.js').read_text(encoding='utf-8').split(' = ', 1)[1].strip().removesuffix(';')
+    fitted_body = literal.rsplit(',"configurationHash":', 1)[0] + '}'
+    require(hashlib.sha256(fitted_body.encode()).hexdigest() == research['configurationHash'], 'Research configuration hash mismatch')
+    require(research['fitScriptHash'] == digest(ROOT / 'scripts/fit_parlay_transition.cjs'), 'Research fitting script changed; refit required')
+    require(research['defaultEnabled'] is False and research['developmentEnd'] == '2025-12-15', 'Research scope/default changed')
     canonical = read(source / 'merged_dataset.json')
     analysis = read(source / 'analyst_data.json')
     evaluation = read(source / 'analyst_evaluation.json')
@@ -209,7 +216,11 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / relative, target)
     published_at = datetime.now(timezone.utc).isoformat()
-    hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at}
+    hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at,
+               'dataVersion':current['meta']['evidenceContentHash'],
+               'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'analyst_ui.js')},
+               'researchProtocolHash':digest(ROOT/'PARLAY_RESEARCH_PROTOCOL.json')}
+    current = {**current, 'publication': hosting}
     marker = '<script src="analyst_ui.js"></script>'
     require(html.count(marker) == 1 and '__FTB_HOSTING__' not in html, 'Hosting insertion marker changed')
     html = html.replace(marker, '<script>window.__FTB_HOSTING__ = ' + json.dumps(hosting) + ';</script>\n' + marker)

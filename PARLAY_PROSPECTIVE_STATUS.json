@@ -1,0 +1,24 @@
+{
+  "protocol": "parlay-transition-protocol-v1",
+  "status": "awaiting qualifying prospective receipts and NBA PDF outcomes",
+  "markets": {},
+  "evaluatedModelHashes": {
+    "parlay.js": "6c11a604064a31eb276d3afe9fccbe247b492f9eca5ff4b9cc504ec97315d9a6",
+    "scouting_history.js": "11a4a7a357de440992aa080a831e3c791289727a2cc272ea05653be418cf6736",
+    "lineups.js": "5507b6def5d766412fcc1f0ca9eb62aaadbd4ae348351cd1828990a55c551efa",
+    "parlay_transition.js": "63754e4ce7e1450951cd1b36376ef904cb22b153a2fbd88cb0e1fc7820af7a5b",
+    "parlay_research.js": "13ec097cb95d07cf8daff92388a8345f4f4cd05b5606cddd65c231384da1aa1e",
+    "parlay_research_config.js": "6568f289849008eb5e46801854d29c650c3907e3f4ca69bf3eed38c4fcda7a79",
+    "parlay_ui.js": "3108bab4e1b0f6c05d4b0ed3e7b85db37200456c6f60f94f97c1c128b73c4190",
+    "analyst_ui.js": "ae2186c89c72e656af600510e6e6b58a2d2b8ae1135bb0a006dfcf9a9bff68de"
+  },
+  "configurationHash": "022427ecb8a4e828c03ad4bea536d88b3e7c617fede04b2dca3b60d25ad04aa0",
+  "differentReleaseReceiptsExcluded": 0,
+  "researchSnapshotsExcluded": 0,
+  "defaultModelChanged": false,
+  "limitations": [
+    "Conditional historical reconstructions are not prospective evidence.",
+    "Market outcomes within fixtures are related.",
+    "This report never automatically enables a model."
+  ]
+}
