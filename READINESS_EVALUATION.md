@@ -1,61 +1,55 @@
 # Opening-night readiness evaluation
 
-The implemented policy selects evidence for each team/opponent pair and market. It is a retrospective sample-readiness rule, not a calibrated forecast.
+Historical policy and baseline rows are conditional ranking diagnostics before the 80% positional completeness safeguard. issuedPolicy reports selections that pass the safeguard. Historical injury and starter-confirmation limitations remain; these are not prospectively issued forecasts.
 
-## Selected thresholds
+## Selected sample minimums
 
-| Market | Games for each team | Player appearances | Additional rule |
-|---|---:|---:|---|
-| first-team-basket | 5 | 5 | Five starts; shared capped scoring-share grade |
-| points | 5 | 5 | Positive paired attempts/makes correlation |
-| threes | 5 | 8 | Positive paired attempts/makes correlation |
+| Market | Games for each team | Player appearances |
+|---|---:|---:|
+| first-team-basket | 5 | 5 |
+| points | 5 | 10 |
+| threes | 10 | 10 |
+
+First Basket also requires five starts and the shared capped scoring-share grade. Points and Threes require positive attempts/makes correlation. All production selections require at least 80% known positional production on both sides at the displayed resolution. Automatic mode uses specific roles where supported and otherwise compares G/F/C for both teams; strict five-position mode remains available. That completeness safeguard is operational, not a fitted predictive threshold.
 
 ## Chronological later-date results
 
-Development: through December 15, 2025. Later evaluation: December 16, 2025 through June 13, 2026. The development grid and selection rule are saved in `nba ftb shi/readiness_evaluation_protocol.json`. The report binds the exact model, evidence and evaluator hashes.
+Development ends 2025-12-15; later evaluation starts 2025-12-16. Each sample-minimum variant recomputes normalization using its own eligible candidates. Baselines use the same team/player sample minimums. Historical DNPs count as misses; participating-player results are retained separately.
 
-| Competition / target | Selections / opportunities | Coverage | Hits | Hit rate | DNP | Simple baseline hit rate* |
-|---|---:|---:|---:|---:|---:|---:|
-| regular-season / first-team-basket / FT included | 1365 / 1686 | 81.0% | 260 | 19.0% | 169 | 19.0% |
-| regular-season / first-team-basket / FG only | 1364 / 1686 | 80.9% | 245 | 18.0% | 167 | 18.0% |
-| regular-season / points | 1525 / 1686 | 90.5% | 633 | 41.5% | 206 | 41.5% |
-| regular-season / threes | 1350 / 1686 | 80.1% | 391 | 29.0% | 180 | 32.8% |
-| playoffs / first-team-basket / FT included | 79 / 170 | 46.5% | 18 | 22.8% | 1 | 25.0% |
-| playoffs / first-team-basket / FG only | 79 / 170 | 46.5% | 19 | 24.1% | 1 | 26.2% |
-| playoffs / points | 88 / 170 | 51.8% | 34 | 38.6% | 1 | 40.0% |
-| playoffs / threes | 56 / 170 | 32.9% | 23 | 41.1% | 0 | 44.3% |
+| Competition / market / target | Conditional rankings | Hit rate | Baseline rate | Rankings passing positional coverage |
+|---|---:|---:|---:|---:|
+| regular-season / first-team-basket / first-team-score-including-free-throws | 1686 / 1686 | 21.6% | 21.6% | 1686 |
+| regular-season / first-team-basket / first-team-made-field-goal | 1686 / 1686 | 20.4% | 20.3% | 1686 |
+| regular-season / points / first-team-score-including-free-throws | 1686 / 1686 | 40.5% | 38.8% | 1686 |
+| regular-season / threes / first-team-score-including-free-throws | 1686 / 1686 | 40.6% | 41.1% | 1686 |
+| playoffs / first-team-basket / first-team-score-including-free-throws | 90 / 170 | 22.2% | 15.6% | 90 |
+| playoffs / first-team-basket / first-team-made-field-goal | 90 / 170 | 24.4% | 17.8% | 90 |
+| playoffs / points / first-team-score-including-free-throws | 42 / 170 | 45.2% | 47.6% | 42 |
+| playoffs / threes / first-team-score-including-free-throws | 38 / 170 | 36.8% | 44.7% | 38 |
 
-*Baseline coverage differs. Use the paired comparisons in the JSON report to assess differences on common fixtures. First Basket baseline uses observed scoring share. Points uses FGA; Threes uses 3PA. DNP selections count as misses; participating-player rates are separately reported.
+Aggregate baseline coverage can differ. The paired fixture and weekly-block comparisons in the JSON report assess improvement on common games. The same corrected archive was already inspected; these are retrospective diagnostics and do not establish an unseen live advantage.
 
-The equal one-third positional offense, positional defense and opportunity weights remain as requested. Positive correlation also remains required. These tests do not establish consistent improvement from those features. Threes underperformed the attempt-volume baseline in the later regular-season sample.
+## Position evidence
 
-## Evidence limits
+The archive now contains 13211 dated role records. NBA role files matched 2,642 of 2,644 PDF team starting fives. The two unmatched team lineups are retained as unresolved. Mean known candidate-roster fraction in the test is 72.8%; mean unknown specific-position points production is 15.4%. Automatic G/F/C comparisons account for 2740 of 10520 market records.
 
-- The corrected archive was already inspected. Time ordering prevents future-game inputs, but these are not unseen live results.
-- Historical candidates use the most recent earlier box roster. Historical injury announcements are unavailable. Eventual final-box starters appear only in a separate conditional analysis and never tune the policy.
-- Only 1 dated specific-role reference exists in the old archive. The mean known-specific-role roster fraction across tested team fixtures is 15.0%; mean unknown-position points share is 83.3%. Guard/wing validation is therefore limited.
-- Completed-season analysis applies reviewed season-role references retrospectively. This does not establish each historical game’s exact role. The strict pregame test does not use later canonical references.
-- New morning collections retain specific roles only when NBA’s complete positional starting five matches the PDF starters. Those postgame observations can support later games and cannot confirm an earlier pregame announcement.
-- A verified 2024–25 archive is unavailable, so cross-season fallback performance is not validated. Old and current seasons remain separate.
-- Bootstrap intervals include fixture and weekly-block sensitivity. They describe this retrospective sample and are not calibrated matchup confidence.
+Pregame tests exclude later canonical season-role references. Specific roles are dated postgame NBA observations matched to all five PDF starters; the latest earlier observation can support later games but does not prove an exact bench role or a historical pregame announcement. Automatic comparisons fall back to gamebook G/F/C groups for both teams when specific coverage is incomplete. Cross-season performance is unvalidated.
 
-## Early-season coverage
+PDF final statistics and opening events remain authoritative. Exact PDF positions take precedence. Earlier NBA role observations may be carried forward to later appearances; they do not establish exact bench roles.
 
-| Market | Selections / early opportunities | Coverage | Hit rate |
-|---|---:|---:|---:|
-| first-team-basket | 339 / 618 | 54.9% | 20.4% |
-| points | 437 / 618 | 70.7% | 46.7% |
-| threes | 283 / 618 | 45.8% | 38.2% |
+## Remaining limits
 
-Early means either team has fewer than 20 competition games. With zero new-season games, each matchup retains three market slots per team using labeled prior history where an eligible current-roster player exists. Unsupported markets explain their missing evidence.
+- Historical injury and pregame lineup announcements are unavailable. Eventual actual starters appear only in a separately labeled conditional analysis.
+- A verified 2024–25 archive is unavailable; cross-season fallback performance is unvalidated.
+- The equal one-third components and positive-correlation requirement remain. Evidence scores do not estimate the probability of reaching a season-average target.
+- Prospective timestamped selections are needed to assess the deployed workflow.
 
 ## Reproduce
 
 ```sh
 node scripts/evaluate_readiness.cjs
-node "nba ftb shi/tests/test_readiness.cjs"
-python -m unittest discover -s scripts -p 'test_*.py'
+node "nba ftb shi/tests/test_parlay.cjs"
 python scripts/build_pages.py
 ```
 
-Full results, development grid, traded-player slices, ablations and uncertainty are in `nba ftb shi/readiness_evaluation.json` and in the app’s Data tab.
+Full results, development grids, ablations, coverage and uncertainty are in `nba ftb shi/readiness_evaluation.json`.

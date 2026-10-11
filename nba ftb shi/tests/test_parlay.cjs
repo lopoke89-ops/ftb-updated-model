@@ -80,14 +80,39 @@ test('season target uses the full competition average despite a rolling sample',
   assert.equal(P.seasonDecision([{threeMade:2},{threeMade:3}],'threes',{threePm:2.3}).hits,1);
 });
 test('five specific positions remain distinct and broad labels are never guessed',()=>{assert.equal(P.positionGroup({rawPosition:'G'}),'unknown');assert.equal(P.positionGroup({position:'SG'}),'SG');assert.equal(P.positionGroup({position:'PF'}),'PF');assert.equal(P.positionGroup({rawPosition:'F-C'}),'unknown');});
+test('coarse positions preserve gamebook groups without guessing finer roles',()=>{
+  for(const [role,group] of [['PG','G'],['SG','G'],['G','G'],['SF','F'],['PF','F'],['F','F'],['C','C'],['F-C','unknown'],['G-F','unknown']])assert.equal(P.positionGroup({rawPosition:role},'broad'),group);
+  assert.equal(P.positionGroup({position:'SG',rawPosition:'F'},'broad'),'F');
+});
+test('automatic position comparisons fall back per market for both teams and keep strict mode',()=>{
+  const broad=P.build(A,H,data,extra,{mode:'review',phase:'regular-season',positionReferences:refs,positionScope:'broad'}),pair={specific:regular,broad},args={team:'SAS',opponent:'OKC',roster:regular.snapshot.rosters.SAS,minimumGames:10};
+  const auto=P.rankPositionVariants(pair,args),strict=P.rankPositionVariants(pair,args,'specific'),forced=P.rankPositionVariants(pair,args,'broad');
+  assert.equal(auto[0].positionScope,'specific');
+  for(const i of [1,2]){assert.equal(auto[i].positionScope,'broad');assert(auto[i].positionFallbackReason.includes('for both teams'));assert(auto[i].ranked.every(p=>['G','F','C'].includes(p.group)));assert(P.applySelectionPolicy(auto[i],{scope:broad.scope,minimumGames:10}).pick);assert(!P.applySelectionPolicy(strict[i],{scope:regular.scope,minimumGames:10}).pick);}
+  assert(forced.every(s=>s.positionScope==='broad'));
+  for(const t of Object.values(broad.scope.byTeam))for(const field of ['points','allowedPoints','threes','allowedThrees'])assert(Object.keys(t[field]).every(p=>['G','F','C','unknown'].includes(p)));
+  assert.throws(()=>P.rankPositionVariants(pair,args,'invalid'));
+});
+test('G/F/C comparisons preserve pregame cutoffs and the same shooting totals',()=>{
+  const options={mode:'pregame',date:'2026-01-01',phase:'regular-season'},fine=P.build(A,H,data,extra,options),broad=P.build(A,H,data,extra,{...options,positionScope:'broad'});
+  assert(broad.snapshot.games.every(g=>g.date<options.date));
+  for(const team of Object.keys(fine.scope.byTeam))assert.deepEqual(broad.scope.byTeam[team].totals,fine.scope.byTeam[team].totals);
+  for(const id of Object.keys(fine.scope.byPlayer))assert.deepEqual(P.summarize(broad.scope.byPlayer[id].all),P.summarize(fine.scope.byPlayer[id].all));
+});
 test('Parlay UI renders six slots and separate season comparison tables',()=>{
   const states=['regular-season',{}];let i=0;const w={FTBParlay:P,__FTB_PARLAY_DATA__:extra};
   const context=vm.createContext({window:w,React:{createElement:(type,props,...children)=>({type,props,children}),useState:initial=>[states[i++]??initial,()=>{}],useMemo:fn=>fn(),useEffect:()=>{}}});
   vm.runInContext(fs.readFileSync(path.join(base,'parlay_ui.js'),'utf8'),context);
   const tree=w.FTBParlayPanel({A,H,data,supplement:extra,options:{mode:'review',positionReferences:refs},phase:'all',period:0,teams:['SAS','NYK'],fixtures:[{home:'SAS',away:'NYK'}],rosters:regular.snapshot.rosters,acrossStints:false,excludedIds:[],trusted:true});
   const nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
-  assert.equal(nodes.filter(n=>n.props?.['data-market']).length,6);assert.equal(nodes.filter(n=>n.type==='table').length,6);assert.equal(nodes.filter(n=>n.type==='input').length,4);
+  assert.equal(nodes.filter(n=>n.props?.['data-market']).length,6);
+  assert.equal(nodes.filter(n=>n.type==='summary'&&n.children[0]==='Compare market candidates').length,6);
+  const selectedCards=nodes.filter(n=>n.props?.className==='player-name parlay-player-name').length;
+  assert.equal(nodes.filter(n=>n.type==='caption'&&String(n.children[0]).includes('season averages')).length,selectedCards);
+  assert(nodes.filter(n=>n.type==='input').length<=4);
   assert.equal(nodes.find(n=>n.type==='select').props.value,'regular-season');
+  const positions=nodes.find(n=>n.props?.['aria-label']==='Position comparison');assert.equal(positions.props.value,'auto');assert.equal(positions.children.length,3);
+  assert(nodes.some(n=>n.type==='strong'&&n.children[0]==='G/F/C comparison'));
 });
 test('upcoming first basket remains provisional without confirmed starters',()=>{
   const slots=rank(regular,'SAS','NYK',{upcoming:true,eligibility:{}});
@@ -107,6 +132,52 @@ test('questionable confirmed starters still cannot become final picks',()=>{
 test('availability exclusions apply to all three markets',()=>{
   const ids=rank(regular).map(s=>s.pick.id),eligibility=Object.fromEntries(ids.map(id=>[id,{excluded:true,reason:'DOUBTFUL'}]));
   for(const slot of rank(regular,'SAS','NYK',{upcoming:true,eligibility}))assert(!slot.pick||!ids.includes(slot.pick.id));
+});
+
+test('unsupported positions cannot set the opportunity scale for eligible players',()=>{
+  const original=rank(regular),fake='unresolved-high-volume';
+  const rows=Array.from({length:5},(_,i)=>({points:200+i*2,fga:200+i,fgm:100+i,threeMade:0,threeAttempted:0,ftm:0,fta:0,minutes:100}));
+  const model={...regular,snapshot:{...regular.snapshot,players:{...regular.snapshot.players,[fake]:{position:'?',rawPosition:'G',ftbByTeam:{}}}},scope:{...regular.scope,byPlayer:{...regular.scope.byPlayer,[fake]:{all:rows,teams:{SAS:rows}}}}};
+  const after=rank(model,'SAS','NYK',{roster:[...regular.snapshot.rosters.SAS,{id:fake,name:'Unknown guard',rawPosition:'G'}]});
+  for(let i=0;i<3;i++){assert.deepEqual(after[i].ranked.map(p=>[p.id,p.score]),original[i].ranked.map(p=>[p.id,p.score]));assert(after[i].audit.some(p=>p.id===fake));}
+});
+
+test('market-specific appearance limits apply to archived and review candidates',()=>{
+  for(const team of Object.keys(regular.snapshot.rosters))for(const slot of rank(regular,team,team==='SAS'?'NYK':'SAS',{minimumGames:{'first-team-basket':5,points:5,threes:8}}))
+    assert(slot.ranked.every(p=>p.stats.gp>=(slot.market==='threes'?8:5)));
+});
+
+test('partial pregame position coverage withholds the center-only market leaders',()=>{
+  const m=P.build(A,H,data,{...extra,roleEvidenceMeta:null,datedRoleEvidence:[]},{mode:'pregame',date:'2026-01-01',phase:'regular-season'});
+  const slots=rank(m,'OKC','NYK');assert(slots.every(s=>s.pick));assert.equal(new Set(slots.map(s=>s.pick.id)).size,1);
+  for(const slot of slots){const reviewed=P.applySelectionPolicy(slot,{scope:m.scope,minimumGames:slot.market==='threes'?8:5,rosterSize:m.snapshot.rosters.OKC.length});assert(!reviewed.pick);assert(!reviewed.selectionReview.coverageReady);assert(reviewed.ranked.length>0);assert(reviewed.reason.includes('positional coverage'));}
+});
+
+test('NBA/PDF matched roles restore dated guards and wings without changing season stats',()=>{
+  assert.equal(extra.datedRoleEvidence.length,13210);assert.equal(extra.roleEvidenceMeta.matchedTeamGames,2642);
+  const m=P.build(A,H,data,extra,{mode:'pregame',date:'2026-01-01',phase:'regular-season'});
+  const slots=rank(m,'OKC','NYK');assert(slots[1].ranked.some(p=>['PG','SG'].includes(p.group)));assert(slots[2].ranked.some(p=>['SF','PF'].includes(p.group)));
+  assert(slots[1].ranked.length>2);assert(m.scope.byTeam.OKC.points.unknown/m.scope.byTeam.OKC.totals.points<.2);
+  for(const p of Object.values(m.snapshot.players)){const date=p.positionSource.match(/\((\d{4}-\d{2}-\d{2})\)/)?.[1];if(date)assert(date<'2026-01-01');}
+  const wrong=P.build(A,H,data,{...extra,roleEvidenceMeta:{...extra.roleEvidenceMeta,parentEvidenceContentHash:'wrong'}},{mode:'pregame',date:'2026-01-01',phase:'regular-season'});
+  assert.equal(wrong.snapshot.roleRecords,data.datedRoleEvidence.length);
+});
+
+test('selection guard uses each market production and does not force distinct names',()=>{
+  const own={points:{unknown:10},threes:{unknown:1},first:{unknown:1},totals:{points:100,threes:10,first:10}},opp={allowedPoints:{unknown:10},allowedThrees:{unknown:1},allowedFirst:{unknown:1},totals:{allowedPoints:100,allowedThrees:10,allowedFirst:10}};
+  const scope={byTeam:{AAA:own,BBB:opp}},p={id:'same',name:'Supported player',stats:{gp:20}};
+  const slots=P.MARKETS.map(market=>P.applySelectionPolicy({team:'AAA',opponent:'BBB',market,pick:p,ranked:[p],audit:[]},{scope,minimumGames:market==='threes'?8:5,rosterSize:5}));
+  assert(slots.every(s=>s.pick.id==='same'&&s.selectionReview.coverageReady));
+  const sparse=structuredClone(scope);sparse.byTeam.BBB.allowedThrees.unknown=3;
+  assert(!P.applySelectionPolicy({...slots[2],pick:p},{scope:sparse}).pick);
+  assert(P.applySelectionPolicy({...slots[1],pick:p},{scope:sparse}).pick);
+});
+
+test('selection guard never restores withheld picks and reports insufficient player samples',()=>{
+  const scope={byTeam:{AAA:{points:{},totals:{points:10}},BBB:{allowedPoints:{},totals:{allowedPoints:10}}}},p={id:'one',name:'Player',stats:{gp:6}};
+  const slot={team:'AAA',opponent:'BBB',market:'points',pick:p,ranked:[p],audit:[]};
+  const tooSmall=P.applySelectionPolicy(slot,{scope,minimumGames:8});assert(!tooSmall.pick);assert(tooSmall.audit[0].reason.includes('8 appearances'));
+  const withheld=P.applySelectionPolicy({...slot,pick:null,reason:'Current evidence not ready'},{scope});assert(!withheld.pick);assert.equal(withheld.reason,'Current evidence not ready');
 });
 test('frozen evaluated model and evidence files retain their hashes',()=>{const crypto=require('node:crypto'),e=read('analyst_evaluation.json'),hash=name=>crypto.createHash('sha256').update(fs.readFileSync(path.join(base,name))).digest('hex');assert.equal(hash('analyst.js'),e.modelCodeHash);assert.equal(hash('analyst_data.json'),e.evidenceHash);});
 test('parent UI forwards exclusions even when excluded rows are hidden',()=>{

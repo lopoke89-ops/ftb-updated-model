@@ -8,13 +8,13 @@
     },
     "points": {
       "teamGames": 5,
-      "playerGames": 5
+      "playerGames": 10
     },
     "threes": {
-      "teamGames": 5,
-      "playerGames": 8
+      "teamGames": 10,
+      "playerGames": 10
     }
   },
-  "evaluationHash": "7f4a110f35df0d79714db72fc154d63401250b27d8fb7a3210fef2e1e0ee1d3d",
+  "evaluationHash": "26ca183a320197f59dba25257a7d04a5fef33c38c6cc49eaaa5ae28384424a0c",
   "interpretation": "2025-26 chronological retrospective selection; cross-season transfer unvalidated. Prior seasons stay separate."
 }

@@ -1,6 +1,6 @@
 {
   "version": "parlay-readiness-evaluation-v1",
-  "generatedAt": "2026-10-11T02:09:34.054Z",
+  "generatedAt": "2026-10-11T03:22:39.345Z",
   "protocol": {
     "version": "parlay-readiness-evaluation-v1",
     "declaredBeforeThisRun": true,
@@ -34,11 +34,11 @@
     },
     "points": {
       "teamGames": 5,
-      "playerGames": 5
+      "playerGames": 10
     },
     "threes": {
-      "teamGames": 5,
-      "playerGames": 8
+      "teamGames": 10,
+      "playerGames": 10
     }
   },
   "development": {
@@ -49,17 +49,17 @@
           "playerGames": 5
         },
         "opportunities": 774,
-        "selections": 472,
-        "coverage": 0.6098191214470284,
-        "hits": 93,
-        "hitRate": 0.19703389830508475,
+        "selections": 616,
+        "coverage": 0.7958656330749354,
+        "hits": 112,
+        "hitRate": 0.18181818181818182,
         "descriptive95Interval": [
-          0.16365766607035526,
-          0.23530180940534068
+          0.1533626778779906,
+          0.21421754054460992
         ],
-        "didNotPlay": 50,
-        "participatingSelections": 422,
-        "participatingHitRate": 0.22037914691943128,
+        "didNotPlay": 60,
+        "participatingSelections": 556,
+        "participatingHitRate": 0.2014388489208633,
         "qualifies": true
       },
       "grid": [
@@ -69,17 +69,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 472,
-          "coverage": 0.6098191214470284,
-          "hits": 93,
-          "hitRate": 0.19703389830508475,
+          "selections": 616,
+          "coverage": 0.7958656330749354,
+          "hits": 112,
+          "hitRate": 0.18181818181818182,
           "descriptive95Interval": [
-            0.16365766607035526,
-            0.23530180940534068
+            0.1533626778779906,
+            0.21421754054460992
           ],
-          "didNotPlay": 50,
-          "participatingSelections": 422,
-          "participatingHitRate": 0.22037914691943128,
+          "didNotPlay": 60,
+          "participatingSelections": 556,
+          "participatingHitRate": 0.2014388489208633,
           "qualifies": true
         },
         {
@@ -88,17 +88,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 414,
-          "coverage": 0.5348837209302325,
-          "hits": 80,
-          "hitRate": 0.1932367149758454,
+          "selections": 534,
+          "coverage": 0.689922480620155,
+          "hits": 95,
+          "hitRate": 0.17790262172284643,
           "descriptive95Interval": [
-            0.1580938436570322,
-            0.23402009181293384
+            0.147801206811875,
+            0.212605109290501
           ],
-          "didNotPlay": 43,
-          "participatingSelections": 371,
-          "participatingHitRate": 0.215633423180593,
+          "didNotPlay": 51,
+          "participatingSelections": 483,
+          "participatingHitRate": 0.19668737060041408,
           "qualifies": true
         },
         {
@@ -107,17 +107,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 370,
-          "coverage": 0.4780361757105943,
-          "hits": 68,
-          "hitRate": 0.1837837837837838,
+          "selections": 474,
+          "coverage": 0.6124031007751938,
+          "hits": 78,
+          "hitRate": 0.16455696202531644,
           "descriptive95Interval": [
-            0.1476379471609,
-            0.22642826599221744
+            0.13389973533980834,
+            0.20060757010660588
           ],
-          "didNotPlay": 38,
-          "participatingSelections": 332,
-          "participatingHitRate": 0.20481927710843373,
+          "didNotPlay": 46,
+          "participatingSelections": 428,
+          "participatingHitRate": 0.1822429906542056,
           "qualifies": true
         },
         {
@@ -126,17 +126,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 372,
-          "coverage": 0.4806201550387597,
-          "hits": 67,
-          "hitRate": 0.18010752688172044,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 81,
+          "hitRate": 0.17456896551724138,
           "descriptive95Interval": [
-            0.1443898713643336,
-            0.22236439585570542
+            0.14274028813195552,
+            0.21174188888317483
           ],
-          "didNotPlay": 43,
-          "participatingSelections": 329,
-          "participatingHitRate": 0.20364741641337386,
+          "didNotPlay": 45,
+          "participatingSelections": 419,
+          "participatingHitRate": 0.19331742243436753,
           "qualifies": true
         },
         {
@@ -145,17 +145,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 370,
-          "coverage": 0.4780361757105943,
-          "hits": 67,
-          "hitRate": 0.1810810810810811,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 79,
+          "hitRate": 0.17025862068965517,
           "descriptive95Interval": [
-            0.14518521490106812,
-            0.22353113682600756
+            0.1388002535176807,
+            0.2071320185572527
           ],
-          "didNotPlay": 42,
-          "participatingSelections": 328,
-          "participatingHitRate": 0.20426829268292682,
+          "didNotPlay": 45,
+          "participatingSelections": 419,
+          "participatingHitRate": 0.18854415274463007,
           "qualifies": true
         },
         {
@@ -164,17 +164,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 364,
-          "coverage": 0.4702842377260982,
-          "hits": 66,
-          "hitRate": 0.1813186813186813,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 78,
+          "hitRate": 0.16810344827586207,
           "descriptive95Interval": [
-            0.14513352796173276,
-            0.22415996944936414
+            0.13683314239540706,
+            0.20482417720942786
           ],
-          "didNotPlay": 38,
-          "participatingSelections": 326,
-          "participatingHitRate": 0.20245398773006135,
+          "didNotPlay": 46,
+          "participatingSelections": 418,
+          "participatingHitRate": 0.18660287081339713,
           "qualifies": true
         },
         {
@@ -183,17 +183,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 250,
-          "coverage": 0.32299741602067183,
-          "hits": 41,
-          "hitRate": 0.164,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 50,
+          "hitRate": 0.16129032258064516,
           "descriptive95Interval": [
-            0.12325149320629131,
-            0.21491808405464746
+            0.12453409009003641,
+            0.2063382529423145
           ],
-          "didNotPlay": 32,
-          "participatingSelections": 218,
-          "participatingHitRate": 0.18807339449541285,
+          "didNotPlay": 34,
+          "participatingSelections": 276,
+          "participatingHitRate": 0.18115942028985507,
           "qualifies": false
         },
         {
@@ -202,17 +202,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 250,
-          "coverage": 0.32299741602067183,
-          "hits": 41,
-          "hitRate": 0.164,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 50,
+          "hitRate": 0.16129032258064516,
           "descriptive95Interval": [
-            0.12325149320629131,
-            0.21491808405464746
+            0.12453409009003641,
+            0.2063382529423145
           ],
-          "didNotPlay": 31,
-          "participatingSelections": 219,
-          "participatingHitRate": 0.1872146118721461,
+          "didNotPlay": 33,
+          "participatingSelections": 277,
+          "participatingHitRate": 0.18050541516245489,
           "qualifies": false
         },
         {
@@ -221,17 +221,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 250,
-          "coverage": 0.32299741602067183,
-          "hits": 41,
-          "hitRate": 0.164,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 50,
+          "hitRate": 0.16129032258064516,
           "descriptive95Interval": [
-            0.12325149320629131,
-            0.21491808405464746
+            0.12453409009003641,
+            0.2063382529423145
           ],
-          "didNotPlay": 30,
-          "participatingSelections": 220,
-          "participatingHitRate": 0.18636363636363637,
+          "didNotPlay": 33,
+          "participatingSelections": 277,
+          "participatingHitRate": 0.18050541516245489,
           "qualifies": false
         },
         {
@@ -240,17 +240,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 133,
-          "coverage": 0.17183462532299743,
-          "hits": 24,
-          "hitRate": 0.18045112781954886,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 23,
+          "hitRate": 0.14743589743589744,
           "descriptive95Interval": [
-            0.12436743936627852,
-            0.2544757801336169
+            0.10029700652498463,
+            0.2115210861552438
           ],
-          "didNotPlay": 16,
-          "participatingSelections": 117,
-          "participatingHitRate": 0.20512820512820512,
+          "didNotPlay": 18,
+          "participatingSelections": 138,
+          "participatingHitRate": 0.16666666666666666,
           "qualifies": false
         },
         {
@@ -259,17 +259,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 133,
-          "coverage": 0.17183462532299743,
-          "hits": 24,
-          "hitRate": 0.18045112781954886,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 23,
+          "hitRate": 0.14743589743589744,
           "descriptive95Interval": [
-            0.12436743936627852,
-            0.2544757801336169
+            0.10029700652498463,
+            0.2115210861552438
           ],
-          "didNotPlay": 16,
-          "participatingSelections": 117,
-          "participatingHitRate": 0.20512820512820512,
+          "didNotPlay": 18,
+          "participatingSelections": 138,
+          "participatingHitRate": 0.16666666666666666,
           "qualifies": false
         },
         {
@@ -278,17 +278,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 133,
-          "coverage": 0.17183462532299743,
-          "hits": 24,
-          "hitRate": 0.18045112781954886,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 23,
+          "hitRate": 0.14743589743589744,
           "descriptive95Interval": [
-            0.12436743936627852,
-            0.2544757801336169
+            0.10029700652498463,
+            0.2115210861552438
           ],
-          "didNotPlay": 15,
-          "participatingSelections": 118,
-          "participatingHitRate": 0.2033898305084746,
+          "didNotPlay": 18,
+          "participatingSelections": 138,
+          "participatingHitRate": 0.16666666666666666,
           "qualifies": false
         }
       ]
@@ -297,20 +297,20 @@
       "selected": {
         "rule": {
           "teamGames": 5,
-          "playerGames": 5
+          "playerGames": 10
         },
         "opportunities": 774,
-        "selections": 586,
-        "coverage": 0.7571059431524548,
-        "hits": 265,
-        "hitRate": 0.4522184300341297,
+        "selections": 474,
+        "coverage": 0.6124031007751938,
+        "hits": 223,
+        "hitRate": 0.4704641350210971,
         "descriptive95Interval": [
-          0.4123624395321165,
-          0.4926967943305487
+          0.42594846745335185,
+          0.5154546915167727
         ],
-        "didNotPlay": 71,
-        "participatingSelections": 515,
-        "participatingHitRate": 0.5145631067961165,
+        "didNotPlay": 36,
+        "participatingSelections": 438,
+        "participatingHitRate": 0.5091324200913242,
         "qualifies": true
       },
       "grid": [
@@ -320,17 +320,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 586,
-          "coverage": 0.7571059431524548,
-          "hits": 265,
-          "hitRate": 0.4522184300341297,
+          "selections": 616,
+          "coverage": 0.7958656330749354,
+          "hits": 282,
+          "hitRate": 0.4577922077922078,
           "descriptive95Interval": [
-            0.4123624395321165,
-            0.4926967943305487
+            0.4188313583918699,
+            0.4972762216029649
           ],
-          "didNotPlay": 71,
-          "participatingSelections": 515,
-          "participatingHitRate": 0.5145631067961165,
+          "didNotPlay": 47,
+          "participatingSelections": 569,
+          "participatingHitRate": 0.4956063268892794,
           "qualifies": true
         },
         {
@@ -339,17 +339,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 496,
-          "coverage": 0.6408268733850129,
-          "hits": 225,
-          "hitRate": 0.4536290322580645,
+          "selections": 534,
+          "coverage": 0.689922480620155,
+          "hits": 245,
+          "hitRate": 0.45880149812734083,
           "descriptive95Interval": [
-            0.41033979037548873,
-            0.4976310287947925
+            0.416982163139608,
+            0.5012093424083703
           ],
-          "didNotPlay": 54,
-          "participatingSelections": 442,
-          "participatingHitRate": 0.5090497737556561,
+          "didNotPlay": 42,
+          "participatingSelections": 492,
+          "participatingHitRate": 0.49796747967479676,
           "qualifies": true
         },
         {
@@ -358,17 +358,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 430,
-          "coverage": 0.5555555555555556,
-          "hits": 186,
-          "hitRate": 0.4325581395348837,
+          "selections": 474,
+          "coverage": 0.6124031007751938,
+          "hits": 223,
+          "hitRate": 0.4704641350210971,
           "descriptive95Interval": [
-            0.3865322076697552,
-            0.4797784022990092
+            0.42594846745335185,
+            0.5154546915167727
           ],
-          "didNotPlay": 47,
-          "participatingSelections": 383,
-          "participatingHitRate": 0.4856396866840731,
+          "didNotPlay": 36,
+          "participatingSelections": 438,
+          "participatingHitRate": 0.5091324200913242,
           "qualifies": true
         },
         {
@@ -377,17 +377,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 448,
-          "coverage": 0.5788113695090439,
-          "hits": 195,
-          "hitRate": 0.43526785714285715,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 216,
+          "hitRate": 0.46551724137931033,
           "descriptive95Interval": [
-            0.39010031697587666,
-            0.4815360747988401
+            0.4206000097436029,
+            0.5110007507348214
           ],
-          "didNotPlay": 58,
-          "participatingSelections": 390,
-          "participatingHitRate": 0.5,
+          "didNotPlay": 34,
+          "participatingSelections": 430,
+          "participatingHitRate": 0.5023255813953489,
           "qualifies": true
         },
         {
@@ -396,17 +396,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 437,
-          "coverage": 0.5645994832041343,
-          "hits": 191,
-          "hitRate": 0.43707093821510296,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 216,
+          "hitRate": 0.46551724137931033,
           "descriptive95Interval": [
-            0.3913129921341084,
-            0.48392560237755144
+            0.4206000097436029,
+            0.5110007507348214
           ],
-          "didNotPlay": 53,
-          "participatingSelections": 384,
-          "participatingHitRate": 0.4973958333333333,
+          "didNotPlay": 34,
+          "participatingSelections": 430,
+          "participatingHitRate": 0.5023255813953489,
           "qualifies": true
         },
         {
@@ -415,17 +415,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 423,
-          "coverage": 0.5465116279069767,
-          "hits": 182,
-          "hitRate": 0.4302600472813239,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 218,
+          "hitRate": 0.4698275862068966,
           "descriptive95Interval": [
-            0.3839137024401818,
-            0.4778616739185038
+            0.42484986419176723,
+            0.5153008012268542
           ],
-          "didNotPlay": 47,
-          "participatingSelections": 376,
-          "participatingHitRate": 0.48404255319148937,
+          "didNotPlay": 36,
+          "participatingSelections": 428,
+          "participatingHitRate": 0.5093457943925234,
           "qualifies": true
         },
         {
@@ -434,17 +434,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 297,
-          "coverage": 0.38372093023255816,
-          "hits": 120,
-          "hitRate": 0.40404040404040403,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 138,
+          "hitRate": 0.44516129032258067,
           "descriptive95Interval": [
-            0.34980237097517897,
-            0.4607290623470719
+            0.39084459363950497,
+            0.5008204523752566
           ],
-          "didNotPlay": 43,
-          "participatingSelections": 254,
-          "participatingHitRate": 0.47244094488188976,
+          "didNotPlay": 21,
+          "participatingSelections": 289,
+          "participatingHitRate": 0.47750865051903113,
           "qualifies": false
         },
         {
@@ -453,17 +453,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 296,
-          "coverage": 0.38242894056847543,
-          "hits": 120,
-          "hitRate": 0.40540540540540543,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 139,
+          "hitRate": 0.4483870967741935,
           "descriptive95Interval": [
-            0.35103191568984027,
-            0.46220271763854115
+            0.393993177593452,
+            0.5040445127733824
           ],
-          "didNotPlay": 41,
-          "participatingSelections": 255,
-          "participatingHitRate": 0.47058823529411764,
+          "didNotPlay": 21,
+          "participatingSelections": 289,
+          "participatingHitRate": 0.4809688581314879,
           "qualifies": false
         },
         {
@@ -472,17 +472,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 290,
-          "coverage": 0.37467700258397935,
-          "hits": 117,
-          "hitRate": 0.40344827586206894,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 140,
+          "hitRate": 0.45161290322580644,
           "descriptive95Interval": [
-            0.34860320662678773,
-            0.46081783210358446
+            0.3971440722738086,
+            0.5072662624450986
           ],
-          "didNotPlay": 38,
-          "participatingSelections": 252,
-          "participatingHitRate": 0.4642857142857143,
+          "didNotPlay": 21,
+          "participatingSelections": 289,
+          "participatingHitRate": 0.4844290657439446,
           "qualifies": false
         },
         {
@@ -491,17 +491,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 149,
-          "coverage": 0.1925064599483204,
-          "hits": 61,
-          "hitRate": 0.40939597315436244,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 66,
+          "hitRate": 0.4230769230769231,
           "descriptive95Interval": [
-            0.33368429621624807,
-            0.48966206406892154
+            0.3483133146991538,
+            0.501537905521987
           ],
-          "didNotPlay": 20,
-          "participatingSelections": 129,
-          "participatingHitRate": 0.4728682170542636,
+          "didNotPlay": 13,
+          "participatingSelections": 143,
+          "participatingHitRate": 0.46153846153846156,
           "qualifies": false
         },
         {
@@ -510,17 +510,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 149,
-          "coverage": 0.1925064599483204,
-          "hits": 60,
-          "hitRate": 0.40268456375838924,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 67,
+          "hitRate": 0.42948717948717946,
           "descriptive95Interval": [
-            0.3273399386284105,
-            0.48292096686306785
+            0.35442497567077513,
+            0.5079386428652705
           ],
-          "didNotPlay": 20,
-          "participatingSelections": 129,
-          "participatingHitRate": 0.46511627906976744,
+          "didNotPlay": 13,
+          "participatingSelections": 143,
+          "participatingHitRate": 0.46853146853146854,
           "qualifies": false
         },
         {
@@ -529,17 +529,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 148,
-          "coverage": 0.19121447028423771,
-          "hits": 59,
-          "hitRate": 0.39864864864864863,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 67,
+          "hitRate": 0.42948717948717946,
           "descriptive95Interval": [
-            0.32329301538847477,
-            0.4791324866252652
+            0.35442497567077513,
+            0.5079386428652705
           ],
-          "didNotPlay": 18,
-          "participatingSelections": 130,
-          "participatingHitRate": 0.45384615384615384,
+          "didNotPlay": 13,
+          "participatingSelections": 143,
+          "participatingHitRate": 0.46853146853146854,
           "qualifies": false
         }
       ]
@@ -547,21 +547,21 @@
     "threes": {
       "selected": {
         "rule": {
-          "teamGames": 5,
-          "playerGames": 8
+          "teamGames": 10,
+          "playerGames": 10
         },
         "opportunities": 774,
-        "selections": 409,
-        "coverage": 0.5284237726098191,
-        "hits": 143,
-        "hitRate": 0.34963325183374083,
+        "selections": 464,
+        "coverage": 0.599483204134367,
+        "hits": 201,
+        "hitRate": 0.4331896551724138,
         "descriptive95Interval": [
-          0.30501280899493244,
-          0.3970519973078146
+          0.3888338187340429,
+          0.47864265469290435
         ],
-        "didNotPlay": 47,
-        "participatingSelections": 362,
-        "participatingHitRate": 0.39502762430939226,
+        "didNotPlay": 41,
+        "participatingSelections": 423,
+        "participatingHitRate": 0.475177304964539,
         "qualifies": true
       },
       "grid": [
@@ -571,17 +571,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 477,
-          "coverage": 0.6162790697674418,
-          "hits": 163,
-          "hitRate": 0.3417190775681342,
+          "selections": 616,
+          "coverage": 0.7958656330749354,
+          "hits": 258,
+          "hitRate": 0.41883116883116883,
           "descriptive95Interval": [
-            0.30057239447337386,
-            0.3853947840425122
+            0.38049102439663596,
+            0.458177398670354
           ],
-          "didNotPlay": 57,
-          "participatingSelections": 420,
-          "participatingHitRate": 0.3880952380952381,
+          "didNotPlay": 53,
+          "participatingSelections": 563,
+          "participatingHitRate": 0.458259325044405,
           "qualifies": true
         },
         {
@@ -590,17 +590,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 409,
-          "coverage": 0.5284237726098191,
-          "hits": 143,
-          "hitRate": 0.34963325183374083,
+          "selections": 534,
+          "coverage": 0.689922480620155,
+          "hits": 225,
+          "hitRate": 0.42134831460674155,
           "descriptive95Interval": [
-            0.30501280899493244,
-            0.3970519973078146
+            0.38017611862359896,
+            0.4636440283316324
           ],
           "didNotPlay": 47,
-          "participatingSelections": 362,
-          "participatingHitRate": 0.39502762430939226,
+          "participatingSelections": 487,
+          "participatingHitRate": 0.4620123203285421,
           "qualifies": true
         },
         {
@@ -609,112 +609,112 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 356,
-          "coverage": 0.4599483204134367,
+          "selections": 474,
+          "coverage": 0.6124031007751938,
+          "hits": 204,
+          "hitRate": 0.43037974683544306,
+          "descriptive95Interval": [
+            0.3865418558704977,
+            0.47533701884479584
+          ],
+          "didNotPlay": 41,
+          "participatingSelections": 433,
+          "participatingHitRate": 0.47113163972286376,
+          "qualifies": true
+        },
+        {
+          "rule": {
+            "teamGames": 10,
+            "playerGames": 5
+          },
+          "opportunities": 774,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 190,
+          "hitRate": 0.40948275862068967,
+          "descriptive95Interval": [
+            0.3656610662938776,
+            0.45479092996198645
+          ],
+          "didNotPlay": 41,
+          "participatingSelections": 423,
+          "participatingHitRate": 0.4491725768321513,
+          "qualifies": true
+        },
+        {
+          "rule": {
+            "teamGames": 10,
+            "playerGames": 8
+          },
+          "opportunities": 774,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 196,
+          "hitRate": 0.4224137931034483,
+          "descriptive95Interval": [
+            0.37828775326678626,
+            0.46781395780966856
+          ],
+          "didNotPlay": 40,
+          "participatingSelections": 424,
+          "participatingHitRate": 0.46226415094339623,
+          "qualifies": true
+        },
+        {
+          "rule": {
+            "teamGames": 10,
+            "playerGames": 10
+          },
+          "opportunities": 774,
+          "selections": 464,
+          "coverage": 0.599483204134367,
+          "hits": 201,
+          "hitRate": 0.4331896551724138,
+          "descriptive95Interval": [
+            0.3888338187340429,
+            0.47864265469290435
+          ],
+          "didNotPlay": 41,
+          "participatingSelections": 423,
+          "participatingHitRate": 0.475177304964539,
+          "qualifies": true
+        },
+        {
+          "rule": {
+            "teamGames": 15,
+            "playerGames": 5
+          },
+          "opportunities": 774,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 119,
+          "hitRate": 0.38387096774193546,
+          "descriptive95Interval": [
+            0.3314687815137958,
+            0.4391160218115816
+          ],
+          "didNotPlay": 29,
+          "participatingSelections": 281,
+          "participatingHitRate": 0.4234875444839858,
+          "qualifies": false
+        },
+        {
+          "rule": {
+            "teamGames": 15,
+            "playerGames": 8
+          },
+          "opportunities": 774,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
           "hits": 122,
-          "hitRate": 0.34269662921348315,
+          "hitRate": 0.3935483870967742,
           "descriptive95Interval": [
-            0.29530943637333185,
-            0.3934423812547514
+            0.3407863640026242,
+            0.44891637237897175
           ],
-          "didNotPlay": 41,
-          "participatingSelections": 315,
-          "participatingHitRate": 0.3873015873015873,
-          "qualifies": true
-        },
-        {
-          "rule": {
-            "teamGames": 10,
-            "playerGames": 5
-          },
-          "opportunities": 774,
-          "selections": 365,
-          "coverage": 0.4715762273901809,
-          "hits": 123,
-          "hitRate": 0.336986301369863,
-          "descriptive95Interval": [
-            0.29041550986368014,
-            0.38695264614437364
-          ],
-          "didNotPlay": 47,
-          "participatingSelections": 318,
-          "participatingHitRate": 0.3867924528301887,
-          "qualifies": true
-        },
-        {
-          "rule": {
-            "teamGames": 10,
-            "playerGames": 8
-          },
-          "opportunities": 774,
-          "selections": 362,
-          "coverage": 0.46770025839793283,
-          "hits": 124,
-          "hitRate": 0.3425414364640884,
-          "descriptive95Interval": [
-            0.295538036654285,
-            0.39285157241986424
-          ],
-          "didNotPlay": 45,
-          "participatingSelections": 317,
-          "participatingHitRate": 0.3911671924290221,
-          "qualifies": true
-        },
-        {
-          "rule": {
-            "teamGames": 10,
-            "playerGames": 10
-          },
-          "opportunities": 774,
-          "selections": 351,
-          "coverage": 0.45348837209302323,
-          "hits": 120,
-          "hitRate": 0.3418803418803419,
-          "descriptive95Interval": [
-            0.2942086655434371,
-            0.39297557620524287
-          ],
-          "didNotPlay": 41,
-          "participatingSelections": 310,
-          "participatingHitRate": 0.3870967741935484,
-          "qualifies": true
-        },
-        {
-          "rule": {
-            "teamGames": 15,
-            "playerGames": 5
-          },
-          "opportunities": 774,
-          "selections": 246,
-          "coverage": 0.3178294573643411,
-          "hits": 73,
-          "hitRate": 0.2967479674796748,
-          "descriptive95Interval": [
-            0.24314147240483344,
-            0.3566047007402416
-          ],
-          "didNotPlay": 38,
-          "participatingSelections": 208,
-          "participatingHitRate": 0.35096153846153844,
-          "qualifies": false
-        },
-        {
-          "rule": {
-            "teamGames": 15,
-            "playerGames": 8
-          },
-          "opportunities": 774,
-          "selections": 245,
-          "coverage": 0.3165374677002584,
-          "hits": 74,
-          "hitRate": 0.3020408163265306,
-          "descriptive95Interval": [
-            0.24796776342921797,
-            0.36222580937934445
-          ],
-          "didNotPlay": 37,
-          "participatingSelections": 208,
-          "participatingHitRate": 0.3557692307692308,
+          "didNotPlay": 29,
+          "participatingSelections": 281,
+          "participatingHitRate": 0.43416370106761565,
           "qualifies": false
         },
         {
@@ -723,17 +723,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 243,
-          "coverage": 0.313953488372093,
-          "hits": 73,
-          "hitRate": 0.3004115226337449,
+          "selections": 310,
+          "coverage": 0.4005167958656331,
+          "hits": 122,
+          "hitRate": 0.3935483870967742,
           "descriptive95Interval": [
-            0.2462435122148549,
-            0.360791706004055
+            0.3407863640026242,
+            0.44891637237897175
           ],
-          "didNotPlay": 36,
-          "participatingSelections": 207,
-          "participatingHitRate": 0.3526570048309179,
+          "didNotPlay": 29,
+          "participatingSelections": 281,
+          "participatingHitRate": 0.43416370106761565,
           "qualifies": false
         },
         {
@@ -742,17 +742,17 @@
             "playerGames": 5
           },
           "opportunities": 774,
-          "selections": 126,
-          "coverage": 0.16279069767441862,
-          "hits": 35,
-          "hitRate": 0.2777777777777778,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 54,
+          "hitRate": 0.34615384615384615,
           "descriptive95Interval": [
-            0.2070307181237154,
-            0.36167406609059494
+            0.2760062701245807,
+            0.4236961703177008
           ],
-          "didNotPlay": 23,
-          "participatingSelections": 103,
-          "participatingHitRate": 0.33980582524271846,
+          "didNotPlay": 14,
+          "participatingSelections": 142,
+          "participatingHitRate": 0.38028169014084506,
           "qualifies": false
         },
         {
@@ -761,17 +761,17 @@
             "playerGames": 8
           },
           "opportunities": 774,
-          "selections": 126,
-          "coverage": 0.16279069767441862,
-          "hits": 35,
-          "hitRate": 0.2777777777777778,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 56,
+          "hitRate": 0.358974358974359,
           "descriptive95Interval": [
-            0.2070307181237154,
-            0.36167406609059494
+            0.28792070458554886,
+            0.43680653248654244
           ],
-          "didNotPlay": 23,
-          "participatingSelections": 103,
-          "participatingHitRate": 0.33980582524271846,
+          "didNotPlay": 14,
+          "participatingSelections": 142,
+          "participatingHitRate": 0.39436619718309857,
           "qualifies": false
         },
         {
@@ -780,17 +780,17 @@
             "playerGames": 10
           },
           "opportunities": 774,
-          "selections": 126,
-          "coverage": 0.16279069767441862,
-          "hits": 34,
-          "hitRate": 0.2698412698412698,
+          "selections": 156,
+          "coverage": 0.20155038759689922,
+          "hits": 58,
+          "hitRate": 0.3717948717948718,
           "descriptive95Interval": [
-            0.1999984809546489,
-            0.3533029026958868
+            0.29989130029299366,
+            0.4498607334089076
           ],
-          "didNotPlay": 22,
-          "participatingSelections": 104,
-          "participatingHitRate": 0.3269230769230769,
+          "didNotPlay": 14,
+          "participatingSelections": 142,
+          "participatingHitRate": 0.4084507042253521,
           "qualifies": false
         }
       ]
@@ -800,100 +800,114 @@
     "regular-season|first-team-basket|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 1686,
-        "selections": 1365,
-        "coverage": 0.8096085409252669,
-        "hits": 260,
-        "hitRate": 0.19047619047619047,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 364,
+        "hitRate": 0.2158956109134045,
         "descriptive95Interval": [
-          0.17052462114252803,
-          0.21216502888604594
+          0.1969137653682652,
+          0.23616914604960906
         ],
-        "didNotPlay": 169,
-        "participatingSelections": 1196,
-        "participatingHitRate": 0.21739130434782608
+        "didNotPlay": 251,
+        "participatingSelections": 1435,
+        "participatingHitRate": 0.25365853658536586
       },
       "baseline": {
         "opportunities": 1686,
-        "selections": 1365,
-        "coverage": 0.8096085409252669,
-        "hits": 260,
-        "hitRate": 0.19047619047619047,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 364,
+        "hitRate": 0.2158956109134045,
         "descriptive95Interval": [
-          0.17052462114252803,
-          0.21216502888604594
+          0.1969137653682652,
+          0.23616914604960906
         ],
-        "didNotPlay": 168,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.2172096908939014
+        "didNotPlay": 237,
+        "participatingSelections": 1449,
+        "participatingHitRate": 0.25120772946859904
+      },
+      "issuedPolicy": {
+        "opportunities": 1686,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 364,
+        "hitRate": 0.2158956109134045,
+        "descriptive95Interval": [
+          0.1969137653682652,
+          0.23616914604960906
+        ],
+        "didNotPlay": 251,
+        "participatingSelections": 1435,
+        "participatingHitRate": 0.25365853658536586
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 1686,
-        "selections": 1365,
-        "coverage": 0.8096085409252669,
-        "hits": 261,
-        "hitRate": 0.1912087912087912,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 326,
+        "hitRate": 0.1933570581257414,
         "descriptive95Interval": [
-          0.17122474535168464,
-          0.21292599426262054
+          0.17521143667958258,
+          0.21289684140609796
         ],
-        "didNotPlay": 179,
-        "participatingSelections": 1186,
-        "participatingHitRate": 0.22006745362563238
+        "didNotPlay": 287,
+        "participatingSelections": 1399,
+        "participatingHitRate": 0.23302358827734096
       },
       "withoutPosition": {
         "opportunities": 1686,
-        "selections": 1365,
-        "coverage": 0.8096085409252669,
-        "hits": 260,
-        "hitRate": 0.19047619047619047,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 364,
+        "hitRate": 0.2158956109134045,
         "descriptive95Interval": [
-          0.17052462114252803,
-          0.21216502888604594
+          0.1969137653682652,
+          0.23616914604960906
         ],
-        "didNotPlay": 169,
-        "participatingSelections": 1196,
-        "participatingHitRate": 0.21739130434782608
+        "didNotPlay": 253,
+        "participatingSelections": 1433,
+        "participatingHitRate": 0.2540125610607118
       },
       "withoutCorrelation": {
         "opportunities": 1686,
-        "selections": 1365,
-        "coverage": 0.8096085409252669,
-        "hits": 260,
-        "hitRate": 0.19047619047619047,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 364,
+        "hitRate": 0.2158956109134045,
         "descriptive95Interval": [
-          0.17052462114252803,
-          0.21216502888604594
+          0.1969137653682652,
+          0.23616914604960906
         ],
-        "didNotPlay": 169,
-        "participatingSelections": 1196,
-        "participatingHitRate": 0.21739130434782608
+        "didNotPlay": 251,
+        "participatingSelections": 1435,
+        "participatingHitRate": 0.25365853658536586
       },
       "pairedVsBaseline": {
-        "fixtures": 817,
+        "fixtures": 843,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
-          -0.0036719706242350062,
-          0.0036719706242350062
+          -0.013048635824436536,
+          0.012455516014234875
         ],
         "weeklyBlock95Interval": [
-          -0.002789400278940028,
-          0.002711864406779661
+          -0.01066350710900474,
+          0.010328068043742407
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 817,
+        "fixtures": 843,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
-          0,
-          0
+          -0.009489916963226572,
+          0.011862396204033215
         ],
         "weeklyBlock95Interval": [
-          0,
-          0
+          -0.013221153846153846,
+          0.012455516014234875
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 817,
+        "fixtures": 843,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
           0,
@@ -905,131 +919,142 @@
         ]
       },
       "tradeHistorySelections": {
-        "opportunities": 2,
-        "selections": 2,
-        "coverage": 1,
-        "hits": 1,
-        "hitRate": 0.5,
-        "descriptive95Interval": [
-          0.09453120573423074,
-          0.9054687942657693
-        ],
-        "didNotPlay": 1,
-        "participatingSelections": 1,
-        "participatingHitRate": 1
+        "opportunities": 0,
+        "selections": 0,
+        "coverage": 0,
+        "hits": 0,
+        "hitRate": null,
+        "descriptive95Interval": null,
+        "didNotPlay": 0,
+        "participatingSelections": 0,
+        "participatingHitRate": null
       },
       "conditionalKnownEventualStarters": {
         "opportunities": 1686,
-        "selections": 1120,
-        "coverage": 0.66429418742586,
-        "hits": 277,
-        "hitRate": 0.24732142857142858,
+        "selections": 1682,
+        "coverage": 0.9976275207591934,
+        "hits": 423,
+        "hitRate": 0.25148632580261593,
         "descriptive95Interval": [
-          0.22294533758786259,
-          0.2734249061350077
+          0.23133406804480847,
+          0.2727711396982662
         ],
         "didNotPlay": 0,
-        "participatingSelections": 1120,
-        "participatingHitRate": 0.24732142857142858
+        "participatingSelections": 1682,
+        "participatingHitRate": 0.25148632580261593
       }
     },
     "regular-season|first-team-basket|first-team-made-field-goal": {
       "policy": {
         "opportunities": 1686,
-        "selections": 1364,
-        "coverage": 0.8090154211150652,
-        "hits": 245,
-        "hitRate": 0.17961876832844575,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 344,
+        "hitRate": 0.2040332147093713,
         "descriptive95Interval": [
-          0.16015569196780904,
-          0.20088136801900203
+          0.1854800182932873,
+          0.223932033476064
         ],
-        "didNotPlay": 167,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.2046783625730994
+        "didNotPlay": 235,
+        "participatingSelections": 1451,
+        "participatingHitRate": 0.2370778773259821
       },
       "baseline": {
         "opportunities": 1686,
-        "selections": 1364,
-        "coverage": 0.8090154211150652,
-        "hits": 246,
-        "hitRate": 0.18035190615835778,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 342,
+        "hitRate": 0.20284697508896798,
         "descriptive95Interval": [
-          0.1608545295464966,
-          0.2016446881977817
+          0.18433802110559988,
+          0.22270694469889912
         ],
-        "didNotPlay": 167,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.20551378446115287
+        "didNotPlay": 225,
+        "participatingSelections": 1461,
+        "participatingHitRate": 0.23408624229979466
+      },
+      "issuedPolicy": {
+        "opportunities": 1686,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 344,
+        "hitRate": 0.2040332147093713,
+        "descriptive95Interval": [
+          0.1854800182932873,
+          0.223932033476064
+        ],
+        "didNotPlay": 235,
+        "participatingSelections": 1451,
+        "participatingHitRate": 0.2370778773259821
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 1686,
-        "selections": 1364,
-        "coverage": 0.8090154211150652,
-        "hits": 245,
-        "hitRate": 0.17961876832844575,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 316,
+        "hitRate": 0.1874258600237248,
         "descriptive95Interval": [
-          0.16015569196780904,
-          0.20088136801900203
+          0.16951607530475277,
+          0.20675677295666633
         ],
-        "didNotPlay": 167,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.2046783625730994
+        "didNotPlay": 285,
+        "participatingSelections": 1401,
+        "participatingHitRate": 0.22555317630264096
       },
       "withoutPosition": {
         "opportunities": 1686,
-        "selections": 1364,
-        "coverage": 0.8090154211150652,
-        "hits": 245,
-        "hitRate": 0.17961876832844575,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 350,
+        "hitRate": 0.20759193357058126,
         "descriptive95Interval": [
-          0.16015569196780904,
-          0.20088136801900203
+          0.18890753471522237,
+          0.22760577494868578
         ],
-        "didNotPlay": 167,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.2046783625730994
+        "didNotPlay": 233,
+        "participatingSelections": 1453,
+        "participatingHitRate": 0.24088093599449414
       },
       "withoutCorrelation": {
         "opportunities": 1686,
-        "selections": 1364,
-        "coverage": 0.8090154211150652,
-        "hits": 245,
-        "hitRate": 0.17961876832844575,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 344,
+        "hitRate": 0.2040332147093713,
         "descriptive95Interval": [
-          0.16015569196780904,
-          0.20088136801900203
+          0.1854800182932873,
+          0.223932033476064
         ],
-        "didNotPlay": 167,
-        "participatingSelections": 1197,
-        "participatingHitRate": 0.2046783625730994
+        "didNotPlay": 235,
+        "participatingSelections": 1451,
+        "participatingHitRate": 0.2370778773259821
       },
       "pairedVsBaseline": {
-        "fixtures": 817,
-        "meanDifference": -0.0006119951040391676,
+        "fixtures": 843,
+        "meanDifference": 0.0011862396204033216,
         "fixtureBootstrap95Interval": [
-          -0.0018359853121175031,
-          0
+          -0.011269276393831554,
+          0.014234875444839857
         ],
         "weeklyBlock95Interval": [
-          -0.0024813895781637717,
-          0
+          -0.014161220043572984,
+          0.016074450084602367
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 817,
-        "meanDifference": 0,
+        "fixtures": 843,
+        "meanDifference": -0.0035587188612099642,
         "fixtureBootstrap95Interval": [
-          0,
-          0
+          -0.013641755634638196,
+          0.006524317912218268
         ],
         "weeklyBlock95Interval": [
-          0,
-          0
+          -0.014705882352941176,
+          0.0075
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 817,
+        "fixtures": 843,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
           0,
@@ -1041,375 +1066,414 @@
         ]
       },
       "tradeHistorySelections": {
-        "opportunities": 3,
-        "selections": 3,
-        "coverage": 1,
-        "hits": 1,
-        "hitRate": 0.3333333333333333,
-        "descriptive95Interval": [
-          0.06149194472039621,
-          0.7923403991979522
-        ],
-        "didNotPlay": 1,
-        "participatingSelections": 2,
-        "participatingHitRate": 0.5
+        "opportunities": 0,
+        "selections": 0,
+        "coverage": 0,
+        "hits": 0,
+        "hitRate": null,
+        "descriptive95Interval": null,
+        "didNotPlay": 0,
+        "participatingSelections": 0,
+        "participatingHitRate": null
       },
       "conditionalKnownEventualStarters": {
         "opportunities": 1686,
-        "selections": 1116,
-        "coverage": 0.6619217081850534,
-        "hits": 261,
-        "hitRate": 0.23387096774193547,
+        "selections": 1680,
+        "coverage": 0.99644128113879,
+        "hits": 402,
+        "hitRate": 0.2392857142857143,
         "descriptive95Interval": [
-          0.20997523330569903,
-          0.2595925387023655
+          0.2194935812313053,
+          0.2602674168061697
         ],
         "didNotPlay": 0,
-        "participatingSelections": 1116,
-        "participatingHitRate": 0.23387096774193547
+        "participatingSelections": 1680,
+        "participatingHitRate": 0.2392857142857143
       }
     },
     "regular-season|points|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 1686,
-        "selections": 1525,
-        "coverage": 0.9045077105575327,
-        "hits": 633,
-        "hitRate": 0.41508196721311474,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 683,
+        "hitRate": 0.40510083036773425,
         "descriptive95Interval": [
-          0.3905953057728538,
-          0.4399953689464298
+          0.38190950483778774,
+          0.42872361797402825
         ],
-        "didNotPlay": 206,
-        "participatingSelections": 1319,
-        "participatingHitRate": 0.4799090219863533
+        "didNotPlay": 260,
+        "participatingSelections": 1426,
+        "participatingHitRate": 0.4789621318373071
       },
       "baseline": {
         "opportunities": 1686,
-        "selections": 1525,
-        "coverage": 0.9045077105575327,
-        "hits": 633,
-        "hitRate": 0.41508196721311474,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 655,
+        "hitRate": 0.3884934756820878,
         "descriptive95Interval": [
-          0.3905953057728538,
-          0.4399953689464298
+          0.3655065725776444,
+          0.4119873467262395
         ],
-        "didNotPlay": 204,
-        "participatingSelections": 1321,
-        "participatingHitRate": 0.47918243754731266
+        "didNotPlay": 287,
+        "participatingSelections": 1399,
+        "participatingHitRate": 0.4681915654038599
+      },
+      "issuedPolicy": {
+        "opportunities": 1686,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 683,
+        "hitRate": 0.40510083036773425,
+        "descriptive95Interval": [
+          0.38190950483778774,
+          0.42872361797402825
+        ],
+        "didNotPlay": 260,
+        "participatingSelections": 1426,
+        "participatingHitRate": 0.4789621318373071
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 1686,
-        "selections": 1525,
-        "coverage": 0.9045077105575327,
-        "hits": 629,
-        "hitRate": 0.4124590163934426,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 664,
+        "hitRate": 0.39383155397390274,
         "descriptive95Interval": [
-          0.38800190657802797,
-          0.43735604766926445
+          0.37077588514587023,
+          0.41736992099984893
         ],
-        "didNotPlay": 206,
-        "participatingSelections": 1319,
-        "participatingHitRate": 0.47687642153146326
+        "didNotPlay": 273,
+        "participatingSelections": 1413,
+        "participatingHitRate": 0.4699221514508139
       },
       "withoutPosition": {
         "opportunities": 1686,
-        "selections": 1525,
-        "coverage": 0.9045077105575327,
-        "hits": 634,
-        "hitRate": 0.4157377049180328,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 659,
+        "hitRate": 0.39086595492289444,
         "descriptive95Interval": [
-          0.3912437679604727,
-          0.4406550868768088
+          0.3678481293075217,
+          0.4143799619260668
         ],
-        "didNotPlay": 206,
-        "participatingSelections": 1319,
-        "participatingHitRate": 0.4806671721000758
+        "didNotPlay": 262,
+        "participatingSelections": 1424,
+        "participatingHitRate": 0.4627808988764045
       },
       "withoutCorrelation": {
         "opportunities": 1686,
-        "selections": 1525,
-        "coverage": 0.9045077105575327,
-        "hits": 635,
-        "hitRate": 0.4163934426229508,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 675,
+        "hitRate": 0.400355871886121,
         "descriptive95Interval": [
-          0.39189227504185786,
-          0.4413147599134214
+          0.37722009900327796,
+          0.4239446799491288
         ],
-        "didNotPlay": 207,
-        "participatingSelections": 1318,
-        "participatingHitRate": 0.48179059180576633
+        "didNotPlay": 260,
+        "participatingSelections": 1426,
+        "participatingHitRate": 0.47335203366058903
       },
       "pairedVsBaseline": {
-        "fixtures": 840,
-        "meanDifference": 0,
+        "fixtures": 843,
+        "meanDifference": 0.0166073546856465,
         "fixtureBootstrap95Interval": [
-          -0.008333333333333333,
-          0.009523809523809525
+          0.0029655990510083037,
+          0.02965599051008304
         ],
         "weeklyBlock95Interval": [
-          -0.008665511265164644,
-          0.008215085884988798
+          -0.003329633740288568,
+          0.03821243523316062
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 840,
-        "meanDifference": -0.0005952380952380953,
+        "fixtures": 843,
+        "meanDifference": 0.014234875444839857,
         "fixtureBootstrap95Interval": [
-          -0.0017857142857142857,
-          0
+          0.0011862396204033216,
+          0.026690391459074734
         ],
         "weeklyBlock95Interval": [
-          -0.0019907100199071004,
-          0
+          -0.001694915254237288,
+          0.029333333333333333
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 840,
-        "meanDifference": -0.0017857142857142857,
+        "fixtures": 843,
+        "meanDifference": 0.004744958481613286,
         "fixtureBootstrap95Interval": [
-          -0.005357142857142857,
-          0.0011904761904761906
+          -0.0011862396204033216,
+          0.011269276393831554
         ],
         "weeklyBlock95Interval": [
-          -0.00438871473354232,
-          0.001321003963011889
+          -0.0005537098560354374,
+          0.010869565217391304
         ]
       },
       "tradeHistorySelections": {
-        "opportunities": 69,
-        "selections": 69,
+        "opportunities": 12,
+        "selections": 12,
         "coverage": 1,
-        "hits": 22,
-        "hitRate": 0.3188405797101449,
+        "hits": 5,
+        "hitRate": 0.4166666666666667,
         "descriptive95Interval": [
-          0.2209476045038311,
-          0.4358412571588688
+          0.19326031365875665,
+          0.6804886874504503
         ],
-        "didNotPlay": 20,
-        "participatingSelections": 49,
-        "participatingHitRate": 0.4489795918367347
+        "didNotPlay": 6,
+        "participatingSelections": 6,
+        "participatingHitRate": 0.8333333333333334
       }
     },
     "regular-season|threes|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 1686,
-        "selections": 1350,
-        "coverage": 0.800711743772242,
-        "hits": 391,
-        "hitRate": 0.2896296296296296,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 684,
+        "hitRate": 0.40569395017793597,
         "descriptive95Interval": [
-          0.2660574389030114,
-          0.31439565159787036
+          0.382495839944794,
+          0.42932082584944825
         ],
-        "didNotPlay": 180,
-        "participatingSelections": 1170,
-        "participatingHitRate": 0.33418803418803417
+        "didNotPlay": 205,
+        "participatingSelections": 1481,
+        "participatingHitRate": 0.4618501012829169
       },
       "baseline": {
         "opportunities": 1686,
-        "selections": 1412,
-        "coverage": 0.8374851720047449,
-        "hits": 463,
-        "hitRate": 0.32790368271954673,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 693,
+        "hitRate": 0.4110320284697509,
         "descriptive95Interval": [
-          0.30391329527708744,
-          0.3528279330771048
+          0.3877744430476902,
+          0.43469410958838733
         ],
-        "didNotPlay": 203,
-        "participatingSelections": 1209,
-        "participatingHitRate": 0.3829611248966088
+        "didNotPlay": 222,
+        "participatingSelections": 1464,
+        "participatingHitRate": 0.4733606557377049
+      },
+      "issuedPolicy": {
+        "opportunities": 1686,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 684,
+        "hitRate": 0.40569395017793597,
+        "descriptive95Interval": [
+          0.382495839944794,
+          0.42932082584944825
+        ],
+        "didNotPlay": 205,
+        "participatingSelections": 1481,
+        "participatingHitRate": 0.4618501012829169
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 1686,
-        "selections": 1412,
-        "coverage": 0.8374851720047449,
-        "hits": 434,
-        "hitRate": 0.3073654390934844,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 653,
+        "hitRate": 0.38730723606168443,
         "descriptive95Interval": [
-          0.28384872700432157,
-          0.33192746275839563
+          0.3643360108430171,
+          0.41079082249601445
         ],
-        "didNotPlay": 190,
-        "participatingSelections": 1222,
-        "participatingHitRate": 0.35515548281505727
+        "didNotPlay": 236,
+        "participatingSelections": 1450,
+        "participatingHitRate": 0.4503448275862069
       },
       "withoutPosition": {
         "opportunities": 1686,
-        "selections": 1363,
-        "coverage": 0.8084223013048636,
-        "hits": 399,
-        "hitRate": 0.29273661041819515,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 669,
+        "hitRate": 0.39679715302491103,
         "descriptive95Interval": [
-          0.26918981709872947,
-          0.31744841635997767
+          0.37370453754731126,
+          0.4203589835105387
         ],
-        "didNotPlay": 182,
-        "participatingSelections": 1181,
-        "participatingHitRate": 0.33784928027095684
+        "didNotPlay": 238,
+        "participatingSelections": 1448,
+        "participatingHitRate": 0.4620165745856354
       },
       "withoutCorrelation": {
         "opportunities": 1686,
-        "selections": 1412,
-        "coverage": 0.8374851720047449,
-        "hits": 440,
-        "hitRate": 0.311614730878187,
+        "selections": 1686,
+        "coverage": 1,
+        "hits": 674,
+        "hitRate": 0.3997627520759193,
         "descriptive95Interval": [
-          0.28799554186539966,
-          0.33625617312313993
+          0.3766340830334941,
+          0.4233471529364866
         ],
-        "didNotPlay": 187,
-        "participatingSelections": 1225,
-        "participatingHitRate": 0.35918367346938773
+        "didNotPlay": 206,
+        "participatingSelections": 1480,
+        "participatingHitRate": 0.4554054054054054
       },
       "pairedVsBaseline": {
-        "fixtures": 812,
-        "meanDifference": -0.01847290640394089,
+        "fixtures": 843,
+        "meanDifference": -0.005338078291814947,
         "fixtureBootstrap95Interval": [
-          -0.02770935960591133,
-          -0.009236453201970444
+          -0.022538552787663108,
+          0.011862396204033215
         ],
         "weeklyBlock95Interval": [
-          -0.03017241379310345,
-          -0.00906344410876133
+          -0.02408930669800235,
+          0.010256410256410256
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 812,
-        "meanDifference": -0.005541871921182266,
+        "fixtures": 843,
+        "meanDifference": 0.008896797153024912,
         "fixtureBootstrap95Interval": [
-          -0.011083743842364532,
-          -0.0006157635467980296
+          -0.00830367734282325,
+          0.025504151838671413
         ],
         "weeklyBlock95Interval": [
-          -0.009685230024213076,
-          0
+          -0.006711409395973154,
+          0.02388535031847134
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 812,
-        "meanDifference": -0.003078817733990148,
+        "fixtures": 843,
+        "meanDifference": 0.005931198102016607,
         "fixtureBootstrap95Interval": [
-          -0.009852216748768473,
-          0.0024630541871921183
+          -0.0005931198102016608,
+          0.012455516014234875
         ],
         "weeklyBlock95Interval": [
-          -0.008843967150979154,
-          0.0028680688336520078
+          0.001611170784103115,
+          0.010746606334841629
         ]
       },
       "tradeHistorySelections": {
-        "opportunities": 60,
-        "selections": 60,
+        "opportunities": 35,
+        "selections": 35,
         "coverage": 1,
-        "hits": 9,
-        "hitRate": 0.15,
+        "hits": 13,
+        "hitRate": 0.37142857142857144,
         "descriptive95Interval": [
-          0.08097440580167739,
-          0.2611458906977855
+          0.2316581950336571,
+          0.5366306315640468
         ],
-        "didNotPlay": 18,
-        "participatingSelections": 42,
-        "participatingHitRate": 0.21428571428571427
+        "didNotPlay": 5,
+        "participatingSelections": 30,
+        "participatingHitRate": 0.43333333333333335
       }
     },
     "playoffs|first-team-basket|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 170,
-        "selections": 79,
-        "coverage": 0.4647058823529412,
-        "hits": 18,
-        "hitRate": 0.22784810126582278,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 20,
+        "hitRate": 0.2222222222222222,
         "descriptive95Interval": [
-          0.14926774686759647,
-          0.331668482260488
+          0.14871335473639324,
+          0.31847310391045497
         ],
         "didNotPlay": 1,
-        "participatingSelections": 78,
-        "participatingHitRate": 0.23076923076923078
+        "participatingSelections": 89,
+        "participatingHitRate": 0.2247191011235955
       },
       "baseline": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 20,
-        "hitRate": 0.25,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 14,
+        "hitRate": 0.15555555555555556,
         "descriptive95Interval": [
-          0.16806231857542375,
-          0.3548467461923397
+          0.09498275594910817,
+          0.24432845277298365
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.25316455696202533
+        "participatingSelections": 89,
+        "participatingHitRate": 0.15730337078651685
+      },
+      "issuedPolicy": {
+        "opportunities": 170,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 20,
+        "hitRate": 0.2222222222222222,
+        "descriptive95Interval": [
+          0.14871335473639324,
+          0.31847310391045497
+        ],
+        "didNotPlay": 1,
+        "participatingSelections": 89,
+        "participatingHitRate": 0.2247191011235955
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 18,
-        "hitRate": 0.225,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 20,
+        "hitRate": 0.2222222222222222,
         "descriptive95Interval": [
-          0.14733207340846635,
-          0.3278678978360735
+          0.14871335473639324,
+          0.31847310391045497
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.22784810126582278
+        "participatingSelections": 89,
+        "participatingHitRate": 0.2247191011235955
       },
       "withoutPosition": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 18,
-        "hitRate": 0.225,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 16,
+        "hitRate": 0.17777777777777778,
         "descriptive95Interval": [
-          0.14733207340846635,
-          0.3278678978360735
+          0.11249737158330352,
+          0.26943892044704043
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.22784810126582278
+        "participatingSelections": 89,
+        "participatingHitRate": 0.1797752808988764
       },
       "withoutCorrelation": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 18,
-        "hitRate": 0.225,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 20,
+        "hitRate": 0.2222222222222222,
         "descriptive95Interval": [
-          0.14733207340846635,
-          0.3278678978360735
+          0.14871335473639324,
+          0.31847310391045497
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.22784810126582278
+        "participatingSelections": 89,
+        "participatingHitRate": 0.2247191011235955
       },
       "pairedVsBaseline": {
-        "fixtures": 44,
-        "meanDifference": -0.022727272727272728,
+        "fixtures": 45,
+        "meanDifference": 0.06666666666666667,
         "fixtureBootstrap95Interval": [
-          -0.056818181818181816,
-          0
+          -0.011111111111111112,
+          0.14444444444444443
         ],
         "weeklyBlock95Interval": [
-          -0.07407407407407407,
-          0
+          -0.06382978723404255,
+          0.15384615384615385
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 44,
-        "meanDifference": 0,
+        "fixtures": 45,
+        "meanDifference": 0.044444444444444446,
         "fixtureBootstrap95Interval": [
-          0,
-          0
+          -0.011111111111111112,
+          0.1
         ],
         "weeklyBlock95Interval": [
           0,
-          0
+          0.08333333333333333
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 44,
+        "fixtures": 45,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
           0,
@@ -1433,116 +1497,130 @@
       },
       "conditionalKnownEventualStarters": {
         "opportunities": 170,
-        "selections": 78,
-        "coverage": 0.4588235294117647,
-        "hits": 18,
-        "hitRate": 0.23076923076923078,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 21,
+        "hitRate": 0.23333333333333334,
         "descriptive95Interval": [
-          0.15125508850526875,
-          0.3355575782628359
+          0.15798194384364636,
+          0.3305170564573279
         ],
         "didNotPlay": 0,
-        "participatingSelections": 78,
-        "participatingHitRate": 0.23076923076923078
+        "participatingSelections": 90,
+        "participatingHitRate": 0.23333333333333334
       }
     },
     "playoffs|first-team-basket|first-team-made-field-goal": {
       "policy": {
         "opportunities": 170,
-        "selections": 79,
-        "coverage": 0.4647058823529412,
-        "hits": 19,
-        "hitRate": 0.24050632911392406,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 22,
+        "hitRate": 0.24444444444444444,
         "descriptive95Interval": [
-          0.15972180097616331,
-          0.345356929122708
+          0.16732783066209148,
+          0.3424837112930089
         ],
         "didNotPlay": 1,
-        "participatingSelections": 78,
-        "participatingHitRate": 0.24358974358974358
+        "participatingSelections": 89,
+        "participatingHitRate": 0.24719101123595505
       },
       "baseline": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 21,
-        "hitRate": 0.2625,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 16,
+        "hitRate": 0.17777777777777778,
         "descriptive95Interval": [
-          0.1785740148850936,
-          0.36818959664428175
+          0.11249737158330352,
+          0.26943892044704043
+        ],
+        "didNotPlay": 2,
+        "participatingSelections": 88,
+        "participatingHitRate": 0.18181818181818182
+      },
+      "issuedPolicy": {
+        "opportunities": 170,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 22,
+        "hitRate": 0.24444444444444444,
+        "descriptive95Interval": [
+          0.16732783066209148,
+          0.3424837112930089
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.26582278481012656
+        "participatingSelections": 89,
+        "participatingHitRate": 0.24719101123595505
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 19,
-        "hitRate": 0.2375,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 22,
+        "hitRate": 0.24444444444444444,
         "descriptive95Interval": [
-          0.15764672866774618,
-          0.34140778933840543
+          0.16732783066209148,
+          0.3424837112930089
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.24050632911392406
+        "participatingSelections": 89,
+        "participatingHitRate": 0.24719101123595505
       },
       "withoutPosition": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
         "hits": 19,
-        "hitRate": 0.2375,
+        "hitRate": 0.2111111111111111,
         "descriptive95Interval": [
-          0.15764672866774618,
-          0.34140778933840543
+          0.13952592118014923,
+          0.30634799581257294
         ],
-        "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.24050632911392406
+        "didNotPlay": 2,
+        "participatingSelections": 88,
+        "participatingHitRate": 0.2159090909090909
       },
       "withoutCorrelation": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 19,
-        "hitRate": 0.2375,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 22,
+        "hitRate": 0.24444444444444444,
         "descriptive95Interval": [
-          0.15764672866774618,
-          0.34140778933840543
+          0.16732783066209148,
+          0.3424837112930089
         ],
         "didNotPlay": 1,
-        "participatingSelections": 79,
-        "participatingHitRate": 0.24050632911392406
+        "participatingSelections": 89,
+        "participatingHitRate": 0.24719101123595505
       },
       "pairedVsBaseline": {
-        "fixtures": 44,
-        "meanDifference": -0.022727272727272728,
+        "fixtures": 45,
+        "meanDifference": 0.06666666666666667,
         "fixtureBootstrap95Interval": [
-          -0.056818181818181816,
-          0
+          0,
+          0.14444444444444443
         ],
         "weeklyBlock95Interval": [
-          -0.06944444444444445,
-          0
+          -0.0125,
+          0.14102564102564102
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 44,
-        "meanDifference": 0,
+        "fixtures": 45,
+        "meanDifference": 0.03333333333333333,
         "fixtureBootstrap95Interval": [
-          0,
-          0
+          -0.022222222222222223,
+          0.08888888888888889
         ],
         "weeklyBlock95Interval": [
-          0,
-          0
+          0.006944444444444444,
+          0.09090909090909091
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 44,
+        "fixtures": 45,
         "meanDifference": 0,
         "fixtureBootstrap95Interval": [
           0,
@@ -1566,124 +1644,138 @@
       },
       "conditionalKnownEventualStarters": {
         "opportunities": 170,
-        "selections": 78,
-        "coverage": 0.4588235294117647,
-        "hits": 19,
-        "hitRate": 0.24358974358974358,
+        "selections": 90,
+        "coverage": 0.5294117647058824,
+        "hits": 23,
+        "hitRate": 0.25555555555555554,
         "descriptive95Interval": [
-          0.16185238513667277,
-          0.3493977736900935
+          0.17674759373369173,
+          0.3543764898755346
         ],
         "didNotPlay": 0,
-        "participatingSelections": 78,
-        "participatingHitRate": 0.24358974358974358
+        "participatingSelections": 90,
+        "participatingHitRate": 0.25555555555555554
       }
     },
     "playoffs|points|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 170,
-        "selections": 88,
-        "coverage": 0.5176470588235295,
-        "hits": 34,
-        "hitRate": 0.38636363636363635,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 19,
+        "hitRate": 0.4523809523809524,
         "descriptive95Interval": [
-          0.2914209943081463,
-          0.49081242993387464
+          0.31223393233454466,
+          0.6005088096526652
         ],
         "didNotPlay": 1,
-        "participatingSelections": 87,
-        "participatingHitRate": 0.39080459770114945
+        "participatingSelections": 41,
+        "participatingHitRate": 0.4634146341463415
       },
       "baseline": {
         "opportunities": 170,
-        "selections": 90,
-        "coverage": 0.5294117647058824,
-        "hits": 36,
-        "hitRate": 0.4,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 20,
+        "hitRate": 0.47619047619047616,
         "descriptive95Interval": [
-          0.3048901987533748,
-          0.5032969263594906
+          0.3335960123070547,
+          0.6227753586865502
         ],
-        "didNotPlay": 2,
-        "participatingSelections": 88,
-        "participatingHitRate": 0.4090909090909091
+        "didNotPlay": 1,
+        "participatingSelections": 41,
+        "participatingHitRate": 0.4878048780487805
+      },
+      "issuedPolicy": {
+        "opportunities": 170,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 19,
+        "hitRate": 0.4523809523809524,
+        "descriptive95Interval": [
+          0.31223393233454466,
+          0.6005088096526652
+        ],
+        "didNotPlay": 1,
+        "participatingSelections": 41,
+        "participatingHitRate": 0.4634146341463415
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 170,
-        "selections": 90,
-        "coverage": 0.5294117647058824,
-        "hits": 37,
-        "hitRate": 0.4111111111111111,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 22,
+        "hitRate": 0.5238095238095238,
         "descriptive95Interval": [
-          0.31513204023844693,
-          0.5143676265285444
+          0.3772246413134498,
+          0.6664039876929454
         ],
-        "didNotPlay": 1,
-        "participatingSelections": 89,
-        "participatingHitRate": 0.4157303370786517
+        "didNotPlay": 0,
+        "participatingSelections": 42,
+        "participatingHitRate": 0.5238095238095238
       },
       "withoutPosition": {
         "opportunities": 170,
-        "selections": 89,
-        "coverage": 0.5235294117647059,
-        "hits": 34,
-        "hitRate": 0.38202247191011235,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 22,
+        "hitRate": 0.5238095238095238,
         "descriptive95Interval": [
-          0.2879491474996802,
-          0.4858588013762895
+          0.3772246413134498,
+          0.6664039876929454
         ],
         "didNotPlay": 1,
-        "participatingSelections": 88,
-        "participatingHitRate": 0.38636363636363635
+        "participatingSelections": 41,
+        "participatingHitRate": 0.5365853658536586
       },
       "withoutCorrelation": {
         "opportunities": 170,
-        "selections": 90,
-        "coverage": 0.5294117647058824,
-        "hits": 34,
-        "hitRate": 0.37777777777777777,
+        "selections": 42,
+        "coverage": 0.24705882352941178,
+        "hits": 19,
+        "hitRate": 0.4523809523809524,
         "descriptive95Interval": [
-          0.2845596823864481,
-          0.4810023594181651
+          0.31223393233454466,
+          0.6005088096526652
         ],
         "didNotPlay": 1,
-        "participatingSelections": 89,
-        "participatingHitRate": 0.38202247191011235
+        "participatingSelections": 41,
+        "participatingHitRate": 0.4634146341463415
       },
       "pairedVsBaseline": {
-        "fixtures": 45,
-        "meanDifference": -0.011111111111111112,
+        "fixtures": 23,
+        "meanDifference": -0.021739130434782608,
         "fixtureBootstrap95Interval": [
-          -0.05555555555555555,
-          0.022222222222222223
+          -0.08695652173913043,
+          0.043478260869565216
         ],
         "weeklyBlock95Interval": [
-          -0.02702702702702703,
+          -0.08333333333333333,
           0
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 45,
-        "meanDifference": 0,
+        "fixtures": 23,
+        "meanDifference": -0.06521739130434782,
         "fixtureBootstrap95Interval": [
-          0,
+          -0.15217391304347827,
           0
         ],
         "weeklyBlock95Interval": [
-          0,
-          0
+          -0.13157894736842105,
+          -0.021739130434782608
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 45,
-        "meanDifference": 0.011111111111111112,
+        "fixtures": 23,
+        "meanDifference": -0.021739130434782608,
         "fixtureBootstrap95Interval": [
-          0,
-          0.044444444444444446
+          -0.13043478260869565,
+          0.06521739130434782
         ],
         "weeklyBlock95Interval": [
-          0,
-          0.041666666666666664
+          -0.06521739130434782,
+          0.07894736842105263
         ]
       },
       "tradeHistorySelections": {
@@ -1701,107 +1793,121 @@
     "playoffs|threes|first-team-score-including-free-throws": {
       "policy": {
         "opportunities": 170,
-        "selections": 56,
-        "coverage": 0.32941176470588235,
-        "hits": 23,
-        "hitRate": 0.4107142857142857,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 14,
+        "hitRate": 0.3684210526315789,
         "descriptive95Interval": [
-          0.29166774287846203,
-          0.541224031535603
+          0.23384219247155955,
+          0.5271604044299099
         ],
-        "didNotPlay": 0,
-        "participatingSelections": 56,
-        "participatingHitRate": 0.4107142857142857
+        "didNotPlay": 1,
+        "participatingSelections": 37,
+        "participatingHitRate": 0.3783783783783784
       },
       "baseline": {
         "opportunities": 170,
-        "selections": 88,
-        "coverage": 0.5176470588235295,
-        "hits": 39,
-        "hitRate": 0.4431818181818182,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 17,
+        "hitRate": 0.4473684210526316,
         "descriptive95Interval": [
-          0.34393461849283435,
-          0.5471820936281762
+          0.3014640099805125,
+          0.6029370287800753
         ],
-        "didNotPlay": 2,
-        "participatingSelections": 86,
-        "participatingHitRate": 0.45348837209302323
+        "didNotPlay": 1,
+        "participatingSelections": 37,
+        "participatingHitRate": 0.4594594594594595
+      },
+      "issuedPolicy": {
+        "opportunities": 170,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 14,
+        "hitRate": 0.3684210526315789,
+        "descriptive95Interval": [
+          0.23384219247155955,
+          0.5271604044299099
+        ],
+        "didNotPlay": 1,
+        "participatingSelections": 37,
+        "participatingHitRate": 0.3783783783783784
       },
       "seasonAverageOrLegacyBaseline": {
         "opportunities": 170,
-        "selections": 88,
-        "coverage": 0.5176470588235295,
-        "hits": 39,
-        "hitRate": 0.4431818181818182,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 16,
+        "hitRate": 0.42105263157894735,
         "descriptive95Interval": [
-          0.34393461849283435,
-          0.5471820936281762
+          0.27852501157758713,
+          0.5780765465632945
         ],
-        "didNotPlay": 2,
-        "participatingSelections": 86,
-        "participatingHitRate": 0.45348837209302323
+        "didNotPlay": 1,
+        "participatingSelections": 37,
+        "participatingHitRate": 0.43243243243243246
       },
       "withoutPosition": {
         "opportunities": 170,
-        "selections": 80,
-        "coverage": 0.47058823529411764,
-        "hits": 31,
-        "hitRate": 0.3875,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 19,
+        "hitRate": 0.5,
         "descriptive95Interval": [
-          0.2882456512530507,
-          0.49706342789244284
+          0.34849928364395105,
+          0.6515007163560489
         ],
-        "didNotPlay": 2,
-        "participatingSelections": 78,
-        "participatingHitRate": 0.3974358974358974
+        "didNotPlay": 0,
+        "participatingSelections": 38,
+        "participatingHitRate": 0.5
       },
       "withoutCorrelation": {
         "opportunities": 170,
-        "selections": 88,
-        "coverage": 0.5176470588235295,
-        "hits": 39,
-        "hitRate": 0.4431818181818182,
+        "selections": 38,
+        "coverage": 0.2235294117647059,
+        "hits": 14,
+        "hitRate": 0.3684210526315789,
         "descriptive95Interval": [
-          0.34393461849283435,
-          0.5471820936281762
+          0.23384219247155955,
+          0.5271604044299099
         ],
-        "didNotPlay": 2,
-        "participatingSelections": 86,
-        "participatingHitRate": 0.45348837209302323
+        "didNotPlay": 1,
+        "participatingSelections": 37,
+        "participatingHitRate": 0.3783783783783784
       },
       "pairedVsBaseline": {
-        "fixtures": 29,
-        "meanDifference": -0.017241379310344827,
+        "fixtures": 19,
+        "meanDifference": -0.07894736842105263,
         "fixtureBootstrap95Interval": [
-          -0.05172413793103448,
-          0
+          -0.21052631578947367,
+          0.05263157894736842
         ],
         "weeklyBlock95Interval": [
-          -0.0425531914893617,
-          0
+          -0.17857142857142858,
+          -0.022727272727272728
         ]
       },
       "pairedVsNoPosition": {
-        "fixtures": 29,
-        "meanDifference": -0.017241379310344827,
+        "fixtures": 19,
+        "meanDifference": -0.13157894736842105,
         "fixtureBootstrap95Interval": [
-          -0.05172413793103448,
-          0
+          -0.2894736842105263,
+          0.02631578947368421
         ],
         "weeklyBlock95Interval": [
-          -0.04225352112676056,
-          0
+          -0.3235294117647059,
+          0.045454545454545456
         ]
       },
       "pairedVsNoCorrelation": {
-        "fixtures": 29,
-        "meanDifference": -0.017241379310344827,
+        "fixtures": 19,
+        "meanDifference": 0,
         "fixtureBootstrap95Interval": [
-          -0.05172413793103448,
+          0,
           0
         ],
         "weeklyBlock95Interval": [
-          -0.041666666666666664,
+          0,
           0
         ]
       },
@@ -1822,111 +1928,119 @@
     "first-team-basket": {
       "policy": {
         "opportunities": 618,
-        "selections": 339,
-        "coverage": 0.5485436893203883,
-        "hits": 69,
-        "hitRate": 0.20353982300884957,
+        "selections": 460,
+        "coverage": 0.7443365695792881,
+        "hits": 89,
+        "hitRate": 0.1934782608695652,
         "descriptive95Interval": [
-          0.16411285624275712,
-          0.24961032446181786
+          0.15997825258707285,
+          0.2320553946057022
         ],
-        "didNotPlay": 34,
-        "participatingSelections": 305,
-        "participatingHitRate": 0.2262295081967213
+        "didNotPlay": 42,
+        "participatingSelections": 418,
+        "participatingHitRate": 0.21291866028708134
       },
       "atFiveGames": {
         "opportunities": 618,
-        "selections": 339,
-        "coverage": 0.5485436893203883,
-        "hits": 69,
-        "hitRate": 0.20353982300884957,
+        "selections": 460,
+        "coverage": 0.7443365695792881,
+        "hits": 89,
+        "hitRate": 0.1934782608695652,
         "descriptive95Interval": [
-          0.16411285624275712,
-          0.24961032446181786
+          0.15997825258707285,
+          0.2320553946057022
         ],
-        "didNotPlay": 34,
-        "participatingSelections": 305,
-        "participatingHitRate": 0.2262295081967213
+        "didNotPlay": 42,
+        "participatingSelections": 418,
+        "participatingHitRate": 0.21291866028708134
       },
       "priorSeasonFallbackPerformance": "Unavailable: no verified 2024-25 archive. Fallback is labeled descriptive history, not a validated cross-season forecast."
     },
     "points": {
       "policy": {
         "opportunities": 618,
-        "selections": 437,
-        "coverage": 0.7071197411003236,
-        "hits": 204,
-        "hitRate": 0.4668192219679634,
+        "selections": 318,
+        "coverage": 0.5145631067961165,
+        "hits": 156,
+        "hitRate": 0.49056603773584906,
         "descriptive95Interval": [
-          0.4205361461503249,
-          0.5136805673194594
+          0.4360625376177968,
+          0.5452947430073114
         ],
-        "didNotPlay": 51,
-        "participatingSelections": 386,
-        "participatingHitRate": 0.5284974093264249
+        "didNotPlay": 23,
+        "participatingSelections": 295,
+        "participatingHitRate": 0.5288135593220339
       },
       "atFiveGames": {
         "opportunities": 618,
-        "selections": 437,
-        "coverage": 0.7071197411003236,
-        "hits": 204,
-        "hitRate": 0.4668192219679634,
+        "selections": 460,
+        "coverage": 0.7443365695792881,
+        "hits": 216,
+        "hitRate": 0.46956521739130436,
         "descriptive95Interval": [
-          0.4205361461503249,
-          0.5136805673194594
+          0.42439865122460424,
+          0.5152358953051748
         ],
-        "didNotPlay": 51,
-        "participatingSelections": 386,
-        "participatingHitRate": 0.5284974093264249
+        "didNotPlay": 34,
+        "participatingSelections": 426,
+        "participatingHitRate": 0.5070422535211268
       },
       "priorSeasonFallbackPerformance": "Unavailable: no verified 2024-25 archive. Fallback is labeled descriptive history, not a validated cross-season forecast."
     },
     "threes": {
       "policy": {
         "opportunities": 618,
-        "selections": 283,
-        "coverage": 0.45792880258899676,
-        "hits": 108,
-        "hitRate": 0.38162544169611307,
+        "selections": 308,
+        "coverage": 0.49838187702265374,
+        "hits": 143,
+        "hitRate": 0.4642857142857143,
         "descriptive95Interval": [
-          0.3269708892716972,
-          0.4394506026721086
+          0.40937100930853293,
+          0.5200803212387315
         ],
-        "didNotPlay": 24,
-        "participatingSelections": 259,
-        "participatingHitRate": 0.416988416988417
+        "didNotPlay": 27,
+        "participatingSelections": 281,
+        "participatingHitRate": 0.5088967971530249
       },
       "atFiveGames": {
         "opportunities": 618,
-        "selections": 351,
-        "coverage": 0.5679611650485437,
-        "hits": 128,
-        "hitRate": 0.3646723646723647,
+        "selections": 460,
+        "coverage": 0.7443365695792881,
+        "hits": 204,
+        "hitRate": 0.4434782608695652,
         "descriptive95Interval": [
-          0.31603402915238765,
-          0.4162407723442303
+          0.3987333129370447,
+          0.4891594163325449
         ],
-        "didNotPlay": 34,
-        "participatingSelections": 317,
-        "participatingHitRate": 0.4037854889589905
+        "didNotPlay": 39,
+        "participatingSelections": 421,
+        "participatingHitRate": 0.4845605700712589
       },
       "priorSeasonFallbackPerformance": "Unavailable: no verified 2024-25 archive. Fallback is labeled descriptive history, not a validated cross-season forecast."
     }
   },
+  "selectionQualityPolicy": {
+    "version": "parlay-selection-quality-v1",
+    "minimumKnownProduction": 0.8
+  },
+  "positionScopePolicy": "Automatic: specific positions where supported; otherwise G/F/C for both teams in that market.",
+  "evaluationScope": "Historical policy and baseline rows are conditional ranking diagnostics before the 80% positional completeness safeguard. issuedPolicy reports selections that pass the safeguard. Historical injury and starter-confirmation limitations remain; these are not prospectively issued forecasts.",
   "positionEvidence": {
-    "limitation": "Pregame tests exclude later canonical season-role references. NBA gamebooks frequently supply only G/F; dated specific-role history is sparse. These tests have limited guard/wing coverage and do not validate all-position or cross-season performance.",
-    "datedRoleRecords": 1,
-    "meanKnownRosterFraction": 0.15019447133796154,
-    "meanUnknownPointsFraction": 0.832871470544235
+    "limitation": "Pregame tests exclude later canonical season-role references. Specific roles are dated postgame NBA observations matched to all five PDF starters; the latest earlier observation can support later games but does not prove an exact bench role or a historical pregame announcement. Automatic comparisons fall back to gamebook G/F/C groups for both teams when specific coverage is incomplete. Cross-season performance is unvalidated.",
+    "datedRoleRecords": 13211,
+    "broadComparisonRecords": 2740,
+    "totalComparisonRecords": 10520,
+    "meanKnownRosterFraction": 0.7281213272488036,
+    "meanUnknownPointsFraction": 0.15397445895878528
   },
   "sourceHashes": {
     "analyst_data.json": "e0893aebd1793953267d69ddf94b6bfd25df1511e50fa52da4c9b85396744c0a",
-    "parlay_data.json": "47c64e04e563a544786fbf7338a9802fac0d53bde6979b0f7f4d64922859c299",
+    "parlay_data.json": "3aa1ae600224014323cb66d846f15359c209342ac59efffc24dcf536211b856f",
     "analyst.js": "0802a57953dd0e670937089143813ab3ea2af7fd7c03e29d14a592d2c532c120",
     "scouting_history.js": "11a4a7a357de440992aa080a831e3c791289727a2cc272ea05653be418cf6736",
-    "parlay.js": "7fa103bfea94cbb62124dbe38d8b0de6c374ad31cfc6b0578eaed9f7e858f198",
+    "parlay.js": "6c11a604064a31eb276d3afe9fccbe247b492f9eca5ff4b9cc504ec97315d9a6",
     "readiness_evaluation_protocol.json": "78a231a7f17bfa52aacbaf471c240944d5841a5daaa55a09ba8749b2c52156ee"
   },
-  "evaluatorHash": "32284269eebe8691e363c4371736ade0d3f3571f42681519b99f8d9757047658",
+  "evaluatorHash": "0b332b303444567640246618876693d7d741b706e700a76ccd18b3bfa1974504",
   "conclusion": "Readiness thresholds describe retrospective sample adequacy. Equal market weights retained; no calibrated matchup or joint probabilities claimed. Non-positive/constant correlations remain excluded by the user requirement even if ablations do not show an improvement."
 }

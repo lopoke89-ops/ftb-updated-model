@@ -84,6 +84,24 @@ def validate(source):
     require(javascript_payload(source / 'parlay_data.js', '__FTB_PARLAY_DATA__') == parlay, 'Browser shooting evidence differs from JSON')
     require(hashlib.sha256(json.dumps(parlay['games'], separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest() == parlay['meta']['contentHash'], 'Parlay shooting content hash mismatch')
     require(set(parlay['games']) == {g['id'] for g in games}, 'Parlay game coverage mismatch')
+    roles = parlay.get('datedRoleEvidence', [])
+    role_meta = parlay.get('roleEvidenceMeta', {})
+    if roles:
+        require(role_meta.get('parentEvidenceContentHash') == a['evidenceContentHash'], 'NBA role parent evidence mismatch')
+        require(hashlib.sha256(json.dumps(roles, separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()).hexdigest() == role_meta.get('contentHash'), 'NBA role content hash mismatch')
+        require(role_meta.get('roleRecords') == len(roles), 'NBA role count mismatch')
+        games_by_id = {g['id']: g for g in games}
+        grouped_roles = {}
+        for r in roles:
+            g = games_by_id.get(r['gameId'])
+            require(g and r['effectiveGameDate'] == g['date'] and r['gamebookSourceHash'] == g['sourceHash'], 'NBA role fixture/PDF mismatch')
+            require(r['position'] in {'PG', 'SG', 'SF', 'PF', 'C'} and r['source'] == 'https://stats.nba.com/js/data/leaders/00_daily_lineups_' + g['date'].replace('-', '') + '.json', 'NBA role source mismatch')
+            require(re.fullmatch('[0-9a-f]{64}', r['sourceHash']) and r['nbaPlayerId'].isdigit(), 'Invalid NBA role identity or hash')
+            starters = {p['id'] for p in g['teams'][r['team']]['players'] if p['starter'] and p['played']}
+            require(r['playerId'] in starters, 'NBA role does not match a PDF starter')
+            grouped_roles.setdefault((g['id'], r['team']), []).append(r)
+        require(all(len(rows) == 5 and len({r['playerId'] for r in rows}) == 5 and len({r['position'] for r in rows}) == 5 for rows in grouped_roles.values()), 'NBA role five-player join incomplete')
+        require(len(grouped_roles) == role_meta['matchedTeamGames'], 'NBA role matched-team count mismatch')
     opening = parlay.get('openingEvidence')
     require(bool(opening), 'Official opening evidence is required')
     require(opening['meta']['parentEvidenceContentHash'] == a['evidenceContentHash'], 'Opening evidence parent mismatch')
