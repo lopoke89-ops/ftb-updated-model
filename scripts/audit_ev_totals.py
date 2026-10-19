@@ -11,7 +11,7 @@ def main():
     db=sqlite3.connect('file:'+(library/'gamebooks.sqlite').as_posix()+'?mode=ro',uri=True);db.row_factory=sqlite3.Row
     sql='SELECT g.phase,p.espn_player_id AS id,COUNT(*) AS gp,'+','.join('SUM(p.'+v+') AS '+k for k,v in FIELDS.items())+' FROM player_game_stats p JOIN games g USING(espn_game_id) WHERE p.played=1 GROUP BY g.phase,p.espn_player_id'
     totals=[dict(r) for r in db.execute(sql)];db.close()
-    by={(r['phase'],r['id']):r for r in totals};canonical=json.loads((SOURCE/'merged_dataset.json').read_text(encoding='utf-8', newline='\n'))
+    by={(r['phase'],r['id']):r for r in totals};canonical=json.loads((SOURCE/'merged_dataset.json').read_text(encoding='utf-8'))
     checked=0
     for p in canonical['players'].values():
         pid=p['sourcePlayerId'];assert p['gp']==sum(r['gp'] for r in totals if r['id']==pid)

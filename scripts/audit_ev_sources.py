@@ -53,10 +53,10 @@ def main():
     args = parser.parse_args()
     start = time.monotonic()
     args.output.mkdir(parents=True, exist_ok=True)
-    data = json.loads((SOURCE / 'analyst_data.json').read_text(encoding='utf-8', newline='\n'))
-    supplement = json.loads((SOURCE / 'parlay_data.json').read_text(encoding='utf-8', newline='\n'))
-    official = json.loads((SOURCE / 'official_boxscores.json').read_text(encoding='utf-8', newline='\n'))
-    manifest = json.loads((args.library / 'manifest.json').read_text(encoding='utf-8', newline='\n'))
+    data = json.loads((SOURCE / 'analyst_data.json').read_text(encoding='utf-8'))
+    supplement = json.loads((SOURCE / 'parlay_data.json').read_text(encoding='utf-8'))
+    official = json.loads((SOURCE / 'official_boxscores.json').read_text(encoding='utf-8'))
+    manifest = json.loads((args.library / 'manifest.json').read_text(encoding='utf-8'))
     docs = {r['espn_game_id']: r for r in manifest['documents']}
     identities = defaultdict(set)
     for game in data['games']:

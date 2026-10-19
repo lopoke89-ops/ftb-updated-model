@@ -13,14 +13,14 @@ import build_opening_gamebook_data as opening
 def main():
     library=Path(sys.argv[1])
     out=ROOT/'audits/2026-10-19-ev';out.mkdir(parents=True,exist_ok=True)
-    data=json.loads((SOURCE/'analyst_data.json').read_text(encoding='utf-8', newline='\n'))
-    ledger=json.loads((SOURCE/'opening_data.json').read_text(encoding='utf-8', newline='\n'))
+    data=json.loads((SOURCE/'analyst_data.json').read_text(encoding='utf-8'))
+    ledger=json.loads((SOURCE/'opening_data.json').read_text(encoding='utf-8'))
     # Fixed positions across the whole archive, without outcome-based selection.
     sample={data['games'][i]['id'] for i in [0,50,150,300,450,600,750,900,1050,1200,1250,1321]}
     differences=[];fresh=[];replayed=0
     def one(g):
-        record=json.loads((library/'records'/(g['id']+'.json')).read_text(encoding='utf-8', newline='\n'))
-        cached=json.loads((library/'text/opening_quarter'/(g['id']+'.json')).read_text(encoding='utf-8', newline='\n'))
+        record=json.loads((library/'records'/(g['id']+'.json')).read_text(encoding='utf-8'))
+        cached=json.loads((library/'text/opening_quarter'/(g['id']+'.json')).read_text(encoding='utf-8'))
         if cached['sha256']!=record['sha256']:raise ValueError('Opening cache hash mismatch')
         parsed=opening.parse_pages(cached['pages'],g,record)
         expected={k:v for k,v in ledger['games'][g['id']].items() if k not in ['source','sourceHash','date','phase']}

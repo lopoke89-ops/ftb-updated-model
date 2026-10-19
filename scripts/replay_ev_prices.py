@@ -9,8 +9,8 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'audits/2026-10-19-ev'
 
 def main():
-    snapshot=json.loads((OUT/'live-price-snapshot.json').read_text())
-    envelopes=json.loads((OUT/'live-market-evidence.json').read_text())['envelopes']
+    snapshot=json.loads((OUT/'live-price-snapshot.json').read_text(encoding='utf-8'))
+    envelopes=json.loads((OUT/'live-market-evidence.json').read_text(encoding='utf-8'))['envelopes']
     client=fd.Client()
     teams=sorted({q['team'] for f in snapshot['fixtures'].values() for q in f['quotes']})
     def roster(team):
