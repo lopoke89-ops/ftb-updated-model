@@ -53,6 +53,10 @@ class Publication(unittest.TestCase):
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['meta']['season'], '2026-27')
             from parlay_journal import release_hashes
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['parlayCodeHashes'],release_hashes())
+            ev=pages.read(output / 'data/ev-model.json')
+            self.assertTrue(ev['experimental'])
+            self.assertEqual(ev['engineHash'],pages.digest(output / 'ev_probability.js'))
+            self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['evModelHash'],ev['modelHash'])
             self.assertFalse(any(p.suffix in ('.xlsx', '.py', '.exe', '.gz') for p in output.rglob('*')))
             self.assertFalse((output / 'cache').exists())
             for relative, expected in manifest['files'].items():

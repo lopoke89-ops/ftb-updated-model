@@ -1,0 +1,21 @@
+{
+  "version": "ev-props-v1",
+  "status": "experimental-retrospective-diagnostic",
+  "markets": ["points", "threes"],
+  "phase": "regular-season",
+  "developmentEnd": "2025-12-15",
+  "calibrationStart": "2025-12-16",
+  "calibrationEnd": "2026-02-15",
+  "diagnosticStart": "2026-02-16",
+  "diagnosticEnd": "2026-04-12",
+  "minimumAppearances": 20,
+  "currentTeamOnly": true,
+  "minimumMatchedWins": 5,
+  "minimumMatchedLosses": 5,
+  "tailPolicy": "Withhold thresholds outside the calibration grid and exact-line samples with fewer than five historical wins or losses. Withhold projected role changes.",
+  "recentAppearances": 20,
+  "priorAppearances": 5,
+  "minimumTeamGames": 10,
+  "quoteMaximumAgeSeconds": 300,
+  "interpretation": "The corrected season was already inspected. Later-date results are diagnostic, not an untouched live track record. Historical pregame injuries, announced lineups, and FanDuel prices are unavailable. Probabilities are conditional on participation. DNP and other voids follow the specific sportsbook contract; no historical ROI is inferred. Prior-season transfer and live role adjustments remain unvalidated. Existing Parlay weights, scores, targets, and research protocol are unchanged."
+}

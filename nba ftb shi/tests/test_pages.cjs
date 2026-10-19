@@ -10,6 +10,7 @@ function render(overrides={},published=true,response={canonical,analysis:archive
   const window={__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:A,FTBLineups:require('../lineups.js'),...(published?{__FTB_HOSTING__:{mode:'github-pages',publishedDate:'2026-10-09'}}:{})};
   const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date,Intl,Number,String,Set,Object,JSON,AbortSignal});
   window.React=context.React;vm.runInContext(fs.readFileSync(path.join(base,'lineup_projections.js'),'utf8'),context);
+  for(const file of ['ev_probability.js','ev_model.js','ev_ui.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(base,'analyst_ui.js'),'utf8'),context);
   const tree=window.FTBAnalystApp(),buttons=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type==='button'&&typeof n.children[0]==='string')buttons.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
   return {window,tree,requests,effects,changes,fixture,button:label=>{const found=buttons.find(b=>b.children[0]===label);assert(found,label);return found;}};
@@ -45,6 +46,12 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
     const nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
     const panel=nodes.find(n=>n.type===r.window.FTBLineupPanel);await panel.props.onRefresh();
     assert(Number.isFinite(r.changes.now));assert(r.changes.now>=Date.parse(r.changes.lineups.checkedAt));
+  });
+  await test('the EV tab receives current rosters and its own unmodified pregame evidence context',()=>{
+    const fixture={id:'ev-game',date:'2026-10-20',scheduledTipoff:'2026-10-20T19:00Z',home:'DET',away:'BOS',season:'2026-27',phase:'regular-season',status:'pre'};
+    const roster={BOS:[{id:'1',name:'Player',team:'BOS'}],DET:[]},r=render({tab:'ev',data:current,season:'2026-27',mode:'upcoming',date:fixture.date,schedule:[fixture],rosters:roster});
+    const found=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type===r.window.FTBEVPanel)found.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
+    assert.equal(found.length,1);assert.equal(found[0].props.mode,'upcoming');assert.equal(found[0].props.rosters,roster);assert.equal(found[0].props.archiveData,archive);assert.equal(found[0].props.liveContext.upcoming,true);
   });
   console.log(JSON.stringify({passed:count}));
 })().catch(error=>{console.error(error);process.exitCode=1;});
