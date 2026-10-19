@@ -9,7 +9,8 @@
   const label=q=>(q.market==='points'?'Points':'Made threes')+' · '+(q.side==='at-least'?q.line+'+':q.side+' '+q.line);
   window.FTBEVPanel=function EVPanel({data,archiveData,fixtures=[],rosters={},liveContext={},trusted=false,mode,phase,period,headToHead,excludedIds=[],teamColors={}}){
     const model=window.__FTB_EV_MODEL__,[snapshot,setSnapshot]=useState(window.__FTB_EV_ODDS_CACHE__||null),[source,setSource]=useState({status:'checking'}),[market,setMarket]=useState('all'),[side,setSide]=useState('all'),[positiveOnly,setPositive]=useState(true),[provisional,setProvisional]=useState(true),[bestOnly,setBest]=useState(true),[message,setMessage]=useState('');
-    const sequence=useRef(0),loading=useRef(false),refresh=useRef(null),now=Math.max(Date.now(),liveContext.now||0);
+    const [clock,setClock]=useState(Date.now());
+    const sequence=useRef(0),loading=useRef(false),refresh=useRef(null),now=Math.max(Date.now(),clock,liveContext.now||0);
     const supported=mode==='upcoming'&&!headToHead&&period==='0'&&['all','regular-season'].includes(phase)&&fixtures.every(f=>f.phase==='regular-season');
     async function load(){
       if(loading.current||!supported)return;loading.current=true;const token=++sequence.current,attempt=new Date().toISOString();setSource(s=>({...s,status:'checking',lastAttempt:attempt}));
@@ -23,6 +24,10 @@
       finally{if(token===sequence.current)loading.current=false;}
     }
     refresh.current=load;
+    useEffect(()=>{
+      const time=Date.now(),deadlines=fixtures.flatMap(f=>[Date.parse(f.scheduledTipoff),...(snapshot?.fixtures?.[f.id]?.quotes||[]).flatMap(q=>[Date.parse(q.capturedAt)+E.MAX_AGE+1,Date.parse(q.fanduelTipoff)])]).filter(t=>Number.isFinite(t)&&t>time);
+      if(!deadlines.length)return;const timer=setTimeout(()=>setClock(Date.now()),Math.max(1,Math.min(...deadlines)-time));return()=>clearTimeout(timer);
+    },[snapshot,fixtures,clock]);
     useEffect(()=>{if(!supported)return;load();const stop=Q?.startRefresh(()=>refresh.current());return()=>{++sequence.current;loading.current=false;stop?.();};},[supported]);
     const integrity=trusted&&model?.version===E.VERSION&&model.archiveEvidenceHash===archiveData?.meta?.evidenceContentHash;
     const state=useMemo(()=>{
@@ -56,6 +61,8 @@
     function download(value,name){const text=JSON.stringify(value,null,2),url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
     function save(){
       if(!source.commit||source.captureAt!==snapshot?.checkedAt){setMessage('Wait for a verified odds version before saving this capture.');return;}
+      const time=Math.max(Date.now(),liveContext.now||0);
+      if(rows.some(r=>E.quoteState(r.quote,fixtures.find(f=>f.id===r.quote.fixtureId),time)!=='fresh')){setClock(time);setMessage('An offer expired or its game started. Refresh odds before saving evidence.');return;}
       const value=record(rows,{market,side,positiveOnly,provisional,bestOnly});
       download(value,'ftb-ev-'+fixtures[0].date+'-'+Date.now()+'.json');setMessage('Visible EV evidence downloaded.');
     }
