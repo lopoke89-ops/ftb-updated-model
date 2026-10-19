@@ -86,4 +86,18 @@ class Contracts(unittest.TestCase):
         with patch.object(c,'raw',side_effect=[b'<script src="/static/js/main.abc.js"></script>',script.encode()]):c.bootstrap()
         self.assertEqual(c.key,'publicidentifier123')
 
+    def test_watch_keeps_advance_odds_fresh_and_does_not_add_capture_time_to_cadence(self):
+        clock={'t':0,'sleeps':[]}
+        snapshot={'checkedAt':STAMP,'errors':[],'fixtures':{'401909088':{'fixture':FIXTURE,'quotes':[{'market':'points'}],'issues':[]}}}
+        def capture(*args):
+            clock['t']+=50
+            return snapshot
+        def sleep(seconds):
+            clock['sleeps'].append(seconds);clock['t']+=seconds
+        with patch.object(fd,'Client') as client,patch.object(fd,'capture',side_effect=capture) as captures,patch.object(fd,'publish'),patch.object(fd,'utc',return_value=datetime(2026,10,19,tzinfo=timezone.utc)),patch.object(fd.time,'monotonic',side_effect=lambda:clock['t']),patch.object(fd.time,'sleep',side_effect=sleep):
+            client.return_value.json.return_value={}
+            self.assertFalse(fd.run(watch=True,max_minutes=10))
+        self.assertEqual(captures.call_count,2)
+        self.assertEqual(clock['sleeps'],[250])
+
 if __name__=='__main__':unittest.main()

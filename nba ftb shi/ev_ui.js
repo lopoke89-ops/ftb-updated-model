@@ -12,7 +12,7 @@
     const supported=mode==='upcoming'&&!headToHead&&period==='0'&&['all','regular-season'].includes(phase)&&fixtures.every(f=>f.phase==='regular-season');
     async function load(){
       if(loading.current||!supported)return;loading.current=true;const token=++sequence.current,attempt=new Date().toISOString();setSource(s=>({...s,status:'checking',lastAttempt:attempt}));
-      try{const r=await fetch(SOURCE+'?cycle='+Math.floor(Date.now()/300000),{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Odds feed HTTP '+r.status);const next=await r.json();
+      try{const r=await fetch(SOURCE+'?read='+Date.now()+'-'+token,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Odds feed HTTP '+r.status);const next=await r.json();
         if(next.schemaVersion!==1||next.bookmaker!=='fanduel'||next.region!=='TN'||!next.fixtures||typeof next.fixtures!=='object')throw Error('Odds feed identity/schema mismatch');
         if(token!==sequence.current)return;window.__FTB_EV_ODDS_CACHE__=next;setSnapshot(next);setSource({status:'loaded',lastAttempt:attempt,lastSuccess:new Date().toISOString(),captureAt:next.checkedAt});
       }catch(error){if(token===sequence.current)setSource(s=>({...s,status:'unavailable',lastAttempt:attempt,error:error.message}));}

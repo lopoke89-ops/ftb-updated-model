@@ -300,6 +300,7 @@ def run(watch=False,output=None,max_minutes=240):
     deadline = time.monotonic()+max_minutes*60
     watching = False
     while True:
+        cycle_start = time.monotonic()
         try:
             snapshot = capture(client,previous)
             if output:
@@ -313,15 +314,14 @@ def run(watch=False,output=None,max_minutes=240):
             print(json.dumps({'checkedAt':snapshot['checkedAt'],'fixtures':len(snapshot['fixtures']),'quotes':len(quotes),'issues':issues}),flush=True)
             now = utc()
             future = [iso(f['fixture']['scheduledTipoff']) for f in snapshot['fixtures'].values() if iso(f['fixture']['scheduledTipoff'])>now]
-            watching = watching or any(t-now<=timedelta(hours=2) for t in future)
-            remaining_today = any(t.astimezone(ZoneInfo('America/Chicago')).date()==now.astimezone(ZoneInfo('America/Chicago')).date() for t in future)
-            if not watch or output or not watching or not remaining_today or time.monotonic()+300>=deadline:
+            watching = watching or bool(future)
+            if not watch or output or not watching or not future or time.monotonic()+300>=deadline:
                 return bool(snapshot['errors']) or any(any(not e.startswith('Market not yet offered:') for e in f['issues']) for f in snapshot['fixtures'].values())
         except Exception as error:
             print(json.dumps({'error':str(error),'checkedAt':utc().isoformat(),'retained':'previous published capture'}),flush=True)
             if not watch or not watching or time.monotonic()+300>=deadline:
                 return True
-        time.sleep(300)
+        time.sleep(max(0,300-(time.monotonic()-cycle_start)))
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description=__doc__)
