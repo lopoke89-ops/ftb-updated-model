@@ -85,6 +85,7 @@ jobs:
           node "nba ftb shi/tests/test_transition_export.cjs"
           node "nba ftb shi/tests/test_pages.cjs"
           node "nba ftb shi/tests/test_ev.cjs"
+          node "nba ftb shi/tests/test_ev_service.cjs"
           node "nba ftb shi/tests/test_ev_ui.cjs"
           node "nba ftb shi/tests/test_ev_grading.cjs"
           node "nba ftb shi/tests/test_ev_first_team.cjs"

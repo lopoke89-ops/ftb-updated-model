@@ -45,3 +45,11 @@ The Tennessee basketball rules checked October 19, 2026 include overtime for ord
 Schema 3 adds per-result model/protocol/rules identities and exact five-starter evidence for First Team Basket. Its independent model, diagnostics, prospective policy and grader-v2 settlement rules are documented in [FIRST_TEAM_EV_IMPLEMENTATION.md](FIRST_TEAM_EV_IMPLEMENTATION.md). Frozen count-model parameters and earlier research records remain unchanged.
 
 First Team Basket shares the Parlay lineup resolver. Fresh projected fives can produce explicitly provisional conditional-lineup EV; confirmed starters remain required for finalized picks. See [FIRST_TEAM_EV_IMPLEMENTATION.md](FIRST_TEAM_EV_IMPLEMENTATION.md) for support guards, source expiry and separate grading cohorts.
+
+## Service audit and operational safeguards
+
+The [October 19 full EV-tab audit](audits/2026-10-19-ev-tab/AUDIT_REPORT.md) adds `ev-service-v1` around the unchanged frozen probability models. It independently checks exact market/selection/key/source/threshold/capture identity, honors Questionable warnings from the shared projected lineup, and expires injury evidence at its own deadline. Market/type totals and the withheld list follow the selected scope; incompatible types are disabled.
+
+Schema 4 retains complete model manifests, service code hash on the published site, offered quotes, raw availability context, eligibility and explicit exclusions. All-withheld pregame captures are retained as coverage evidence; they never become betting outcomes. Grader v4 enforces strict service/model/contract consistency for new records and labels older records as legacy local research. Previous records and frozen model parameters remain unchanged.
+
+Freshness and pre-tip checks depend on a correct device clock. An approximately three-minute clock discrepancy was observed on the auditing desktop; no source timestamps were adjusted. GitHub does not expose its HTTP Date header to browser code, so this static-hosting setup cannot certify an authoritative shared clock or issuance time. Keep automatic device time enabled. Shared trusted issuance remains necessary for a strong public timing/performance claim.

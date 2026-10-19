@@ -1,0 +1,17 @@
+{
+  "comparedTo": "c70b07cb4a021017143c115f6124a23c57ad2dff",
+  "sha256": {
+    "nba ftb shi/ev_probability.js": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+    "nba ftb shi/ev_model.js": "b51875ff0c19f8459e8a3a00fb79590a6bf34950962823ec005daa2d2e3884d0",
+    "nba ftb shi/ev_model.json": "0a5189f65fa894c84bace262981561988dd22f4b66478302f7e0c5e67a5e250c",
+    "EV_PROTOCOL.json": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+    "EV_FORWARD_PROTOCOL.json": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+    "EV_RULES_PROFILE.json": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+    "nba ftb shi/ev_first_team.js": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+    "nba ftb shi/ev_first_team_model.js": "6e7ce5e9aea62a665fde5fb8dc779d2fd21a3413176426b822510dc1262ea53c",
+    "nba ftb shi/ev_first_team_model.json": "f3ffb75914b0b08783fc0690026603c08ba9bf2d8c5b22c4b5a723807d212e79",
+    "FIRST_TEAM_EV_PROTOCOL.json": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+    "FIRST_TEAM_EV_FORWARD_PROTOCOL.json": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+    "FIRST_TEAM_EV_RULES.json": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828"
+  }
+}

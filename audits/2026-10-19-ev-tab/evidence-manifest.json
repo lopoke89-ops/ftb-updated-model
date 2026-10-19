@@ -1,0 +1,15 @@
+{
+  "status": "engineering-audit",
+  "sourceCapture": "2026-10-19T14:37:22.641626+00:00",
+  "privateCaptures": "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\ev_full_audit_2026-10-19",
+  "reports": {
+    "AUDIT_REPORT.md": "52c8c1a7e126ee84fc5ee2421b67847e614c912f9949da264b819b3eab29d508",
+    "clock-observation.json": "ed7023b8b36231760010e72c824b5ab4d1c395a12ae9604ef5cf98ef8aeda6a8",
+    "frozen-model-verification.json": "64500000481467653254c75aae04889ee2393de2f71d5f83d26094de6e09e0cc",
+    "model-diagnostics.json": "87924b03d4087669e7feaa2636c838e9f665e3715d1506eb5197cf24e55358fc",
+    "price-replay.json": "fa33b434382ab087c2a58a326f836ecf44846dddca8c8ded755ce697433ccf8a",
+    "service-trace.json": "3a647001ba164091b4370cb6268bcf064cc8a33dea6a861a46cf23bb6f0a4807",
+    "source-reconciliation.json": "02e03577a20a188fd49c66b4774fe12bcd50fce19e5588713a1b4bddcc5ff433"
+  },
+  "interpretation": "Already inspected archive and pregame engineering captures. No outcomes of upcoming games reviewed, no numerical model changes, no demonstrated edge or profit. These captures precede the declared last-15-minute prospective checkpoint."
+}

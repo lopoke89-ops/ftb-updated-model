@@ -1,0 +1,2163 @@
+{
+  "checkedAt": "2026-10-19T14:50:00.645Z",
+  "asOf": "2026-10-19T14:48:55.965744+00:00",
+  "sourceCapture": "2026-10-19T14:48:53.516202+00:00",
+  "serviceVersion": "ev-service-v1",
+  "countModelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+  "firstTeamModelHash": "02043a72a383447b62904aa74cd5aef15eb46d85ed9cd1481fd256283fb4bc37",
+  "scopes": [
+    {
+      "date": "2026-10-20",
+      "offered": 574,
+      "supported": 326,
+      "firstTeamSupported": 10,
+      "guardRejected": 0,
+      "lineupIssues": []
+    },
+    {
+      "date": "2026-10-21",
+      "offered": 1754,
+      "supported": 683,
+      "firstTeamSupported": 10,
+      "guardRejected": 0,
+      "lineupIssues": []
+    },
+    {
+      "date": "2026-10-22",
+      "offered": 0,
+      "supported": 0,
+      "firstTeamSupported": 0,
+      "guardRejected": 0,
+      "lineupIssues": []
+    }
+  ],
+  "supportedByMarket": {
+    "points": 494,
+    "threes": 495,
+    "first-team-basket": 20
+  },
+  "supported": 1009,
+  "negativeOffers": 618,
+  "withheld": 1319,
+  "probabilityChecks": 40240,
+  "grading": {
+    "win": 0,
+    "loss": 0,
+    "push": 0,
+    "void": 0,
+    "pending": 1009,
+    "review": 0,
+    "invalid": 0
+  },
+  "traces": [
+    {
+      "quote": {
+        "key": "35928229|747.181323393|23316207|20|at-least",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.181323393",
+        "selectionId": "23316207",
+        "playerId": "4395723",
+        "player": "Keldon Johnson",
+        "team": "SAS",
+        "market": "points",
+        "marketType": "TO_SCORE_20+_POINTS",
+        "marketName": "To Score 20+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 20,
+        "american": 1700,
+        "decimal": 18,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.439470+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=player-points"
+      },
+      "probabilities": {
+        "win": 0.24205781628121492,
+        "loss": 0.7579421837187851,
+        "push": 0
+      },
+      "ev": 3.357040693061869,
+      "breakEven": 0.05555555555555555,
+      "conditionalWin": 0.24205781628121492,
+      "projection": 14.526783706857625,
+      "rawProjection": 14.212801781497136,
+      "dispersion": 0.22565479220137385,
+      "features": {
+        "n": 82,
+        "recentGames": 20,
+        "minutes": 23.503548291553617,
+        "role": "F",
+        "roleSource": "Stored historical roster position",
+        "dispersion": {
+          "points": 0.1313095844027477,
+          "threes": 0.20058925708009148
+        },
+        "histograms": {
+          "points": {
+            "2": 2,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 5,
+            "7": 1,
+            "8": 7,
+            "9": 4,
+            "10": 4,
+            "11": 5,
+            "12": 7,
+            "13": 7,
+            "14": 5,
+            "15": 4,
+            "16": 2,
+            "17": 3,
+            "18": 5,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 1,
+            "24": 1,
+            "25": 3,
+            "27": 2
+          },
+          "threes": {
+            "0": 29,
+            "1": 24,
+            "2": 18,
+            "3": 7,
+            "4": 2,
+            "5": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "SAS"
+        ],
+        "lastTeam": "SAS",
+        "recentStarterRate": 0,
+        "fga": 11.353178092739878,
+        "fgm": 5.514598681088907,
+        "threePa": 4.06903224516924,
+        "threePm": 1.4405516965528942,
+        "fta": 2.6681718179894403,
+        "ftm": 2.1355999419248484,
+        "base": {
+          "points": 14.605349000655558,
+          "threes": 1.4405516965528942
+        },
+        "baseline": {
+          "points": 13.182926829268293,
+          "threes": 1.2073170731707317
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9316839749747456,
+            "defense": 0.9469684725287194
+          },
+          "threes": {
+            "offense": 1.2119902742282809,
+            "defense": 1.0703753692031057
+          }
+        },
+        "correlation": {
+          "points": 0.7868369030630517,
+          "threes": 0.6840834461468639
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401811035",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+          "sourceHash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 17,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 23.5,
+            "fga": 13,
+            "fta": 4,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 2,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 1,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 8,
+            "minutesSeconds": 1410,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+            "statsSourceHash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605"
+          }
+        },
+        {
+          "gameId": "401811052",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+          "sourceHash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 18,
+            "threeMade": 2,
+            "threeAttempted": 5,
+            "minutes": 21.866666666666667,
+            "fga": 12,
+            "fta": 6,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 4,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 10,
+            "minutesSeconds": 1312,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+            "statsSourceHash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.01763508879425546,
+          "ev": -0.6825684017034017
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.10419627734639991,
+          "ev": 0.8755329922351985
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.24205781628121492,
+          "ev": 3.357040693061869
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.3847732256092161,
+          "ev": 5.9259180609658895
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35928228|747.181319187|75784931|25|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319187",
+        "selectionId": "75784931",
+        "playerId": "5124612",
+        "player": "VJ Edgecombe",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_25+_POINTS",
+        "marketName": "To Score 25+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 25,
+        "american": 2000,
+        "decimal": 21,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.475402+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "probabilities": {
+        "win": 0.20233632885793096,
+        "loss": 0.797663671142069,
+        "push": 0
+      },
+      "ev": 3.24906290601655,
+      "breakEven": 0.047619047619047616,
+      "conditionalWin": 0.20233632885793096,
+      "projection": 17.092607451730174,
+      "rawProjection": 16.723096025235826,
+      "dispersion": 0.2326498896801366,
+      "features": {
+        "n": 75,
+        "recentGames": 20,
+        "minutes": 34.720410561778664,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.14529977936027325,
+          "threes": 0.13001605722654333
+        },
+        "histograms": {
+          "points": {
+            "5": 3,
+            "6": 3,
+            "7": 2,
+            "8": 1,
+            "9": 6,
+            "10": 5,
+            "11": 4,
+            "12": 4,
+            "13": 3,
+            "14": 6,
+            "15": 4,
+            "16": 3,
+            "17": 3,
+            "18": 2,
+            "19": 3,
+            "20": 2,
+            "21": 2,
+            "22": 3,
+            "23": 5,
+            "24": 1,
+            "25": 3,
+            "26": 4,
+            "34": 1,
+            "35": 1,
+            "38": 1
+          },
+          "threes": {
+            "0": 12,
+            "1": 21,
+            "2": 20,
+            "3": 10,
+            "4": 5,
+            "5": 5,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 14.627050760626448,
+        "fgm": 6.595663924198641,
+        "threePa": 5.349402192732825,
+        "threePm": 1.8262348586760007,
+        "fta": 2.338339234288035,
+        "ftm": 1.9418058770773579,
+        "base": {
+          "points": 16.95936858415064,
+          "threes": 1.8262348586760007
+        },
+        "baseline": {
+          "points": 15.986666666666666,
+          "threes": 1.9866666666666666
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0656635812204218,
+            "defense": 0.9723307244050529
+          },
+          "threes": {
+            "offense": 1.0067491429701503,
+            "defense": 1.0268753747584485
+          }
+        },
+        "correlation": {
+          "points": 0.8111644541390232,
+          "threes": 0.7229675937385146
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401811030",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+          "sourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 16,
+            "threeMade": 0,
+            "threeAttempted": 2,
+            "minutes": 39.516666666666666,
+            "fga": 14,
+            "fta": 2,
+            "fgm": 7,
+            "ftm": 2,
+            "rebounds": 9,
+            "assists": 5,
+            "steals": 3,
+            "blocks": 1,
+            "turnovers": 3,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 8,
+            "plusMinus": 11,
+            "minutesSeconds": 2371,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+            "statsSourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5"
+          }
+        },
+        {
+          "gameId": "401811046",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+          "sourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 9,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 31.2,
+            "fga": 11,
+            "fta": 0,
+            "fgm": 4,
+            "ftm": 0,
+            "rebounds": 7,
+            "assists": 11,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": 31,
+            "minutesSeconds": 1872,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+            "statsSourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.01074477871641255,
+          "ev": -0.7743596469553364
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.07888810376620448,
+          "ev": 0.656650179090294
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.20233632885793096,
+          "ev": 3.24906290601655
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.33928213062216206,
+          "ev": 6.124924743065403
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35928228|747.181319235|8520903|35|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319235",
+        "selectionId": "8520903",
+        "playerId": "3059318",
+        "player": "Joel Embiid",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_35+_POINTS",
+        "marketName": "To Score 35+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 35,
+        "american": 1060,
+        "decimal": 11.6,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.475402+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "probabilities": {
+        "win": 0.2919445602690359,
+        "loss": 0.7080554397309641,
+        "push": 0
+      },
+      "ev": 2.3865568991208166,
+      "breakEven": 0.08620689655172414,
+      "conditionalWin": 0.2919445602690359,
+      "projection": 28.40733221684105,
+      "rawProjection": 27.90849803111742,
+      "dispersion": 0.18306582027832438,
+      "features": {
+        "n": 38,
+        "recentGames": 20,
+        "minutes": 33.4919496026131,
+        "role": "C",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.04613164055664878,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "4": 1,
+            "12": 1,
+            "16": 1,
+            "18": 1,
+            "19": 1,
+            "20": 4,
+            "22": 3,
+            "24": 1,
+            "25": 1,
+            "26": 3,
+            "27": 3,
+            "28": 1,
+            "29": 3,
+            "30": 1,
+            "31": 1,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1
+          },
+          "threes": {
+            "0": 7,
+            "1": 17,
+            "2": 7,
+            "3": 6,
+            "4": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-06",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 19.35073445924,
+        "fgm": 9.60042747624113,
+        "threePa": 4.460332446849639,
+        "threePm": 1.7276169651275992,
+        "fta": 9.722963540875037,
+        "ftm": 8.401686520521515,
+        "base": {
+          "points": 29.330158438131374,
+          "threes": 1.7276169651275992
+        },
+        "baseline": {
+          "points": 26.86842105263158,
+          "threes": 1.394736842105263
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0282809552737877,
+            "defense": 0.9054075483151435
+          },
+          "threes": {
+            "offense": 0.875628286263214,
+            "defense": 1.065957187524575
+          }
+        },
+        "correlation": {
+          "points": 0.6023478119543846,
+          "threes": 0.46251335600303894
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401810976",
+          "date": "2026-04-03",
+          "source": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+          "sourceHash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 19,
+            "threeMade": 1,
+            "threeAttempted": 6,
+            "minutes": 34.46666666666667,
+            "fga": 17,
+            "fta": 7,
+            "fgm": 6,
+            "ftm": 6,
+            "rebounds": 13,
+            "assists": 7,
+            "steals": 0,
+            "blocks": 3,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 11,
+            "plusMinus": 15,
+            "minutesSeconds": 2068,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+            "statsSourceHash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc"
+          }
+        },
+        {
+          "gameId": "401811001",
+          "date": "2026-04-06",
+          "source": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+          "sourceHash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 34,
+            "threeMade": 2,
+            "threeAttempted": 6,
+            "minutes": 39.15,
+            "fga": 19,
+            "fta": 19,
+            "fgm": 8,
+            "ftm": 16,
+            "rebounds": 12,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 4,
+            "turnovers": 4,
+            "fouls": 3,
+            "offensiveRebounds": 5,
+            "defensiveRebounds": 7,
+            "plusMinus": -7,
+            "minutesSeconds": 2349,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+            "statsSourceHash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.015323326230796797,
+          "ev": -0.8222494157227571
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.11896450448353924,
+          "ev": 0.37998825200905517
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.2919445602690359,
+          "ev": 2.3865568991208166
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.4631633102159064,
+          "ev": 4.372694398504514
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35937401|747.192621559|50345113|6|at-least",
+        "fixtureId": "401909841",
+        "fanduelEventId": "35937401",
+        "fanduelTipoff": "2026-10-22T02:10:00.000Z",
+        "marketId": "747.192621559",
+        "selectionId": "50345113",
+        "playerId": "4431736",
+        "player": "Toumani Camara",
+        "team": "POR",
+        "market": "threes",
+        "marketType": "6+_MADE_THREES",
+        "marketName": "6+ Made Threes",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 6,
+        "american": 1800,
+        "decimal": 19,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:53.121278+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/phoenix-suns-@-portland-trail-blazers-35937401?tab=player-threes"
+      },
+      "probabilities": {
+        "win": 0.13735947297215134,
+        "loss": 0.8626405270278487,
+        "push": 0
+      },
+      "ev": 1.6098299864708752,
+      "breakEven": 0.05263157894736842,
+      "conditionalWin": 0.13735947297215134,
+      "projection": 3.084999725814912,
+      "rawProjection": 3.065859577298136,
+      "dispersion": 0.16,
+      "features": {
+        "n": 82,
+        "recentGames": 20,
+        "minutes": 33.122384384537426,
+        "role": "F",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.14580789715335166,
+          "threes": 0.07923824939038682
+        },
+        "histograms": {
+          "points": {
+            "0": 1,
+            "1": 1,
+            "4": 2,
+            "5": 3,
+            "6": 4,
+            "7": 3,
+            "8": 4,
+            "9": 5,
+            "10": 5,
+            "11": 5,
+            "12": 3,
+            "13": 5,
+            "14": 6,
+            "15": 5,
+            "16": 8,
+            "17": 6,
+            "18": 3,
+            "19": 2,
+            "20": 4,
+            "21": 1,
+            "23": 2,
+            "25": 1,
+            "30": 2,
+            "35": 1
+          },
+          "threes": {
+            "0": 8,
+            "1": 12,
+            "2": 20,
+            "3": 22,
+            "4": 11,
+            "5": 4,
+            "6": 2,
+            "8": 2,
+            "9": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "POR"
+        ],
+        "lastTeam": "POR",
+        "recentStarterRate": 1,
+        "fga": 11.744355140093242,
+        "fgm": 5.336174995605608,
+        "threePa": 7.845125777180087,
+        "threePm": 3.065859577298136,
+        "fta": 1.401703411075778,
+        "ftm": 1.0401337896597134,
+        "base": {
+          "points": 14.778343358169066,
+          "threes": 3.065859577298136
+        },
+        "baseline": {
+          "points": 13.414634146341463,
+          "threes": 2.6707317073170733
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9630371341027683,
+            "defense": 0.969792609508529
+          },
+          "threes": {
+            "offense": 1.1858567621541511,
+            "defense": 0.896746653793467
+          }
+        },
+        "correlation": {
+          "points": 0.6153936048083998,
+          "threes": 0.6604058752677033
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401811038",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_LACPOR_book.pdf",
+          "sourceHash": "8fa419a84a58fd6dcd943aa91a9827c379f90811501196c8244b45251956b2e9",
+          "player": {
+            "id": "4431736",
+            "name": "Toumani Camara",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 5,
+            "threeMade": 1,
+            "threeAttempted": 8,
+            "minutes": 32.93333333333333,
+            "fga": 13,
+            "fta": 0,
+            "fgm": 2,
+            "ftm": 0,
+            "rebounds": 1,
+            "assists": 3,
+            "steals": 1,
+            "blocks": 1,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 0,
+            "plusMinus": 2,
+            "minutesSeconds": 1976,
+            "nbaName": "Toumani Camara",
+            "officialPosition": "F",
+            "jersey": "33",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_LACPOR_book.pdf",
+            "statsSourceHash": "8fa419a84a58fd6dcd943aa91a9827c379f90811501196c8244b45251956b2e9"
+          }
+        },
+        {
+          "gameId": "401811055",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_SACPOR_book.pdf",
+          "sourceHash": "50f189ad3d6784dc334d6f3501991464d34f52927378f52d344c8fd618a258fe",
+          "player": {
+            "id": "4431736",
+            "name": "Toumani Camara",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 15,
+            "threeMade": 3,
+            "threeAttempted": 8,
+            "minutes": 33.5,
+            "fga": 14,
+            "fta": 0,
+            "fgm": 6,
+            "ftm": 0,
+            "rebounds": 4,
+            "assists": 2,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 2,
+            "plusMinus": 1,
+            "minutesSeconds": 2010,
+            "nbaName": "Toumani Camara",
+            "officialPosition": "F",
+            "jersey": "33",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_SACPOR_book.pdf",
+            "statsSourceHash": "50f189ad3d6784dc334d6f3501991464d34f52927378f52d344c8fd618a258fe"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.014884654633325112,
+          "ev": -0.7171915619668229
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.060633374274658536,
+          "ev": 0.15203411121851218
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.13735947297215134,
+          "ev": 1.6098299864708752
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.2320807307309607,
+          "ev": 3.409533883888254
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35937401|747.192621542|50345113|5|at-least",
+        "fixtureId": "401909841",
+        "fanduelEventId": "35937401",
+        "fanduelTipoff": "2026-10-22T02:10:00.000Z",
+        "marketId": "747.192621542",
+        "selectionId": "50345113",
+        "playerId": "4431736",
+        "player": "Toumani Camara",
+        "team": "POR",
+        "market": "threes",
+        "marketType": "5+_MADE_THREES",
+        "marketName": "5+ Made Threes",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 5,
+        "american": 1000,
+        "decimal": 11,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:53.121278+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/phoenix-suns-@-portland-trail-blazers-35937401?tab=player-threes"
+      },
+      "probabilities": {
+        "win": 0.2310113795949682,
+        "loss": 0.7689886204050318,
+        "push": 0
+      },
+      "ev": 1.5411251755446502,
+      "breakEven": 0.09090909090909091,
+      "conditionalWin": 0.2310113795949682,
+      "projection": 3.084999725814912,
+      "rawProjection": 3.065859577298136,
+      "dispersion": 0.16,
+      "features": {
+        "n": 82,
+        "recentGames": 20,
+        "minutes": 33.122384384537426,
+        "role": "F",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.14580789715335166,
+          "threes": 0.07923824939038682
+        },
+        "histograms": {
+          "points": {
+            "0": 1,
+            "1": 1,
+            "4": 2,
+            "5": 3,
+            "6": 4,
+            "7": 3,
+            "8": 4,
+            "9": 5,
+            "10": 5,
+            "11": 5,
+            "12": 3,
+            "13": 5,
+            "14": 6,
+            "15": 5,
+            "16": 8,
+            "17": 6,
+            "18": 3,
+            "19": 2,
+            "20": 4,
+            "21": 1,
+            "23": 2,
+            "25": 1,
+            "30": 2,
+            "35": 1
+          },
+          "threes": {
+            "0": 8,
+            "1": 12,
+            "2": 20,
+            "3": 22,
+            "4": 11,
+            "5": 4,
+            "6": 2,
+            "8": 2,
+            "9": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "POR"
+        ],
+        "lastTeam": "POR",
+        "recentStarterRate": 1,
+        "fga": 11.744355140093242,
+        "fgm": 5.336174995605608,
+        "threePa": 7.845125777180087,
+        "threePm": 3.065859577298136,
+        "fta": 1.401703411075778,
+        "ftm": 1.0401337896597134,
+        "base": {
+          "points": 14.778343358169066,
+          "threes": 3.065859577298136
+        },
+        "baseline": {
+          "points": 13.414634146341463,
+          "threes": 2.6707317073170733
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9630371341027683,
+            "defense": 0.969792609508529
+          },
+          "threes": {
+            "offense": 1.1858567621541511,
+            "defense": 0.896746653793467
+          }
+        },
+        "correlation": {
+          "points": 0.6153936048083998,
+          "threes": 0.6604058752677033
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401811038",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_LACPOR_book.pdf",
+          "sourceHash": "8fa419a84a58fd6dcd943aa91a9827c379f90811501196c8244b45251956b2e9",
+          "player": {
+            "id": "4431736",
+            "name": "Toumani Camara",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 5,
+            "threeMade": 1,
+            "threeAttempted": 8,
+            "minutes": 32.93333333333333,
+            "fga": 13,
+            "fta": 0,
+            "fgm": 2,
+            "ftm": 0,
+            "rebounds": 1,
+            "assists": 3,
+            "steals": 1,
+            "blocks": 1,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 0,
+            "plusMinus": 2,
+            "minutesSeconds": 1976,
+            "nbaName": "Toumani Camara",
+            "officialPosition": "F",
+            "jersey": "33",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_LACPOR_book.pdf",
+            "statsSourceHash": "8fa419a84a58fd6dcd943aa91a9827c379f90811501196c8244b45251956b2e9"
+          }
+        },
+        {
+          "gameId": "401811055",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_SACPOR_book.pdf",
+          "sourceHash": "50f189ad3d6784dc334d6f3501991464d34f52927378f52d344c8fd618a258fe",
+          "player": {
+            "id": "4431736",
+            "name": "Toumani Camara",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 15,
+            "threeMade": 3,
+            "threeAttempted": 8,
+            "minutes": 33.5,
+            "fga": 14,
+            "fta": 0,
+            "fgm": 6,
+            "ftm": 0,
+            "rebounds": 4,
+            "assists": 2,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 2,
+            "plusMinus": 1,
+            "minutesSeconds": 2010,
+            "nbaName": "Toumani Camara",
+            "officialPosition": "F",
+            "jersey": "33",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_SACPOR_book.pdf",
+            "statsSourceHash": "50f189ad3d6784dc334d6f3501991464d34f52927378f52d344c8fd618a258fe"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.039627373107802843,
+          "ev": -0.5640988958141687
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.1215784604611303,
+          "ev": 0.3373630650724333
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.2310113795949682,
+          "ev": 1.5411251755446502
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.3466020729674131,
+          "ev": 2.8126228026415436
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35928228|747.181319192|16012686|5|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319192",
+        "selectionId": "16012686",
+        "playerId": "3934719",
+        "player": "OG Anunoby",
+        "team": "NYK",
+        "market": "threes",
+        "marketType": "5+_MADE_THREES",
+        "marketName": "5+ Made Threes",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 5,
+        "american": 1000,
+        "decimal": 11,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.622035+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-threes"
+      },
+      "probabilities": {
+        "win": 0.21078670686691925,
+        "loss": 0.7892132931330808,
+        "push": 0
+      },
+      "ev": 1.318653775536112,
+      "breakEven": 0.09090909090909091,
+      "conditionalWin": 0.21078670686691925,
+      "projection": 2.9498375592802355,
+      "rawProjection": 2.9309361700637986,
+      "dispersion": 0.16,
+      "features": {
+        "n": 67,
+        "recentGames": 20,
+        "minutes": 33.13365402763485,
+        "role": "F",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.13283374901921305,
+          "threes": 0.07297855835321862
+        },
+        "histograms": {
+          "points": {
+            "2": 3,
+            "5": 3,
+            "8": 4,
+            "9": 5,
+            "10": 2,
+            "11": 1,
+            "12": 1,
+            "13": 3,
+            "14": 2,
+            "15": 5,
+            "16": 5,
+            "17": 1,
+            "18": 1,
+            "19": 4,
+            "20": 3,
+            "21": 4,
+            "22": 3,
+            "23": 2,
+            "24": 5,
+            "25": 5,
+            "26": 3,
+            "31": 1,
+            "34": 1
+          },
+          "threes": {
+            "0": 9,
+            "1": 14,
+            "2": 17,
+            "3": 9,
+            "4": 11,
+            "5": 5,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-10",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "NYK"
+        ],
+        "lastTeam": "NYK",
+        "recentStarterRate": 1,
+        "fga": 11.578991639211205,
+        "fgm": 5.785033165179723,
+        "threePa": 6.90062108926083,
+        "threePm": 2.9309361700637986,
+        "fta": 3.1570803300611128,
+        "ftm": 2.7700247925149113,
+        "base": {
+          "points": 17.271027292938154,
+          "threes": 2.9309361700637986
+        },
+        "baseline": {
+          "points": 16.686567164179106,
+          "threes": 2.343283582089552
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.959612333487929,
+            "defense": 1.001036054100681
+          },
+          "threes": {
+            "offense": 1.103860213592473,
+            "defense": 0.994144055936984
+          }
+        },
+        "correlation": {
+          "points": 0.7885369025993768,
+          "threes": 0.6449254280698875
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "provisional": true,
+      "availability": "Current availability evidence unavailable or stale",
+      "status": "fresh",
+      "modelVersion": "ev-props-v1.1",
+      "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+      "engineHash": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "protocolHash": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "forwardProtocolHash": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "rulesProfileHash": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "latestPDFs": [
+        {
+          "gameId": "401811023",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+          "sourceHash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867",
+          "player": {
+            "id": "3934719",
+            "name": "OG Anunoby",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 13,
+            "threeMade": 3,
+            "threeAttempted": 7,
+            "minutes": 36.166666666666664,
+            "fga": 10,
+            "fta": 2,
+            "fgm": 4,
+            "ftm": 2,
+            "rebounds": 4,
+            "assists": 1,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 4,
+            "plusMinus": 3,
+            "minutesSeconds": 2170,
+            "nbaName": "OG Anunoby",
+            "officialPosition": "F",
+            "jersey": "8",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+            "statsSourceHash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867"
+          }
+        },
+        {
+          "gameId": "401811031",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+          "sourceHash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae",
+          "player": {
+            "id": "3934719",
+            "name": "OG Anunoby",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 2,
+            "threeMade": 0,
+            "threeAttempted": 3,
+            "minutes": 15.383333333333333,
+            "fga": 4,
+            "fta": 0,
+            "fgm": 1,
+            "ftm": 0,
+            "rebounds": 5,
+            "assists": 3,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 5,
+            "plusMinus": 9,
+            "minutesSeconds": 923,
+            "nbaName": "OG Anunoby",
+            "officialPosition": "F",
+            "jersey": "8",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+            "statsSourceHash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae"
+          }
+        }
+      ],
+      "minutesSensitivity": [
+        {
+          "minutesScale": 0.5,
+          "win": 0.034492214265146814,
+          "ev": -0.620585643083385
+        },
+        {
+          "minutesScale": 0.75,
+          "win": 0.10866188765759754,
+          "ev": 0.195280764233573
+        },
+        {
+          "minutesScale": 1,
+          "win": 0.21078670686691925,
+          "ev": 1.318653775536112
+        },
+        {
+          "minutesScale": 1.25,
+          "win": 0.3214456459914319,
+          "ev": 2.535902105905751
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35928229|747.192412681|50343315|None|yes",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.192412681",
+        "selectionId": "50343315",
+        "playerId": "4683692",
+        "player": "Cason Wallace",
+        "team": "OKC",
+        "market": "first-team-basket",
+        "marketType": "FIRST_TEAM_BASKET_SCORER",
+        "marketName": "First Team Basket Scorer",
+        "identityJoin": "exact-normalized-name",
+        "period": "team-first-score",
+        "side": "yes",
+        "line": null,
+        "american": 500,
+        "decimal": 6,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "scoringDefinition": "first-team-score-including-free-throws",
+        "settlement": "starter-required",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.733737+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=quick-bets"
+      },
+      "probabilities": {
+        "win": 0.2536568549879543,
+        "loss": 0.7463431450120457,
+        "push": 0
+      },
+      "ev": 0.5219411299277259,
+      "breakEven": 0.16666666666666666,
+      "conditionalWin": 0.2536568549879543,
+      "projection": null,
+      "features": {
+        "id": "4683692",
+        "name": "Cason Wallace",
+        "team": "OKC",
+        "n": 58,
+        "wins": 14,
+        "losses": 44,
+        "role": "F",
+        "roleSource": "NBA printed starter position",
+        "through": "2026-03-30",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "OKC"
+        ],
+        "leagueRate": 0.19975619666802114,
+        "positionRate": 0.1865989847715736,
+        "offenseRatio": 1.0989615366419074,
+        "defenseRatio": 0.9242087335004967,
+        "otherFirstScorerProbability": 0.0002948547840188707,
+        "lineupProbabilities": {
+          "4222252": 0.19156263931419018,
+          "4278073": 0.19956997415955632,
+          "4433255": 0.18749067655797044,
+          "4593803": 0.1674250001963098,
+          "4683692": 0.2536568549879543
+        },
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "lineupBasis": "projected",
+      "projectedLineup": [
+        {
+          "id": "4278073",
+          "name": "Shai Gilgeous-Alexander",
+          "team": "OKC",
+          "position": "PG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909090",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.356373+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/depthcharts"
+        },
+        {
+          "id": "4683692",
+          "name": "Cason Wallace",
+          "team": "OKC",
+          "position": "SG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "QUESTIONABLE",
+          "fixtureId": "401909090",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.356373+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/depthcharts"
+        },
+        {
+          "id": "4593803",
+          "name": "Jalen Williams",
+          "team": "OKC",
+          "position": "SF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909090",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.356373+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/depthcharts"
+        },
+        {
+          "id": "4433255",
+          "name": "Chet Holmgren",
+          "team": "OKC",
+          "position": "PF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "QUESTIONABLE",
+          "fixtureId": "401909090",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.356373+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/depthcharts"
+        },
+        {
+          "id": "4222252",
+          "name": "Isaiah Hartenstein",
+          "team": "OKC",
+          "position": "C",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909090",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.356373+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/depthcharts"
+        }
+      ],
+      "provisional": true,
+      "availability": "Projected lineup · provisional. Probability and EV assume these exact five start; their chance of starting is not modeled. Not a finalized First Team Basket pick.",
+      "status": "fresh",
+      "modelVersion": "ev-first-team-v1.1",
+      "modelHash": "02043a72a383447b62904aa74cd5aef15eb46d85ed9cd1481fd256283fb4bc37",
+      "engineHash": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "protocolHash": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+      "forwardProtocolHash": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+      "rulesProfileHash": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828",
+      "latestPDFs": [
+        {
+          "gameId": "401811010",
+          "date": "2026-04-07",
+          "source": "https://statsdmz.nba.com/pdfs/20260407/20260407_OKCLAL_book.pdf",
+          "sourceHash": "3d60831fe945b2bb02f1391a98d8841585386d6f138d3702a305845de77d8f99",
+          "player": {
+            "id": "4683692",
+            "name": "Cason Wallace",
+            "rawPosition": "G",
+            "starter": false,
+            "played": true,
+            "points": 5,
+            "threeMade": 1,
+            "threeAttempted": 2,
+            "minutes": 22.716666666666665,
+            "fga": 4,
+            "fta": 2,
+            "fgm": 1,
+            "ftm": 2,
+            "rebounds": 2,
+            "assists": 3,
+            "steals": 3,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 4,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 0,
+            "plusMinus": 27,
+            "minutesSeconds": 1363,
+            "nbaName": "Cason Wallace",
+            "officialPosition": null,
+            "jersey": "22",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260407/20260407_OKCLAL_book.pdf",
+            "statsSourceHash": "3d60831fe945b2bb02f1391a98d8841585386d6f138d3702a305845de77d8f99"
+          }
+        },
+        {
+          "gameId": "401811018",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_OKCLAC_book.pdf",
+          "sourceHash": "f79d37b01045bbaaffa487f476e0e67f046efa1dfcc9e5e7a4c24dca8b4f3c46",
+          "player": {
+            "id": "4683692",
+            "name": "Cason Wallace",
+            "rawPosition": "G",
+            "starter": false,
+            "played": true,
+            "points": 3,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 21,
+            "fga": 6,
+            "fta": 0,
+            "fgm": 1,
+            "ftm": 0,
+            "rebounds": 2,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 1,
+            "turnovers": 2,
+            "fouls": 1,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 2,
+            "plusMinus": 2,
+            "minutesSeconds": 1260,
+            "nbaName": "Cason Wallace",
+            "officialPosition": null,
+            "jersey": "22",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_OKCLAC_book.pdf",
+            "statsSourceHash": "f79d37b01045bbaaffa487f476e0e67f046efa1dfcc9e5e7a4c24dca8b4f3c46"
+          }
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35928228|747.192411119|16421595|None|yes",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.192411119",
+        "selectionId": "16421595",
+        "playerId": "3062679",
+        "player": "Josh Hart",
+        "team": "NYK",
+        "market": "first-team-basket",
+        "marketType": "FIRST_TEAM_BASKET_SCORER",
+        "marketName": "First Team Basket Scorer",
+        "identityJoin": "exact-normalized-name",
+        "period": "team-first-score",
+        "side": "yes",
+        "line": null,
+        "american": 700,
+        "decimal": 8,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "scoringDefinition": "first-team-score-including-free-throws",
+        "settlement": "starter-required",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:51.743709+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=quick-bets"
+      },
+      "probabilities": {
+        "win": 0.16878301706797974,
+        "loss": 0.8312169829320203,
+        "push": 0
+      },
+      "ev": 0.3502641365438378,
+      "breakEven": 0.125,
+      "conditionalWin": 0.16878301706797974,
+      "projection": null,
+      "features": {
+        "id": "3062679",
+        "name": "Josh Hart",
+        "team": "NYK",
+        "n": 52,
+        "wins": 9,
+        "losses": 43,
+        "role": "F",
+        "roleSource": "NBA printed starter position",
+        "through": "2026-04-10",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "NYK"
+        ],
+        "leagueRate": 0.19975619666802114,
+        "positionRate": 0.1865989847715736,
+        "offenseRatio": 1.1280870038321427,
+        "defenseRatio": 0.8077068647395563,
+        "otherFirstScorerProbability": 0.0002948547840188707,
+        "lineupProbabilities": {
+          "3062679": 0.16878301706797974,
+          "3136195": 0.19797713597193814,
+          "3147657": 0.15177257156075755,
+          "3934672": 0.3136605690808416,
+          "3934719": 0.16751185153446407
+        },
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "lineupBasis": "projected",
+      "projectedLineup": [
+        {
+          "id": "3934672",
+          "name": "Jalen Brunson",
+          "team": "NYK",
+          "position": "PG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909089",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.254644+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/depthcharts"
+        },
+        {
+          "id": "3062679",
+          "name": "Josh Hart",
+          "team": "NYK",
+          "position": "SG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "QUESTIONABLE",
+          "fixtureId": "401909089",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.254644+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/depthcharts"
+        },
+        {
+          "id": "3147657",
+          "name": "Mikal Bridges",
+          "team": "NYK",
+          "position": "SF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909089",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.254644+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/depthcharts"
+        },
+        {
+          "id": "3934719",
+          "name": "OG Anunoby",
+          "team": "NYK",
+          "position": "PF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909089",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.254644+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/depthcharts"
+        },
+        {
+          "id": "3136195",
+          "name": "Karl-Anthony Towns",
+          "team": "NYK",
+          "position": "C",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909089",
+          "date": "2026-10-20",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:55.254644+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:40Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/depthcharts"
+        }
+      ],
+      "provisional": true,
+      "availability": "Projected lineup · provisional. Probability and EV assume these exact five start; their chance of starting is not modeled. Not a finalized First Team Basket pick.",
+      "status": "fresh",
+      "modelVersion": "ev-first-team-v1.1",
+      "modelHash": "02043a72a383447b62904aa74cd5aef15eb46d85ed9cd1481fd256283fb4bc37",
+      "engineHash": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "protocolHash": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+      "forwardProtocolHash": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+      "rulesProfileHash": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828",
+      "latestPDFs": [
+        {
+          "gameId": "401811023",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+          "sourceHash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867",
+          "player": {
+            "id": "3062679",
+            "name": "Josh Hart",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 26,
+            "threeMade": 5,
+            "threeAttempted": 7,
+            "minutes": 34.5,
+            "fga": 15,
+            "fta": 2,
+            "fgm": 10,
+            "ftm": 1,
+            "rebounds": 1,
+            "assists": 3,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 3,
+            "fouls": 2,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 1,
+            "plusMinus": 6,
+            "minutesSeconds": 2070,
+            "nbaName": "Josh Hart",
+            "officialPosition": "F",
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+            "statsSourceHash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867"
+          }
+        },
+        {
+          "gameId": "401811031",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+          "sourceHash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae",
+          "player": {
+            "id": "3062679",
+            "name": "Josh Hart",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 3,
+            "threeMade": 0,
+            "threeAttempted": 1,
+            "minutes": 29.966666666666665,
+            "fga": 2,
+            "fta": 4,
+            "fgm": 0,
+            "ftm": 3,
+            "rebounds": 4,
+            "assists": 2,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 2,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 4,
+            "plusMinus": 11,
+            "minutesSeconds": 1798,
+            "nbaName": "Josh Hart",
+            "officialPosition": "F",
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+            "statsSourceHash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae"
+          }
+        }
+      ]
+    },
+    {
+      "quote": {
+        "key": "35937399|747.192623208|28305698|None|yes",
+        "fixtureId": "401909834",
+        "fanduelEventId": "35937399",
+        "fanduelTipoff": "2026-10-21T23:10:00.000Z",
+        "marketId": "747.192623208",
+        "selectionId": "28305698",
+        "playerId": "4431680",
+        "player": "Onyeka Okongwu",
+        "team": "ATL",
+        "market": "first-team-basket",
+        "marketType": "FIRST_TEAM_BASKET_SCORER",
+        "marketName": "First Team Basket Scorer",
+        "identityJoin": "exact-normalized-name",
+        "period": "team-first-score",
+        "side": "yes",
+        "line": null,
+        "american": 390,
+        "decimal": 4.9,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "scoringDefinition": "first-team-score-including-free-throws",
+        "settlement": "starter-required",
+        "region": "TN",
+        "capturedAt": "2026-10-19T14:48:52.088786+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/atlanta-hawks-@-orlando-magic-35937399?tab=quick-bets"
+      },
+      "probabilities": {
+        "win": 0.23129392207150629,
+        "loss": 0.7687060779284938,
+        "push": 0
+      },
+      "ev": 0.13334021815038077,
+      "breakEven": 0.2040816326530612,
+      "conditionalWin": 0.23129392207150629,
+      "projection": null,
+      "features": {
+        "id": "4431680",
+        "name": "Onyeka Okongwu",
+        "team": "ATL",
+        "n": 63,
+        "wins": 16,
+        "losses": 47,
+        "role": "C",
+        "roleSource": "NBA printed starter position",
+        "through": "2026-04-10",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "ATL"
+        ],
+        "leagueRate": 0.19975619666802114,
+        "positionRate": 0.2365111561866126,
+        "offenseRatio": 1.1494803753405305,
+        "defenseRatio": 0.9836713416069687,
+        "otherFirstScorerProbability": 0.0002948547840188707,
+        "lineupProbabilities": {
+          "2490149": 0.2559510917166998,
+          "4278039": 0.24721662438969247,
+          "4431680": 0.23129392207150629,
+          "4701230": 0.15299654039653054,
+          "4869342": 0.11224696664155191
+        },
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "lineupBasis": "projected",
+      "projectedLineup": [
+        {
+          "id": "2490149",
+          "name": "CJ McCollum",
+          "team": "ATL",
+          "position": "PG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909834",
+          "date": "2026-10-21",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:54.398426+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:30Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/depthcharts"
+        },
+        {
+          "id": "4278039",
+          "name": "Nickeil Alexander-Walker",
+          "team": "ATL",
+          "position": "SG",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909834",
+          "date": "2026-10-21",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:54.398426+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:30Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/depthcharts"
+        },
+        {
+          "id": "4869342",
+          "name": "Dyson Daniels",
+          "team": "ATL",
+          "position": "SF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909834",
+          "date": "2026-10-21",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:54.398426+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:30Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/depthcharts"
+        },
+        {
+          "id": "4701230",
+          "name": "Jalen Johnson",
+          "team": "ATL",
+          "position": "PF",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909834",
+          "date": "2026-10-21",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:54.398426+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:30Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/depthcharts"
+        },
+        {
+          "id": "4431680",
+          "name": "Onyeka Okongwu",
+          "team": "ATL",
+          "position": "C",
+          "status": "projected",
+          "origin": "espn-depth",
+          "depthRank": 1,
+          "availability": "Unconfirmed",
+          "fixtureId": "401909834",
+          "date": "2026-10-21",
+          "season": "2026-27",
+          "capturedAt": "2026-10-19T14:48:54.398426+00:00",
+          "sourceTimestamp": "2026-10-19T14:43:30Z",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/depthcharts"
+        }
+      ],
+      "provisional": true,
+      "availability": "Projected lineup · provisional. Probability and EV assume these exact five start; their chance of starting is not modeled. Not a finalized First Team Basket pick.",
+      "status": "fresh",
+      "modelVersion": "ev-first-team-v1.1",
+      "modelHash": "02043a72a383447b62904aa74cd5aef15eb46d85ed9cd1481fd256283fb4bc37",
+      "engineHash": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "protocolHash": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+      "forwardProtocolHash": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+      "rulesProfileHash": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828",
+      "latestPDFs": [
+        {
+          "gameId": "401811013",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_ATLCLE_book.pdf",
+          "sourceHash": "f98fbdd334e4f71e8dd777567d4d3de67eac8020f7b63a2b447055a63ad47693",
+          "player": {
+            "id": "4431680",
+            "name": "Onyeka Okongwu",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 18,
+            "threeMade": 1,
+            "threeAttempted": 2,
+            "minutes": 32.88333333333333,
+            "fga": 10,
+            "fta": 4,
+            "fgm": 7,
+            "ftm": 3,
+            "rebounds": 5,
+            "assists": 0,
+            "steals": 0,
+            "blocks": 1,
+            "turnovers": 1,
+            "fouls": 2,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 3,
+            "plusMinus": -33,
+            "minutesSeconds": 1973,
+            "nbaName": "Onyeka Okongwu",
+            "officialPosition": "C",
+            "jersey": "17",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_ATLCLE_book.pdf",
+            "statsSourceHash": "f98fbdd334e4f71e8dd777567d4d3de67eac8020f7b63a2b447055a63ad47693"
+          }
+        },
+        {
+          "gameId": "401811028",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_CLEATL_book.pdf",
+          "sourceHash": "5cbb03af51c6cc658f2a44c9f8c0aa34d8148fa8b3677c4b2fa1bc26f0f751e4",
+          "player": {
+            "id": "4431680",
+            "name": "Onyeka Okongwu",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 2,
+            "threeMade": 0,
+            "threeAttempted": 2,
+            "minutes": 26.833333333333332,
+            "fga": 5,
+            "fta": 0,
+            "fgm": 1,
+            "ftm": 0,
+            "rebounds": 5,
+            "assists": 1,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 0,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 4,
+            "plusMinus": 25,
+            "minutesSeconds": 1610,
+            "nbaName": "Onyeka Okongwu",
+            "officialPosition": "C",
+            "jersey": "17",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_CLEATL_book.pdf",
+            "statsSourceHash": "5cbb03af51c6cc658f2a44c9f8c0aa34d8148fa8b3677c4b2fa1bc26f0f751e4"
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "Direct public pregame captures plus current source context. No quote timestamps changed, no outcomes reviewed or predictions promoted. Minutes scaling is diagnostic sensitivity, not a refitted model. Pending is not a loss; no demonstrated advantage or profit."
+}
