@@ -22,7 +22,8 @@ SITE = 'https://sportsbook.fanduel.com'
 API = 'https://api.sportsbook.fanduel.com/sbapi/'
 TEAMS = {'ATL':1,'BOS':2,'BKN':17,'CHA':30,'CHI':4,'CLE':5,'DAL':6,'DEN':7,'DET':8,'GSW':9,'HOU':10,'IND':11,'LAC':12,'LAL':13,'MEM':29,'MIA':14,'MIL':15,'MIN':16,'NOP':3,'NYK':18,'OKC':25,'ORL':19,'PHI':20,'PHX':21,'POR':22,'SAC':23,'SAS':24,'TOR':28,'UTA':26,'WAS':27}
 ALIASES = {'GS':'GSW','NY':'NYK','SA':'SAS','NO':'NOP','WSH':'WAS','UTAH':'UTA','PHO':'PHX'}
-TABS = ('player-points','player-threes')
+TABS = ('player-points','player-threes','quick-bets')
+TAB_MARKET = {'player-points':'points','player-threes':'threes','quick-bets':'first-team-basket'}
 
 def utc():
     return datetime.now(timezone.utc)
@@ -147,6 +148,8 @@ def match_event(fixture, events):
 
 def market_contract(market):
     kind = market.get('marketType','')
+    if kind=='FIRST_TEAM_BASKET_SCORER' and market.get('marketName')=='First Team Basket Scorer':
+        return 'first-team-basket','yes',None
     if re.fullmatch(r'PLAYER_[A-Z]+_TOTAL_POINTS',kind):
         return 'points','ou',None
     if re.fullmatch(r'PLAYER_[A-Z]+_TOTAL_MADE_3_POINT_FIELD_GOALS',kind):
@@ -164,7 +167,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
     if not identity or identity['name']!=event['name'] or identity['openDate']!=event['openDate'] or identity.get('inPlay') is True:
         raise ValueError('FanDuel event identity/status changed')
     cards = payload.get('layout',{}).get('cards',{})
-    title = {'player-points':'Player Points','player-threes':'Player Threes'}[tab]
+    title = {'player-points':'Player Points','player-threes':'Player Threes','quick-bets':'Quick Bets'}[tab]
     tabs = payload.get('layout',{}).get('tabs',{})
     if not any(t.get('title')==title for t in tabs.values()):
         return [],['Market not yet offered: '+title]
@@ -173,7 +176,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
     quotes,issues = [],[]
     for market in payload.get('attachments',{}).get('markets',{}).values():
         contract = market_contract(market)
-        if not contract or contract[0]!=('points' if tab=='player-points' else 'threes'):
+        if not contract or contract[0]!=TAB_MARKET[tab]:
             continue
         if market.get('eventId')!=event['eventId'] or market.get('eventTypeId')!=7522 or market.get('inPlay') is True:
             raise ValueError('Market fixture/sport/status mismatch')
@@ -197,9 +200,13 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
                     if market['marketName']!=name+expected:
                         raise ValueError('Market/player label mismatch')
                     line = runner['handicap']
-                else:
+                elif kind=='at-least':
                     side,line = 'at-least',target
-                if isinstance(line,bool) or not isinstance(line,(int,float)) or line<0 or not float(2*line).is_integer():
+                else:
+                    if runner.get('handicap')!=0 or runner.get('result',{}).get('type'):
+                        raise ValueError('First Team Basket runner contract is ambiguous')
+                    side,line = 'yes',None
+                if kind!='yes' and (isinstance(line,bool) or not isinstance(line,(int,float)) or line<0 or not float(2*line).is_integer()):
                     raise ValueError('Invalid target')
                 players = [p for p in roster if normalize(p['name'])==normalize(name)]
                 identity_join = 'exact-normalized-name'
@@ -221,12 +228,17 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
                                'fixtureId':fixture['id'],'fanduelEventId':str(event['eventId']),'fanduelTipoff':event['openDate'],'marketId':str(market['marketId']),'selectionId':str(runner['selectionId']),
                                'playerId':player['id'],'player':player['name'],'team':player['team'],'market':prop,'marketType':market['marketType'],'marketName':market['marketName'],
                                'identityJoin':identity_join,
-                               'period':'full-game','side':side,'line':line,'american':american,'decimal':decimal,'marketStatus':market['marketStatus'],'runnerStatus':runner['runnerStatus'],
+                               'period':'team-first-score' if kind=='yes' else 'full-game','side':side,'line':line,'american':american,'decimal':decimal,'marketStatus':market['marketStatus'],'runnerStatus':runner['runnerStatus'],
+                               **({'scoringDefinition':'first-team-score-including-free-throws','settlement':'starter-required'} if kind=='yes' else {}),
                                'region':'TN','capturedAt':captured_at,'captureState':'fresh','source':SITE+'/basketball/nba/'+re.sub(r'[^a-z0-9@]+','-',event['name'].lower()).strip('-')+'-'+str(event['eventId'])+'?tab='+tab})
             except (KeyError,ValueError,TypeError) as error:
                 issues.append(str(error))
     if len({q['key'] for q in quotes})!=len(quotes):
         raise ValueError('Duplicate quote identities')
+    if tab=='quick-bets':
+        if len({(q['marketId'],q['playerId']) for q in quotes})!=len(quotes):
+            raise ValueError('Duplicate First Team Basket player in market')
+        if not quotes:issues.append('First Team Basket not yet offered')
     return quotes,sorted(set(issues))
 
 def capture(client=None, previous=None, now=None, days=3):
@@ -259,7 +271,7 @@ def capture(client=None, previous=None, now=None, days=3):
                 raise ValueError('Current matchup rosters unavailable')
             entry['fanduelEventId'] = str(event['eventId'])
             for tab in TABS:
-                prop = 'points' if tab=='player-points' else 'threes'
+                prop = TAB_MARKET[tab]
                 try:
                     payload,raw_hash = client.fd('event-page',eventId=str(event['eventId']),tab=tab,useCombinedTouchdownsVirtualMarket='true',useQuickBets='true')
                     captured = utc().isoformat()
@@ -280,7 +292,7 @@ def capture(client=None, previous=None, now=None, days=3):
         if fid not in entries and iso(old['fixture']['scheduledTipoff'])>now and errors:
             entries[fid] = {**old,'checkedAt':utc().isoformat(),'issues':['Schedule unavailable; previous capture retained'],'quotes':[{**q,'captureState':'cached'} for q in old.get('quotes',[])]}
     return {'schemaVersion':1,'bookmaker':'fanduel','region':'TN','checkedAt':utc().isoformat(),'lookaheadDays':days,'fixtures':entries,'errors':errors,'listingHash':listing_hash,
-            'meaning':'Full-game points and made-threes prices; ACTIVE means market availability, not starter confirmation. Captures are immutable as to original source capture time.'}
+            'meaning':'Full-game Points/Threes and First Team Basket prices. First Team Basket includes free throws and requires the selected player to start; ACTIVE is not starter confirmation. Original capture times are immutable.'}
 
 def git(*args,data=None,check=True):
     result = subprocess.run(['git',*args],input=data,capture_output=True)

@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
 ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
-          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_archive.js', 'ev_grading.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
+          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_archive.js', 'ev_grading.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -201,6 +201,13 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     date.fromisoformat(published_date)
     history, current, html = validate(source)
     ev = read(source / 'ev_model.json')
+    first = read(source / 'ev_first_team_model.json')
+    require(first['engineHash'] == digest(source / 'ev_first_team.js'), 'First Team Basket engine changed; regenerate its separate diagnostics')
+    require(first['trainerHash'] == digest(ROOT / 'scripts/train_first_team_ev.cjs'), 'First Team Basket trainer changed; regenerate diagnostics')
+    for field, filename in [('protocolHash','FIRST_TEAM_EV_PROTOCOL.json'),('forwardProtocolHash','FIRST_TEAM_EV_FORWARD_PROTOCOL.json'),('rulesProfileHash','FIRST_TEAM_EV_RULES.json')]:
+        require(first[field] == digest(ROOT / filename), 'First Team Basket research/rules profile changed: ' + filename)
+    require(first['archiveEvidenceHash'] == history['analysis']['meta']['evidenceContentHash'] and first['openingEvidenceHash'] == history['parlay']['meta']['openingContentHash'], 'First Team Basket source evidence mismatch')
+    require(json.loads((source / 'ev_first_team_model.js').read_text(encoding='utf-8').removeprefix('window.__FTB_EV_FIRST_TEAM_MODEL__=').strip().removesuffix(';')) == first, 'First Team Basket browser model mismatch')
     require(ev['engineHash'] == digest(source / 'ev_probability.js'), 'EV probability engine changed; regenerate its separate diagnostics')
     require(ev['protocolHash'] == digest(ROOT / 'EV_PROTOCOL.json'), 'EV protocol changed; regenerate its separate diagnostics')
     require(ev['forwardProtocolHash'] == digest(ROOT / 'EV_FORWARD_PROTOCOL.json'), 'EV forward protocol changed; version and regenerate the research model')
@@ -229,7 +236,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
                'dataVersion':current['meta']['evidenceContentHash'],
                'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'lineup_projections.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'analyst_ui.js')},
                'researchProtocolHash':digest(ROOT/'PARLAY_RESEARCH_PROTOCOL.json'),
-               'evModelHash':ev['modelHash'],'evEngineHash':ev['engineHash'],'evProtocolHash':ev['protocolHash']}
+               'evModelHash':ev['modelHash'],'evEngineHash':ev['engineHash'],'evProtocolHash':ev['protocolHash'],'firstTeamEVModelHash':first['modelHash']}
     current = {**current, 'publication': hosting}
     marker = '<script src="analyst_ui.js"></script>'
     require(html.count(marker) == 1 and '__FTB_HOSTING__' not in html, 'Hosting insertion marker changed')
@@ -237,7 +244,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     html = version_asset_references(html, output)
     for name in ('index.html', 'ftb-scout.html'):
         (output / name).write_text(html, encoding='utf-8', newline='\n')
-    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev), ('ev-forward-protocol.json',read(ROOT/'EV_FORWARD_PROTOCOL.json')), ('ev-rules-profile.json',read(ROOT/'EV_RULES_PROFILE.json'))]:
+    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev), ('ev-first-team-model.json',first), ('first-team-ev-protocol.json',read(ROOT/'FIRST_TEAM_EV_PROTOCOL.json')), ('first-team-ev-forward-protocol.json',read(ROOT/'FIRST_TEAM_EV_FORWARD_PROTOCOL.json')), ('first-team-ev-rules.json',read(ROOT/'FIRST_TEAM_EV_RULES.json')), ('ev-forward-protocol.json',read(ROOT/'EV_FORWARD_PROTOCOL.json')), ('ev-rules-profile.json',read(ROOT/'EV_RULES_PROFILE.json'))]:
         target = output / 'data' / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(payload, separators=(',', ':'), ensure_ascii=False, allow_nan=False), encoding='utf-8')

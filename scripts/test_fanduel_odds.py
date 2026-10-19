@@ -32,6 +32,25 @@ class Contracts(unittest.TestCase):
         self.assertEqual(q['capturedAt'],STAMP);self.assertEqual(q['decimal'],2);self.assertEqual(q['region'],'TN')
         self.assertIn('boston-celtics-@-detroit-pistons-35928218',q['source'])
 
+    def test_first_team_market_is_own_team_first_score_not_game_first_basket(self):
+        r=runner('Player One',line=0);r['result']={}
+        p=payload('FIRST_TEAM_BASKET_SCORER','First Team Basket Scorer',[r],'Quick Bets')
+        quotes,issues=self.parse(p,tab='quick-bets');self.assertFalse(issues)
+        q=quotes[0];self.assertEqual((q['market'],q['period'],q['side'],q['line']),('first-team-basket','team-first-score','yes',None))
+        self.assertEqual(q['scoringDefinition'],'first-team-score-including-free-throws');self.assertEqual(q['settlement'],'starter-required')
+        for kind in ['FIRST_BASKET_(SAME_GAME_MULTIS)','TEAM_TO_SCORE_FIRST','OVERTIME_FIRST_TEAM_BASKET_SCORER']:
+            bad=copy.deepcopy(p);bad['attachments']['markets']['m']['marketType']=kind;self.assertFalse(self.parse(bad,tab='quick-bets')[0])
+
+    def test_first_team_labels_handicap_duplicates_and_incomplete_quick_bets_fail(self):
+        r=runner('Player One',line=0);r['result']={}
+        p=payload('FIRST_TEAM_BASKET_SCORER','First Team Basket Scorer',[r],'Quick Bets')
+        bad=copy.deepcopy(p);bad['attachments']['markets']['m']['marketName']='First Basket';self.assertFalse(self.parse(bad,tab='quick-bets')[0])
+        bad=copy.deepcopy(p);bad['attachments']['markets']['m']['runners'][0]['handicap']=1;self.assertFalse(self.parse(bad,tab='quick-bets')[0])
+        bad=copy.deepcopy(p);bad['attachments']['markets']['m']['runners'].append({**r,'selectionId':11})
+        with self.assertRaises(ValueError):self.parse(bad,tab='quick-bets')
+        p['layout']['cards']['1']['attachmentsFullyLoaded']=False
+        with self.assertRaises(ValueError):self.parse(p,tab='quick-bets')
+
     def test_milestones_use_market_target_not_zero_handicap(self):
         q,issues=self.parse(payload('TO_SCORE_25+_POINTS','To Score 25+ Points',[runner('Player One',line=0)]))
         self.assertFalse(issues);self.assertEqual((q[0]['line'],q[0]['side']),(25,'at-least'))

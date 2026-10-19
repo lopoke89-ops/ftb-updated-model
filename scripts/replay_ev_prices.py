@@ -34,7 +34,7 @@ def main():
             envelope=next(e for e in envelopes if e['eventId']==entry['fanduelEventId'] and e['tab']==capture['tab'])
             event=envelope['payload']['attachments']['events'][entry['fanduelEventId']]
             quotes,issues=fd.parse_markets(envelope['payload'],fixture,event,team_roster,capture['capturedAt'],capture['tab'])
-            expected=[q for q in entry['quotes'] if q['market']==('points' if capture['tab']=='player-points' else 'threes')]
+            expected=[q for q in entry['quotes'] if q['market']==fd.TAB_MARKET[capture['tab']]]
             if sorted(quotes,key=lambda q:q['key'])!=sorted(expected,key=lambda q:q['key']):differences.append({'fixture':fixture['id'],'tab':capture['tab'],'expected':len(expected),'actual':len(quotes),'issues':issues})
             replayed+=len(quotes)
         groups={}
