@@ -1,4 +1,5 @@
 """Replay retained public market fields and independently check current ESPN identities."""
+import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
@@ -6,11 +7,16 @@ from pathlib import Path
 import fanduel_odds as fd
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'audits/2026-10-19-ev'
+ARCHIVE=ROOT/'audits/2026-10-19-ev'
 
 def main():
-    snapshot=json.loads((OUT/'live-price-snapshot.json').read_text(encoding='utf-8'))
-    envelopes=json.loads((OUT/'live-market-evidence.json').read_text(encoding='utf-8'))['envelopes']
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--input',type=Path,default=ARCHIVE)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=True)
+    if (args.output/'price-replay.json').exists():parser.error('Choose a new output folder to preserve the previous replay')
+    snapshot=json.loads((args.input/'live-price-snapshot.json').read_text(encoding='utf-8'))
+    envelopes=json.loads((args.input/'live-market-evidence.json').read_text(encoding='utf-8'))['envelopes']
     client=fd.Client()
     teams=sorted({q['team'] for f in snapshot['fixtures'].values() for q in f['quotes']})
     def roster(team):
@@ -38,7 +44,7 @@ def main():
     result={'checkedAt':datetime.now(timezone.utc).isoformat(),'status':'passed' if not differences else 'failed','snapshotCapturedAt':snapshot['checkedAt'],
             'quotesReplayed':replayed,'matchingTwoWayPairs':paired,'sourceEnvelopes':len(envelopes),'currentRosterProof':rosters,'differences':differences,
             'interpretation':'Minimal captured source fields replay exactly through the parser against independently retrieved current rosters. This does not prove historic market executability or source stability after capture. No vig removal for overlapping milestones.'}
-    (OUT/'price-replay.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8', newline='\n')
+    (args.output/'price-replay.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8', newline='\n')
     print(json.dumps({k:v for k,v in result.items() if k!='currentRosterProof'}))
     return bool(differences)
 

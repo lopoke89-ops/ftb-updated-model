@@ -1,10 +1,10 @@
 """Read public Tennessee prices and retain minimal market envelopes for parser replay."""
+import argparse
 import json
 from pathlib import Path
 import fanduel_odds as fd
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'audits/2026-10-19-ev'
 
 def minimize(payload):
     layout=payload.get('layout', {})
@@ -32,10 +32,14 @@ class AuditedClient(fd.Client):
         return payload, digest
 
 if __name__ == '__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args();out=args.output
+    if any((out/n).exists() for n in ['live-price-snapshot.json','live-market-evidence.json']):parser.error('Choose a new folder; earlier captures must remain unchanged')
     client = AuditedClient()
     snapshot = fd.capture(client)
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / 'live-price-snapshot.json').write_text(json.dumps(snapshot, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
-    (OUT / 'live-market-evidence.json').write_text(json.dumps({'scope': 'Public accepted-market fields and original response hashes. Public app identifier, request query and all account operations excluded. This projection is not the original complete response.', 'capturedAt': snapshot['checkedAt'], 'envelopes': client.envelopes}, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
+    out.mkdir(parents=True, exist_ok=True)
+    (out / 'live-price-snapshot.json').write_text(json.dumps(snapshot, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
+    (out / 'live-market-evidence.json').write_text(json.dumps({'scope': 'Public accepted-market fields and original response hashes. Public app identifier, request query and all account operations excluded. This projection is not the original complete response.', 'capturedAt': snapshot['checkedAt'], 'envelopes': client.envelopes}, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
     quotes = [q for f in snapshot['fixtures'].values() for q in f['quotes']]
     print(json.dumps({'checkedAt': snapshot['checkedAt'], 'fixtures': len(snapshot['fixtures']), 'quotes': len(quotes), 'errors': snapshot['errors'], 'sourceEnvelopes': len(client.envelopes), 'marketIssues': sum(len(f['issues']) for f in snapshot['fixtures'].values())}), flush=True)

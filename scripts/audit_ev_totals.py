@@ -1,13 +1,16 @@
 """Reconcile canonical GP/PPG and JavaScript full-stat aggregates against the PDF database."""
+import argparse
 import json
 import sqlite3
 import subprocess
-import sys
 from pathlib import Path
 from audit_ev_sources import FIELDS, ROOT, SOURCE
 
 def main():
-    library=Path(sys.argv[1]);out=ROOT/'audits/2026-10-19-ev'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('library',type=Path)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args();library=args.library;out=args.output;out.mkdir(parents=True,exist_ok=True)
     db=sqlite3.connect('file:'+(library/'gamebooks.sqlite').as_posix()+'?mode=ro',uri=True);db.row_factory=sqlite3.Row
     sql='SELECT g.phase,p.espn_player_id AS id,COUNT(*) AS gp,'+','.join('SUM(p.'+v+') AS '+k for k,v in FIELDS.items())+' FROM player_game_stats p JOIN games g USING(espn_game_id) WHERE p.played=1 GROUP BY g.phase,p.espn_player_id'
     totals=[dict(r) for r in db.execute(sql)];db.close()

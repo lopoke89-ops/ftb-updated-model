@@ -1,7 +1,8 @@
 """Replay all hash-linked Q1 extractions and freshly re-extract a deterministic PDF sample."""
-import hashlib
+import argparse
 import json
 import sys
+import uuid
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -11,8 +12,11 @@ sys.path.insert(0,str(SOURCE))
 import build_opening_gamebook_data as opening
 
 def main():
-    library=Path(sys.argv[1])
-    out=ROOT/'audits/2026-10-19-ev';out.mkdir(parents=True,exist_ok=True)
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('library',type=Path)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args();library=args.library;out=args.output;out.mkdir(parents=True,exist_ok=True)
+    scratch=ROOT/'.build-tests'/('ev-audit-opening-'+uuid.uuid4().hex)
     data=json.loads((SOURCE/'analyst_data.json').read_text(encoding='utf-8'))
     ledger=json.loads((SOURCE/'opening_data.json').read_text(encoding='utf-8'))
     # Fixed positions across the whole archive, without outcome-based selection.
@@ -28,7 +32,7 @@ def main():
         if parsed!=expected:errors.append('Cached opening replay differs')
         proof=None
         if g['id'] in sample:
-            pages=opening.quarter_pages(library/record['pdf_path'],ROOT/'.build-tests/ev-audit-opening'/(g['id']+'.json'),record['sha256'])
+            pages=opening.quarter_pages(library/record['pdf_path'],scratch/(g['id']+'.json'),record['sha256'])
             direct=opening.parse_pages(pages,g,record)
             if direct!=expected:errors.append('Fresh PDF opening extraction differs')
             proof={'gameId':g['id'],'source':record['source_url'],'sha256':record['sha256'],'pages':[p['page'] for p in pages]}
