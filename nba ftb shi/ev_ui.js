@@ -10,7 +10,7 @@
   window.FTBEVPanel=function EVPanel({data,archiveData,fixtures=[],rosters={},liveContext={},trusted=false,mode,phase,period,headToHead,excludedIds=[],teamColors={}}){
     const model=window.__FTB_EV_MODEL__,firstModel=window.__FTB_EV_FIRST_TEAM_MODEL__,[snapshot,setSnapshot]=useState(window.__FTB_EV_ODDS_CACHE__||null),[source,setSource]=useState({status:'checking'}),[market,setMarket]=useState('all'),[side,setSide]=useState('all'),[positiveOnly,setPositive]=useState(true),[provisional,setProvisional]=useState(true),[bestOnly,setBest]=useState(true),[message,setMessage]=useState('');
     const [clock,setClock]=useState(Date.now());
-    const sequence=useRef(0),loading=useRef(false),refresh=useRef(null),now=Math.max(Date.now(),clock,liveContext.now||0);
+    const sequence=useRef(0),loading=useRef(false),refresh=useRef(null),catchup=useRef(null),now=Math.max(Date.now(),clock,liveContext.now||0);
     const supported=mode==='upcoming'&&!headToHead&&period==='0'&&['all','regular-season'].includes(phase)&&fixtures.every(f=>f.phase==='regular-season');
     async function load(){
       if(loading.current||!supported)return;loading.current=true;const token=++sequence.current,attempt=new Date().toISOString();setSource(s=>({...s,status:'checking',lastAttempt:attempt}));
@@ -29,6 +29,13 @@
       if(!deadlines.length)return;const timer=setTimeout(()=>setClock(Date.now()),Math.max(1,Math.min(...deadlines)-time));return()=>clearTimeout(timer);
     },[snapshot,fixtures,clock,liveContext.confirmedStarters,liveContext.lineupContext,liveContext.availabilitySource]);
     useEffect(()=>{if(!supported)return;load();const stop=Q?.startRefresh(()=>refresh.current());return()=>{++sequence.current;loading.current=false;stop?.();};},[supported]);
+    useEffect(()=>{
+      if(!supported||source.status!=='loaded'||!source.commit||!snapshot)return;
+      const key=source.commit+'|'+fixtures.map(f=>f.id).join(','),expired=fixtures.some(f=>(Array.isArray(snapshot.fixtures?.[f.id]?.quotes)?snapshot.fixtures[f.id].quotes:[]).some(q=>q?.captureState==='fresh'&&now-Date.parse(q.capturedAt)>E.MAX_AGE));
+      if(!expired||catchup.current===key)return;
+      // One catch-up read per immutable commit/scope. Leave time for the collector's next publication.
+      const timer=setTimeout(()=>{catchup.current=key;refresh.current?.();},30000);return()=>clearTimeout(timer);
+    },[source.status,source.commit,snapshot,fixtures,supported,clock]);
     const integrity=trusted&&V&&model?.version===E.VERSION&&model.archiveEvidenceHash===archiveData?.meta?.evidenceContentHash;
     const state=useMemo(()=>{
       if(!integrity||!supported||!fixtures.length)return null;const before=fixtures[0].date;
