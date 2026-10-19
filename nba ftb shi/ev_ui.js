@@ -3,6 +3,7 @@
   'use strict';
   const E=window.FTBEV,H=window.FTBScoutingHistory,L=window.FTBLineups,Q=window.FTBProjectedLineups,h=React.createElement,{useState,useEffect,useMemo,useRef}=React;
   const SOURCE='https://raw.githubusercontent.com/lopoke89-ops/ftb-updated-model/nba-live-odds/odds.json';
+  const VERSION_SOURCE='https://api.github.com/repos/lopoke89-ops/ftb-updated-model/git/ref/heads/nba-live-odds';
   const pct=v=>Number.isFinite(v)?(100*v).toFixed(1)+'%':'—',signed=v=>(v>0?'+':'')+pct(v);
   const formatTime=t=>t?new Date(t).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' CT':'Not available';
   const label=q=>(q.market==='points'?'Points':'Made threes')+' · '+(q.side==='at-least'?q.line+'+':q.side+' '+q.line);
@@ -12,9 +13,12 @@
     const supported=mode==='upcoming'&&!headToHead&&period==='0'&&['all','regular-season'].includes(phase)&&fixtures.every(f=>f.phase==='regular-season');
     async function load(){
       if(loading.current||!supported)return;loading.current=true;const token=++sequence.current,attempt=new Date().toISOString();setSource(s=>({...s,status:'checking',lastAttempt:attempt}));
-      try{const r=await fetch(SOURCE+'?read='+Date.now()+'-'+token,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Odds feed HTTP '+r.status);const next=await r.json();
+      try{const version=await fetch(VERSION_SOURCE+'?read='+Date.now()+'-'+token,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!version.ok)throw Error('Odds version HTTP '+version.status);const ref=await version.json();
+        if(ref.ref!=='refs/heads/nba-live-odds'||ref.object?.type!=='commit'||!/^[a-f0-9]{40}$/.test(ref.object?.sha||''))throw Error('Odds version identity mismatch');
+        if(token!==sequence.current)return;const commit=ref.object.sha,url='https://raw.githubusercontent.com/lopoke89-ops/ftb-updated-model/'+commit+'/odds.json';
+        const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('Odds feed HTTP '+r.status);const next=await r.json();
         if(next.schemaVersion!==1||next.bookmaker!=='fanduel'||next.region!=='TN'||!next.fixtures||typeof next.fixtures!=='object')throw Error('Odds feed identity/schema mismatch');
-        if(token!==sequence.current)return;window.__FTB_EV_ODDS_CACHE__=next;setSnapshot(next);setSource({status:'loaded',lastAttempt:attempt,lastSuccess:new Date().toISOString(),captureAt:next.checkedAt});
+        if(token!==sequence.current)return;window.__FTB_EV_ODDS_CACHE__=next;setSnapshot(next);setSource({status:'loaded',lastAttempt:attempt,lastSuccess:new Date().toISOString(),captureAt:next.checkedAt,commit,url});
       }catch(error){if(token===sequence.current)setSource(s=>({...s,status:'unavailable',lastAttempt:attempt,error:error.message}));}
       finally{if(token===sequence.current)loading.current=false;}
     }
