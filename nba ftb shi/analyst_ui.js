@@ -107,7 +107,7 @@
       if(!L||!Q||mode!=='upcoming'){setLineups({confirmed:{},projected:{},issues:[]});return;}
       updateSource('NBA lineups',{status:'loading'});
       try{const parsed=await Q.load({date:selectedDate,fixtures:schedule,rosters,injuries,officialParser:L.parse,onCapture:archive});
-        if(token!==lineupSeq.current)return;setLineups(parsed);
+        if(token!==lineupSeq.current)return;setLineups(parsed);setNow(Date.now());
         updateSource('NBA lineups',{status:Object.keys(parsed.confirmed).length?'fresh':Object.keys(parsed.projected).length?'projected':'unavailable',lastSuccess:parsed.checkedAt,records:Object.keys(parsed.confirmed).length,projectedRecords:Object.keys(parsed.projected).length,error:parsed.issues.join('; ')||null,detail:parsed.officialStatus});
       }catch(e){if(token===lineupSeq.current){setLineups({confirmed:{},projected:{},issues:[],checkedAt:new Date().toISOString(),officialStatus:e.message});updateSource('NBA lineups',{status:'unavailable',error:e.message});}}}
     useEffect(()=>{loadLineups();return ()=>{++lineupSeq.current;};},[rosters,injuries,mode,selectedDate]);

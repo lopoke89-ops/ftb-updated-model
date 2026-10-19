@@ -39,5 +39,12 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
       assert(!all.some(n=>n.type==='strong'&&n.children[0]==='NBA confirmed starters'));
     }
   });
+  await test('a lineup refresh advances the view clock past new capture timestamps',async()=>{
+    const fixture={id:'advance',date:'2026-10-20',scheduledTipoff:'2026-10-20T19:00Z',home:'DET',away:'BOS',season:'2026-27',phase:'regular-season',status:'pre'};
+    const r=render({tab:'picks',data:current,season:'2026-27',mode:'upcoming',date:fixture.date,schedule:[fixture],now:Date.parse('2026-10-18T20:00Z')});
+    const nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
+    const panel=nodes.find(n=>n.type===r.window.FTBLineupPanel);await panel.props.onRefresh();
+    assert(Number.isFinite(r.changes.now));assert(r.changes.now>=Date.parse(r.changes.lineups.checkedAt));
+  });
   console.log(JSON.stringify({passed:count}));
 })().catch(error=>{console.error(error);process.exitCode=1;});
