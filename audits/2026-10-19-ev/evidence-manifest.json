@@ -1,0 +1,54 @@
+{
+  "AUDIT_REPORT.md": {
+    "sha256": "0d929a2bb739131f6b82df21a9a6cf9fee3a8ef1907e485079b48180ef17d951",
+    "bytes": 29658
+  },
+  "baseline-comparison.png": {
+    "sha256": "fe170a558870afa75e79c6d65134411049f4142ffdf25304d58e4a16e82af8f7",
+    "bytes": 81232
+  },
+  "baseline-diagnostics.json": {
+    "sha256": "c1c3cdc95119c79df41a486c7336a894a48122472705e454d7ffe403fde4be53",
+    "bytes": 196402
+  },
+  "calibration.png": {
+    "sha256": "c49f6c3cfc3cec9a97143dae2f0d4525d0a4f59a0b6e4f2160ef91b873b086b3",
+    "bytes": 164795
+  },
+  "live-market-evidence.json": {
+    "sha256": "a43ba6d18c63299fd95b34983e028eb6b9c2bd19b380c4a4f220ce0c9cf16dd0",
+    "bytes": 827821
+  },
+  "live-price-snapshot.json": {
+    "sha256": "c83042ddfe68a28232ac1a79d87fb4e9dec2b5d5c45c160dd702501e5a937159",
+    "bytes": 1478458
+  },
+  "model-diagnostics.json": {
+    "sha256": "2531525f6c54d07310d43df8e246ab701c845b93ad5535a1e8290483147e14db",
+    "bytes": 266868
+  },
+  "offer-traces.json": {
+    "sha256": "ac29f84dda98fcd1d4cecb044f100b626a0e34dfdb9a5752a9411de4d8aba0e7",
+    "bytes": 133573
+  },
+  "opening-reconciliation.json": {
+    "sha256": "66867981685703d1bba81ec2722fd52ab051b5cc1397c5052b894d181504b1d9",
+    "bytes": 3829
+  },
+  "price-replay.json": {
+    "sha256": "cbe34928b4b43e9079d8dee6d5db4b8d2470d4e369a018151fd8e98007807429",
+    "bytes": 57027
+  },
+  "record-audit.json": {
+    "sha256": "a2758ec9da7b005d68ee78b1d7c588ac1e01a0110b1101d0cc39d78ed084fb86",
+    "bytes": 673
+  },
+  "season-totals.json": {
+    "sha256": "a4e131d7b8aae0bf13fa27dcc11ae2162554d20aab34ed0be07fa5a16bfe0f3b",
+    "bytes": 473
+  },
+  "source-reconciliation.json": {
+    "sha256": "da0311271d09b20239480c74eb6183ceec1e420054d786fbfb0ec0352cd27df6",
+    "bytes": 535981
+  }
+}

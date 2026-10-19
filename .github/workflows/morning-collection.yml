@@ -86,6 +86,7 @@ jobs:
           node "nba ftb shi/tests/test_pages.cjs"
           node "nba ftb shi/tests/test_ev.cjs"
           node "nba ftb shi/tests/test_ev_ui.cjs"
+          node "nba ftb shi/tests/test_ev_grading.cjs"
           python scripts/build_pages.py
       - name: Save verified records and retry state
         if: steps.collection.outputs.publish_needed == 'true'

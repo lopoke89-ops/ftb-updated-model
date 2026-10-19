@@ -1,0 +1,14 @@
+/* Browser-local immutable research snapshots. These are not verified issuance receipts. */
+(function(root){
+  'use strict';
+  function open(){return new Promise((resolve,reject)=>{if(!root.indexedDB)return reject(Error('Browser research storage unavailable'));const r=root.indexedDB.open('ftb-ev-research',1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('snapshots'))r.result.createObjectStore('snapshots',{keyPath:'id'});};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(Error('Browser research storage failed'));});}
+  async function save(record){
+    if(record.recordType!=='experimental-ev-snapshot'||!record.results?.length||!record.modelHash)throw Error('Incomplete EV research record');
+    const now=Date.parse(record.capturedAt);if(!Number.isFinite(now)||record.results.some(r=>{const tip=Math.min(Date.parse(r.quote.fanduelTipoff),Date.parse(record.fixtures.find(f=>f.id===r.quote.fixtureId)?.scheduledTipoff)),age=now-Date.parse(r.quote.capturedAt);return !Number.isFinite(tip)||now>=tip||!Number.isFinite(age)||age<0||age>300000;}))throw Error('Pregame snapshot is closed or quote is stale');
+    const identity={modelHash:record.modelHash,archiveEvidenceHash:record.archiveEvidenceHash,currentEvidenceHash:record.currentEvidenceHash,results:record.results,lineupContext:record.lineupContext};
+    const digest=await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(identity))),id=Array.from(new Uint8Array(digest)).map(n=>n.toString(16).padStart(2,'0')).join('');
+    const db=await open();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite'),request=tx.objectStore('snapshots').add({...record,id});request.onerror=e=>{if(request.error?.name==='ConstraintError'){e.preventDefault();e.stopPropagation();resolve(id);}else reject(Error('Could not retain EV snapshot'));};tx.oncomplete=()=>resolve(id);tx.onerror=()=>reject(Error('Could not retain EV snapshot'));});}finally{db.close();}
+  }
+  async function all(){const db=await open();try{return await new Promise((resolve,reject)=>{const request=db.transaction('snapshots','readonly').objectStore('snapshots').getAll();request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(Error('Could not read EV snapshots'));});}finally{db.close();}}
+  root.FTBEVArchive={save,all};
+})(window);

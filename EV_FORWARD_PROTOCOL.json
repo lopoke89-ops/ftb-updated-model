@@ -1,0 +1,57 @@
+{
+  "version": "ev-forward-research-v1",
+  "status": "declared-before-2026-27-regular-season-outcomes",
+  "declaredOn": "2026-10-19",
+  "prospectiveSeason": "2026-27",
+  "modelVersion": "ev-props-v1.1",
+  "markets": ["points", "threes"],
+  "phase": "regular-season",
+  "period": "full-game",
+  "priceSource": "FanDuel Tennessee ordinary markets",
+  "purpose": "Assess probability accuracy first and price-based hypothetical performance second. These are chosen product acceptance criteria, not universal statistical standards or guaranteed edges.",
+  "issuance": {
+    "checkpoint": "First eligible, source-verified capture in the 15 minutes before the earlier advertised ESPN/FanDuel tipoff; no later revision substitutes for that primary record.",
+    "quoteMaximumAgeSeconds": 300,
+    "requireExactFixtureAndCurrentRoster": true,
+    "excludeOutAndDoubtful": true,
+    "primaryExcludesProvisionalAvailability": true,
+    "roleChanges": "Withhold when the current projected role differs from the supported historical role. Missing confirmation remains an uncertainty, never invented minutes.",
+    "retain": ["all supported positive and negative offers", "displayed selections and filters", "source commit and capture times", "fixture/tipoff/region", "lineup and availability context", "model/engine/diagnostic/forward-protocol/rules hashes", "feature history seasons and cutoff"],
+    "trustedReceiptRequiredForVerifiedTrackRecord": true,
+    "receiptGap": "Current IndexedDB records are editable local research and exist only while the view is open. A shared issuer with externally witnessed pre-tip records and an independent expected-fixture ledger is required to qualify a verified prospective cohort."
+  },
+  "primaryProbabilityEvaluation": {
+    "unit": "One player-market-fixture decision. Never count alternate thresholds as independent trials.",
+    "contract": "A complete over/under pair with identical fixture, player, period, market ID, line and capture time. If multiple pairs exist, choose the most balanced implied-price pair; tie-break by lower line then market ID. Evaluate the Over direction to avoid duplicate complements.",
+    "pushes": "Compare the model's decisive-outcome win chance with the proportionally de-vigged two-way market benchmark. Exclude refunded pushes and DNP voids from binary loss metrics, and report their counts separately.",
+    "baselines": ["frozen calibrated season-mean count baseline", "frozen calibrated recent-20 appearance baseline", "same-pair proportional no-vig FanDuel price"],
+    "baselineFreeze": "Baseline configurations fitted only on the historical development/calibration windows are in audits/2026-10-19-ev/model-diagnostics.json. No prospective outcomes fit baseline or production parameters.",
+    "primaryMetrics": ["Brier score", "log loss", "calibration intercept and slope", "ten-bin reliability and weighted calibration error"],
+    "secondaryStrata": ["G/F/C proxy role", "20-39 / 40-59 / 60+ same-team history", "opening ten team games", "prior-season versus current-season history", "line and probability bands", "observed role changes for diagnosis only"],
+    "uncertainty": "Paired fixture-cluster bootstrap, 2000 replicates, fixed seed 20261019; calendar-week-block sensitivity. Apply Holm adjustment across the two markets for promotion tests. Alternate lines, both teams and multiple players stay in the same fixture cluster. Sparse strata remain inconclusive."
+  },
+  "secondaryEVSelection": {
+    "unit": "At the frozen checkpoint, highest estimated conditional EV offer per player-market-fixture; retain only EV > 0 for this selection cohort and retain the complete supported universe for comparison. Tie-break by quote key.",
+    "return": "Paper $1 ordinary-contract return; no bet placement, staking recommendation, bonus-credit valuation, parlay multiplication or claim of actual execution. DNP and pushes return zero profit; pending/review/invalid records are not losses.",
+    "accounting": "Retain all original quotes. Separate statistical grade, rule-indicated action, hypothetical unit return and actual sportsbook settlement. Corrections append new outcome-source versions and preserve earlier reports.",
+    "closingComparison": "Only compare the exact same contract and line. The last captured pre-scheduled-tip quote is a pre-tip price-movement benchmark, not a verified actual closing price unless market closure is independently established."
+  },
+  "promotion": {
+    "perMarket": true,
+    "minimumDistinctFixtures": 500,
+    "minimumDistinctPlayerMarketDecisions": 1000,
+    "minimumOpeningTenTeamGameDecisions": 100,
+    "minimumCheckpointCaptureCoverage": 0.95,
+    "requireSameSampleBenchmarks": true,
+    "requireBrierAndLogLossImprovementOverBothStatisticalBaselines": true,
+    "pairedLossDifferenceUpperAdjustedBoundBelow": 0,
+    "maximumAbsoluteCalibrationIntercept": 0.1,
+    "calibrationSlopeRange": [0.8, 1.2],
+    "maximumWeightedCalibrationError": 0.03,
+    "sparseStrataMinimumDecisionsForInterpretation": 200,
+    "marketComparison": "No advantage claim without same-contract prospective market comparisons. Beating a historical mean alone is insufficient.",
+    "profitableAdvantage": "Additionally require a positive lower adjusted fixture-cluster bound for ordinary-contract hypothetical return with all losses, pushes and voids accounted for; verify source/rules, realistic offer availability and trusted issuance. Hypothetical performance is not proof of actual customer execution."
+  },
+  "reviewPolicy": "First two game days validate collection, timing, matching, saving and grading only. Observe engineering health daily, but do not tune or promote based on interim outcome peeking. Finish the declared sample before the primary evaluation. A material model correction starts a new version/cohort; critical integrity failures may stop issuance and must remain in the audit trail.",
+  "unsupported": ["first-basket probability/EV", "joint parlay probability/EV", "preseason/playoff EV", "defender-specific matchups", "unobserved injury/on-off minutes multipliers", "verified commercial track-record claims from browser-local records alone"]
+}

@@ -22,7 +22,11 @@ they are required for a full source rebuild and are not hosted on this site.
 - Sourced advance depth-chart projections and game-day NBA expected/confirmed lineups in a shared, collapsible panel above Picks and Parlay. See [lineup context and refresh policy](LINEUP_CONTEXT.md).
 - **Reload verified history**, using a coherent published JSON snapshot.
 
-The Python game collector, workbook rebuild/import, capture archives and saved research journal run in the local application. Their write controls are disabled on Pages. The website does not have a shared database or collect new completed games automatically. Historical grades describe observed performance; 2026–27 forecast probabilities remain withheld until evaluated for that season.
+The published page has no shared research database. Workbook rebuild/import and verified Parlay research receipts use the local application. GitHub workflows collect verified gamebooks each morning and publish completed-season updates; live lineup and FanDuel price workers check independently. Scheduled starts and upstream feeds are best effort. Stale or unsupported quotes cannot produce EV estimates.
+
+**EV Bets** provides experimental, participation-conditional probabilities for regular-season full-game Points and Made Threes using FanDuel Tennessee prices. It saves the supported offer universe, display filters and displayed selection IDs in browser-local research records. **Export saved EV history** preserves a copy; **Grade saved EV history** downloads statistical outcomes from the verified NBA final boxes currently loaded, with pending, review and rule-indicated void states. This does not verify sportsbook account settlement, actual returns, or pregame issuance. First Basket and combined-parlay EV are not modeled. See [the implementation policy](EV_IMPLEMENTATION.md) and [the October 19 audit](audits/2026-10-19-ev/AUDIT_REPORT.md).
+
+Historical Parlay grades remain descriptive. The separate EV model is a retrospective research model; prior-season rotation transfer, future calibration and profitable advantage remain unproven.
 
 ## Publishing and updating
 

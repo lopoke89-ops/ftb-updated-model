@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
 ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
-          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_archive.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
+          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_archive.js', 'ev_grading.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -203,6 +203,8 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     ev = read(source / 'ev_model.json')
     require(ev['engineHash'] == digest(source / 'ev_probability.js'), 'EV probability engine changed; regenerate its separate diagnostics')
     require(ev['protocolHash'] == digest(ROOT / 'EV_PROTOCOL.json'), 'EV protocol changed; regenerate its separate diagnostics')
+    require(ev['forwardProtocolHash'] == digest(ROOT / 'EV_FORWARD_PROTOCOL.json'), 'EV forward protocol changed; version and regenerate the research model')
+    require(ev['rulesProfileHash'] == digest(ROOT / 'EV_RULES_PROFILE.json'), 'EV rules profile changed; version and regenerate the research model')
     require(ev['trainerHash'] == digest(ROOT / 'scripts/train_ev.cjs'), 'EV trainer changed; regenerate its separate diagnostics')
     require(ev['archiveEvidenceHash'] == history['analysis']['meta']['evidenceContentHash'], 'EV archive provenance mismatch')
     require(json.loads((source / 'ev_model.js').read_text(encoding='utf-8').removeprefix('window.__FTB_EV_MODEL__=').strip().removesuffix(';')) == ev, 'EV browser model/configuration mismatch')
@@ -235,7 +237,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     html = version_asset_references(html, output)
     for name in ('index.html', 'ftb-scout.html'):
         (output / name).write_text(html, encoding='utf-8', newline='\n')
-    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev)]:
+    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev), ('ev-forward-protocol.json',read(ROOT/'EV_FORWARD_PROTOCOL.json')), ('ev-rules-profile.json',read(ROOT/'EV_RULES_PROFILE.json'))]:
         target = output / 'data' / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(payload, separators=(',', ':'), ensure_ascii=False, allow_nan=False), encoding='utf-8')

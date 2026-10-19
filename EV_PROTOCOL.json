@@ -1,5 +1,7 @@
 {
-  "version": "ev-props-v1",
+  "version": "ev-props-v1.1",
+  "revisionReason": "Correct played appearances with printed 00:00 minutes; show means consistent with calibrated probabilities; strengthen exact-fixture matching. Prior version and diagnostics retained under audits/2026-10-19-ev/baseline.",
+  "participationPolicy": "An official played row remains an appearance even when minutes print 00:00. DNP rows remain excluded. No recorded positive exposure withholds a forecast.",
   "status": "experimental-retrospective-diagnostic",
   "markets": ["points", "threes"],
   "phase": "regular-season",

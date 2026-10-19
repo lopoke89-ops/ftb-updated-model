@@ -1,11 +1,11 @@
 /* Separate experimental prop distributions. Existing Parlay grades are never probabilities. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.FTBEV=api;})(typeof window==='object'?window:this,function(){
   'use strict';
-  const VERSION='ev-props-v1',MAX_AGE=300000,MIN_GAMES=20,POS=['G','F','C'];
+  const VERSION='ev-props-v1.1',MAX_AGE=300000,MIN_GAMES=20,POS=['G','F','C'];
   const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),sum=(rows,k)=>rows.reduce((n,r)=>n+r[k],0);
   const group=raw=>({PG:'G',SG:'G',SF:'F',PF:'F',G:'G',F:'F',C:'C',GUARD:'G',FORWARD:'F',CENTER:'C'}[String(raw||'').toUpperCase()]||null);
   const mean=(rows,k)=>rows.length?sum(rows,k)/rows.length:0;
-  function validRow(p){return p.played&&['points','fgm','fga','threeMade','threeAttempted','ftm','fta','minutes'].every(k=>Number.isFinite(p[k])&&p[k]>=0)&&p.minutes>0&&p.fgm<=p.fga&&p.threeMade<=p.fgm&&p.threeMade<=p.threeAttempted&&p.threeAttempted<=p.fga&&p.ftm<=p.fta&&2*p.fgm+p.threeMade+p.ftm===p.points;}
+  function validRow(p){return p.played===true&&['points','fgm','fga','threeMade','threeAttempted','ftm','fta','minutes'].every(k=>Number.isFinite(p[k])&&p[k]>=0)&&p.fgm<=p.fga&&p.threeMade<=p.fgm&&p.threeMade<=p.threeAttempted&&p.threeAttempted<=p.fga&&p.ftm<=p.fta&&2*p.fgm+p.threeMade+p.ftm===p.points;}
   function newState(){return {players:{},teams:{},league:{},seen:new Set(),through:null,phases:new Set(),seasons:new Set()};}
   function addGame(s,g){
     if(s.seen.has(g.id))throw Error('Duplicate EV fixture');s.seen.add(g.id);s.through=g.date;s.phases.add(g.phase);
@@ -16,7 +16,8 @@
         if(!validRow(p))continue;own[isOwn?'ownMinutes':'allowedMinutes']+=p.minutes;const role=group(p.officialPosition||p.rawPosition),target=isOwn?own.own:own.allowed;
         if(role){const a=target[role]||(target[role]={points:0,threes:0,minutes:0});a.points+=p.points;a.threes+=p.threeMade;a.minutes+=p.minutes;
           if(isOwn){const a=s.league[role]||(s.league[role]={points:0,threes:0,minutes:0});a.points+=p.points;a.threes+=p.threeMade;a.minutes+=p.minutes;}}
-        if(isOwn)(s.players[String(p.id)]||(s.players[String(p.id)]=[])).push({...p,id:String(p.id),team,date:g.date,gameId:g.id,role,season:g.season||String(g.date).slice(0,4)});
+        const year=Number(g.date.slice(0,4)),start=Number(g.date.slice(5,7))>=7?year:year-1;
+        if(isOwn)(s.players[String(p.id)]||(s.players[String(p.id)]=[])).push({...p,id:String(p.id),team,date:g.date,gameId:g.id,role,roleSource:p.officialPosition?'NBA printed final-box position':'Stored historical roster position',season:g.season||start+'-'+String(start+1).slice(-2)});
       }
     }
   }
@@ -24,6 +25,7 @@
   function correlation(rows,x,y){const mx=mean(rows,x),my=mean(rows,y);let xx=0,yy=0,xy=0;for(const r of rows){const a=r[x]-mx,b=r[y]-my;xx+=a*a;yy+=b*b;xy+=a*b;}return xx&&yy?xy/Math.sqrt(xx*yy):null;}
   function features(s,id,team,opponent){
     const all=s.players[String(id)]||[],rows=all.filter(r=>r.team===team);if(rows.length<MIN_GAMES)return {reason:`Needs ${MIN_GAMES} complete prior appearances with ${team}; has ${rows.length} (${all.length-rows.length} other-team appearances excluded from EV)`};
+    if(!(sum(rows,'minutes')>0))return {reason:'No positive recorded playing-time exposure'};
     const recent=rows.slice(-20),n=recent.length,w=recent.map((_,i)=>Math.pow(.94,n-1-i)),ws=w.reduce((a,b)=>a+b,0),avg=k=>recent.reduce((a,r,i)=>a+w[i]*r[k],0)/ws;
     const blend=(a,b)=>(a*n+b*5)/(n+5),minutes=blend(avg('minutes'),mean(rows,'minutes'));
     const attempts=k=>minutes*blend(avg(k)/Math.max(.1,avg('minutes')),sum(rows,k)/sum(rows,'minutes'));
@@ -41,7 +43,7 @@
       return {offense:shrink(a,own?.games||0),defense:shrink(d,def?.games||0)};
     };
     const dispersion={},histograms={};for(const market of ['points','threes']){const key=market==='points'?'points':'threeMade',m=mean(rows,key),variance=rows.reduce((a,r)=>a+(r[key]-m)**2,0)/(rows.length-1);dispersion[market]=m>0?clamp((variance-m)/(m*m),.01,2):.5;histograms[market]={};for(const r of rows)histograms[market][r[key]]=(histograms[market][r[key]]||0)+1;}
-    return {n:rows.length,recentGames:n,minutes,role,dispersion,histograms,otherTeamAppearances:all.length-rows.length,through:rows.at(-1).date,teams:[...new Set(rows.map(r=>r.team))],lastTeam:rows.at(-1).team,recentStarterRate:recent.filter(r=>r.starter).length/n,
+    return {n:rows.length,recentGames:n,minutes,role,roleSource:rows.at(-1).roleSource,dispersion,histograms,otherTeamAppearances:all.length-rows.length,through:rows.at(-1).date,historySeasons:[...new Set(rows.map(r=>r.season))],teams:[...new Set(rows.map(r=>r.team))],lastTeam:rows.at(-1).team,recentStarterRate:recent.filter(r=>r.starter).length/n,
       fga,fgm:Math.max(0,fga-threePa)*p2+threePa*p3,threePa,threePm:threePa*p3,fta,ftm:fta*pft,
       base:{points:2*Math.max(0,fga-threePa)*p2+3*threePa*p3+fta*pft,threes:threePa*p3},baseline:{points:mean(rows,'points'),threes:mean(rows,'threeMade')},
       ratios:{points:ratios('points'),threes:ratios('threes')},correlation:{points:fg,threes:three},positionSample:!!role&&!!league&&own?.games>=10&&def?.games>=10&&Object.values(own.own).reduce((n,p)=>n+p.minutes,0)/own.ownMinutes>=.8&&Object.values(def.allowed).reduce((n,p)=>n+p.minutes,0)/def.allowedMinutes>=.8,
@@ -64,10 +66,11 @@
     const config=model?.markets?.[market];if(!config||!config.calibration||!config.diagnostic)return {reason:'Probability model is not available for this market'};
     const mu=(config.meanMode==='season-mean'?f.baseline[market]:f.base[market])*Math.pow(f.ratios[market].defense,config.defensePower)*Math.pow(f.ratios[market].offense,config.offensePower);
     const alpha=clamp(config.alpha*(1-(config.dispersionBlend||0))+f.dispersion[market]*(config.dispersionBlend||0),.01,2);
-    return {mass:distribution(mu,alpha),mu,alpha,calibration:config.calibration,features:f,market,modelVersion:model.version};
+    const mass=distribution(mu,alpha),calibratedMean=mass.reduce((n,_,k)=>n+1-calibratedCDF(mass,k,config.calibration),0);
+    return {mass,mu,calibratedMean,alpha,calibration:config.calibration,features:f,market,modelVersion:model.version};
   }
   function probabilities(prediction,{side,line}){
-    if(!prediction?.mass||!Number.isFinite(line)||line<0||!['over','under','at-least'].includes(side))throw Error('Unsupported exact prop contract');
+    if(!prediction?.mass||!Number.isFinite(line)||line<0||!Number.isInteger(2*line)||!['over','under','at-least'].includes(side))throw Error('Unsupported exact prop contract');
     const f=k=>calibratedCDF(prediction.mass,k,prediction.calibration);let win,loss,push=0;
     if(side==='at-least'){if(!Number.isInteger(line))throw Error('Milestone must be an integer');win=1-f(line-1);loss=1-win;}
     else if(Number.isInteger(line)){push=f(line)-f(line-1);if(side==='over'){win=1-f(line);loss=f(line-1);}else{win=f(line-1);loss=1-f(line);}}
@@ -85,7 +88,7 @@
   }
   function quoteState(q,fixture,now){
     const age=now-Date.parse(q.capturedAt),earliest=Math.min(Date.parse(fixture.scheduledTipoff),Date.parse(q.fanduelTipoff||fixture.scheduledTipoff));
-    if(q.region!=='TN'||q.fixtureId!==fixture.id||q.team!==fixture.home&&q.team!==fixture.away||q.period!=='full-game'||!['points','threes'].includes(q.market)||!/^\d+$/.test(q.fanduelEventId||'')||Math.abs(Date.parse(q.fanduelTipoff)-Date.parse(fixture.scheduledTipoff))>900000)return 'identity-mismatch';
+    if(q.region!=='TN'||q.fixtureId!==fixture.id||q.team!==fixture.home&&q.team!==fixture.away||q.period!=='full-game'||!['points','threes'].includes(q.market)||!/^\d+$/.test(q.fanduelEventId||'')||!Number.isFinite(Date.parse(q.fanduelTipoff))||Math.abs(Date.parse(q.fanduelTipoff)-Date.parse(fixture.scheduledTipoff))>900000)return 'identity-mismatch';
     if(fixture.status!=='pre'||!Number.isFinite(earliest)||now>=earliest)return 'closed';
     if(!Number.isFinite(age)||age<0||age>MAX_AGE)return 'stale';
     if(q.captureState==='cached')return 'cached';
@@ -96,18 +99,18 @@
     for(const fixture of fixtures){const entry=snapshot?.fixtures?.[fixture.id];for(const q of entry?.quotes||[]){
       let reason=null;const status=quoteState(q,fixture,now),roster=(rosters[q.team]||[]).filter(p=>String(p.id)===q.playerId),key=q.key;
       if(seen.has(key)){audit.push({player:q.player,reason:'Duplicate offered selection'});continue;}seen.add(key);
-      if(snapshot.schemaVersion!==1||snapshot.region!=='TN'||snapshot.bookmaker!=='fanduel'||entry.fixture?.home!==fixture.home||entry.fixture?.away!==fixture.away||entry.fanduelEventId!==q.fanduelEventId)reason='Odds snapshot identity mismatch';
+      if(snapshot.schemaVersion!==1||snapshot.region!=='TN'||snapshot.bookmaker!=='fanduel'||entry.fixture?.home!==fixture.home||entry.fixture?.away!==fixture.away||entry.fixture?.id!==fixture.id||entry.fixture?.date!==fixture.date||entry.fixture?.season!==fixture.season||entry.fixture?.phase!==fixture.phase||fixture.phase!=='regular-season'||Date.parse(entry.fixture?.scheduledTipoff)!==Date.parse(fixture.scheduledTipoff)||entry.fanduelEventId!==q.fanduelEventId)reason='Odds snapshot identity mismatch';
       else if(status!=='fresh')reason='Quote '+status;
       else if(roster.length!==1||roster[0].team!==q.team||roster[0].name!==q.player)reason='Current-roster identity mismatch';
       else if(!/^https:\/\/sportsbook\.fanduel\.com\//.test(q.source||''))reason='Quote source mismatch';
-      else if(!Number.isInteger(q.american)||Math.abs(q.american)<100||Math.abs(q.decimal-(q.american>0?1+q.american/100:1+100/Math.abs(q.american)))>1e-6)reason='Offered price formats disagree';
+      else if(!Number.isInteger(q.american)||Math.abs(q.american)<100||!Number.isFinite(q.decimal)||Math.abs(q.decimal-(q.american>0?1+q.american/100:1+100/Math.abs(q.american)))>1e-6)reason='Offered price formats disagree';
       else if(eligibility[q.playerId]?.excluded)reason=eligibility[q.playerId].reason||'Unavailable player';
       const prediction=predictions[fixture.id+'|'+q.team+'|'+q.playerId+'|'+q.market];
       if(!reason&&(prediction?.reason||!prediction))reason=prediction?.reason||'Probability evidence unavailable';
       if(!reason)reason=contractSupport(prediction,q);
       if(reason){audit.push({key,player:q.player,market:q.market,reason,status});continue;}
       try{const p=probabilities(prediction,q),ev=expectedValue(p,q.decimal),available=eligibility[q.playerId]||{provisional:true,reason:'Availability unconfirmed'};
-        rows.push({quote:q,probabilities:p,ev,breakEven:1/q.decimal,conditionalWin:p.win/(p.win+p.loss),projection:prediction.mu,features:prediction.features,provisional:!!available.provisional||!!prediction.roleUncertain,availability:prediction.roleUncertain?prediction.roleReason:available.reason,status});
+        rows.push({quote:q,probabilities:p,ev,breakEven:1/q.decimal,conditionalWin:p.win/(p.win+p.loss),projection:prediction.calibratedMean??prediction.mu,rawProjection:prediction.mu,dispersion:prediction.alpha,features:prediction.features,provisional:!!available.provisional||!!prediction.roleUncertain,availability:prediction.roleUncertain?prediction.roleReason:available.reason,status});
       }catch(error){audit.push({key,player:q.player,reason:error.message,status:'invalid'});}
     }}
     rows.sort((a,b)=>b.ev-a.ev||a.quote.key.localeCompare(b.quote.key));return {rows,audit};

@@ -1,0 +1,17 @@
+{
+  "scope": "Read-only audit of the existing private browser export; no individual record or wager history published.",
+  "originalSha256": "f305ed7064dc7e4fccb861076f1d6ffa54feda223be6de1ffb40df383658b4d3",
+  "records": 3,
+  "offers": 971,
+  "negativeOffers": 596,
+  "modelHashes": [
+    "e7adc59bcb0b46f1377089d071d5420a745b104d164ecd101f20d7e227383130"
+  ],
+  "reasons": [
+    "Verified final PDF not collected yet"
+  ],
+  "limitations": "Schema 1 lacks display filters/IDs; browser records are not trusted issuance receipts. All are before the forthcoming selected games; no observed forecast outcomes or profitability.",
+  "gradingCounts": {
+    "pending": 971
+  }
+}

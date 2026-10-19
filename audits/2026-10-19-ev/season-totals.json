@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "canonicalPlayers": 582,
+  "canonicalPhaseGPAndPPGChecks": 2328,
+  "phasePlayerGroups": 921,
+  "statAggregateComparisons": 34998,
+  "phases": [
+    "nba-cup-final",
+    "play-in",
+    "playoffs",
+    "regular-season"
+  ],
+  "authority": "All final-box rows independently re-extracted and reconciled before these totals were checked. Percentages use summed makes and attempts; zero-minute played rows count toward GP; DNPs do not."
+}

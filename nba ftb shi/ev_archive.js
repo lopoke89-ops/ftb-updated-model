@@ -5,7 +5,7 @@
   async function save(record){
     if(record.recordType!=='experimental-ev-snapshot'||!record.results?.length||!record.modelHash)throw Error('Incomplete EV research record');
     const now=Date.parse(record.capturedAt);if(!Number.isFinite(now)||record.results.some(r=>{const tip=Math.min(Date.parse(r.quote.fanduelTipoff),Date.parse(record.fixtures.find(f=>f.id===r.quote.fixtureId)?.scheduledTipoff)),age=now-Date.parse(r.quote.capturedAt);return !Number.isFinite(tip)||now>=tip||!Number.isFinite(age)||age<0||age>300000;}))throw Error('Pregame snapshot is closed or quote is stale');
-    const identity={modelHash:record.modelHash,archiveEvidenceHash:record.archiveEvidenceHash,currentEvidenceHash:record.currentEvidenceHash,results:record.results,lineupContext:record.lineupContext};
+    const identity={modelHash:record.modelHash,archiveEvidenceHash:record.archiveEvidenceHash,currentEvidenceHash:record.currentEvidenceHash,results:record.results,lineupContext:record.lineupContext,filters:record.filters,displayedSelectionKeys:record.displayedSelectionKeys,oddsCommit:record.source?.transport?.commit};
     const digest=await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(identity))),id=Array.from(new Uint8Array(digest)).map(n=>n.toString(16).padStart(2,'0')).join('');
     const db=await open();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite'),request=tx.objectStore('snapshots').add({...record,id});request.onerror=e=>{if(request.error?.name==='ConstraintError'){e.preventDefault();e.stopPropagation();resolve(id);}else reject(Error('Could not retain EV snapshot'));};tx.oncomplete=()=>resolve(id);tx.onerror=()=>reject(Error('Could not retain EV snapshot'));});}finally{db.close();}
   }

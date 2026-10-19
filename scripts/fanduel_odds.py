@@ -9,6 +9,7 @@ import time
 import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urljoin
@@ -56,6 +57,11 @@ class Client:
                     raise RuntimeError('Source HTTP '+str(error.code)) from None
                 retry = error.headers.get('Retry-After','')
                 delay = int(retry) if retry.isdigit() else 2**attempt
+                if retry and not retry.isdigit():
+                    try:
+                        delay = max(0, (parsedate_to_datetime(retry)-utc()).total_seconds())
+                    except (ValueError, TypeError, OverflowError):
+                        pass
                 if delay>30:
                     raise RuntimeError('Source requested a later retry; capture retained') from None
                 self.sleeper(delay)
@@ -172,6 +178,11 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
         if market.get('eventId')!=event['eventId'] or market.get('eventTypeId')!=7522 or market.get('inPlay') is True:
             raise ValueError('Market fixture/sport/status mismatch')
         prop,kind,target = contract
+        if kind=='at-least':
+            expected_name = 'To Score '+str(target)+'+ Points' if prop=='points' else str(target)+'+ Made Threes'
+            if market.get('marketName','').casefold()!=expected_name.casefold():
+                issues.append('Milestone target/name mismatch')
+                continue
         for runner in market.get('runners',[]):
             if runner.get('isPlayerSelection') is not True:
                 continue
@@ -188,7 +199,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
                     line = runner['handicap']
                 else:
                     side,line = 'at-least',target
-                if isinstance(line,bool) or not isinstance(line,(int,float)) or line<0:
+                if isinstance(line,bool) or not isinstance(line,(int,float)) or line<0 or not float(2*line).is_integer():
                     raise ValueError('Invalid target')
                 players = [p for p in roster if normalize(p['name'])==normalize(name)]
                 identity_join = 'exact-normalized-name'

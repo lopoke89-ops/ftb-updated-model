@@ -3,6 +3,9 @@ import json
 import unittest
 from datetime import datetime, timezone
 from unittest.mock import patch
+from email.message import Message
+from urllib.error import HTTPError
+from email.utils import format_datetime
 import fanduel_odds as fd
 
 FIXTURE = {'id':'401909088','date':'2026-10-20','home':'DET','away':'BOS','season':'2026-27','phase':'regular-season','scheduledTipoff':'2026-10-20T19:00:00.000Z','status':'pre','names':{'home':['Detroit Pistons'],'away':['Boston Celtics']}}
@@ -34,6 +37,12 @@ class Contracts(unittest.TestCase):
         self.assertFalse(issues);self.assertEqual((q[0]['line'],q[0]['side']),(25,'at-least'))
         q,_=self.parse(payload('3+_MADE_THREES','3+ Made Threes',[runner('Player One',line=0)],'Player Threes'),tab='player-threes')
         self.assertEqual((q[0]['line'],q[0]['market']),(3,'threes'))
+
+    def test_milestone_labels_must_agree_with_threshold_and_quarter_lines_are_unsupported(self):
+        quotes,issues=self.parse(payload('TO_SCORE_25+_POINTS','To Score 20+ Points',[runner('Player One')]))
+        self.assertFalse(quotes);self.assertIn('Milestone target/name mismatch',issues)
+        quotes,issues=self.parse(payload(runners=[runner(line=20.25)]))
+        self.assertFalse(quotes);self.assertIn('Invalid target',issues)
 
     def test_quarters_combos_and_unknown_market_types_never_enter_full_game_ev(self):
         for kind in ['PLAYER_A_1ST_QUARTER_POINTS','1ST_QUARTER_-_TO_SCORE_20+_POINTS','TO_RECORD_20+_PTS_+_REB_+_AST','FIRST_TEAM_BASKET_SCORER']:
@@ -85,6 +94,30 @@ class Contracts(unittest.TestCase):
         c=fd.Client();script='var z=0;let app="publicidentifier123";let config={[o.FANDUEL]:app,[o.PREDICTS]:""};'
         with patch.object(c,'raw',side_effect=[b'<script src="/static/js/main.abc.js"></script>',script.encode()]):c.bootstrap()
         self.assertEqual(c.key,'publicidentifier123')
+
+    def test_retry_after_http_date_is_respected_and_extended_delays_defer_collection(self):
+        current=datetime(2026,10,19,tzinfo=timezone.utc)
+        from datetime import timedelta
+        for seconds in [10,120]:
+            headers=Message();headers['Retry-After']=format_datetime(current+timedelta(seconds=seconds),usegmt=True)
+            error=HTTPError('https://example.test',429,'limited',headers,None)
+            delays=[];c=fd.Client(sleeper=delays.append)
+            with patch.object(fd,'urlopen',side_effect=error),patch.object(fd,'utc',return_value=current):
+                with self.assertRaises(RuntimeError):c.raw('https://example.test')
+            self.assertEqual(delays,[10,10] if seconds==10 else [])
+
+    def test_successfully_unposted_tabs_remove_old_offers_instead_of_reusing_old_active_prices(self):
+        old=self.parse(payload())[0][0]
+        class Fake:
+            def fd(self,endpoint,**params):
+                if endpoint=='competition-page':return {'attachments':{'events':{'35928218':EVENT}}},'listing'
+                return {'attachments':{'events':{'35928218':EVENT}},'layout':{'tabs':{}}},'raw'
+            def json(self,url):
+                team='BOS' if '/2/' in url else 'DET'
+                return {'team':{'id':fd.TEAMS[team]},'athletes':[{'id':str(i),'displayName':team+str(i)} for i in range(6)]}
+        with patch.object(fd,'schedule',return_value=([FIXTURE],[])):
+            result=fd.capture(Fake(),{'fixtures':{FIXTURE['id']:{'fixture':FIXTURE,'quotes':[old]}}},datetime(2026,10,19,tzinfo=timezone.utc))
+        self.assertFalse(result['fixtures'][FIXTURE['id']]['quotes'])
 
     def test_watch_keeps_advance_odds_fresh_and_does_not_add_capture_time_to_cadence(self):
         clock={'t':0,'sleeps':[]}

@@ -1,0 +1,4030 @@
+{
+  "checkedAt": "2026-10-19T05:35:37.365Z",
+  "asOfCapturedSnapshot": "2026-10-19T05:21:50.943851+00:00",
+  "modelHash": "920db67d41a043b6e6c55115ba4de23127b9695846efdc82d99bc3d4a5741235",
+  "modelVersion": "ev-props-v1.1",
+  "scope": "Three opener games; data-only conditional forecasts, without reconstructing live lineup/availability gates. Captured prices are historical audit evidence, not current offers.",
+  "supported": 340,
+  "withheld": 207,
+  "marginalMeanConflicts": [],
+  "traces": [
+    {
+      "player": "Keldon Johnson",
+      "quote": {
+        "key": "35928229|747.181323393|23316207|20|at-least",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.181323393",
+        "selectionId": "23316207",
+        "playerId": "4395723",
+        "player": "Keldon Johnson",
+        "team": "SAS",
+        "market": "points",
+        "marketType": "TO_SCORE_20+_POINTS",
+        "marketName": "To Score 20+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 20,
+        "american": 1800,
+        "decimal": 19,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=player-points"
+      },
+      "features": {
+        "n": 82,
+        "recentGames": 20,
+        "minutes": 23.503548291553617,
+        "role": "F",
+        "roleSource": "Stored historical roster position",
+        "dispersion": {
+          "points": 0.1313095844027477,
+          "threes": 0.20058925708009148
+        },
+        "histograms": {
+          "points": {
+            "2": 2,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 5,
+            "7": 1,
+            "8": 7,
+            "9": 4,
+            "10": 4,
+            "11": 5,
+            "12": 7,
+            "13": 7,
+            "14": 5,
+            "15": 4,
+            "16": 2,
+            "17": 3,
+            "18": 5,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 1,
+            "24": 1,
+            "25": 3,
+            "27": 2
+          },
+          "threes": {
+            "0": 29,
+            "1": 24,
+            "2": 18,
+            "3": 7,
+            "4": 2,
+            "5": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "SAS"
+        ],
+        "lastTeam": "SAS",
+        "recentStarterRate": 0,
+        "fga": 11.353178092739878,
+        "fgm": 5.514598681088907,
+        "threePa": 4.06903224516924,
+        "threePm": 1.4405516965528942,
+        "fta": 2.6681718179894403,
+        "ftm": 2.1355999419248484,
+        "base": {
+          "points": 14.605349000655558,
+          "threes": 1.4405516965528942
+        },
+        "baseline": {
+          "points": 13.182926829268293,
+          "threes": 1.2073170731707317
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9316839749747456,
+            "defense": 0.9469684725287194
+          },
+          "threes": {
+            "offense": 1.2119902742282809,
+            "defense": 1.0703753692031057
+          }
+        },
+        "correlation": {
+          "points": 0.7868369030630517,
+          "threes": 0.6840834461468639
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 14.212801781497136,
+      "calibratedMean": 14.526783706857625,
+      "alpha": 0.22565479220137385,
+      "probabilities": {
+        "win": 0.24205781628121492,
+        "loss": 0.7579421837187851,
+        "push": 0
+      },
+      "conditionalEV": 3.599098509343084,
+      "empiricalWins": 13,
+      "empiricalLosses": 69,
+      "empiricalRate": 0.15853658536585366,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 11.751774145776809,
+          "win": 0.01763508879425546,
+          "conditionalEV": -0.6649333129091463
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 17.627661218665214,
+          "win": 0.10419627734639991,
+          "conditionalEV": 0.9797292695815983
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 23.503548291553617,
+          "win": 0.24205781628121492,
+          "conditionalEV": 3.599098509343084
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 29.37943536444202,
+          "win": 0.3847732256092161,
+          "conditionalEV": 6.310691286575106
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811016",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+          "hash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 20,
+            "threeMade": 0,
+            "threeAttempted": 3,
+            "minutes": 28.916666666666668,
+            "fga": 15,
+            "fta": 5,
+            "fgm": 8,
+            "ftm": 4,
+            "rebounds": 8,
+            "assists": 1,
+            "steals": 2,
+            "blocks": 1,
+            "turnovers": 2,
+            "fouls": 1,
+            "offensiveRebounds": 4,
+            "defensiveRebounds": 4,
+            "plusMinus": 13,
+            "minutesSeconds": 1735,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+            "statsSourceHash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5"
+          }
+        },
+        {
+          "id": "401811035",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+          "hash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 17,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 23.5,
+            "fga": 13,
+            "fta": 4,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 2,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 1,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 8,
+            "minutesSeconds": 1410,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+            "statsSourceHash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605"
+          }
+        },
+        {
+          "id": "401811052",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+          "hash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 18,
+            "threeMade": 2,
+            "threeAttempted": 5,
+            "minutes": 21.866666666666667,
+            "fga": 12,
+            "fta": 6,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 4,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 10,
+            "minutesSeconds": 1312,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+            "statsSourceHash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8"
+          }
+        }
+      ]
+    },
+    {
+      "player": "VJ Edgecombe",
+      "quote": {
+        "key": "35928228|747.181319187|75784931|25|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319187",
+        "selectionId": "75784931",
+        "playerId": "5124612",
+        "player": "VJ Edgecombe",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_25+_POINTS",
+        "marketName": "To Score 25+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 25,
+        "american": 1700,
+        "decimal": 18,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 75,
+        "recentGames": 20,
+        "minutes": 34.720410561778664,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.14529977936027325,
+          "threes": 0.13001605722654333
+        },
+        "histograms": {
+          "points": {
+            "5": 3,
+            "6": 3,
+            "7": 2,
+            "8": 1,
+            "9": 6,
+            "10": 5,
+            "11": 4,
+            "12": 4,
+            "13": 3,
+            "14": 6,
+            "15": 4,
+            "16": 3,
+            "17": 3,
+            "18": 2,
+            "19": 3,
+            "20": 2,
+            "21": 2,
+            "22": 3,
+            "23": 5,
+            "24": 1,
+            "25": 3,
+            "26": 4,
+            "34": 1,
+            "35": 1,
+            "38": 1
+          },
+          "threes": {
+            "0": 12,
+            "1": 21,
+            "2": 20,
+            "3": 10,
+            "4": 5,
+            "5": 5,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 14.627050760626448,
+        "fgm": 6.595663924198641,
+        "threePa": 5.349402192732825,
+        "threePm": 1.8262348586760007,
+        "fta": 2.338339234288035,
+        "ftm": 1.9418058770773579,
+        "base": {
+          "points": 16.95936858415064,
+          "threes": 1.8262348586760007
+        },
+        "baseline": {
+          "points": 15.986666666666666,
+          "threes": 1.9866666666666666
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0656635812204218,
+            "defense": 0.9723307244050529
+          },
+          "threes": {
+            "offense": 1.0067491429701503,
+            "defense": 1.0268753747584485
+          }
+        },
+        "correlation": {
+          "points": 0.8111644541390232,
+          "threes": 0.7229675937385146
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 16.723096025235826,
+      "calibratedMean": 17.092607451730174,
+      "alpha": 0.2326498896801366,
+      "probabilities": {
+        "win": 0.20233632885793096,
+        "loss": 0.797663671142069,
+        "push": 0
+      },
+      "conditionalEV": 2.6420539194427572,
+      "empiricalWins": 10,
+      "empiricalLosses": 65,
+      "empiricalRate": 0.13333333333333333,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 17.360205280889332,
+          "win": 0.01074477871641255,
+          "conditionalEV": -0.8065939831045741
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 26.040307921333998,
+          "win": 0.07888810376620448,
+          "conditionalEV": 0.4199858677916807
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 34.720410561778664,
+          "win": 0.20233632885793096,
+          "conditionalEV": 2.6420539194427572
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 43.40051320222333,
+          "win": 0.33928213062216206,
+          "conditionalEV": 5.107078351198917
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811024",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+          "hash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 20,
+            "threeMade": 3,
+            "threeAttempted": 8,
+            "minutes": 40.15,
+            "fga": 17,
+            "fta": 6,
+            "fgm": 7,
+            "ftm": 3,
+            "rebounds": 6,
+            "assists": 8,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 4,
+            "offensiveRebounds": 3,
+            "defensiveRebounds": 3,
+            "plusMinus": -6,
+            "minutesSeconds": 2409,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+            "statsSourceHash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9"
+          }
+        },
+        {
+          "id": "401811030",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+          "hash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 16,
+            "threeMade": 0,
+            "threeAttempted": 2,
+            "minutes": 39.516666666666666,
+            "fga": 14,
+            "fta": 2,
+            "fgm": 7,
+            "ftm": 2,
+            "rebounds": 9,
+            "assists": 5,
+            "steals": 3,
+            "blocks": 1,
+            "turnovers": 3,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 8,
+            "plusMinus": 11,
+            "minutesSeconds": 2371,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+            "statsSourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5"
+          }
+        },
+        {
+          "id": "401811046",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+          "hash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 9,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 31.2,
+            "fga": 11,
+            "fta": 0,
+            "fgm": 4,
+            "ftm": 0,
+            "rebounds": 7,
+            "assists": 11,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": 31,
+            "minutesSeconds": 1872,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+            "statsSourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Joel Embiid",
+      "quote": {
+        "key": "35928228|747.181319235|8520903|35|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319235",
+        "selectionId": "8520903",
+        "playerId": "3059318",
+        "player": "Joel Embiid",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_35+_POINTS",
+        "marketName": "To Score 35+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 35,
+        "american": 1000,
+        "decimal": 11,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 38,
+        "recentGames": 20,
+        "minutes": 33.4919496026131,
+        "role": "C",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.04613164055664878,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "4": 1,
+            "12": 1,
+            "16": 1,
+            "18": 1,
+            "19": 1,
+            "20": 4,
+            "22": 3,
+            "24": 1,
+            "25": 1,
+            "26": 3,
+            "27": 3,
+            "28": 1,
+            "29": 3,
+            "30": 1,
+            "31": 1,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1
+          },
+          "threes": {
+            "0": 7,
+            "1": 17,
+            "2": 7,
+            "3": 6,
+            "4": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-06",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 19.35073445924,
+        "fgm": 9.60042747624113,
+        "threePa": 4.460332446849639,
+        "threePm": 1.7276169651275992,
+        "fta": 9.722963540875037,
+        "ftm": 8.401686520521515,
+        "base": {
+          "points": 29.330158438131374,
+          "threes": 1.7276169651275992
+        },
+        "baseline": {
+          "points": 26.86842105263158,
+          "threes": 1.394736842105263
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0282809552737877,
+            "defense": 0.9054075483151435
+          },
+          "threes": {
+            "offense": 0.875628286263214,
+            "defense": 1.065957187524575
+          }
+        },
+        "correlation": {
+          "points": 0.6023478119543846,
+          "threes": 0.46251335600303894
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 27.90849803111742,
+      "calibratedMean": 28.40733221684105,
+      "alpha": 0.18306582027832438,
+      "probabilities": {
+        "win": 0.2919445602690359,
+        "loss": 0.7080554397309641,
+        "push": 0
+      },
+      "conditionalEV": 2.2113901629593955,
+      "empiricalWins": 6,
+      "empiricalLosses": 32,
+      "empiricalRate": 0.15789473684210525,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 16.74597480130655,
+          "win": 0.015323326230796797,
+          "conditionalEV": -0.8314434114612352
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 25.118962201959825,
+          "win": 0.11896450448353924,
+          "conditionalEV": 0.3086095493189316
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 33.4919496026131,
+          "win": 0.2919445602690359,
+          "conditionalEV": 2.2113901629593955
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 41.86493700326637,
+          "win": 0.4631633102159064,
+          "conditionalEV": 4.09479641237497
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401810946",
+          "date": "2026-03-30",
+          "source": "https://statsdmz.nba.com/pdfs/20260330/20260330_PHIMIA_book.pdf",
+          "hash": "f4eebdab5dd4ea22f15d6d600ddda3ffed91f52294333eb3c498d436d44eb8f1",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 26,
+            "threeMade": 2,
+            "threeAttempted": 6,
+            "minutes": 34.1,
+            "fga": 25,
+            "fta": 5,
+            "fgm": 10,
+            "ftm": 4,
+            "rebounds": 7,
+            "assists": 3,
+            "steals": 0,
+            "blocks": 1,
+            "turnovers": 3,
+            "fouls": 4,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": -18,
+            "minutesSeconds": 2046,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260330/20260330_PHIMIA_book.pdf",
+            "statsSourceHash": "f4eebdab5dd4ea22f15d6d600ddda3ffed91f52294333eb3c498d436d44eb8f1"
+          }
+        },
+        {
+          "id": "401810976",
+          "date": "2026-04-03",
+          "source": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+          "hash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 19,
+            "threeMade": 1,
+            "threeAttempted": 6,
+            "minutes": 34.46666666666667,
+            "fga": 17,
+            "fta": 7,
+            "fgm": 6,
+            "ftm": 6,
+            "rebounds": 13,
+            "assists": 7,
+            "steals": 0,
+            "blocks": 3,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 11,
+            "plusMinus": 15,
+            "minutesSeconds": 2068,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+            "statsSourceHash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc"
+          }
+        },
+        {
+          "id": "401811001",
+          "date": "2026-04-06",
+          "source": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+          "hash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 34,
+            "threeMade": 2,
+            "threeAttempted": 6,
+            "minutes": 39.15,
+            "fga": 19,
+            "fta": 19,
+            "fgm": 8,
+            "ftm": 16,
+            "rebounds": 12,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 4,
+            "turnovers": 4,
+            "fouls": 3,
+            "offensiveRebounds": 5,
+            "defensiveRebounds": 7,
+            "plusMinus": -7,
+            "minutesSeconds": 2349,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+            "statsSourceHash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Tyrese Maxey",
+      "quote": {
+        "key": "35928228|747.181319235|26799192|35|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319235",
+        "selectionId": "26799192",
+        "playerId": "4431678",
+        "player": "Tyrese Maxey",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_35+_POINTS",
+        "marketName": "To Score 35+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 35,
+        "american": 1200,
+        "decimal": 13,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 70,
+        "recentGames": 20,
+        "minutes": 36.22009268537623,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.05203402787943849,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "6": 1,
+            "12": 1,
+            "13": 1,
+            "14": 2,
+            "15": 1,
+            "18": 1,
+            "20": 2,
+            "21": 4,
+            "22": 5,
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 4,
+            "27": 4,
+            "28": 7,
+            "29": 4,
+            "30": 2,
+            "31": 3,
+            "32": 3,
+            "33": 3,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "38": 2,
+            "39": 4,
+            "40": 2,
+            "43": 1,
+            "44": 1,
+            "54": 1
+          },
+          "threes": {
+            "0": 3,
+            "1": 8,
+            "2": 19,
+            "3": 9,
+            "4": 17,
+            "5": 7,
+            "6": 5,
+            "7": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 20.722639173429382,
+        "fgm": 9.276732322275985,
+        "threePa": 7.662984559776523,
+        "threePm": 2.555967830689415,
+        "fta": 5.682284166877658,
+        "ftm": 5.107341952049351,
+        "base": {
+          "points": 26.216774427290737,
+          "threes": 2.555967830689415
+        },
+        "baseline": {
+          "points": 28.285714285714285,
+          "threes": 3.142857142857143
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0656635812204218,
+            "defense": 0.9723307244050529
+          },
+          "threes": {
+            "offense": 1.0067491429701503,
+            "defense": 1.0268753747584485
+          }
+        },
+        "correlation": {
+          "points": 0.7873493769392341,
+          "threes": 0.6604150966644565
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 25.851530618260178,
+      "calibratedMean": 26.3218444930259,
+      "alpha": 0.18601701393971926,
+      "probabilities": {
+        "win": 0.23954296300184952,
+        "loss": 0.7604570369981505,
+        "push": 0
+      },
+      "conditionalEV": 2.1140585190240437,
+      "empiricalWins": 15,
+      "empiricalLosses": 55,
+      "empiricalRate": 0.21428571428571427,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 18.110046342688115,
+          "win": 0.009527581243828243,
+          "conditionalEV": -0.8761414438302328
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 27.165069514032172,
+          "win": 0.08843012741475087,
+          "conditionalEV": 0.1495916563917613
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 36.22009268537623,
+          "win": 0.23954296300184952,
+          "conditionalEV": 2.1140585190240437
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 45.27511585672029,
+          "win": 0.4029835674893202,
+          "conditionalEV": 4.238786377361162
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811024",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+          "hash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 24,
+            "threeMade": 5,
+            "threeAttempted": 10,
+            "minutes": 33.28333333333333,
+            "fga": 20,
+            "fta": 1,
+            "fgm": 9,
+            "ftm": 1,
+            "rebounds": 3,
+            "assists": 5,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 3,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 2,
+            "plusMinus": -18,
+            "minutesSeconds": 1997,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+            "statsSourceHash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9"
+          }
+        },
+        {
+          "id": "401811030",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+          "hash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 32,
+            "threeMade": 1,
+            "threeAttempted": 10,
+            "minutes": 38.53333333333333,
+            "fga": 28,
+            "fta": 10,
+            "fgm": 11,
+            "ftm": 9,
+            "rebounds": 8,
+            "assists": 5,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 3,
+            "defensiveRebounds": 5,
+            "plusMinus": 18,
+            "minutesSeconds": 2312,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+            "statsSourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5"
+          }
+        },
+        {
+          "id": "401811046",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+          "hash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 21,
+            "threeMade": 2,
+            "threeAttempted": 5,
+            "minutes": 26.983333333333334,
+            "fga": 13,
+            "fta": 3,
+            "fgm": 8,
+            "ftm": 3,
+            "rebounds": 2,
+            "assists": 1,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 3,
+            "fouls": 0,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 2,
+            "plusMinus": 13,
+            "minutesSeconds": 1619,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+            "statsSourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Keldon Johnson",
+      "quote": {
+        "key": "35928229|747.181323388|23316207|15|at-least",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.181323388",
+        "selectionId": "23316207",
+        "playerId": "4395723",
+        "player": "Keldon Johnson",
+        "team": "SAS",
+        "market": "points",
+        "marketType": "TO_SCORE_15+_POINTS",
+        "marketName": "To Score 15+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 15,
+        "american": 600,
+        "decimal": 7,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=player-points"
+      },
+      "features": {
+        "n": 82,
+        "recentGames": 20,
+        "minutes": 23.503548291553617,
+        "role": "F",
+        "roleSource": "Stored historical roster position",
+        "dispersion": {
+          "points": 0.1313095844027477,
+          "threes": 0.20058925708009148
+        },
+        "histograms": {
+          "points": {
+            "2": 2,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 5,
+            "7": 1,
+            "8": 7,
+            "9": 4,
+            "10": 4,
+            "11": 5,
+            "12": 7,
+            "13": 7,
+            "14": 5,
+            "15": 4,
+            "16": 2,
+            "17": 3,
+            "18": 5,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 1,
+            "24": 1,
+            "25": 3,
+            "27": 2
+          },
+          "threes": {
+            "0": 29,
+            "1": 24,
+            "2": 18,
+            "3": 7,
+            "4": 2,
+            "5": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "SAS"
+        ],
+        "lastTeam": "SAS",
+        "recentStarterRate": 0,
+        "fga": 11.353178092739878,
+        "fgm": 5.514598681088907,
+        "threePa": 4.06903224516924,
+        "threePm": 1.4405516965528942,
+        "fta": 2.6681718179894403,
+        "ftm": 2.1355999419248484,
+        "base": {
+          "points": 14.605349000655558,
+          "threes": 1.4405516965528942
+        },
+        "baseline": {
+          "points": 13.182926829268293,
+          "threes": 1.2073170731707317
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9316839749747456,
+            "defense": 0.9469684725287194
+          },
+          "threes": {
+            "offense": 1.2119902742282809,
+            "defense": 1.0703753692031057
+          }
+        },
+        "correlation": {
+          "points": 0.7868369030630517,
+          "threes": 0.6840834461468639
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 14.212801781497136,
+      "calibratedMean": 14.526783706857625,
+      "alpha": 0.22565479220137385,
+      "probabilities": {
+        "win": 0.4348670500850135,
+        "loss": 0.5651329499149865,
+        "push": 0
+      },
+      "conditionalEV": 2.044069350595094,
+      "empiricalWins": 30,
+      "empiricalLosses": 52,
+      "empiricalRate": 0.36585365853658536,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 11.751774145776809,
+          "win": 0.07762750628736448,
+          "conditionalEV": -0.45660745598844865
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 17.627661218665214,
+          "win": 0.25314619525667303,
+          "conditionalEV": 0.7720233667967112
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 23.503548291553617,
+          "win": 0.4348670500850135,
+          "conditionalEV": 2.044069350595094
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 29.37943536444202,
+          "win": 0.5811995222166734,
+          "conditionalEV": 3.0683966555167137
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811016",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+          "hash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 20,
+            "threeMade": 0,
+            "threeAttempted": 3,
+            "minutes": 28.916666666666668,
+            "fga": 15,
+            "fta": 5,
+            "fgm": 8,
+            "ftm": 4,
+            "rebounds": 8,
+            "assists": 1,
+            "steals": 2,
+            "blocks": 1,
+            "turnovers": 2,
+            "fouls": 1,
+            "offensiveRebounds": 4,
+            "defensiveRebounds": 4,
+            "plusMinus": 13,
+            "minutesSeconds": 1735,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+            "statsSourceHash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5"
+          }
+        },
+        {
+          "id": "401811035",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+          "hash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 17,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 23.5,
+            "fga": 13,
+            "fta": 4,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 2,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 1,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 8,
+            "minutesSeconds": 1410,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+            "statsSourceHash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605"
+          }
+        },
+        {
+          "id": "401811052",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+          "hash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8",
+          "player": {
+            "id": "4395723",
+            "name": "Keldon Johnson",
+            "rawPosition": "F",
+            "starter": false,
+            "played": true,
+            "points": 18,
+            "threeMade": 2,
+            "threeAttempted": 5,
+            "minutes": 21.866666666666667,
+            "fga": 12,
+            "fta": 6,
+            "fgm": 6,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 4,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 4,
+            "plusMinus": 10,
+            "minutesSeconds": 1312,
+            "nbaName": "Keldon Johnson",
+            "officialPosition": null,
+            "jersey": "3",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+            "statsSourceHash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8"
+          }
+        }
+      ]
+    },
+    {
+      "player": "VJ Edgecombe",
+      "quote": {
+        "key": "35928228|747.181319207|75784931|20|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319207",
+        "selectionId": "75784931",
+        "playerId": "5124612",
+        "player": "VJ Edgecombe",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_20+_POINTS",
+        "marketName": "To Score 20+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 20,
+        "american": 680,
+        "decimal": 7.8,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 75,
+        "recentGames": 20,
+        "minutes": 34.720410561778664,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.14529977936027325,
+          "threes": 0.13001605722654333
+        },
+        "histograms": {
+          "points": {
+            "5": 3,
+            "6": 3,
+            "7": 2,
+            "8": 1,
+            "9": 6,
+            "10": 5,
+            "11": 4,
+            "12": 4,
+            "13": 3,
+            "14": 6,
+            "15": 4,
+            "16": 3,
+            "17": 3,
+            "18": 2,
+            "19": 3,
+            "20": 2,
+            "21": 2,
+            "22": 3,
+            "23": 5,
+            "24": 1,
+            "25": 3,
+            "26": 4,
+            "34": 1,
+            "35": 1,
+            "38": 1
+          },
+          "threes": {
+            "0": 12,
+            "1": 21,
+            "2": 20,
+            "3": 10,
+            "4": 5,
+            "5": 5,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 14.627050760626448,
+        "fgm": 6.595663924198641,
+        "threePa": 5.349402192732825,
+        "threePm": 1.8262348586760007,
+        "fta": 2.338339234288035,
+        "ftm": 1.9418058770773579,
+        "base": {
+          "points": 16.95936858415064,
+          "threes": 1.8262348586760007
+        },
+        "baseline": {
+          "points": 15.986666666666666,
+          "threes": 1.9866666666666666
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0656635812204218,
+            "defense": 0.9723307244050529
+          },
+          "threes": {
+            "offense": 1.0067491429701503,
+            "defense": 1.0268753747584485
+          }
+        },
+        "correlation": {
+          "points": 0.8111644541390232,
+          "threes": 0.7229675937385146
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 16.723096025235826,
+      "calibratedMean": 17.092607451730174,
+      "alpha": 0.2326498896801366,
+      "probabilities": {
+        "win": 0.34460460209426125,
+        "loss": 0.6553953979057388,
+        "push": 0
+      },
+      "conditionalEV": 1.6879158963352376,
+      "empiricalWins": 23,
+      "empiricalLosses": 52,
+      "empiricalRate": 0.30666666666666664,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 17.360205280889332,
+          "win": 0.04076611317679124,
+          "conditionalEV": -0.6820243172210283
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 26.040307921333998,
+          "win": 0.17613470184013158,
+          "conditionalEV": 0.3738506743530263
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 34.720410561778664,
+          "win": 0.34460460209426125,
+          "conditionalEV": 1.6879158963352376
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 43.40051320222333,
+          "win": 0.49453545165391655,
+          "conditionalEV": 2.857376522900549
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811024",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+          "hash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 20,
+            "threeMade": 3,
+            "threeAttempted": 8,
+            "minutes": 40.15,
+            "fga": 17,
+            "fta": 6,
+            "fgm": 7,
+            "ftm": 3,
+            "rebounds": 6,
+            "assists": 8,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 4,
+            "offensiveRebounds": 3,
+            "defensiveRebounds": 3,
+            "plusMinus": -6,
+            "minutesSeconds": 2409,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+            "statsSourceHash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9"
+          }
+        },
+        {
+          "id": "401811030",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+          "hash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 16,
+            "threeMade": 0,
+            "threeAttempted": 2,
+            "minutes": 39.516666666666666,
+            "fga": 14,
+            "fta": 2,
+            "fgm": 7,
+            "ftm": 2,
+            "rebounds": 9,
+            "assists": 5,
+            "steals": 3,
+            "blocks": 1,
+            "turnovers": 3,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 8,
+            "plusMinus": 11,
+            "minutesSeconds": 2371,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+            "statsSourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5"
+          }
+        },
+        {
+          "id": "401811046",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+          "hash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441",
+          "player": {
+            "id": "5124612",
+            "name": "VJ Edgecombe",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 9,
+            "threeMade": 1,
+            "threeAttempted": 5,
+            "minutes": 31.2,
+            "fga": 11,
+            "fta": 0,
+            "fgm": 4,
+            "ftm": 0,
+            "rebounds": 7,
+            "assists": 11,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": 31,
+            "minutesSeconds": 1872,
+            "nbaName": "VJ Edgecombe",
+            "officialPosition": "G",
+            "jersey": "77",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+            "statsSourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441"
+          }
+        }
+      ]
+    },
+    {
+      "player": "De'Aaron Fox",
+      "quote": {
+        "key": "35928229|747.181323418|13323008|25|at-least",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.181323418",
+        "selectionId": "13323008",
+        "playerId": "4066259",
+        "player": "De'Aaron Fox",
+        "team": "SAS",
+        "market": "points",
+        "marketType": "TO_SCORE_25+_POINTS",
+        "marketName": "To Score 25+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 25,
+        "american": 870,
+        "decimal": 9.7,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=player-points"
+      },
+      "features": {
+        "n": 72,
+        "recentGames": 20,
+        "minutes": 30.063619615823253,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.09009004004304784,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "6": 2,
+            "7": 2,
+            "8": 2,
+            "9": 1,
+            "10": 1,
+            "11": 3,
+            "12": 3,
+            "13": 2,
+            "14": 11,
+            "15": 5,
+            "17": 2,
+            "18": 5,
+            "19": 2,
+            "20": 3,
+            "21": 2,
+            "22": 2,
+            "23": 1,
+            "24": 4,
+            "25": 5,
+            "26": 4,
+            "27": 3,
+            "28": 1,
+            "29": 3,
+            "31": 2,
+            "37": 1
+          },
+          "threes": {
+            "0": 12,
+            "1": 21,
+            "2": 19,
+            "3": 11,
+            "4": 7,
+            "5": 1,
+            "6": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "SAS"
+        ],
+        "lastTeam": "SAS",
+        "recentStarterRate": 1,
+        "fga": 14.66818285281862,
+        "fgm": 7.26852809249775,
+        "threePa": 5.529931315237893,
+        "threePm": 1.6812382258421088,
+        "fta": 2.8582605278425586,
+        "ftm": 2.1235262187701265,
+        "base": {
+          "points": 18.341820629607735,
+          "threes": 1.6812382258421088
+        },
+        "baseline": {
+          "points": 18.555555555555557,
+          "threes": 1.8194444444444444
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.097324623830332,
+            "defense": 0.9547626100883251
+          },
+          "threes": {
+            "offense": 0.8191312148094407,
+            "defense": 1.0556114679168624
+          }
+        },
+        "correlation": {
+          "points": 0.7441172550615448,
+          "threes": 0.5999222006205576
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 17.92215147375691,
+      "calibratedMean": 18.28356828611719,
+      "alpha": 0.20504502002152392,
+      "probabilities": {
+        "win": 0.23514585634750074,
+        "loss": 0.7648541436524993,
+        "push": 0
+      },
+      "conditionalEV": 1.280914806570757,
+      "empiricalWins": 19,
+      "empiricalLosses": 53,
+      "empiricalRate": 0.2638888888888889,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 15.031809807911626,
+          "win": 0.012823169407868318,
+          "conditionalEV": -0.8756152567436774
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 22.54771471186744,
+          "win": 0.09355456998963885,
+          "conditionalEV": -0.09252067110050322
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 30.063619615823253,
+          "win": 0.23514585634750074,
+          "conditionalEV": 1.280914806570757
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 37.57952451977906,
+          "win": 0.3862255219607623,
+          "conditionalEV": 2.746387563019394
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811016",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+          "hash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5",
+          "player": {
+            "id": "4066259",
+            "name": "De'Aaron Fox",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 25,
+            "threeMade": 3,
+            "threeAttempted": 6,
+            "minutes": 34.55,
+            "fga": 20,
+            "fta": 3,
+            "fgm": 10,
+            "ftm": 2,
+            "rebounds": 5,
+            "assists": 7,
+            "steals": 3,
+            "blocks": 0,
+            "turnovers": 4,
+            "fouls": 3,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 4,
+            "plusMinus": -3,
+            "minutesSeconds": 2073,
+            "nbaName": "De'Aaron Fox",
+            "officialPosition": "G",
+            "jersey": "4",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_PORSAS_book.pdf",
+            "statsSourceHash": "8638197218dff46970f1cafaac986301160f7cc7a8d6171a0cd74429547ca2b5"
+          }
+        },
+        {
+          "id": "401811035",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+          "hash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605",
+          "player": {
+            "id": "4066259",
+            "name": "De'Aaron Fox",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 18,
+            "threeMade": 2,
+            "threeAttempted": 4,
+            "minutes": 27.5,
+            "fga": 14,
+            "fta": 2,
+            "fgm": 7,
+            "ftm": 2,
+            "rebounds": 1,
+            "assists": 10,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 1,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 1,
+            "plusMinus": 11,
+            "minutesSeconds": 1650,
+            "nbaName": "De'Aaron Fox",
+            "officialPosition": "G",
+            "jersey": "4",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_DALSAS_book.pdf",
+            "statsSourceHash": "13f1d6fa72fc0a897002305f185b940a30f9c1d8b58389884e4396e08bf50605"
+          }
+        },
+        {
+          "id": "401811052",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+          "hash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8",
+          "player": {
+            "id": "4066259",
+            "name": "De'Aaron Fox",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 24,
+            "threeMade": 4,
+            "threeAttempted": 14,
+            "minutes": 33.31666666666667,
+            "fga": 21,
+            "fta": 4,
+            "fgm": 8,
+            "ftm": 4,
+            "rebounds": 6,
+            "assists": 5,
+            "steals": 0,
+            "blocks": 1,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 6,
+            "plusMinus": 2,
+            "minutesSeconds": 1999,
+            "nbaName": "De'Aaron Fox",
+            "officialPosition": "G",
+            "jersey": "4",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_DENSAS_book.pdf",
+            "statsSourceHash": "ccb79f194650e312f5ce6bab2394389beb9c9fc973a4a193a555790d5c783ad8"
+          }
+        }
+      ]
+    },
+    {
+      "player": "OG Anunoby",
+      "quote": {
+        "key": "35928228|747.181319192|16012686|5|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319192",
+        "selectionId": "16012686",
+        "playerId": "3934719",
+        "player": "OG Anunoby",
+        "team": "NYK",
+        "market": "threes",
+        "marketType": "5+_MADE_THREES",
+        "marketName": "5+ Made Threes",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 5,
+        "american": 950,
+        "decimal": 10.5,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-threes"
+      },
+      "features": {
+        "n": 67,
+        "recentGames": 20,
+        "minutes": 33.13365402763485,
+        "role": "F",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.13283374901921305,
+          "threes": 0.07297855835321862
+        },
+        "histograms": {
+          "points": {
+            "2": 3,
+            "5": 3,
+            "8": 4,
+            "9": 5,
+            "10": 2,
+            "11": 1,
+            "12": 1,
+            "13": 3,
+            "14": 2,
+            "15": 5,
+            "16": 5,
+            "17": 1,
+            "18": 1,
+            "19": 4,
+            "20": 3,
+            "21": 4,
+            "22": 3,
+            "23": 2,
+            "24": 5,
+            "25": 5,
+            "26": 3,
+            "31": 1,
+            "34": 1
+          },
+          "threes": {
+            "0": 9,
+            "1": 14,
+            "2": 17,
+            "3": 9,
+            "4": 11,
+            "5": 5,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-10",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "NYK"
+        ],
+        "lastTeam": "NYK",
+        "recentStarterRate": 1,
+        "fga": 11.578991639211205,
+        "fgm": 5.785033165179723,
+        "threePa": 6.90062108926083,
+        "threePm": 2.9309361700637986,
+        "fta": 3.1570803300611128,
+        "ftm": 2.7700247925149113,
+        "base": {
+          "points": 17.271027292938154,
+          "threes": 2.9309361700637986
+        },
+        "baseline": {
+          "points": 16.686567164179106,
+          "threes": 2.343283582089552
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.959612333487929,
+            "defense": 1.001036054100681
+          },
+          "threes": {
+            "offense": 1.103860213592473,
+            "defense": 0.994144055936984
+          }
+        },
+        "correlation": {
+          "points": 0.7885369025993768,
+          "threes": 0.6449254280698875
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 2.9309361700637986,
+      "calibratedMean": 2.9498375592802355,
+      "alpha": 0.16,
+      "probabilities": {
+        "win": 0.21078670686691925,
+        "loss": 0.7892132931330808,
+        "push": 0
+      },
+      "conditionalEV": 1.2132604221026524,
+      "empiricalWins": 7,
+      "empiricalLosses": 60,
+      "empiricalRate": 0.1044776119402985,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 16.566827013817424,
+          "win": 0.034492214265146814,
+          "conditionalEV": -0.6378317502159585
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 24.850240520726135,
+          "win": 0.10866188765759754,
+          "conditionalEV": 0.1409498204047741
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 33.13365402763485,
+          "win": 0.21078670686691925,
+          "conditionalEV": 1.2132604221026524
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 41.41706753454356,
+          "win": 0.3214456459914319,
+          "conditionalEV": 2.375179282910035
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401810998",
+          "date": "2026-04-06",
+          "source": "https://statsdmz.nba.com/pdfs/20260406/20260406_NYKATL_book.pdf",
+          "hash": "af5a4c4e352aa377e7f3eb5e1aca9fc3e453f42e98f30ff2efbf933bc0405d4a",
+          "player": {
+            "id": "3934719",
+            "name": "OG Anunoby",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 22,
+            "threeMade": 4,
+            "threeAttempted": 10,
+            "minutes": 36.93333333333333,
+            "fga": 14,
+            "fta": 4,
+            "fgm": 7,
+            "ftm": 4,
+            "rebounds": 5,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 2,
+            "turnovers": 3,
+            "fouls": 1,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 3,
+            "plusMinus": 10,
+            "minutesSeconds": 2216,
+            "nbaName": "OG Anunoby",
+            "officialPosition": "F",
+            "jersey": "8",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260406/20260406_NYKATL_book.pdf",
+            "statsSourceHash": "af5a4c4e352aa377e7f3eb5e1aca9fc3e453f42e98f30ff2efbf933bc0405d4a"
+          }
+        },
+        {
+          "id": "401811023",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+          "hash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867",
+          "player": {
+            "id": "3934719",
+            "name": "OG Anunoby",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 13,
+            "threeMade": 3,
+            "threeAttempted": 7,
+            "minutes": 36.166666666666664,
+            "fga": 10,
+            "fta": 2,
+            "fgm": 4,
+            "ftm": 2,
+            "rebounds": 4,
+            "assists": 1,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 4,
+            "plusMinus": 3,
+            "minutesSeconds": 2170,
+            "nbaName": "OG Anunoby",
+            "officialPosition": "F",
+            "jersey": "8",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_BOSNYK_book.pdf",
+            "statsSourceHash": "e0d28377e99b5bbf4395f8d201ce13a65bb6fbe611dcc517fbfd42d39c3c7867"
+          }
+        },
+        {
+          "id": "401811031",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+          "hash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae",
+          "player": {
+            "id": "3934719",
+            "name": "OG Anunoby",
+            "rawPosition": "F",
+            "starter": true,
+            "played": true,
+            "points": 2,
+            "threeMade": 0,
+            "threeAttempted": 3,
+            "minutes": 15.383333333333333,
+            "fga": 4,
+            "fta": 0,
+            "fgm": 1,
+            "ftm": 0,
+            "rebounds": 5,
+            "assists": 3,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 0,
+            "fouls": 2,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 5,
+            "plusMinus": 9,
+            "minutesSeconds": 923,
+            "nbaName": "OG Anunoby",
+            "officialPosition": "F",
+            "jersey": "8",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_TORNYK_book.pdf",
+            "statsSourceHash": "a82b7217b6410627d4fa6cedaa642fdd8611e264cebabbc08ec3592a540532ae"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Chet Holmgren",
+      "quote": {
+        "key": "35928229|747.181323418|41472490|25|at-least",
+        "fixtureId": "401909090",
+        "fanduelEventId": "35928229",
+        "fanduelTipoff": "2026-10-21T01:30:00.000Z",
+        "marketId": "747.181323418",
+        "selectionId": "41472490",
+        "playerId": "4433255",
+        "player": "Chet Holmgren",
+        "team": "OKC",
+        "market": "points",
+        "marketType": "TO_SCORE_25+_POINTS",
+        "marketName": "To Score 25+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 25,
+        "american": 1200,
+        "decimal": 13,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/oklahoma-city-thunder-@-san-antonio-spurs-35928229?tab=player-points"
+      },
+      "features": {
+        "n": 69,
+        "recentGames": 20,
+        "minutes": 27.919205541106233,
+        "role": "F",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.07114052472915769,
+          "threes": 0.3168335257656792
+        },
+        "histograms": {
+          "points": {
+            "5": 1,
+            "7": 3,
+            "8": 1,
+            "10": 4,
+            "11": 5,
+            "12": 3,
+            "13": 3,
+            "14": 4,
+            "15": 8,
+            "16": 4,
+            "17": 4,
+            "18": 4,
+            "19": 2,
+            "20": 2,
+            "21": 5,
+            "22": 1,
+            "23": 3,
+            "24": 2,
+            "25": 3,
+            "26": 1,
+            "28": 3,
+            "29": 1,
+            "30": 1,
+            "31": 1
+          },
+          "threes": {
+            "0": 21,
+            "1": 26,
+            "2": 13,
+            "3": 4,
+            "4": 3,
+            "6": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-08",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "OKC"
+        ],
+        "lastTeam": "OKC",
+        "recentStarterRate": 1,
+        "fga": 10.645725817092512,
+        "fgm": 5.840656078057814,
+        "threePa": 3.4501113927505993,
+        "threePm": 1.326715170870648,
+        "fta": 4.080818123027886,
+        "ftm": 3.27156838665167,
+        "base": {
+          "points": 16.279595713637946,
+          "threes": 1.326715170870648
+        },
+        "baseline": {
+          "points": 17.115942028985508,
+          "threes": 1.2753623188405796
+        },
+        "ratios": {
+          "points": {
+            "offense": 0.9022927581720575,
+            "defense": 0.9616100361703084
+          },
+          "threes": {
+            "offense": 0.9975554324894604,
+            "defense": 0.975998143898297
+          }
+        },
+        "correlation": {
+          "points": 0.8373764085527363,
+          "threes": 0.6777389413812012
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 15.964051094646646,
+      "calibratedMean": 16.280836111562348,
+      "alpha": 0.19557026236457886,
+      "probabilities": {
+        "win": 0.16613572649220776,
+        "loss": 0.8338642735077922,
+        "push": 0
+      },
+      "conditionalEV": 1.159764444398701,
+      "empiricalWins": 10,
+      "empiricalLosses": 59,
+      "empiricalRate": 0.14492753623188406,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 13.959602770553117,
+          "win": 0.005517049050992373,
+          "conditionalEV": -0.9282783623370991
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 20.939404155829674,
+          "win": 0.055328313282032915,
+          "conditionalEV": -0.2807319273335721
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 27.919205541106233,
+          "win": 0.16613572649220776,
+          "conditionalEV": 1.159764444398701
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 34.89900692638279,
+          "win": 0.3033520223308188,
+          "conditionalEV": 2.9435762903006446
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401810994",
+          "date": "2026-04-05",
+          "source": "https://statsdmz.nba.com/pdfs/20260405/20260405_UTAOKC_book.pdf",
+          "hash": "fb88499dd5e6a6407ea18f157cd36def212b8caee9b6a761ee1bc6558b3692f8",
+          "player": {
+            "id": "4433255",
+            "name": "Chet Holmgren",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 21,
+            "threeMade": 4,
+            "threeAttempted": 5,
+            "minutes": 22.216666666666665,
+            "fga": 11,
+            "fta": 2,
+            "fgm": 8,
+            "ftm": 1,
+            "rebounds": 7,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 4,
+            "turnovers": 1,
+            "fouls": 1,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": 30,
+            "minutesSeconds": 1333,
+            "nbaName": "Chet Holmgren",
+            "officialPosition": "F",
+            "jersey": "7",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260405/20260405_UTAOKC_book.pdf",
+            "statsSourceHash": "fb88499dd5e6a6407ea18f157cd36def212b8caee9b6a761ee1bc6558b3692f8"
+          }
+        },
+        {
+          "id": "401811010",
+          "date": "2026-04-07",
+          "source": "https://statsdmz.nba.com/pdfs/20260407/20260407_OKCLAL_book.pdf",
+          "hash": "3d60831fe945b2bb02f1391a98d8841585386d6f138d3702a305845de77d8f99",
+          "player": {
+            "id": "4433255",
+            "name": "Chet Holmgren",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 15,
+            "threeMade": 1,
+            "threeAttempted": 3,
+            "minutes": 22,
+            "fga": 10,
+            "fta": 3,
+            "fgm": 6,
+            "ftm": 2,
+            "rebounds": 10,
+            "assists": 0,
+            "steals": 2,
+            "blocks": 2,
+            "turnovers": 2,
+            "fouls": 3,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 9,
+            "plusMinus": 30,
+            "minutesSeconds": 1320,
+            "nbaName": "Chet Holmgren",
+            "officialPosition": "F",
+            "jersey": "7",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260407/20260407_OKCLAL_book.pdf",
+            "statsSourceHash": "3d60831fe945b2bb02f1391a98d8841585386d6f138d3702a305845de77d8f99"
+          }
+        },
+        {
+          "id": "401811018",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_OKCLAC_book.pdf",
+          "hash": "f79d37b01045bbaaffa487f476e0e67f046efa1dfcc9e5e7a4c24dca8b4f3c46",
+          "player": {
+            "id": "4433255",
+            "name": "Chet Holmgren",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 30,
+            "threeMade": 3,
+            "threeAttempted": 4,
+            "minutes": 31.233333333333334,
+            "fga": 13,
+            "fta": 10,
+            "fgm": 10,
+            "ftm": 7,
+            "rebounds": 14,
+            "assists": 5,
+            "steals": 2,
+            "blocks": 4,
+            "turnovers": 2,
+            "fouls": 3,
+            "offensiveRebounds": 3,
+            "defensiveRebounds": 11,
+            "plusMinus": 19,
+            "minutesSeconds": 1874,
+            "nbaName": "Chet Holmgren",
+            "officialPosition": "F",
+            "jersey": "7",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_OKCLAC_book.pdf",
+            "statsSourceHash": "f79d37b01045bbaaffa487f476e0e67f046efa1dfcc9e5e7a4c24dca8b4f3c46"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Tyrese Maxey",
+      "quote": {
+        "key": "35928228|747.181319236|26799192|30|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319236",
+        "selectionId": "26799192",
+        "playerId": "4431678",
+        "player": "Tyrese Maxey",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_30+_POINTS",
+        "marketName": "To Score 30+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 30,
+        "american": 500,
+        "decimal": 6,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 70,
+        "recentGames": 20,
+        "minutes": 36.22009268537623,
+        "role": "G",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.05203402787943849,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "6": 1,
+            "12": 1,
+            "13": 1,
+            "14": 2,
+            "15": 1,
+            "18": 1,
+            "20": 2,
+            "21": 4,
+            "22": 5,
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 4,
+            "27": 4,
+            "28": 7,
+            "29": 4,
+            "30": 2,
+            "31": 3,
+            "32": 3,
+            "33": 3,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "38": 2,
+            "39": 4,
+            "40": 2,
+            "43": 1,
+            "44": 1,
+            "54": 1
+          },
+          "threes": {
+            "0": 3,
+            "1": 8,
+            "2": 19,
+            "3": 9,
+            "4": 17,
+            "5": 7,
+            "6": 5,
+            "7": 2
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 20.722639173429382,
+        "fgm": 9.276732322275985,
+        "threePa": 7.662984559776523,
+        "threePm": 2.555967830689415,
+        "fta": 5.682284166877658,
+        "ftm": 5.107341952049351,
+        "base": {
+          "points": 26.216774427290737,
+          "threes": 2.555967830689415
+        },
+        "baseline": {
+          "points": 28.285714285714285,
+          "threes": 3.142857142857143
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0656635812204218,
+            "defense": 0.9723307244050529
+          },
+          "threes": {
+            "offense": 1.0067491429701503,
+            "defense": 1.0268753747584485
+          }
+        },
+        "correlation": {
+          "points": 0.7873493769392341,
+          "threes": 0.6604150966644565
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 25.851530618260178,
+      "calibratedMean": 26.3218444930259,
+      "alpha": 0.18601701393971926,
+      "probabilities": {
+        "win": 0.3529579812386774,
+        "loss": 0.6470420187613226,
+        "push": 0
+      },
+      "conditionalEV": 1.1177478874320643,
+      "empiricalWins": 28,
+      "empiricalLosses": 42,
+      "empiricalRate": 0.4,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 18.110046342688115,
+          "win": 0.027660229539753556,
+          "conditionalEV": -0.8340386227614787
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 27.165069514032172,
+          "win": 0.16318132969529253,
+          "conditionalEV": -0.02091202182824481
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 36.22009268537623,
+          "win": 0.3529579812386774,
+          "conditionalEV": 1.1177478874320643
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 45.27511585672029,
+          "win": 0.5238657459821638,
+          "conditionalEV": 2.143194475892983
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811024",
+          "date": "2026-04-09",
+          "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+          "hash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 24,
+            "threeMade": 5,
+            "threeAttempted": 10,
+            "minutes": 33.28333333333333,
+            "fga": 20,
+            "fta": 1,
+            "fgm": 9,
+            "ftm": 1,
+            "rebounds": 3,
+            "assists": 5,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 2,
+            "fouls": 3,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 2,
+            "plusMinus": -18,
+            "minutesSeconds": 1997,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260409/20260409_PHIHOU_book.pdf",
+            "statsSourceHash": "fce7d24317210ba3bd11c900eec74203914f135c3cd704801eb58139e34c43e9"
+          }
+        },
+        {
+          "id": "401811030",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+          "hash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 32,
+            "threeMade": 1,
+            "threeAttempted": 10,
+            "minutes": 38.53333333333333,
+            "fga": 28,
+            "fta": 10,
+            "fgm": 11,
+            "ftm": 9,
+            "rebounds": 8,
+            "assists": 5,
+            "steals": 2,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 3,
+            "defensiveRebounds": 5,
+            "plusMinus": 18,
+            "minutesSeconds": 2312,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_PHIIND_book.pdf",
+            "statsSourceHash": "d05c5f9ef3ad940c0ad032e1a1cce898af44c400a94b31b022fac245042037f5"
+          }
+        },
+        {
+          "id": "401811046",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+          "hash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441",
+          "player": {
+            "id": "4431678",
+            "name": "Tyrese Maxey",
+            "rawPosition": "G",
+            "starter": true,
+            "played": true,
+            "points": 21,
+            "threeMade": 2,
+            "threeAttempted": 5,
+            "minutes": 26.983333333333334,
+            "fga": 13,
+            "fta": 3,
+            "fgm": 8,
+            "ftm": 3,
+            "rebounds": 2,
+            "assists": 1,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 3,
+            "fouls": 0,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 2,
+            "plusMinus": 13,
+            "minutesSeconds": 1619,
+            "nbaName": "Tyrese Maxey",
+            "officialPosition": "G",
+            "jersey": "0",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_MILPHI_book.pdf",
+            "statsSourceHash": "10d3861ca9df9f18838d3a8e2efce806175471e99fc2c5095b309c4ee66f4441"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Joel Embiid",
+      "quote": {
+        "key": "35928228|747.181319236|8520903|30|at-least",
+        "fixtureId": "401909089",
+        "fanduelEventId": "35928228",
+        "fanduelTipoff": "2026-10-20T23:00:00.000Z",
+        "marketId": "747.181319236",
+        "selectionId": "8520903",
+        "playerId": "3059318",
+        "player": "Joel Embiid",
+        "team": "PHI",
+        "market": "points",
+        "marketType": "TO_SCORE_30+_POINTS",
+        "marketName": "To Score 30+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 30,
+        "american": 400,
+        "decimal": 5,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/philadelphia-76ers-@-new-york-knicks-35928228?tab=player-points"
+      },
+      "features": {
+        "n": 38,
+        "recentGames": 20,
+        "minutes": 33.4919496026131,
+        "role": "C",
+        "roleSource": "NBA printed final-box position",
+        "dispersion": {
+          "points": 0.04613164055664878,
+          "threes": 0.01
+        },
+        "histograms": {
+          "points": {
+            "4": 1,
+            "12": 1,
+            "16": 1,
+            "18": 1,
+            "19": 1,
+            "20": 4,
+            "22": 3,
+            "24": 1,
+            "25": 1,
+            "26": 3,
+            "27": 3,
+            "28": 1,
+            "29": 3,
+            "30": 1,
+            "31": 1,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1
+          },
+          "threes": {
+            "0": 7,
+            "1": 17,
+            "2": 7,
+            "3": 6,
+            "4": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-06",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "PHI"
+        ],
+        "lastTeam": "PHI",
+        "recentStarterRate": 1,
+        "fga": 19.35073445924,
+        "fgm": 9.60042747624113,
+        "threePa": 4.460332446849639,
+        "threePm": 1.7276169651275992,
+        "fta": 9.722963540875037,
+        "ftm": 8.401686520521515,
+        "base": {
+          "points": 29.330158438131374,
+          "threes": 1.7276169651275992
+        },
+        "baseline": {
+          "points": 26.86842105263158,
+          "threes": 1.394736842105263
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0282809552737877,
+            "defense": 0.9054075483151435
+          },
+          "threes": {
+            "offense": 0.875628286263214,
+            "defense": 1.065957187524575
+          }
+        },
+        "correlation": {
+          "points": 0.6023478119543846,
+          "threes": 0.46251335600303894
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 27.90849803111742,
+      "calibratedMean": 28.40733221684105,
+      "alpha": 0.18306582027832438,
+      "probabilities": {
+        "win": 0.4113053323531741,
+        "loss": 0.5886946676468259,
+        "push": 0
+      },
+      "conditionalEV": 1.0565266617658706,
+      "empiricalWins": 14,
+      "empiricalLosses": 24,
+      "empiricalRate": 0.3684210526315789,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 16.74597480130655,
+          "win": 0.04075953965676238,
+          "conditionalEV": -0.7962023017161881
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 25.118962201959825,
+          "win": 0.20625684281938517,
+          "conditionalEV": 0.03128421409692583
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 33.4919496026131,
+          "win": 0.4113053323531741,
+          "conditionalEV": 1.0565266617658706
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 41.86493700326637,
+          "win": 0.5822680488229703,
+          "conditionalEV": 1.9113402441148517
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401810946",
+          "date": "2026-03-30",
+          "source": "https://statsdmz.nba.com/pdfs/20260330/20260330_PHIMIA_book.pdf",
+          "hash": "f4eebdab5dd4ea22f15d6d600ddda3ffed91f52294333eb3c498d436d44eb8f1",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 26,
+            "threeMade": 2,
+            "threeAttempted": 6,
+            "minutes": 34.1,
+            "fga": 25,
+            "fta": 5,
+            "fgm": 10,
+            "ftm": 4,
+            "rebounds": 7,
+            "assists": 3,
+            "steals": 0,
+            "blocks": 1,
+            "turnovers": 3,
+            "fouls": 4,
+            "offensiveRebounds": 1,
+            "defensiveRebounds": 6,
+            "plusMinus": -18,
+            "minutesSeconds": 2046,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260330/20260330_PHIMIA_book.pdf",
+            "statsSourceHash": "f4eebdab5dd4ea22f15d6d600ddda3ffed91f52294333eb3c498d436d44eb8f1"
+          }
+        },
+        {
+          "id": "401810976",
+          "date": "2026-04-03",
+          "source": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+          "hash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 19,
+            "threeMade": 1,
+            "threeAttempted": 6,
+            "minutes": 34.46666666666667,
+            "fga": 17,
+            "fta": 7,
+            "fgm": 6,
+            "ftm": 6,
+            "rebounds": 13,
+            "assists": 7,
+            "steals": 0,
+            "blocks": 3,
+            "turnovers": 1,
+            "fouls": 3,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 11,
+            "plusMinus": 15,
+            "minutesSeconds": 2068,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260403/20260403_MINPHI_book.pdf",
+            "statsSourceHash": "be1212fb3671ecb3cf8d20cc65fe9c4b09f445bff544b07d0aa434856643dedc"
+          }
+        },
+        {
+          "id": "401811001",
+          "date": "2026-04-06",
+          "source": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+          "hash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284",
+          "player": {
+            "id": "3059318",
+            "name": "Joel Embiid",
+            "rawPosition": "C",
+            "starter": true,
+            "played": true,
+            "points": 34,
+            "threeMade": 2,
+            "threeAttempted": 6,
+            "minutes": 39.15,
+            "fga": 19,
+            "fta": 19,
+            "fgm": 8,
+            "ftm": 16,
+            "rebounds": 12,
+            "assists": 1,
+            "steals": 0,
+            "blocks": 4,
+            "turnovers": 4,
+            "fouls": 3,
+            "offensiveRebounds": 5,
+            "defensiveRebounds": 7,
+            "plusMinus": -7,
+            "minutesSeconds": 2349,
+            "nbaName": "Joel Embiid",
+            "officialPosition": "C",
+            "jersey": "21",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260406/20260406_PHISAS_book.pdf",
+            "statsSourceHash": "ddb7aa80361ce72627a891719a0195ecb80c01513527f9d6156c8e4799032284"
+          }
+        }
+      ]
+    },
+    {
+      "player": "Daniss Jenkins",
+      "quote": {
+        "key": "35928218|747.181465485|53570076|15|at-least",
+        "fixtureId": "401909088",
+        "fanduelEventId": "35928218",
+        "fanduelTipoff": "2026-10-20T19:00:00.000Z",
+        "marketId": "747.181465485",
+        "selectionId": "53570076",
+        "playerId": "5107199",
+        "player": "Daniss Jenkins",
+        "team": "DET",
+        "market": "points",
+        "marketType": "TO_SCORE_15+_POINTS",
+        "marketName": "To Score 15+ Points",
+        "identityJoin": "exact-normalized-name",
+        "period": "full-game",
+        "side": "at-least",
+        "line": 15,
+        "american": 470,
+        "decimal": 5.7,
+        "marketStatus": "OPEN",
+        "runnerStatus": "ACTIVE",
+        "region": "TN",
+        "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+        "captureState": "fresh",
+        "source": "https://sportsbook.fanduel.com/basketball/nba/boston-celtics-@-detroit-pistons-35928218?tab=player-points"
+      },
+      "features": {
+        "n": 72,
+        "recentGames": 20,
+        "minutes": 27.252918222141552,
+        "role": "G",
+        "roleSource": "Stored historical roster position",
+        "dispersion": {
+          "points": 0.5578488465848539,
+          "threes": 0.6439598370859412
+        },
+        "histograms": {
+          "points": {
+            "0": 10,
+            "2": 4,
+            "3": 3,
+            "4": 5,
+            "5": 5,
+            "6": 6,
+            "7": 3,
+            "8": 4,
+            "9": 4,
+            "10": 2,
+            "11": 3,
+            "12": 2,
+            "13": 1,
+            "14": 2,
+            "15": 2,
+            "16": 1,
+            "17": 1,
+            "18": 4,
+            "19": 3,
+            "21": 1,
+            "22": 1,
+            "24": 1,
+            "25": 1,
+            "26": 2,
+            "30": 1
+          },
+          "threes": {
+            "0": 30,
+            "1": 26,
+            "2": 10,
+            "3": 1,
+            "4": 2,
+            "5": 2,
+            "6": 1
+          }
+        },
+        "otherTeamAppearances": 0,
+        "through": "2026-04-12",
+        "historySeasons": [
+          "2025-26"
+        ],
+        "teams": [
+          "DET"
+        ],
+        "lastTeam": "DET",
+        "recentStarterRate": 0.6,
+        "fga": 10.389467321762295,
+        "fgm": 4.324153043544775,
+        "threePa": 3.3200914065777694,
+        "threePm": 1.291926901440936,
+        "fta": 3.5864507909004844,
+        "ftm": 3.10812176084122,
+        "base": {
+          "points": 13.048354749371706,
+          "threes": 1.291926901440936
+        },
+        "baseline": {
+          "points": 9.319444444444445,
+          "threes": 1.0138888888888888
+        },
+        "ratios": {
+          "points": {
+            "offense": 1.0010822717808068,
+            "defense": 0.947018334689936
+          },
+          "threes": {
+            "offense": 1.0321107110203251,
+            "defense": 1.003330877834762
+          }
+        },
+        "correlation": {
+          "points": 0.8543387393802555,
+          "threes": 0.7122031449851215
+        },
+        "positionSample": true,
+        "teamGames": 82,
+        "opponentGames": 82
+      },
+      "rawMean": 12.697989075182496,
+      "calibratedMean": 13.144311455289735,
+      "alpha": 0.438924423292427,
+      "probabilities": {
+        "win": 0.35940365269946273,
+        "loss": 0.6405963473005373,
+        "push": 0
+      },
+      "conditionalEV": 1.0486008203869375,
+      "empiricalWins": 18,
+      "empiricalLosses": 54,
+      "empiricalRate": 0.25,
+      "sensitivity": [
+        {
+          "minutesScale": 0.5,
+          "minutes": 13.626459111070776,
+          "win": 0.08594760304151816,
+          "conditionalEV": -0.5100986626633465
+        },
+        {
+          "minutesScale": 0.75,
+          "minutes": 20.439688666606166,
+          "win": 0.22506814454889834,
+          "conditionalEV": 0.2828884239287205
+        },
+        {
+          "minutesScale": 1,
+          "minutes": 27.252918222141552,
+          "win": 0.35940365269946273,
+          "conditionalEV": 1.0486008203869375
+        },
+        {
+          "minutesScale": 1.25,
+          "minutes": 34.06614777767694,
+          "win": 0.47057065508521145,
+          "conditionalEV": 1.6822527339857052
+        }
+      ],
+      "latestPDFs": [
+        {
+          "id": "401811015",
+          "date": "2026-04-08",
+          "source": "https://statsdmz.nba.com/pdfs/20260408/20260408_MILDET_book.pdf",
+          "hash": "c54aee00f48dcd03e8f58dd426f9700817272c21100184ef8c2eedbf9b390ea6",
+          "player": {
+            "id": "5107199",
+            "name": "Daniss Jenkins",
+            "rawPosition": "G",
+            "starter": false,
+            "played": true,
+            "points": 9,
+            "threeMade": 1,
+            "threeAttempted": 3,
+            "minutes": 20.35,
+            "fga": 6,
+            "fta": 6,
+            "fgm": 1,
+            "ftm": 6,
+            "rebounds": 5,
+            "assists": 6,
+            "steals": 0,
+            "blocks": 0,
+            "turnovers": 1,
+            "fouls": 0,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 5,
+            "plusMinus": 20,
+            "minutesSeconds": 1221,
+            "nbaName": "Daniss Jenkins",
+            "officialPosition": null,
+            "jersey": "24",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260408/20260408_MILDET_book.pdf",
+            "statsSourceHash": "c54aee00f48dcd03e8f58dd426f9700817272c21100184ef8c2eedbf9b390ea6"
+          }
+        },
+        {
+          "id": "401811026",
+          "date": "2026-04-10",
+          "source": "https://statsdmz.nba.com/pdfs/20260410/20260410_DETCHA_book.pdf",
+          "hash": "c3ae6aec53b202a6163a7b8c222353b354b05a22ca27d8bba153006498d08edb",
+          "player": {
+            "id": "5107199",
+            "name": "Daniss Jenkins",
+            "rawPosition": "G",
+            "starter": false,
+            "played": true,
+            "points": 6,
+            "threeMade": 0,
+            "threeAttempted": 3,
+            "minutes": 17.8,
+            "fga": 9,
+            "fta": 2,
+            "fgm": 2,
+            "ftm": 2,
+            "rebounds": 1,
+            "assists": 3,
+            "steals": 2,
+            "blocks": 1,
+            "turnovers": 1,
+            "fouls": 1,
+            "offensiveRebounds": 0,
+            "defensiveRebounds": 1,
+            "plusMinus": 14,
+            "minutesSeconds": 1068,
+            "nbaName": "Daniss Jenkins",
+            "officialPosition": null,
+            "jersey": "24",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260410/20260410_DETCHA_book.pdf",
+            "statsSourceHash": "c3ae6aec53b202a6163a7b8c222353b354b05a22ca27d8bba153006498d08edb"
+          }
+        },
+        {
+          "id": "401811043",
+          "date": "2026-04-12",
+          "source": "https://statsdmz.nba.com/pdfs/20260412/20260412_DETIND_book.pdf",
+          "hash": "334789e27886323b04e26c567f32b677ea9bd01b4d2b26f96f1397bd880c0e7c",
+          "player": {
+            "id": "5107199",
+            "name": "Daniss Jenkins",
+            "rawPosition": "G",
+            "starter": false,
+            "played": true,
+            "points": 2,
+            "threeMade": 0,
+            "threeAttempted": 1,
+            "minutes": 19.15,
+            "fga": 7,
+            "fta": 0,
+            "fgm": 1,
+            "ftm": 0,
+            "rebounds": 5,
+            "assists": 4,
+            "steals": 1,
+            "blocks": 0,
+            "turnovers": 4,
+            "fouls": 2,
+            "offensiveRebounds": 2,
+            "defensiveRebounds": 3,
+            "plusMinus": -17,
+            "minutesSeconds": 1149,
+            "nbaName": "Daniss Jenkins",
+            "officialPosition": null,
+            "jersey": "24",
+            "statsSource": "https://statsdmz.nba.com/pdfs/20260412/20260412_DETIND_book.pdf",
+            "statsSourceHash": "334789e27886323b04e26c567f32b677ea9bd01b4d2b26f96f1397bd880c0e7c"
+          }
+        }
+      ]
+    }
+  ],
+  "benchmarks": [
+    {
+      "fixtureId": "401909088",
+      "player": "Duncan Robinson",
+      "market": "points",
+      "line": 10.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.07002801120448199,
+      "proportionalNoVigOver": 0.4581151832460732,
+      "proportionalNoVigUnder": 0.5418848167539267,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Derrick White",
+      "market": "points",
+      "line": 16.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.4718423169750603,
+      "proportionalNoVigUnder": 0.5281576830249397,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Jayson Tatum",
+      "market": "points",
+      "line": 26.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06542056074766367,
+      "proportionalNoVigOver": 0.5,
+      "proportionalNoVigUnder": 0.5,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Paul Reed",
+      "market": "points",
+      "line": 7.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Payton Pritchard",
+      "market": "points",
+      "line": 15.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "John Collins",
+      "market": "points",
+      "line": 11.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.07011866235167208,
+      "proportionalNoVigOver": 0.4808467741935485,
+      "proportionalNoVigUnder": 0.5191532258064516,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Ausar Thompson",
+      "market": "points",
+      "line": 10.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.4939310568053083,
+      "proportionalNoVigUnder": 0.5060689431946916,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Cade Cunningham",
+      "market": "points",
+      "line": 23.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.068965517241379,
+      "proportionalNoVigOver": 0.532258064516129,
+      "proportionalNoVigUnder": 0.4677419354838711,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Jalen Duren",
+      "market": "points",
+      "line": 17.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06878031878031865,
+      "proportionalNoVigOver": 0.48581617766250607,
+      "proportionalNoVigUnder": 0.5141838223374939,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Jordan Walsh",
+      "market": "points",
+      "line": 4.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Paul George",
+      "market": "points",
+      "line": 15.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Daniss Jenkins",
+      "market": "points",
+      "line": 8.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Neemias Queta",
+      "market": "points",
+      "line": 9.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06542056074766367,
+      "proportionalNoVigOver": 0.5,
+      "proportionalNoVigUnder": 0.5,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Mitchell Robinson",
+      "market": "points",
+      "line": 6.5,
+      "capturedAt": "2026-10-19T05:21:49.161143+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Paul George",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.07002801120448199,
+      "proportionalNoVigOver": 0.5418848167539267,
+      "proportionalNoVigUnder": 0.4581151832460732,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Derrick White",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.4939310568053083,
+      "proportionalNoVigUnder": 0.5060689431946916,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "John Collins",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.06986578415149869,
+      "proportionalNoVigOver": 0.3179240419316033,
+      "proportionalNoVigUnder": 0.6820759580683967,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Duncan Robinson",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.06934354774798601,
+      "proportionalNoVigOver": 0.41378458498023707,
+      "proportionalNoVigUnder": 0.5862154150197628,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Payton Pritchard",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Daniss Jenkins",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.070136581764489,
+      "proportionalNoVigOver": 0.3621938599517074,
+      "proportionalNoVigUnder": 0.6378061400482926,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Cade Cunningham",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.06895654436638066,
+      "proportionalNoVigOver": 0.37122687439143126,
+      "proportionalNoVigUnder": 0.6287731256085687,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909088",
+      "player": "Jayson Tatum",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.374381+00:00",
+      "overround": 0.07111869710546914,
+      "proportionalNoVigOver": 0.5717415842241552,
+      "proportionalNoVigUnder": 0.42825841577584484,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Josh Hart",
+      "market": "points",
+      "line": 11.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07011866235167208,
+      "proportionalNoVigOver": 0.4808467741935485,
+      "proportionalNoVigUnder": 0.5191532258064516,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Joel Embiid",
+      "market": "points",
+      "line": 22.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.4718423169750603,
+      "proportionalNoVigUnder": 0.5281576830249397,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Karl-Anthony Towns",
+      "market": "points",
+      "line": 18.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.4939310568053083,
+      "proportionalNoVigUnder": 0.5060689431946916,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "LeBron James",
+      "market": "points",
+      "line": 15.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Landry Shamet",
+      "market": "points",
+      "line": 8.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07132069139117281,
+      "proportionalNoVigOver": 0.462092731829574,
+      "proportionalNoVigUnder": 0.5379072681704261,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Jaylen Brown",
+      "market": "points",
+      "line": 20.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06926406926406936,
+      "proportionalNoVigOver": 0.5101214574898786,
+      "proportionalNoVigUnder": 0.4898785425101214,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Anfernee Simons",
+      "market": "points",
+      "line": 8.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06877022653721698,
+      "proportionalNoVigOver": 0.4542013626040878,
+      "proportionalNoVigUnder": 0.5457986373959123,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Mikal Bridges",
+      "market": "points",
+      "line": 13.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.068965517241379,
+      "proportionalNoVigOver": 0.4677419354838711,
+      "proportionalNoVigUnder": 0.532258064516129,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "VJ Edgecombe",
+      "market": "points",
+      "line": 11.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07011866235167208,
+      "proportionalNoVigOver": 0.5191532258064516,
+      "proportionalNoVigUnder": 0.4808467741935485,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Andre Drummond",
+      "market": "points",
+      "line": 5.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Jalen Brunson",
+      "market": "points",
+      "line": 26.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07120743034055721,
+      "proportionalNoVigOver": 0.5240847784200385,
+      "proportionalNoVigUnder": 0.47591522157996136,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "OG Anunoby",
+      "market": "points",
+      "line": 16.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Tyrese Maxey",
+      "market": "points",
+      "line": 21.5,
+      "capturedAt": "2026-10-19T05:21:49.220984+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.4718423169750603,
+      "proportionalNoVigUnder": 0.5281576830249397,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Jalen Brunson",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06926217556138825,
+      "proportionalNoVigOver": 0.43297422610118635,
+      "proportionalNoVigUnder": 0.5670257738988137,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Jaylen Brown",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.068965517241379,
+      "proportionalNoVigOver": 0.4677419354838711,
+      "proportionalNoVigUnder": 0.532258064516129,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Joel Embiid",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06877106113747322,
+      "proportionalNoVigOver": 0.42146580014156104,
+      "proportionalNoVigUnder": 0.578534199858439,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Tyrese Maxey",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.07094943240454077,
+      "proportionalNoVigOver": 0.4095398699108649,
+      "proportionalNoVigUnder": 0.5904601300891352,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Josh Hart",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06917938931297685,
+      "proportionalNoVigOver": 0.35698348951361003,
+      "proportionalNoVigUnder": 0.64301651048639,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Mikal Bridges",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06878031878031865,
+      "proportionalNoVigOver": 0.5141838223374939,
+      "proportionalNoVigUnder": 0.48581617766250607,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "VJ Edgecombe",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06847230675593408,
+      "proportionalNoVigOver": 0.4414696667616064,
+      "proportionalNoVigUnder": 0.5585303332383935,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Karl-Anthony Towns",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06934354774798601,
+      "proportionalNoVigOver": 0.41378458498023707,
+      "proportionalNoVigUnder": 0.5862154150197628,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "OG Anunoby",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.07112014224028451,
+      "proportionalNoVigOver": 0.3675598766895897,
+      "proportionalNoVigUnder": 0.6324401233104103,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Landry Shamet",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.06968641114982566,
+      "proportionalNoVigOver": 0.5548317046688382,
+      "proportionalNoVigUnder": 0.4451682953311618,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "LeBron James",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.07075738707121038,
+      "proportionalNoVigOver": 0.385916684288433,
+      "proportionalNoVigUnder": 0.6140833157115669,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909089",
+      "player": "Anfernee Simons",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.393330+00:00",
+      "overround": 0.07111869710546914,
+      "proportionalNoVigOver": 0.5717415842241552,
+      "proportionalNoVigUnder": 0.42825841577584484,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Shai Gilgeous-Alexander",
+      "market": "points",
+      "line": 29.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.5060689431946916,
+      "proportionalNoVigUnder": 0.4939310568053083,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Victor Wembanyama",
+      "market": "points",
+      "line": 26.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07120743034055721,
+      "proportionalNoVigOver": 0.47591522157996136,
+      "proportionalNoVigUnder": 0.5240847784200385,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Stephon Castle",
+      "market": "points",
+      "line": 15.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "De'Aaron Fox",
+      "market": "points",
+      "line": 14.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.06878031878031865,
+      "proportionalNoVigOver": 0.5141838223374939,
+      "proportionalNoVigUnder": 0.48581617766250607,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Keldon Johnson",
+      "market": "points",
+      "line": 7.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07002801120448199,
+      "proportionalNoVigOver": 0.5418848167539267,
+      "proportionalNoVigUnder": 0.4581151832460732,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Jalen Williams",
+      "market": "points",
+      "line": 17.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.4718423169750603,
+      "proportionalNoVigUnder": 0.5281576830249397,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Julian Champagnie",
+      "market": "points",
+      "line": 8.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Isaiah Hartenstein",
+      "market": "points",
+      "line": 7.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07132069139117281,
+      "proportionalNoVigOver": 0.5379072681704261,
+      "proportionalNoVigUnder": 0.462092731829574,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Cason Wallace",
+      "market": "points",
+      "line": 9.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07016788635385285,
+      "proportionalNoVigOver": 0.5281576830249397,
+      "proportionalNoVigUnder": 0.4718423169750603,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Chet Holmgren",
+      "market": "points",
+      "line": 13.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.06878031878031865,
+      "proportionalNoVigOver": 0.5141838223374939,
+      "proportionalNoVigUnder": 0.48581617766250607,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Dylan Harper",
+      "market": "points",
+      "line": 14.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.4939310568053083,
+      "proportionalNoVigUnder": 0.5060689431946916,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Devin Vassell",
+      "market": "points",
+      "line": 11.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07002801120448199,
+      "proportionalNoVigOver": 0.5418848167539267,
+      "proportionalNoVigUnder": 0.4581151832460732,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Ajay Mitchell",
+      "market": "points",
+      "line": 11.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07120743034055721,
+      "proportionalNoVigOver": 0.5240847784200385,
+      "proportionalNoVigUnder": 0.47591522157996136,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Jared McCain",
+      "market": "points",
+      "line": 9.5,
+      "capturedAt": "2026-10-19T05:21:49.174109+00:00",
+      "overround": 0.07002801120448199,
+      "proportionalNoVigOver": 0.5418848167539267,
+      "proportionalNoVigUnder": 0.4581151832460732,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Victor Wembanyama",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07075738707121038,
+      "proportionalNoVigOver": 0.6140833157115669,
+      "proportionalNoVigUnder": 0.385916684288433,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "De'Aaron Fox",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07132069139117281,
+      "proportionalNoVigOver": 0.462092731829574,
+      "proportionalNoVigUnder": 0.5379072681704261,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Jalen Williams",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06986578415149869,
+      "proportionalNoVigOver": 0.3179240419316033,
+      "proportionalNoVigUnder": 0.6820759580683967,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Shai Gilgeous-Alexander",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06958629046217757,
+      "proportionalNoVigOver": 0.4939310568053083,
+      "proportionalNoVigUnder": 0.5060689431946916,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Keldon Johnson",
+      "market": "threes",
+      "line": 0.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07132225254279323,
+      "proportionalNoVigOver": 0.5976612249623712,
+      "proportionalNoVigUnder": 0.4023387750376289,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Devin Vassell",
+      "market": "threes",
+      "line": 2.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07020757020756996,
+      "proportionalNoVigOver": 0.3993154592127782,
+      "proportionalNoVigUnder": 0.6006845407872219,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Julian Champagnie",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06934354774798601,
+      "proportionalNoVigOver": 0.5862154150197628,
+      "proportionalNoVigUnder": 0.41378458498023707,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Cason Wallace",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07111869710546914,
+      "proportionalNoVigOver": 0.42825841577584484,
+      "proportionalNoVigUnder": 0.5717415842241552,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Dylan Harper",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06911888448130799,
+      "proportionalNoVigOver": 0.3963346076006296,
+      "proportionalNoVigUnder": 0.6036653923993704,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Chet Holmgren",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07010402532790594,
+      "proportionalNoVigOver": 0.3486897717666948,
+      "proportionalNoVigUnder": 0.6513102282333052,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Stephon Castle",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.07051771757654102,
+      "proportionalNoVigOver": 0.3924905308228578,
+      "proportionalNoVigUnder": 0.6075094691771421,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Jared McCain",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06934354774798601,
+      "proportionalNoVigOver": 0.5862154150197628,
+      "proportionalNoVigUnder": 0.41378458498023707,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    },
+    {
+      "fixtureId": "401909090",
+      "player": "Ajay Mitchell",
+      "market": "threes",
+      "line": 1.5,
+      "capturedAt": "2026-10-19T05:21:49.404950+00:00",
+      "overround": 0.06985715775205947,
+      "proportionalNoVigOver": 0.3362245395185654,
+      "proportionalNoVigUnder": 0.6637754604814347,
+      "meaning": "Same exact two-way market/time. Decisive-outcome benchmark only when integer-line pushes are possible. Not an independent true probability."
+    }
+  ],
+  "conclusion": "Large milestone disagreements remain after identity, exact threshold and price checks. Prior-season rotation/minutes transfer is unvalidated. These are conditional research estimates; changing minutes can reverse the sign of EV. No arbitrary cap or retrospective bookmaker blending was applied."
+}

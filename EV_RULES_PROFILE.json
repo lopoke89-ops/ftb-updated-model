@@ -1,0 +1,13 @@
+{
+  "version": "fanduel-tn-nba-performance-research-2026-10-19",
+  "bookmaker": "fanduel",
+  "region": "TN",
+  "source": "https://www.fanduel.com/fanduel-sportsbook-house-rules-tn",
+  "accessedOn": "2026-10-19",
+  "publisherRevisionDate": null,
+  "scope": "Ordinary full-game NBA player Points and Made Threes only; no promotions, protected bets, team-threes, partial-period, combo or parlay settlement.",
+  "performance": "Ordinary player-performance totals include overtime. Participation has action regardless of time played; no participation indicates a void.",
+  "firstBasket": "First Basket includes free throws. First Team Basket is the first scorer for that team; listed nonstarters are void. This profile does not enable a first-basket EV model.",
+  "exceptions": "NBA postponement beyond the scheduled local date, venue changes and suspended games have specific rules. NBA suspension completion uses a 24-hour rule with exceptions for predetermined markets. The research grader does not adjudicate these exceptions or actual account settlement.",
+  "authorityDifference": "Project statistics follow the downloaded NBA PDF. Sportsbook settlement may use a subsequent official statistical ruling; a project result is not proof of a sportsbook result. Source revisions must remain traceable."
+}

@@ -38,6 +38,7 @@ jobs:
           node "nba ftb shi/tests/test_pages.cjs"
           node "nba ftb shi/tests/test_ev.cjs"
           node "nba ftb shi/tests/test_ev_ui.cjs"
+          node "nba ftb shi/tests/test_ev_grading.cjs"
           node --check "nba ftb shi/parlay.js"
           node --check "nba ftb shi/parlay_ui.js"
           node "nba ftb shi/tests/test_parlay.cjs"

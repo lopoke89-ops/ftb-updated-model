@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const E=require('../ev_probability.js'),source=path.join(__dirname,'..');
 let n=0;function test(name,fn){fn();n++;console.log('PASS '+name);}
-const now=Date.parse('2026-10-19T02:00Z'),fixture={id:'401909088',home:'DET',away:'BOS',status:'pre',scheduledTipoff:'2026-10-20T19:00Z'};
+const now=Date.parse('2026-10-19T02:00Z'),fixture={id:'401909088',date:'2026-10-20',season:'2026-27',phase:'regular-season',home:'DET',away:'BOS',status:'pre',scheduledTipoff:'2026-10-20T19:00Z'};
 const p={mass:[.1,.2,.3,.25,.15],calibration:{a:1,b:0}};
 test('milestones and half-point overs agree; integer lines refund exact outcomes',()=>{
  const a=E.probabilities(p,{side:'at-least',line:3}),b=E.probabilities(p,{side:'over',line:2.5}),c=E.probabilities(p,{side:'over',line:3});
@@ -28,6 +28,17 @@ test('small samples, unknown roles and unsupported shooting evidence withhold pr
  assert(E.predict({role:null,positionSample:false},'points',{}).reason);
  assert(E.predict({role:'G',positionSample:true,correlation:{threes:0}},'threes',{}).reason);
 });
+test('official played appearances with printed zero minutes remain in the participation sample',()=>{
+ const zero={...row('1','BOS',0),minutes:0,points:0,fgm:0,fga:0,threeMade:0,threeAttempted:0,ftm:0,fta:0};
+ assert(E.validRow(zero));assert(!E.validRow({...zero,played:false}));
+ const g={...games[0],id:'zero',date:'2025-12-01',teams:{...games[0].teams,BOS:{players:[zero]}}};
+ assert.equal(E.features(E.buildState([...games,g]),'1','BOS','DET').n,31);
+});
+test('displayed projections match calibrated count probabilities rather than the raw mean',()=>{
+ const model=JSON.parse(fs.readFileSync(path.join(source,'ev_model.json'))),f=E.features(E.buildState(games),'1','BOS','DET'),prediction=E.predict(f,'points',model);
+ let expected=0;for(let k=0;k<prediction.mass.length;k++)expected+=1-E.calibratedCDF(prediction.mass,k,prediction.calibration);
+ assert(Math.abs(prediction.calibratedMean-expected)<1e-10);assert(Number.isFinite(prediction.mu));
+});
 const quote={key:'fd|m|s',fixtureId:fixture.id,fanduelEventId:'35928218',fanduelTipoff:fixture.scheduledTipoff,playerId:'1',player:'Player',team:'BOS',market:'points',period:'full-game',side:'over',line:2.5,american:200,decimal:3,region:'TN',capturedAt:new Date(now-10000).toISOString(),marketStatus:'OPEN',runnerStatus:'ACTIVE',captureState:'fresh',source:'https://sportsbook.fanduel.com/basketball/nba/game-35928218'};
 const entry={fixture,fanduelEventId:quote.fanduelEventId,quotes:[quote]},snapshot={schemaVersion:1,bookmaker:'fanduel',region:'TN',fixtures:{[fixture.id]:entry}};
 const props={snapshot,fixtures:[fixture],rosters:{BOS:[{id:'1',name:'Player',team:'BOS'}]},predictions:{[fixture.id+'|BOS|1|points']:{...p,mu:2,features:{n:30,baseline:{points:2},histograms:{points:{0:10,2:10,4:10}}}}},eligibility:{1:{provisional:false}},now};
@@ -46,6 +57,12 @@ test('ambiguous current rosters and duplicate quote IDs are audited rather than 
  assert.equal(E.evaluateQuotes({...props,rosters:{BOS:[...props.rosters.BOS,...props.rosters.BOS]}}).rows.length,0);
  const r=E.evaluateQuotes({...props,snapshot:{...snapshot,fixtures:{[fixture.id]:{...entry,quotes:[quote,quote]}}}});assert.equal(r.rows.length,1);assert.match(r.audit[0].reason,/Duplicate/);
 });
+test('wrong-date, wrong-season, wrong-phase and changed-tipoff snapshots fail exact fixture matching',()=>{
+ for(const change of [{date:'2026-10-21'},{season:'2025-26'},{phase:'preseason'},{id:'other'},{scheduledTipoff:'2026-10-20T20:00Z'}]){
+  const s={...snapshot,fixtures:{[fixture.id]:{...entry,fixture:{...fixture,...change}}}};assert.equal(E.evaluateQuotes({...props,snapshot:s}).rows.length,0);
+ }
+ assert.equal(E.quoteState({...quote,fanduelTipoff:undefined},fixture,now),'identity-mismatch');
+});
 test('unsupported tails and new-team histories do not become enormous positive EV estimates',()=>{
  const f=props.predictions[fixture.id+'|BOS|1|points'];assert.match(E.contractSupport(f,{market:'points',side:'at-least',line:40}),/range/);
  assert.match(E.contractSupport({...f,features:{...f.features,histograms:{points:{0:29,4:1}}}},{market:'points',side:'over',line:2.5}),/five/);
@@ -54,6 +71,8 @@ test('unsupported tails and new-team histories do not become enormous positive E
 test('frozen model matches engine and has disjoint chronological windows without historical ROI claims',()=>{
  const model=JSON.parse(fs.readFileSync(path.join(source,'ev_model.json'))),engine=crypto.createHash('sha256').update(fs.readFileSync(path.join(source,'ev_probability.js'))).digest('hex');assert.equal(model.engineHash,engine);
  const {modelHash,...content}=model;assert.equal(modelHash,crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex'));
+ assert.equal(model.version,E.VERSION);
+ for(const [field,file] of [['forwardProtocolHash','EV_FORWARD_PROTOCOL.json'],['rulesProfileHash','EV_RULES_PROFILE.json']])assert.equal(model[field],crypto.createHash('sha256').update(fs.readFileSync(path.join(source,'..',file))).digest('hex'));
  assert(model.protocol.developmentEnd<model.protocol.calibrationStart);assert(model.protocol.calibrationEnd<model.protocol.diagnosticStart);assert(model.experimental);assert(!('roi' in model));
  for(const m of Object.values(model.markets)){assert(m.calibration.a>0);assert(m.diagnostic.fixtures>100);assert(m.diagnostic.brier>=0&&m.diagnostic.brier<=1);}
 });

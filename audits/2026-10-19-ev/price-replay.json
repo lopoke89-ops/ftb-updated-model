@@ -1,0 +1,2453 @@
+{
+  "checkedAt": "2026-10-19T05:24:25.691003+00:00",
+  "status": "passed",
+  "snapshotCapturedAt": "2026-10-19T05:21:50.943851+00:00",
+  "quotesReplayed": 2037,
+  "matchingTwoWayPairs": 265,
+  "sourceEnvelopes": 32,
+  "currentRosterProof": {
+    "ATL": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/roster",
+      "capturedAt": "2026-10-19T05:24:24.746139+00:00",
+      "players": [
+        {
+          "id": "4278039",
+          "name": "Nickeil Alexander-Walker",
+          "team": "ATL"
+        },
+        {
+          "id": "4869342",
+          "name": "Dyson Daniels",
+          "team": "ATL"
+        },
+        {
+          "id": "4431941",
+          "name": "RayJ Dennis",
+          "team": "ATL"
+        },
+        {
+          "id": "4397020",
+          "name": "Luguentz Dort",
+          "team": "ATL"
+        },
+        {
+          "id": "5106262",
+          "name": "Zuby Ejiofor",
+          "team": "ATL"
+        },
+        {
+          "id": "2578185",
+          "name": "Dorian Finney-Smith",
+          "team": "ATL"
+        },
+        {
+          "id": "5149077",
+          "name": "Kingston Flemings",
+          "team": "ATL"
+        },
+        {
+          "id": "4585618",
+          "name": "Keshon Gilbert",
+          "team": "ATL"
+        },
+        {
+          "id": "4712863",
+          "name": "Mouhamed Gueye",
+          "team": "ATL"
+        },
+        {
+          "id": "4701230",
+          "name": "Jalen Johnson",
+          "team": "ATL"
+        },
+        {
+          "id": "4280151",
+          "name": "Corey Kispert",
+          "team": "ATL"
+        },
+        {
+          "id": "3146557",
+          "name": "Jock Landale",
+          "team": "ATL"
+        },
+        {
+          "id": "2490149",
+          "name": "CJ McCollum",
+          "team": "ATL"
+        },
+        {
+          "id": "4873201",
+          "name": "Asa Newell",
+          "team": "ATL"
+        },
+        {
+          "id": "4431680",
+          "name": "Onyeka Okongwu",
+          "team": "ATL"
+        },
+        {
+          "id": "5105571",
+          "name": "Henri Veesaar",
+          "team": "ATL"
+        },
+        {
+          "id": "4397183",
+          "name": "Aaron Wiggins",
+          "team": "ATL"
+        },
+        {
+          "id": "4431714",
+          "name": "Jalen Wilson",
+          "team": "ATL"
+        }
+      ]
+    },
+    "BKN": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/17/roster",
+      "capturedAt": "2026-10-19T05:24:24.748133+00:00",
+      "players": [
+        {
+          "id": "5105626",
+          "name": "Tyler Bilodeau",
+          "team": "BKN"
+        },
+        {
+          "id": "5101761",
+          "name": "Mikel Brown Jr.",
+          "team": "BKN"
+        },
+        {
+          "id": "4712896",
+          "name": "Noah Clowney",
+          "team": "BKN"
+        },
+        {
+          "id": "5175643",
+          "name": "Egor Demin",
+          "team": "BKN"
+        },
+        {
+          "id": "4702177",
+          "name": "Keon Ellis",
+          "team": "BKN"
+        },
+        {
+          "id": "4870564",
+          "name": "Joshua Jefferson",
+          "team": "BKN"
+        },
+        {
+          "id": "5174655",
+          "name": "Chaney Johnson",
+          "team": "BKN"
+        },
+        {
+          "id": "3907823",
+          "name": "Terance Mann",
+          "team": "BKN"
+        },
+        {
+          "id": "4687718",
+          "name": "Josh Minott",
+          "team": "BKN"
+        },
+        {
+          "id": "4702670",
+          "name": "Grant Nelson",
+          "team": "BKN"
+        },
+        {
+          "id": "4278104",
+          "name": "Michael Porter Jr.",
+          "team": "BKN"
+        },
+        {
+          "id": "5037873",
+          "name": "Drake Powell",
+          "team": "BKN"
+        },
+        {
+          "id": "3064514",
+          "name": "Julius Randle",
+          "team": "BKN"
+        },
+        {
+          "id": "5242502",
+          "name": "Ben Saraf",
+          "team": "BKN"
+        },
+        {
+          "id": "4432194",
+          "name": "Day'Ron Sharpe",
+          "team": "BKN"
+        },
+        {
+          "id": "5279130",
+          "name": "Nolan Traore",
+          "team": "BKN"
+        },
+        {
+          "id": "3150844",
+          "name": "Moritz Wagner",
+          "team": "BKN"
+        },
+        {
+          "id": "5107173",
+          "name": "Danny Wolf",
+          "team": "BKN"
+        }
+      ]
+    },
+    "BOS": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/2/roster",
+      "capturedAt": "2026-10-19T05:24:24.752122+00:00",
+      "players": [
+        {
+          "id": "4433188",
+          "name": "Devin Carter",
+          "team": "BOS"
+        },
+        {
+          "id": "5142621",
+          "name": "Chris Cenac Jr.",
+          "team": "BOS"
+        },
+        {
+          "id": "3195",
+          "name": "Mike Conley",
+          "team": "BOS"
+        },
+        {
+          "id": "4277951",
+          "name": "Luka Garza",
+          "team": "BOS"
+        },
+        {
+          "id": "4251",
+          "name": "Paul George",
+          "team": "BOS"
+        },
+        {
+          "id": "5175647",
+          "name": "Hugo Gonzalez",
+          "team": "BOS"
+        },
+        {
+          "id": "4397251",
+          "name": "Ron Harper Jr.",
+          "team": "BOS"
+        },
+        {
+          "id": "4065804",
+          "name": "Sam Hauser",
+          "team": "BOS"
+        },
+        {
+          "id": "5106283",
+          "name": "Dillon Mitchell",
+          "team": "BOS"
+        },
+        {
+          "id": "4066354",
+          "name": "Payton Pritchard",
+          "team": "BOS"
+        },
+        {
+          "id": "4397424",
+          "name": "Neemias Queta",
+          "team": "BOS"
+        },
+        {
+          "id": "4351852",
+          "name": "Mitchell Robinson",
+          "team": "BOS"
+        },
+        {
+          "id": "4593841",
+          "name": "Baylor Scheierman",
+          "team": "BOS"
+        },
+        {
+          "id": "4065648",
+          "name": "Jayson Tatum",
+          "team": "BOS"
+        },
+        {
+          "id": "4683689",
+          "name": "Jordan Walsh",
+          "team": "BOS"
+        },
+        {
+          "id": "3078576",
+          "name": "Derrick White",
+          "team": "BOS"
+        },
+        {
+          "id": "4702745",
+          "name": "Amari Williams",
+          "team": "BOS"
+        }
+      ]
+    },
+    "CHA": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/30/roster",
+      "capturedAt": "2026-10-19T05:24:24.942828+00:00",
+      "players": [
+        {
+          "id": "3135045",
+          "name": "Grayson Allen",
+          "team": "CHA"
+        },
+        {
+          "id": "5060701",
+          "name": "Christian Anderson",
+          "team": "CHA"
+        },
+        {
+          "id": "4684269",
+          "name": "Kylan Boswell",
+          "team": "CHA"
+        },
+        {
+          "id": "4433249",
+          "name": "Moussa Diabate",
+          "team": "CHA"
+        },
+        {
+          "id": "4701225",
+          "name": "PJ Hall",
+          "team": "CHA"
+        },
+        {
+          "id": "4602025",
+          "name": "Sion James",
+          "team": "CHA"
+        },
+        {
+          "id": "4576060",
+          "name": "Ryan Kalkbrenner",
+          "team": "CHA"
+        },
+        {
+          "id": "5061575",
+          "name": "Kon Knueppel",
+          "team": "CHA"
+        },
+        {
+          "id": "5239590",
+          "name": "Liam McNeeley",
+          "team": "CHA"
+        },
+        {
+          "id": "4433287",
+          "name": "Brandon Miller",
+          "team": "CHA"
+        },
+        {
+          "id": "2583632",
+          "name": "Royce O'Neale",
+          "team": "CHA"
+        },
+        {
+          "id": "4396971",
+          "name": "Naz Reid",
+          "team": "CHA"
+        },
+        {
+          "id": "5211176",
+          "name": "Tidjane Salaun",
+          "team": "CHA"
+        },
+        {
+          "id": "3032979",
+          "name": "Dennis Schroder",
+          "team": "CHA"
+        },
+        {
+          "id": "5281370",
+          "name": "Hannes Steinbach",
+          "team": "CHA"
+        },
+        {
+          "id": "4395651",
+          "name": "Coby White",
+          "team": "CHA"
+        },
+        {
+          "id": "4066218",
+          "name": "Grant Williams",
+          "team": "CHA"
+        }
+      ]
+    },
+    "CHI": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/4/roster",
+      "capturedAt": "2026-10-19T05:24:24.946816+00:00",
+      "players": [
+        {
+          "id": "5105555",
+          "name": "Tobe Awaka",
+          "team": "CHI"
+        },
+        {
+          "id": "4711294",
+          "name": "Matas Buzelis",
+          "team": "CHI"
+        },
+        {
+          "id": "4278067",
+          "name": "Nic Claxton",
+          "team": "CHI"
+        },
+        {
+          "id": "4066650",
+          "name": "Zach Collins",
+          "team": "CHI"
+        },
+        {
+          "id": "5242496",
+          "name": "Noa Essengue",
+          "team": "CHI"
+        },
+        {
+          "id": "4871145",
+          "name": "Josh Giddey",
+          "team": "CHI"
+        },
+        {
+          "id": "4683750",
+          "name": "Jordan Hawkins",
+          "team": "CHI"
+        },
+        {
+          "id": "2990984",
+          "name": "Buddy Hield",
+          "team": "CHI"
+        },
+        {
+          "id": "4395626",
+          "name": "Tre Jones",
+          "team": "CHI"
+        },
+        {
+          "id": "5044385",
+          "name": "Leonard Miller",
+          "team": "CHI"
+        },
+        {
+          "id": "4432822",
+          "name": "Isaac Okoro",
+          "team": "CHI"
+        },
+        {
+          "id": "2595516",
+          "name": "Norman Powell",
+          "team": "CHI"
+        },
+        {
+          "id": "4898010",
+          "name": "Jaylin Sellers",
+          "team": "CHI"
+        },
+        {
+          "id": "4397189",
+          "name": "Jalen Smith",
+          "team": "CHI"
+        },
+        {
+          "id": "4432117",
+          "name": "Isaiah Stevens",
+          "team": "CHI"
+        },
+        {
+          "id": "4848625",
+          "name": "Dailyn Swain",
+          "team": "CHI"
+        },
+        {
+          "id": "4431687",
+          "name": "Patrick Williams",
+          "team": "CHI"
+        },
+        {
+          "id": "5095151",
+          "name": "Caleb Wilson",
+          "team": "CHI"
+        }
+      ]
+    },
+    "DAL": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/6/roster",
+      "capturedAt": "2026-10-19T05:24:24.846568+00:00",
+      "players": [
+        {
+          "id": "4593125",
+          "name": "Santi Aldama",
+          "team": "DAL"
+        },
+        {
+          "id": "5148538",
+          "name": "Tarik Biberovic",
+          "team": "DAL"
+        },
+        {
+          "id": "4432582",
+          "name": "Max Christie",
+          "team": "DAL"
+        },
+        {
+          "id": "4701208",
+          "name": "Moussa Cisse",
+          "team": "DAL"
+        },
+        {
+          "id": "5279129",
+          "name": "Sergio de Larrea",
+          "team": "DAL"
+        },
+        {
+          "id": "5041939",
+          "name": "Cooper Flagg",
+          "team": "DAL"
+        },
+        {
+          "id": "4278049",
+          "name": "Daniel Gafford",
+          "team": "DAL"
+        },
+        {
+          "id": "5105806",
+          "name": "Jett Howard",
+          "team": "DAL"
+        },
+        {
+          "id": "6442",
+          "name": "Kyrie Irving",
+          "team": "DAL"
+        },
+        {
+          "id": "4873153",
+          "name": "Morez Johnson Jr.",
+          "team": "DAL"
+        },
+        {
+          "id": "5106040",
+          "name": "Tobi Lawal",
+          "team": "DAL"
+        },
+        {
+          "id": "4683688",
+          "name": "Dereck Lively II",
+          "team": "DAL"
+        },
+        {
+          "id": "4278594",
+          "name": "Naji Marshall",
+          "team": "DAL"
+        },
+        {
+          "id": "3138160",
+          "name": "Caleb Martin",
+          "team": "DAL"
+        },
+        {
+          "id": "2531367",
+          "name": "Dwight Powell",
+          "team": "DAL"
+        },
+        {
+          "id": "5211175",
+          "name": "Zaccharie Risacher",
+          "team": "DAL"
+        },
+        {
+          "id": "4432107",
+          "name": "Marcus Sasser",
+          "team": "DAL"
+        },
+        {
+          "id": "4278078",
+          "name": "P.J. Washington",
+          "team": "DAL"
+        }
+      ]
+    },
+    "DET": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/8/roster",
+      "capturedAt": "2026-10-19T05:24:24.866515+00:00",
+      "players": [
+        {
+          "id": "3908845",
+          "name": "John Collins",
+          "team": "DET"
+        },
+        {
+          "id": "4432166",
+          "name": "Cade Cunningham",
+          "team": "DET"
+        },
+        {
+          "id": "4433621",
+          "name": "Jalen Duren",
+          "team": "DET"
+        },
+        {
+          "id": "2596112",
+          "name": "Javonte Green",
+          "team": "DET"
+        },
+        {
+          "id": "4397449",
+          "name": "Elijah Harkless",
+          "team": "DET"
+        },
+        {
+          "id": "4683771",
+          "name": "Ronald Holland II",
+          "team": "DET"
+        },
+        {
+          "id": "4066372",
+          "name": "Kevin Huerter",
+          "team": "DET"
+        },
+        {
+          "id": "5107199",
+          "name": "Daniss Jenkins",
+          "team": "DET"
+        },
+        {
+          "id": "4395702",
+          "name": "Isaiah Joe",
+          "team": "DET"
+        },
+        {
+          "id": "5107818",
+          "name": "Isaac Jones",
+          "team": "DET"
+        },
+        {
+          "id": "4700852",
+          "name": "Chaz Lanier",
+          "team": "DET"
+        },
+        {
+          "id": "5258459",
+          "name": "Ebuka Okorie",
+          "team": "DET"
+        },
+        {
+          "id": "5037878",
+          "name": "Ugonna Onyenso",
+          "team": "DET"
+        },
+        {
+          "id": "2990962",
+          "name": "Taurean Prince",
+          "team": "DET"
+        },
+        {
+          "id": "4278562",
+          "name": "Paul Reed",
+          "team": "DET"
+        },
+        {
+          "id": "3157465",
+          "name": "Duncan Robinson",
+          "team": "DET"
+        },
+        {
+          "id": "4397882",
+          "name": "Tolu Smith",
+          "team": "DET"
+        },
+        {
+          "id": "4684742",
+          "name": "Ausar Thompson",
+          "team": "DET"
+        }
+      ]
+    },
+    "GSW": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/9/roster",
+      "capturedAt": "2026-10-19T05:24:25.066464+00:00",
+      "players": [
+        {
+          "id": "4397886",
+          "name": "Charles Bassey",
+          "team": "GSW"
+        },
+        {
+          "id": "6430",
+          "name": "Jimmy Butler III",
+          "team": "GSW"
+        },
+        {
+          "id": "4433149",
+          "name": "LJ Cryer",
+          "team": "GSW"
+        },
+        {
+          "id": "3975",
+          "name": "Stephen Curry",
+          "team": "GSW"
+        },
+        {
+          "id": "6589",
+          "name": "Draymond Green",
+          "team": "GSW"
+        },
+        {
+          "id": "3213",
+          "name": "Al Horford",
+          "team": "GSW"
+        },
+        {
+          "id": "4703396",
+          "name": "Graham Ike",
+          "team": "GSW"
+        },
+        {
+          "id": "5175737",
+          "name": "Yaxel Lendeborg",
+          "team": "GSW"
+        },
+        {
+          "id": "4897449",
+          "name": "Malevy Leons",
+          "team": "GSW"
+        },
+        {
+          "id": "4066436",
+          "name": "De'Anthony Melton",
+          "team": "GSW"
+        },
+        {
+          "id": "4432171",
+          "name": "Moses Moody",
+          "team": "GSW"
+        },
+        {
+          "id": "2990969",
+          "name": "Georges Niang",
+          "team": "GSW"
+        },
+        {
+          "id": "3134903",
+          "name": "Gary Payton II",
+          "team": "GSW"
+        },
+        {
+          "id": "4709138",
+          "name": "Brandin Podziemski",
+          "team": "GSW"
+        },
+        {
+          "id": "3102531",
+          "name": "Kristaps Porzingis",
+          "team": "GSW"
+        },
+        {
+          "id": "4897262",
+          "name": "Will Richard",
+          "team": "GSW"
+        },
+        {
+          "id": "4997536",
+          "name": "Gui Santos",
+          "team": "GSW"
+        },
+        {
+          "id": "4397040",
+          "name": "Brandon Williams",
+          "team": "GSW"
+        }
+      ]
+    },
+    "HOU": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/10/roster",
+      "capturedAt": "2026-10-19T05:24:24.967760+00:00",
+      "players": [
+        {
+          "id": "2991235",
+          "name": "Steven Adams",
+          "team": "HOU"
+        },
+        {
+          "id": "3037789",
+          "name": "Bogdan Bogdanovic",
+          "team": "HOU"
+        },
+        {
+          "id": "3102529",
+          "name": "Clint Capela",
+          "team": "HOU"
+        },
+        {
+          "id": "4683860",
+          "name": "Quadir Copeland",
+          "team": "HOU"
+        },
+        {
+          "id": "4592857",
+          "name": "Isaiah Crawford",
+          "team": "HOU"
+        },
+        {
+          "id": "3202",
+          "name": "Kevin Durant",
+          "team": "HOU"
+        },
+        {
+          "id": "4433192",
+          "name": "Tari Eason",
+          "team": "HOU"
+        },
+        {
+          "id": "4709131",
+          "name": "Sean Pedulla",
+          "team": "HOU"
+        },
+        {
+          "id": "5105553",
+          "name": "Julian Phillips",
+          "team": "HOU"
+        },
+        {
+          "id": "4871144",
+          "name": "Alperen Sengun",
+          "team": "HOU"
+        },
+        {
+          "id": "4711272",
+          "name": "Reed Sheppard",
+          "team": "HOU"
+        },
+        {
+          "id": "2990992",
+          "name": "Marcus Smart",
+          "team": "HOU"
+        },
+        {
+          "id": "4432639",
+          "name": "Jabari Smith Jr.",
+          "team": "HOU"
+        },
+        {
+          "id": "3136777",
+          "name": "Jae'Sean Tate",
+          "team": "HOU"
+        },
+        {
+          "id": "4684740",
+          "name": "Amen Thompson",
+          "team": "HOU"
+        },
+        {
+          "id": "5105837",
+          "name": "Bruce Thornton",
+          "team": "HOU"
+        },
+        {
+          "id": "4432827",
+          "name": "Oscar Tshiebwe",
+          "team": "HOU"
+        },
+        {
+          "id": "2991230",
+          "name": "Fred VanVleet",
+          "team": "HOU"
+        }
+      ]
+    },
+    "IND": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/11/roster",
+      "capturedAt": "2026-10-19T05:24:25.049506+00:00",
+      "players": [
+        {
+          "id": "4431752",
+          "name": "Kobe Brown",
+          "team": "IND"
+        },
+        {
+          "id": "5157066",
+          "name": "Johnny Furphy",
+          "team": "IND"
+        },
+        {
+          "id": "4396993",
+          "name": "Tyrese Haliburton",
+          "team": "IND"
+        },
+        {
+          "id": "4065731",
+          "name": "Jay Huff",
+          "team": "IND"
+        },
+        {
+          "id": "4592829",
+          "name": "Quenton Jackson",
+          "team": "IND"
+        },
+        {
+          "id": "2530530",
+          "name": "T.J. McConnell",
+          "team": "IND"
+        },
+        {
+          "id": "2580365",
+          "name": "Larry Nance Jr.",
+          "team": "IND"
+        },
+        {
+          "id": "4395712",
+          "name": "Andrew Nembhard",
+          "team": "IND"
+        },
+        {
+          "id": "4396909",
+          "name": "Aaron Nesmith",
+          "team": "IND"
+        },
+        {
+          "id": "3133603",
+          "name": "Kelly Oubre Jr.",
+          "team": "IND"
+        },
+        {
+          "id": "4433076",
+          "name": "Ben Sheppard",
+          "team": "IND"
+        },
+        {
+          "id": "3149673",
+          "name": "Pascal Siakam",
+          "team": "IND"
+        },
+        {
+          "id": "4398207",
+          "name": "Jalen Slawson",
+          "team": "IND"
+        },
+        {
+          "id": "5105854",
+          "name": "Braden Smith",
+          "team": "IND"
+        },
+        {
+          "id": "4278355",
+          "name": "Obi Toppin",
+          "team": "IND"
+        },
+        {
+          "id": "5106060",
+          "name": "Jarace Walker",
+          "team": "IND"
+        },
+        {
+          "id": "4017837",
+          "name": "Ivica Zubac",
+          "team": "IND"
+        }
+      ]
+    },
+    "LAL": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/13/roster",
+      "capturedAt": "2026-10-19T05:24:25.044520+00:00",
+      "players": [
+        {
+          "id": "5113969",
+          "name": "Cameron Carr",
+          "team": "LAL"
+        },
+        {
+          "id": "3945274",
+          "name": "Luka Doncic",
+          "team": "LAL"
+        },
+        {
+          "id": "4397014",
+          "name": "Quentin Grimes",
+          "team": "LAL"
+        },
+        {
+          "id": "4868423",
+          "name": "Jaden Hardy",
+          "team": "LAL"
+        },
+        {
+          "id": "4683774",
+          "name": "Bronny James",
+          "team": "LAL"
+        },
+        {
+          "id": "4433599",
+          "name": "Arthur Kaluma",
+          "team": "LAL"
+        },
+        {
+          "id": "4433136",
+          "name": "Walker Kessler",
+          "team": "LAL"
+        },
+        {
+          "id": "4897943",
+          "name": "Dalton Knecht",
+          "team": "LAL"
+        },
+        {
+          "id": "4592691",
+          "name": "Jake LaRavia",
+          "team": "LAL"
+        },
+        {
+          "id": "3155535",
+          "name": "Kevon Looney",
+          "team": "LAL"
+        },
+        {
+          "id": "4278580",
+          "name": "Sandro Mamukelashvili",
+          "team": "LAL"
+        },
+        {
+          "id": "4702972",
+          "name": "Chris Manon",
+          "team": "LAL"
+        },
+        {
+          "id": "5114350",
+          "name": "AK Okereke",
+          "team": "LAL"
+        },
+        {
+          "id": "4066457",
+          "name": "Austin Reaves",
+          "team": "LAL"
+        },
+        {
+          "id": "4277811",
+          "name": "Collin Sexton",
+          "team": "LAL"
+        },
+        {
+          "id": "5060631",
+          "name": "Adou Thiero",
+          "team": "LAL"
+        },
+        {
+          "id": "3907498",
+          "name": "Matisse Thybulle",
+          "team": "LAL"
+        },
+        {
+          "id": "4278077",
+          "name": "Jarred Vanderbilt",
+          "team": "LAL"
+        },
+        {
+          "id": "4433137",
+          "name": "Ziaire Williams",
+          "team": "LAL"
+        }
+      ]
+    },
+    "MEM": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/29/roster",
+      "capturedAt": "2026-10-19T05:24:25.089402+00:00",
+      "players": [
+        {
+          "id": "5041935",
+          "name": "Cameron Boozer",
+          "team": "MEM"
+        },
+        {
+          "id": "4896372",
+          "name": "Walter Clayton Jr.",
+          "team": "MEM"
+        },
+        {
+          "id": "5105817",
+          "name": "Carson Cooper",
+          "team": "MEM"
+        },
+        {
+          "id": "4903027",
+          "name": "Cedric Coward",
+          "team": "MEM"
+        },
+        {
+          "id": "4600663",
+          "name": "Zach Edey",
+          "team": "MEM"
+        },
+        {
+          "id": "2991070",
+          "name": "Jerami Grant",
+          "team": "MEM"
+        },
+        {
+          "id": "4684806",
+          "name": "Taylor Hendricks",
+          "team": "MEM"
+        },
+        {
+          "id": "5105550",
+          "name": "GG Jackson",
+          "team": "MEM"
+        },
+        {
+          "id": "4065733",
+          "name": "Ty Jerome",
+          "team": "MEM"
+        },
+        {
+          "id": "5231919",
+          "name": "Karim Lopez",
+          "team": "MEM"
+        },
+        {
+          "id": "4683934",
+          "name": "Jahmai Mashack",
+          "team": "MEM"
+        },
+        {
+          "id": "4594326",
+          "name": "Kris Murray",
+          "team": "MEM"
+        },
+        {
+          "id": "4432185",
+          "name": "Micah Peavy",
+          "team": "MEM"
+        },
+        {
+          "id": "4431785",
+          "name": "Scotty Pippen Jr.",
+          "team": "MEM"
+        },
+        {
+          "id": "4593016",
+          "name": "Quinten Post",
+          "team": "MEM"
+        },
+        {
+          "id": "4595400",
+          "name": "Olivier-Maxence Prosper",
+          "team": "MEM"
+        },
+        {
+          "id": "4781746",
+          "name": "Javon Small",
+          "team": "MEM"
+        },
+        {
+          "id": "4433083",
+          "name": "Cam Spencer",
+          "team": "MEM"
+        },
+        {
+          "id": "4432810",
+          "name": "Isaiah Stewart",
+          "team": "MEM"
+        },
+        {
+          "id": "5112087",
+          "name": "Jaylen Wells",
+          "team": "MEM"
+        }
+      ]
+    },
+    "MIA": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/14/roster",
+      "capturedAt": "2026-10-19T05:24:25.145254+00:00",
+      "players": [
+        {
+          "id": "4066261",
+          "name": "Bam Adebayo",
+          "team": "MIA"
+        },
+        {
+          "id": "3032977",
+          "name": "Giannis Antetokounmpo",
+          "team": "MIA"
+        },
+        {
+          "id": "5107157",
+          "name": "Ryan Conwell",
+          "team": "MIA"
+        },
+        {
+          "id": "4837356",
+          "name": "Tre Donaldson",
+          "team": "MIA"
+        },
+        {
+          "id": "3899664",
+          "name": "Simone Fontecchio",
+          "team": "MIA"
+        },
+        {
+          "id": "4431772",
+          "name": "Myron Gardner",
+          "team": "MIA"
+        },
+        {
+          "id": "4700818",
+          "name": "Vladislav Goldin",
+          "team": "MIA"
+        },
+        {
+          "id": "2528210",
+          "name": "Tim Hardaway Jr.",
+          "team": "MIA"
+        },
+        {
+          "id": "4431786",
+          "name": "Keshad Johnson",
+          "team": "MIA"
+        },
+        {
+          "id": "4997528",
+          "name": "Nikola Jovic",
+          "team": "MIA"
+        },
+        {
+          "id": "4601025",
+          "name": "Pelle Larsson",
+          "team": "MIA"
+        },
+        {
+          "id": "4278053",
+          "name": "Davion Mitchell",
+          "team": "MIA"
+        },
+        {
+          "id": "3064482",
+          "name": "Bobby Portis",
+          "team": "MIA"
+        },
+        {
+          "id": "4278076",
+          "name": "Nick Richards",
+          "team": "MIA"
+        },
+        {
+          "id": "4066993",
+          "name": "Dru Smith",
+          "team": "MIA"
+        },
+        {
+          "id": "6475",
+          "name": "Klay Thompson",
+          "team": "MIA"
+        },
+        {
+          "id": "3059319",
+          "name": "Andrew Wiggins",
+          "team": "MIA"
+        }
+      ]
+    },
+    "MIL": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/15/roster",
+      "capturedAt": "2026-10-19T05:24:25.154230+00:00",
+      "players": [
+        {
+          "id": "5164559",
+          "name": "Nate Ament",
+          "team": "MIL"
+        },
+        {
+          "id": "5082206",
+          "name": "Brayden Burries",
+          "team": "MIL"
+        },
+        {
+          "id": "4997526",
+          "name": "Ousmane Dieng",
+          "team": "MIL"
+        },
+        {
+          "id": "4397475",
+          "name": "AJ Green",
+          "team": "MIL"
+        },
+        {
+          "id": "4395725",
+          "name": "Tyler Herro",
+          "team": "MIL"
+        },
+        {
+          "id": "5214640",
+          "name": "Kasparas Jakucionis",
+          "team": "MIL"
+        },
+        {
+          "id": "4432848",
+          "name": "Jaime Jaquez Jr.",
+          "team": "MIL"
+        },
+        {
+          "id": "4697268",
+          "name": "Kam Jones",
+          "team": "MIL"
+        },
+        {
+          "id": "3134907",
+          "name": "Kyle Kuzma",
+          "team": "MIL"
+        },
+        {
+          "id": "2991043",
+          "name": "Caris LeVert",
+          "team": "MIL"
+        },
+        {
+          "id": "5214989",
+          "name": "Bogoljub Markovic",
+          "team": "MIL"
+        },
+        {
+          "id": "4397140",
+          "name": "Kevin Porter Jr.",
+          "team": "MIL"
+        },
+        {
+          "id": "4591725",
+          "name": "Ryan Rollins",
+          "team": "MIL"
+        },
+        {
+          "id": "4397114",
+          "name": "Cormac Ryan",
+          "team": "MIL"
+        },
+        {
+          "id": "4277922",
+          "name": "Jericho Sims",
+          "team": "MIL"
+        },
+        {
+          "id": "4277843",
+          "name": "Gary Trent Jr.",
+          "team": "MIL"
+        },
+        {
+          "id": "3133628",
+          "name": "Myles Turner",
+          "team": "MIL"
+        },
+        {
+          "id": "5105623",
+          "name": "Kel'el Ware",
+          "team": "MIL"
+        }
+      ]
+    },
+    "MIN": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/16/roster",
+      "capturedAt": "2026-10-19T05:24:25.200236+00:00",
+      "players": [
+        {
+          "id": "4432816",
+          "name": "LaMelo Ball",
+          "team": "MIN"
+        },
+        {
+          "id": "5279133",
+          "name": "Joan Beringer",
+          "team": "MIN"
+        },
+        {
+          "id": "4432247",
+          "name": "Jaylen Clark",
+          "team": "MIN"
+        },
+        {
+          "id": "3934673",
+          "name": "Donte DiVincenzo",
+          "team": "MIN"
+        },
+        {
+          "id": "4397002",
+          "name": "Ayo Dosunmu",
+          "team": "MIN"
+        },
+        {
+          "id": "4594268",
+          "name": "Anthony Edwards",
+          "team": "MIN"
+        },
+        {
+          "id": "5061585",
+          "name": "Isaiah Evans",
+          "team": "MIN"
+        },
+        {
+          "id": "3032976",
+          "name": "Rudy Gobert",
+          "team": "MIN"
+        },
+        {
+          "id": "4592492",
+          "name": "Bones Hyland",
+          "team": "MIN"
+        },
+        {
+          "id": "4433247",
+          "name": "Jonathan Kuminga",
+          "team": "MIN"
+        },
+        {
+          "id": "3136196",
+          "name": "Trey Lyles",
+          "team": "MIN"
+        },
+        {
+          "id": "4431671",
+          "name": "Jaden McDaniels",
+          "team": "MIN"
+        },
+        {
+          "id": "4592979",
+          "name": "Zyon Pullin",
+          "team": "MIN"
+        },
+        {
+          "id": "4432847",
+          "name": "Terrence Shannon Jr.",
+          "team": "MIN"
+        },
+        {
+          "id": "4895758",
+          "name": "Cody Williams",
+          "team": "MIN"
+        },
+        {
+          "id": "5157587",
+          "name": "Rocco Zikarsky",
+          "team": "MIN"
+        }
+      ]
+    },
+    "NOP": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/3/roster",
+      "capturedAt": "2026-10-19T05:24:25.184278+00:00",
+      "players": [
+        {
+          "id": "4397136",
+          "name": "Saddiq Bey",
+          "team": "NOP"
+        },
+        {
+          "id": "4712862",
+          "name": "Malik Dia",
+          "team": "NOP"
+        },
+        {
+          "id": "5144091",
+          "name": "Jeremiah Fears",
+          "team": "NOP"
+        },
+        {
+          "id": "5170947",
+          "name": "AJ Johnson",
+          "team": "NOP"
+        },
+        {
+          "id": "4277813",
+          "name": "Herbert Jones",
+          "team": "NOP"
+        },
+        {
+          "id": "3442",
+          "name": "DeAndre Jordan",
+          "team": "NOP"
+        },
+        {
+          "id": "4683634",
+          "name": "Bennedict Mathurin",
+          "team": "NOP"
+        },
+        {
+          "id": "4997538",
+          "name": "Karlo Matkovic",
+          "team": "NOP"
+        },
+        {
+          "id": "4576086",
+          "name": "Bryce McGowens",
+          "team": "NOP"
+        },
+        {
+          "id": "5061589",
+          "name": "Yves Missi",
+          "team": "NOP"
+        },
+        {
+          "id": "4397688",
+          "name": "Trey Murphy III",
+          "team": "NOP"
+        },
+        {
+          "id": "3907497",
+          "name": "Dejounte Murray",
+          "team": "NOP"
+        },
+        {
+          "id": "4703115",
+          "name": "Jaron Pierre Jr.",
+          "team": "NOP"
+        },
+        {
+          "id": "4277956",
+          "name": "Jordan Poole",
+          "team": "NOP"
+        },
+        {
+          "id": "4869780",
+          "name": "Derik Queen",
+          "team": "NOP"
+        },
+        {
+          "id": "4683742",
+          "name": "Julian Reese",
+          "team": "NOP"
+        },
+        {
+          "id": "4431675",
+          "name": "Trendon Watford",
+          "team": "NOP"
+        },
+        {
+          "id": "4395628",
+          "name": "Zion Williamson",
+          "team": "NOP"
+        }
+      ]
+    },
+    "NYK": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/18/roster",
+      "capturedAt": "2026-10-19T05:24:25.234145+00:00",
+      "players": [
+        {
+          "id": "4683730",
+          "name": "Jaden Akins",
+          "team": "NYK"
+        },
+        {
+          "id": "4277869",
+          "name": "Jose Alvarado",
+          "team": "NYK"
+        },
+        {
+          "id": "3934719",
+          "name": "OG Anunoby",
+          "team": "NYK"
+        },
+        {
+          "id": "3147657",
+          "name": "Mikal Bridges",
+          "team": "NYK"
+        },
+        {
+          "id": "3934672",
+          "name": "Jalen Brunson",
+          "team": "NYK"
+        },
+        {
+          "id": "2528426",
+          "name": "Jordan Clarkson",
+          "team": "NYK"
+        },
+        {
+          "id": "5211983",
+          "name": "Pacome Dadiet",
+          "team": "NYK"
+        },
+        {
+          "id": "5289900",
+          "name": "Mohamed Diawara",
+          "team": "NYK"
+        },
+        {
+          "id": "6585",
+          "name": "Andre Drummond",
+          "team": "NYK"
+        },
+        {
+          "id": "3062679",
+          "name": "Josh Hart",
+          "team": "NYK"
+        },
+        {
+          "id": "4433225",
+          "name": "Tyler Kolek",
+          "team": "NYK"
+        },
+        {
+          "id": "4431823",
+          "name": "Miles McBride",
+          "team": "NYK"
+        },
+        {
+          "id": "4411057",
+          "name": "Kevin McCullar Jr.",
+          "team": "NYK"
+        },
+        {
+          "id": "4838721",
+          "name": "Tyler Nickel",
+          "team": "NYK"
+        },
+        {
+          "id": "3914044",
+          "name": "Landry Shamet",
+          "team": "NYK"
+        },
+        {
+          "id": "3136195",
+          "name": "Karl-Anthony Towns",
+          "team": "NYK"
+        },
+        {
+          "id": "4432808",
+          "name": "James Wiseman",
+          "team": "NYK"
+        }
+      ]
+    },
+    "OKC": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/25/roster",
+      "capturedAt": "2026-10-19T05:24:25.250104+00:00",
+      "players": [
+        {
+          "id": "4684208",
+          "name": "Brooks Barnhizer",
+          "team": "OKC"
+        },
+        {
+          "id": "2991350",
+          "name": "Alex Caruso",
+          "team": "OKC"
+        },
+        {
+          "id": "5105800",
+          "name": "Josh Dix",
+          "team": "OKC"
+        },
+        {
+          "id": "4278073",
+          "name": "Shai Gilgeous-Alexander",
+          "team": "OKC"
+        },
+        {
+          "id": "4222252",
+          "name": "Isaiah Hartenstein",
+          "team": "OKC"
+        },
+        {
+          "id": "4433255",
+          "name": "Chet Holmgren",
+          "team": "OKC"
+        },
+        {
+          "id": "5174983",
+          "name": "Aday Mara",
+          "team": "OKC"
+        },
+        {
+          "id": "4683778",
+          "name": "Jared McCain",
+          "team": "OKC"
+        },
+        {
+          "id": "4900671",
+          "name": "Ajay Mitchell",
+          "team": "OKC"
+        },
+        {
+          "id": "5106270",
+          "name": "Otega Oweh",
+          "team": "OKC"
+        },
+        {
+          "id": "5061603",
+          "name": "Thomas Sorber",
+          "team": "OKC"
+        },
+        {
+          "id": "5241364",
+          "name": "Bennett Stirtz",
+          "team": "OKC"
+        },
+        {
+          "id": "5159925",
+          "name": "Nikola Topic",
+          "team": "OKC"
+        },
+        {
+          "id": "4683692",
+          "name": "Cason Wallace",
+          "team": "OKC"
+        },
+        {
+          "id": "4593803",
+          "name": "Jalen Williams",
+          "team": "OKC"
+        },
+        {
+          "id": "4432823",
+          "name": "Jaylin Williams",
+          "team": "OKC"
+        },
+        {
+          "id": "3133626",
+          "name": "Kenrich Williams",
+          "team": "OKC"
+        }
+      ]
+    },
+    "ORL": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/19/roster",
+      "capturedAt": "2026-10-19T05:24:25.275036+00:00",
+      "players": [
+        {
+          "id": "4432573",
+          "name": "Paolo Banchero",
+          "team": "ORL"
+        },
+        {
+          "id": "4066320",
+          "name": "Desmond Bane",
+          "team": "ORL"
+        },
+        {
+          "id": "4348700",
+          "name": "Goga Bitadze",
+          "team": "ORL"
+        },
+        {
+          "id": "4712849",
+          "name": "Anthony Black",
+          "team": "ORL"
+        },
+        {
+          "id": "4278572",
+          "name": "Jamal Cain",
+          "team": "ORL"
+        },
+        {
+          "id": "3133635",
+          "name": "Jevon Carter",
+          "team": "ORL"
+        },
+        {
+          "id": "4277847",
+          "name": "Wendell Carter Jr.",
+          "team": "ORL"
+        },
+        {
+          "id": "4397204",
+          "name": "Colin Castleton",
+          "team": "ORL"
+        },
+        {
+          "id": "4702382",
+          "name": "Tristan da Silva",
+          "team": "ORL"
+        },
+        {
+          "id": "4065654",
+          "name": "Jonathan Isaac",
+          "team": "ORL"
+        },
+        {
+          "id": "4593034",
+          "name": "Alex Morales",
+          "team": "ORL"
+        },
+        {
+          "id": "5107251",
+          "name": "Izaiyah Nelson",
+          "team": "ORL"
+        },
+        {
+          "id": "5214637",
+          "name": "Noah Penda",
+          "team": "ORL"
+        },
+        {
+          "id": "5239561",
+          "name": "Jase Richardson",
+          "team": "ORL"
+        },
+        {
+          "id": "4432165",
+          "name": "Jalen Suggs",
+          "team": "ORL"
+        },
+        {
+          "id": "6478",
+          "name": "Nikola Vucevic",
+          "team": "ORL"
+        },
+        {
+          "id": "4566434",
+          "name": "Franz Wagner",
+          "team": "ORL"
+        }
+      ]
+    },
+    "PHI": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/20/roster",
+      "capturedAt": "2026-10-19T05:24:25.296978+00:00",
+      "players": [
+        {
+          "id": "4870562",
+          "name": "Dominick Barlow",
+          "team": "PHI"
+        },
+        {
+          "id": "5105637",
+          "name": "Adem Bona",
+          "team": "PHI"
+        },
+        {
+          "id": "3917376",
+          "name": "Jaylen Brown",
+          "team": "PHI"
+        },
+        {
+          "id": "2581018",
+          "name": "Kentavious Caldwell-Pope",
+          "team": "PHI"
+        },
+        {
+          "id": "5124612",
+          "name": "VJ Edgecombe",
+          "team": "PHI"
+        },
+        {
+          "id": "4711297",
+          "name": "Justin Edwards",
+          "team": "PHI"
+        },
+        {
+          "id": "3059318",
+          "name": "Joel Embiid",
+          "team": "PHI"
+        },
+        {
+          "id": "3904625",
+          "name": "Tacko Fall",
+          "team": "PHI"
+        },
+        {
+          "id": "4871141",
+          "name": "Ariel Hukporti",
+          "team": "PHI"
+        },
+        {
+          "id": "1966",
+          "name": "LeBron James",
+          "team": "PHI"
+        },
+        {
+          "id": "4433144",
+          "name": "Caleb Love",
+          "team": "PHI"
+        },
+        {
+          "id": "4431678",
+          "name": "Tyrese Maxey",
+          "team": "PHI"
+        },
+        {
+          "id": "4873090",
+          "name": "Labaron Philon Jr.",
+          "team": "PHI"
+        },
+        {
+          "id": "5099752",
+          "name": "Rayan Rupert",
+          "team": "PHI"
+        },
+        {
+          "id": "4351851",
+          "name": "Anfernee Simons",
+          "team": "PHI"
+        },
+        {
+          "id": "3912848",
+          "name": "Dean Wade",
+          "team": "PHI"
+        },
+        {
+          "id": "4432446",
+          "name": "Jabari Walker",
+          "team": "PHI"
+        }
+      ]
+    },
+    "PHX": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/21/roster",
+      "capturedAt": "2026-10-19T05:24:25.318817+00:00",
+      "players": [
+        {
+          "id": "3136193",
+          "name": "Devin Booker",
+          "team": "PHX"
+        },
+        {
+          "id": "4280245",
+          "name": "Jamaree Bouyea",
+          "team": "PHX"
+        },
+        {
+          "id": "4591259",
+          "name": "Koby Brea",
+          "team": "PHX"
+        },
+        {
+          "id": "4066383",
+          "name": "Miles Bridges",
+          "team": "PHX"
+        },
+        {
+          "id": "3155526",
+          "name": "Dillon Brooks",
+          "team": "PHX"
+        },
+        {
+          "id": "4888725",
+          "name": "Ryan Dunn",
+          "team": "PHX"
+        },
+        {
+          "id": "5105977",
+          "name": "Rasheer Fleming",
+          "team": "PHX"
+        },
+        {
+          "id": "4278585",
+          "name": "Collin Gillespie",
+          "team": "PHX"
+        },
+        {
+          "id": "4278402",
+          "name": "Jordan Goodwin",
+          "team": "PHX"
+        },
+        {
+          "id": "4437244",
+          "name": "Jalen Green",
+          "team": "PHX"
+        },
+        {
+          "id": "4702602",
+          "name": "CJ Huntley",
+          "team": "PHX"
+        },
+        {
+          "id": "4601023",
+          "name": "Oso Ighodaro",
+          "team": "PHX"
+        },
+        {
+          "id": "3913174",
+          "name": "Luke Kennard",
+          "team": "PHX"
+        },
+        {
+          "id": "5203685",
+          "name": "Khaman Maluach",
+          "team": "PHX"
+        },
+        {
+          "id": "5041953",
+          "name": "Koa Peat",
+          "team": "PHX"
+        },
+        {
+          "id": "4066268",
+          "name": "Duop Reath",
+          "team": "PHX"
+        },
+        {
+          "id": "4592714",
+          "name": "Pat Spencer",
+          "team": "PHX"
+        },
+        {
+          "id": "4701232",
+          "name": "Mark Williams",
+          "team": "PHX"
+        }
+      ]
+    },
+    "POR": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/22/roster",
+      "capturedAt": "2026-10-19T05:24:25.337294+00:00",
+      "players": [
+        {
+          "id": "4683021",
+          "name": "Deni Avdija",
+          "team": "POR"
+        },
+        {
+          "id": "4431736",
+          "name": "Toumani Camara",
+          "team": "POR"
+        },
+        {
+          "id": "4592435",
+          "name": "Branden Carlson",
+          "team": "POR"
+        },
+        {
+          "id": "5081727",
+          "name": "Sidy Cissoko",
+          "team": "POR"
+        },
+        {
+          "id": "5105565",
+          "name": "Donovan Clingan",
+          "team": "POR"
+        },
+        {
+          "id": "5217746",
+          "name": "Yang Hansen",
+          "team": "POR"
+        },
+        {
+          "id": "4683678",
+          "name": "Scoot Henderson",
+          "team": "POR"
+        },
+        {
+          "id": "3995",
+          "name": "Jrue Holiday",
+          "team": "POR"
+        },
+        {
+          "id": "4703889",
+          "name": "Jayson Kent",
+          "team": "POR"
+        },
+        {
+          "id": "4578893",
+          "name": "Vit Krejci",
+          "team": "POR"
+        },
+        {
+          "id": "6606",
+          "name": "Damian Lillard",
+          "team": "POR"
+        },
+        {
+          "id": "4279888",
+          "name": "Ja Morant",
+          "team": "POR"
+        },
+        {
+          "id": "4066399",
+          "name": "Micah Potter",
+          "team": "POR"
+        },
+        {
+          "id": "4914336",
+          "name": "Shaedon Sharpe",
+          "team": "POR"
+        },
+        {
+          "id": "4593043",
+          "name": "John Tonje",
+          "team": "POR"
+        },
+        {
+          "id": "4066211",
+          "name": "Robert Williams III",
+          "team": "POR"
+        },
+        {
+          "id": "4706557",
+          "name": "Chris Youngblood",
+          "team": "POR"
+        }
+      ]
+    },
+    "SAS": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/24/roster",
+      "capturedAt": "2026-10-19T05:24:25.421072+00:00",
+      "players": [
+        {
+          "id": "6578",
+          "name": "Harrison Barnes",
+          "team": "SAS"
+        },
+        {
+          "id": "5105337",
+          "name": "Maliq Brown",
+          "team": "SAS"
+        },
+        {
+          "id": "5061568",
+          "name": "Carter Bryant",
+          "team": "SAS"
+        },
+        {
+          "id": "4845367",
+          "name": "Stephon Castle",
+          "team": "SAS"
+        },
+        {
+          "id": "4592479",
+          "name": "Julian Champagnie",
+          "team": "SAS"
+        },
+        {
+          "id": "4066259",
+          "name": "De'Aaron Fox",
+          "team": "SAS"
+        },
+        {
+          "id": "5107968",
+          "name": "Ja'Kobi Gillespie",
+          "team": "SAS"
+        },
+        {
+          "id": "5037871",
+          "name": "Dylan Harper",
+          "team": "SAS"
+        },
+        {
+          "id": "6440",
+          "name": "Tobias Harris",
+          "team": "SAS"
+        },
+        {
+          "id": "4395723",
+          "name": "Keldon Johnson",
+          "team": "SAS"
+        },
+        {
+          "id": "4713010",
+          "name": "David Jones Garcia",
+          "team": "SAS"
+        },
+        {
+          "id": "3064560",
+          "name": "Luke Kornet",
+          "team": "SAS"
+        },
+        {
+          "id": "3134916",
+          "name": "Jordan McLaughlin",
+          "team": "SAS"
+        },
+        {
+          "id": "5101845",
+          "name": "Jayden Quaintance",
+          "team": "SAS"
+        },
+        {
+          "id": "5105809",
+          "name": "Tarris Reed Jr.",
+          "team": "SAS"
+        },
+        {
+          "id": "4395630",
+          "name": "Devin Vassell",
+          "team": "SAS"
+        },
+        {
+          "id": "5104157",
+          "name": "Victor Wembanyama",
+          "team": "SAS"
+        }
+      ]
+    },
+    "TOR": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/28/roster",
+      "capturedAt": "2026-10-19T05:24:25.405114+00:00",
+      "players": [
+        {
+          "id": "2993874",
+          "name": "Kyle Anderson",
+          "team": "TOR"
+        },
+        {
+          "id": "4433134",
+          "name": "Scottie Barnes",
+          "team": "TOR"
+        },
+        {
+          "id": "4395625",
+          "name": "RJ Barrett",
+          "team": "TOR"
+        },
+        {
+          "id": "4431893",
+          "name": "Jamison Battle",
+          "team": "TOR"
+        },
+        {
+          "id": "4432586",
+          "name": "Nate Bittle",
+          "team": "TOR"
+        },
+        {
+          "id": "4432737",
+          "name": "Jaden Bradley",
+          "team": "TOR"
+        },
+        {
+          "id": "5149115",
+          "name": "Allen Graves",
+          "team": "TOR"
+        },
+        {
+          "id": "4431684",
+          "name": "Trayce Jackson-Davis",
+          "team": "TOR"
+        },
+        {
+          "id": "6450",
+          "name": "Kawhi Leonard",
+          "team": "TOR"
+        },
+        {
+          "id": "4702656",
+          "name": "Alijah Martin",
+          "team": "TOR"
+        },
+        {
+          "id": "5093267",
+          "name": "Collin Murray-Boyles",
+          "team": "TOR"
+        },
+        {
+          "id": "3134908",
+          "name": "Jakob Poeltl",
+          "team": "TOR"
+        },
+        {
+          "id": "4395724",
+          "name": "Immanuel Quickley",
+          "team": "TOR"
+        },
+        {
+          "id": "4432241",
+          "name": "Jamal Shead",
+          "team": "TOR"
+        },
+        {
+          "id": "4397784",
+          "name": "Malachi Smith",
+          "team": "TOR"
+        },
+        {
+          "id": "4684272",
+          "name": "Ja'Kobe Walter",
+          "team": "TOR"
+        }
+      ]
+    },
+    "UTA": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/26/roster",
+      "capturedAt": "2026-10-19T05:24:25.406112+00:00",
+      "players": [
+        {
+          "id": "4433268",
+          "name": "Trey Alexander",
+          "team": "UTA"
+        },
+        {
+          "id": "4873138",
+          "name": "Ace Bailey",
+          "team": "UTA"
+        },
+        {
+          "id": "4277919",
+          "name": "Mo Bamba",
+          "team": "UTA"
+        },
+        {
+          "id": "4065673",
+          "name": "Tony Bradley",
+          "team": "UTA"
+        },
+        {
+          "id": "4683766",
+          "name": "Isaiah Collier",
+          "team": "UTA"
+        },
+        {
+          "id": "4684793",
+          "name": "Kyle Filipowski",
+          "team": "UTA"
+        },
+        {
+          "id": "4433627",
+          "name": "Keyonte George",
+          "team": "UTA"
+        },
+        {
+          "id": "4432811",
+          "name": "Josh Green",
+          "team": "UTA"
+        },
+        {
+          "id": "4397077",
+          "name": "Jaxson Hayes",
+          "team": "UTA"
+        },
+        {
+          "id": "4396963",
+          "name": "Blake Hinson",
+          "team": "UTA"
+        },
+        {
+          "id": "4433618",
+          "name": "Harrison Ingram",
+          "team": "UTA"
+        },
+        {
+          "id": "4277961",
+          "name": "Jaren Jackson Jr.",
+          "team": "UTA"
+        },
+        {
+          "id": "4066336",
+          "name": "Lauri Markkanen",
+          "team": "UTA"
+        },
+        {
+          "id": "3133602",
+          "name": "Svi Mykhailiuk",
+          "team": "UTA"
+        },
+        {
+          "id": "3102530",
+          "name": "Jusuf Nurkic",
+          "team": "UTA"
+        },
+        {
+          "id": "4065663",
+          "name": "Josh Okogie",
+          "team": "UTA"
+        },
+        {
+          "id": "5041955",
+          "name": "Darryn Peterson",
+          "team": "UTA"
+        },
+        {
+          "id": "5105839",
+          "name": "Brice Sensabaugh",
+          "team": "UTA"
+        }
+      ]
+    },
+    "WAS": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/27/roster",
+      "capturedAt": "2026-10-19T05:24:25.429050+00:00",
+      "players": [
+        {
+          "id": "4278129",
+          "name": "Deandre Ayton",
+          "team": "WAS"
+        },
+        {
+          "id": "4432187",
+          "name": "Reece Beekman",
+          "team": "WAS"
+        },
+        {
+          "id": "4845374",
+          "name": "Bub Carrington",
+          "team": "WAS"
+        },
+        {
+          "id": "4432907",
+          "name": "Justin Champagnie",
+          "team": "WAS"
+        },
+        {
+          "id": "5104155",
+          "name": "Bilal Coulibaly",
+          "team": "WAS"
+        },
+        {
+          "id": "6583",
+          "name": "Anthony Davis",
+          "team": "WAS"
+        },
+        {
+          "id": "5142718",
+          "name": "AJ Dybantsa",
+          "team": "WAS"
+        },
+        {
+          "id": "5174563",
+          "name": "Kyshawn George",
+          "team": "WAS"
+        },
+        {
+          "id": "2581184",
+          "name": "Anthony Gill",
+          "team": "WAS"
+        },
+        {
+          "id": "5238230",
+          "name": "Tre Johnson",
+          "team": "WAS"
+        },
+        {
+          "id": "4432819",
+          "name": "Tre Mann",
+          "team": "WAS"
+        },
+        {
+          "id": "6609",
+          "name": "Khris Middleton",
+          "team": "WAS"
+        },
+        {
+          "id": "5105841",
+          "name": "Felix Okpara",
+          "team": "WAS"
+        },
+        {
+          "id": "5144126",
+          "name": "Will Riley",
+          "team": "WAS"
+        },
+        {
+          "id": "5160992",
+          "name": "Alex Sarr",
+          "team": "WAS"
+        },
+        {
+          "id": "4997537",
+          "name": "Tristan Vukcevic",
+          "team": "WAS"
+        },
+        {
+          "id": "4606840",
+          "name": "Jamir Watkins",
+          "team": "WAS"
+        },
+        {
+          "id": "4277905",
+          "name": "Trae Young",
+          "team": "WAS"
+        }
+      ]
+    }
+  },
+  "differences": [],
+  "interpretation": "Minimal captured source fields replay exactly through the parser against independently retrieved current rosters. This does not prove historic market executability or source stability after capture. No vig removal for overlapping milestones."
+}

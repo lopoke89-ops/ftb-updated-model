@@ -31,13 +31,13 @@ function fitCalibration(rows){
   }return {a,b,method:'positive-slope logistic CDF calibration; later dates only'};
 }
 function metrics(rows,market,c,cal,supported=false){
-  let brier=0,logLoss=0,n=0;const bins=Array.from({length:10},()=>({n:0,predicted:0,observed:0}));
+  let brier=0,logLoss=0,n=0;const fixtures=new Set(),bins=Array.from({length:10},()=>({n:0,predicted:0,observed:0}));
   for(const r of rows){const mass=E.distribution(mu(r,market,c),alpha(r,market,c)),cuts=thresholds(r,market).filter(k=>!supported||!E.contractSupport({features:r.f},{market,side:'over',line:k+.5}));if(!cuts.length)continue;
-    for(const k of cuts){const p=E.calibratedCDF(mass,k,cal),y=Number(r.y[market]<=k),w=1/cuts.length;brier+=w*(p-y)**2;logLoss-=w*(y*Math.log(Math.max(1e-12,p))+(1-y)*Math.log(Math.max(1e-12,1-p)));const bin=bins[Math.min(9,Math.floor(p*10))];bin.n++;bin.predicted+=p;bin.observed+=y;}n++;
+    for(const k of cuts){const p=E.calibratedCDF(mass,k,cal),y=Number(r.y[market]<=k),w=1/cuts.length;brier+=w*(p-y)**2;logLoss-=w*(y*Math.log(Math.max(1e-12,p))+(1-y)*Math.log(Math.max(1e-12,1-p)));const bin=bins[Math.min(9,Math.floor(p*10))];bin.n++;bin.predicted+=p;bin.observed+=y;}n++;fixtures.add(r.gameId);
   }
-  return {appearances:n,fixtures:new Set(rows.map(r=>r.gameId)).size,brier:brier/n,logLoss:logLoss/n,bins:bins.map(b=>({n:b.n,meanPrediction:b.n?b.predicted/b.n:null,observed:b.n?b.observed/b.n:null})),interpretation:'One total weight per player appearance; threshold observations are correlated. No independent-trial intervals or historical price returns.'};
+  return {appearances:n,fixtures:fixtures.size,brier:n?brier/n:null,logLoss:n?logLoss/n:null,bins:bins.map(b=>({n:b.n,meanPrediction:b.n?b.predicted/b.n:null,observed:b.n?b.observed/b.n:null})),interpretation:'One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns.'};
 }
-const model={version:E.VERSION,experimental:true,phase:'regular-season',archiveEvidenceHash:data.meta.evidenceContentHash,archiveThrough:data.meta.asOfDate,engineHash:hash(path.join(source,'ev_probability.js')),trainerHash:hash(__filename),protocolHash:hash(path.join(root,'EV_PROTOCOL.json')),protocol,markets:{}};
+const model={version:E.VERSION,experimental:true,phase:'regular-season',archiveEvidenceHash:data.meta.evidenceContentHash,archiveThrough:data.meta.asOfDate,engineHash:hash(path.join(source,'ev_probability.js')),trainerHash:hash(__filename),protocolHash:hash(path.join(root,'EV_PROTOCOL.json')),forwardProtocolHash:hash(path.join(root,'EV_FORWARD_PROTOCOL.json')),rulesProfileHash:hash(path.join(root,'EV_RULES_PROFILE.json')),protocol,markets:{}};
 for(const market of ['points','threes']){
   const dev=eligible(sets.development,market),cal=eligible(sets.calibration,market),test=eligible(sets.diagnostic,market);if(!dev.length||!cal.length||!test.length)throw Error('Missing chronological samples');
   const candidates=[];

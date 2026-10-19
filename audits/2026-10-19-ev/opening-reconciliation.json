@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "cachedGamesReplayed": 1322,
+  "freshPDFGames": 12,
+  "firstScoreAndFirstFGReferences": 5288,
+  "freshSources": [
+    {
+      "gameId": "401809243",
+      "source": "https://statsdmz.nba.com/pdfs/20251021/20251021_HOUOKC_book.pdf",
+      "sha256": "ef559ec00f8b429e20cba5f1df4ad77f40a0ce25280ad4abc1c0d961dde14421",
+      "pages": [
+        2,
+        14,
+        15
+      ]
+    },
+    {
+      "gameId": "401809975",
+      "source": "https://statsdmz.nba.com/pdfs/20251027/20251027_PHXUTA_book.pdf",
+      "sha256": "e09cebf90bd626685f6c40955b5ba2e35361fb0631763b8dbb89d28c4a5fa2fe",
+      "pages": [
+        2,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "gameId": "401810056",
+      "source": "https://statsdmz.nba.com/pdfs/20251110/20251110_CLEMIA_book.pdf",
+      "sha256": "c127024ef72c60f6155d60d1396f5bc726bd65ae535151d499402064ca3bd5c7",
+      "pages": [
+        2,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "gameId": "401810165",
+      "source": "https://statsdmz.nba.com/pdfs/20251201/20251201_CLEIND_book.pdf",
+      "sha256": "12333b498e91c8b4a8538419746b292ca71cf0dfa167ccff0269c3a61b338477",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401810279",
+      "source": "https://statsdmz.nba.com/pdfs/20251226/20251226_CHAORL_book.pdf",
+      "sha256": "13304300a2ffb4df4438de0e9cf83c3dbc61cb77d950b8ed1039a7a15a9d36ee",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401810430",
+      "source": "https://statsdmz.nba.com/pdfs/20260114/20260114_DENDAL_book.pdf",
+      "sha256": "3481225f4ac8605cd925f7481652728438452ba0665fff349c801483565c8903",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401810577",
+      "source": "https://statsdmz.nba.com/pdfs/20260203/20260203_CHIMIL_book.pdf",
+      "sha256": "74757b97f66c2cbd27c114caf041ed8be87b08ee82d56b5462a733a339fa2546",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401810727",
+      "source": "https://statsdmz.nba.com/pdfs/20260301/20260301_MEMIND_book.pdf",
+      "sha256": "cee26ebae5fd957d013409f1601af8557b0c07e58cb873ff676ab9e21bef1744",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401810876",
+      "source": "https://statsdmz.nba.com/pdfs/20260320/20260320_TORDEN_book.pdf",
+      "sha256": "eb3b393e5910814971bf92356672d8e6079f19b031697a79ea6b59636b97e026",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401811025",
+      "source": "https://statsdmz.nba.com/pdfs/20260409/20260409_LALGSW_book.pdf",
+      "sha256": "4f28ac6e15946d22efd2200418cb94d6fd89a5dd5ec0cf6ddafa89b84b9ce830",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401869397",
+      "source": "https://statsdmz.nba.com/pdfs/20260421/20260421_HOULAL_book.pdf",
+      "sha256": "fc46ab290eaa06407ebef01c6bc50e52f8c7c3f5b1fb372bb8c1b55c5234b74f",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "gameId": "401859967",
+      "source": "https://statsdmz.nba.com/pdfs/20260613/20260613_NYKSAS_book.pdf",
+      "sha256": "604e021d07c347e808a61e03ea4fd36903f63f122d3a029084faa5cef7db3a7f",
+      "pages": [
+        2,
+        9,
+        10
+      ]
+    }
+  ],
+  "differences": [],
+  "scope": "All hash-linked cached Q1 extractions replayed; deterministic 12-game sample freshly extracted from original PDFs. Complete original PDF hashes were independently checked in the final-box reconciliation. Full-game defensive matchups, possessions, and on/off effects are not structured."
+}
