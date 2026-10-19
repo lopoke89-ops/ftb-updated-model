@@ -1,0 +1,17 @@
+{
+  "version": "ev-first-team-forward-v1",
+  "declaredOn": "2026-10-19",
+  "season": "2026-27",
+  "modelVersion": "ev-first-team-v1",
+  "market": "first-team-basket",
+  "phase": "regular-season",
+  "checkpoint": "First eligible verified price/confirmed-lineup capture in the last 15 minutes before the earlier advertised tipoff. Freeze the original price, source times, full five, probability and model/rules/protocol hashes; later revisions never replace that primary record.",
+  "eligibility": "All five current-roster starters freshly confirmed; no Out/Doubtful or unresolved Questionable player; each of five has 20 prior same-team starts; selected player has three starter first-score wins and five losses. Retain supported negative offers and every exclusion.",
+  "primaryEvaluation": "One binary decision per quoted eligible player-team-fixture at the checkpoint; lowest market ID breaks duplicate-market ties. Equal total weight per team-fixture, cluster both teams/players by fixture. Report binary Brier, log loss, calibration intercept/slope, reliability, coverage, phase/role/history and early-ten-team-game strata. Report six-outcome lineup diagnostics separately where the full outcome set is observed.",
+  "baselines": ["frozen uniform-starter baseline with explicit nonstarter residual", "frozen same-team start-history baseline", "exact-market book break-even prices, without claiming they are true probabilities"],
+  "marketBenchmark": "No proportional de-vig of a five-starter list that omits the possible nonstarter scorer. Never combine both teams as one exclusive market. No game-first-basket or parlay probability inferred.",
+  "promotion": {"minimumDistinctFixtures":500,"minimumPlayerDecisions":1000,"minimumEarlyTenTeamGameDecisions":100,"minimumCheckpointCoverage":0.95,"maximumAbsoluteCalibrationIntercept":0.1,"calibrationSlopeRange":[0.8,1.2],"maximumWeightedCalibrationError":0.03,"minimumStratumDecisions":200,"pairedImprovement":"Both Brier/log loss must beat both frozen baselines on identical prospective observations, upper adjusted paired-loss bounds below zero; fixture-cluster bootstrap 2000 replicates seed 20261019 and weekly sensitivity, Holm-adjusted across evaluated markets."},
+  "recordingGap": "Browser-local records are editable and depend on the view being open. Shared trusted pre-tip issuance and an independent expected-fixture ledger are still required for a verified public track record.",
+  "settlement": "A nonstarter is a rule-indicated void even if they play or score first. Starter first scorer wins; other participating starters lose. Missing or conflicting PDF opening evidence remains pending/review. Actual account settlement and exceptional book rules remain unverified.",
+  "review": "First two game days check engineering only. No interim outcome tuning; material changes begin a new version/cohort. Paper $1 returns are secondary and cannot prove actual customer execution. Criteria are chosen product gates, not guarantees."
+}

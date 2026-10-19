@@ -52,3 +52,5 @@ python -m http.server 8002 --bind 127.0.0.1 --directory _site
 ```
 
 Open http://127.0.0.1:8002/ . The exporter requires a new or empty output folder; use `--output` to choose a fresh folder for subsequent builds. `deployment-manifest.json` records published asset hashes and dataset coverage.
+
+First Team Basket EV now shares Parlay’s current projected lineups: estimates based on projections are labeled provisional and assume the exact five starts. The existing provisional filter controls their visibility; finalized picks still require fresh NBA confirmations. Same-team history minimums remain in force. Details: [First Team Basket EV](FIRST_TEAM_EV_IMPLEMENTATION.md).

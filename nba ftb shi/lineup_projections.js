@@ -11,7 +11,7 @@
     const teams=fixtures.flatMap(f=>[f.away,f.home].map(team=>({team,fixture:f,view:api.teamView(team,f,lineups,now)})));
     const confirmed=teams.filter(t=>t.view.kind==='confirmed').length,projected=teams.filter(t=>t.view.kind==='projected').length;
     return h('details',{className:'starting-lineups'},h('summary',null,'Starting lineups',h('span',null,`${confirmed} confirmed · ${projected} projected · ${teams.length-confirmed-projected} unavailable`)),
-      h('div',{className:'lineup-panel-body'},h('p',null,'Depth-chart projections use the current roster and reported availability. Expected starters remain unconfirmed. First-basket selections need fresh NBA confirmation.'),
+      h('div',{className:'lineup-panel-body'},h('p',null,'Depth-chart projections use the current roster and reported availability. Expected starters remain unconfirmed. EV can use these projections for provisional lineup scenarios; finalized first-basket picks need fresh NBA confirmation.'),
         h('button',{type:'button',onClick:onRefresh,disabled:busy},busy?'Checking lineups…':'Refresh lineups'),
         h('small',{className:'lineup-check'},`Last check: ${time(lineups.checkedAt)} · checks every 5 minutes while this view is open`),
         !teams.length&&h('p',null,'Choose an upcoming game date with scheduled fixtures.'),

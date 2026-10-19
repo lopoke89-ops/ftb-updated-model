@@ -1,6 +1,6 @@
 # First Team Basket in EV Bets
 
-First Team Basket is an additional market filter and participates in the all-market EV ranking when eligible. It has a separate experimental model, `ev-first-team-v1`. The frozen Points/Threes engine, model and prospective protocol are unchanged. Game First Basket and combined-parlay EV remain unsupported.
+First Team Basket is an additional market filter and participates in the all-market EV ranking when eligible. It has a separate experimental model, `ev-first-team-v1.1`. The frozen Points/Threes engine, model and prospective protocol are unchanged. Game First Basket and combined-parlay EV remain unsupported.
 
 ## Offer and eligibility
 
@@ -8,7 +8,15 @@ The Tennessee collector loads FanDuel's **Quick Bets** tab and accepts only `FIR
 
 Fresh prices appear in **First Team Basket prices** before an estimate is eligible. Each waiting row explains why EV is withheld and has no probability/EV. Market presence, a depth chart and a previous lineup do not confirm a starter. Missing/unposted markets do not renew earlier prices or suppress successful captures for other markets.
 
-An estimate requires five distinct current-roster starters, all confirmed by the NBA daily-lineup source within five minutes. Out/Doubtful and unresolved Questionable/scenario exclusions block the affected lineup. All five need **20 prior same-team regular-season starts**; the selected player additionally needs three first-score wins and five losses as a starter. New-team, rookie and rotation gaps can withhold the entire lineup's EV. Quotes must be active, within five minutes and before either advertised tipoff. Price and confirmation expiry both update the display; evidence saving rechecks eligibility at the action time.
+EV consumes the **same `teamView` lineup resolver and shared lineup context as Parlay**. The collapsible Starting lineups panel and refresh control also appear on the EV tab. Fresh NBA confirmed fives take precedence; otherwise a complete fresh projected five can support a **Projected lineup · provisional** estimate. No projection grants starter confirmation or changes the finalized First Team Basket requirement in Picks/Parlay.
+
+ESPN depth-chart projections expire after six hours, NBA expected fives after five minutes. Five distinct current-roster identities/positions, exact fixture/date/season, one origin and one capture time are required. Quotes must be active, within five minutes and before either advertised tipoff. Quote/lineup expiry wakes EV immediately; saving rechecks both freshness and the exact frozen lineup. Partial, stale or incompatible fives withhold estimates.
+
+Out/Doubtful or scenario exclusions block either lineup. Questionable/unconfirmed projected players remain provisional; unresolved Questionable availability blocks finalized confirmed-lineup estimates. The existing **Include provisional availability / role** filter, enabled by default, controls projected EV. Disabling it leaves confirmed eligible estimates only.
+
+All five still need **20 prior same-team regular-season starts**; the selected player additionally needs three first-score wins and five losses as a starter. New-team, rookie and rotation gaps can withhold the entire lineup's EV. These guards are not relaxed to fill the screen. A complete projection alone does not establish adequate basketball evidence.
+
+Projected probability and EV are **conditional on those exact five players starting**. No chance of starting, chance of void, unconditional return or historical projected-lineup validation is claimed. Projection details retain the actual five, source/capture time and this assumption.
 
 ## Independent probability and source evidence
 
@@ -35,18 +43,18 @@ Development chooses shrinkage/recent mixture and positional exponents by joint l
 | Calibration slope / intercept | 1.146 / 0.207 |
 | Weighted calibration error | 0.01284 |
 
-The model **does not demonstrate improvement over start history**. Its intercept exceeds the declared prospective promotion limit. These small retrospective results do not qualify it for a dependable or proven-edge claim. Numerical EV is experimental research, conditional on the confirmed lineup. Prior-season transfer and future profitability remain unvalidated. Model configuration, reliability bins, baseline scores and paired fixture-cluster intervals are retained in `ev_first_team_model.json`.
+The model **does not demonstrate improvement over start history**. Its intercept exceeds the declared prospective promotion limit. These small retrospective results do not qualify it for a dependable or proven-edge claim. Numerical EV is experimental research, conditional on the supplied lineup. Prior-season transfer and future profitability remain unvalidated. Model configuration, reliability bins, baseline scores and paired fixture-cluster intervals are retained in `ev_first_team_model.json`.
 
 [FIRST_TEAM_EV_FORWARD_PROTOCOL.json](FIRST_TEAM_EV_FORWARD_PROTOCOL.json) declares a separate prospective cohort, checkpoints and promotion criteria. Browser-local records are editable and depend on the view being open; a shared trusted issuer and independent coverage ledger remain necessary for verified public track-record claims. There are no historical FanDuel price returns or joint-parlay forecasts.
 
 ## Saving and grading
 
-Schema-3 snapshots retain per-result model/engine/protocol/rules/forward-protocol hashes, the first-team model manifest, exact five confirmations, original prices, display filters, supported negative offers and withheld first-team offer reasons. Earlier records remain unchanged. Top-level count-model metadata remains for compatibility; each first-team result has its own model identity.
+Schema-3 snapshots retain per-result model/engine/protocol/rules/forward-protocol hashes, the first-team model manifest, exact five confirmations or separately labeled projections, original prices, display filters, supported negative offers and withheld first-team offer reasons. Earlier records remain unchanged. Top-level count-model metadata remains for compatibility; each first-team result has its own model identity.
 
-Grader v2 retains count-prop behavior and adds First Team Basket. A nonstarter is a rule-indicated void even if they later play. A starter wins if they score their own team's first points, including a free throw; another team's earlier score does not matter. Missing PDF opening evidence remains pending; mismatched sources/events require review. No field-goal-only or ESPN substitution is allowed. Reports retain the PDF hash, page and sequence. Actual account settlement and exceptional sportsbook rulings are unverified. See the [FanDuel Tennessee house rules](https://www.fanduel.com/fanduel-sportsbook-house-rules-tn), checked October 19, and the bound [rules profile](FIRST_TEAM_EV_RULES.json).
+Grader v3 retains count-prop behavior and adds First Team Basket. A nonstarter is a rule-indicated void even if they later play. A starter wins if they score their own team's first points, including a free throw; another team's earlier score does not matter. Missing PDF opening evidence remains pending; mismatched sources/events require review. No field-goal-only or ESPN substitution is allowed. Reports retain the PDF hash, page and sequence. Projected records belong to a separate secondary cohort. Grading records the actual PDF five and `lineupConditionMet`; when any teammate differs, the ordinary contract result is retained but `probabilityEvaluationEligible=false`. Selected nonstarters remain void. Matched projected scenarios are never pooled into the confirmed-starter primary evaluation. Original v1 confirmed records remain gradeable with their original model manifest. Actual account settlement and exceptional sportsbook rulings are unverified. See the [FanDuel Tennessee house rules](https://www.fanduel.com/fanduel-sportsbook-house-rules-tn), checked October 19, and the bound [rules profile](FIRST_TEAM_EV_RULES.json).
 
 ## Verification
 
 Rebuild only explicitly with `node scripts/train_first_team_ev.cjs`. Publication verifies the independent engine/trainer/protocol/rules/archive/opening hashes and JSON/browser-model equality. Tests cover competing outcomes, prior dates, current-team starts, confirmations, waiting prices without EV, exact markets, availability, first-score free throws, nonstarter voids and source conflicts.
 
-The live replay on October 19 covered **2,261 quotes**, including **139 First Team Basket offers**, across 16 fixtures, with no parser/identity differences. Live confirmed-starter EV cannot be verified before real confirmations exist. The waiting-price state is expected now; confirmed eligibility and grading are regression-tested with explicit synthetic fixtures.
+The live replay on October 19 covered **2,261 quotes**, including **139 First Team Basket offers**, across 16 fixtures, with no parser/identity differences. Live confirmed-starter EV cannot be verified before real confirmations exist. The v1 release was verified in the waiting-price state. v1.1 additionally tests complete shared projections, confirmation precedence, Questionable and exclusion policy, source/fixture/season/freshness failures, filters, saving, conditional-lineup grading, and v1 compatibility. Operational eligibility changed; numerical parameters, retrospective diagnostics and support thresholds remain exactly identical. Frozen v1 files are retained in `audits/2026-10-19-first-team-projections/baseline-v1/`.

@@ -1,5 +1,5 @@
 {
-  "version": "ev-first-team-v1",
+  "version": "ev-first-team-v1.1",
   "status": "experimental-retrospective-diagnostic",
   "market": "first-team-basket",
   "scoringDefinition": "first-team-score-including-free-throws",
@@ -14,10 +14,12 @@
   "minimumSelectedWins": 3,
   "minimumSelectedLosses": 5,
   "minimumTeamGames": 10,
-  "starterRequirement": "Five distinct current-roster NBA confirmed starters for the selected team, each confirmation no more than five minutes old. No probability/EV from market presence, depth-chart projection or last-game lineup alone.",
+  "starterRequirement": "Use the same validated teamView as Parlay. Five distinct current-roster fresh projections support provisional conditional-lineup estimates; five fresh NBA confirmed starters are required for finalized picks. Market presence and previous-game lineups never establish a starting five.",
   "distribution": "Five competing starter outcomes plus residual probability of a nonstarter scoring the team's first points. Free throws count. Team-first score is independent of which team scores first in the game.",
   "features": "Same-team prior starts and starter first-score wins, optionally recent-20 starter history and shrunk G/F/C first-score rates per starting-player exposure. No count-prop correlation filter or historical grade is a probability.",
   "windowReason": "No complete five-starter lineup met the 20-prior-same-team-start requirement before December 15. This separate first-team model uses later windows selected for sample availability before examining diagnostic scores; the original prop windows are unchanged.",
   "fitting": "Choose shrinkage/recent/positional exponents on development dates only; positive temperature on calibration dates only. Hold entire dates together. Final-box starters in retrospective evaluation define a conditional-known-lineup scenario; historical pregame announcements were not archived.",
-  "interpretation": "Already inspected archive, unvalidated prior-season transfer, no historical FanDuel prices or historical profitability. Separate model and research cohort; frozen Points/Threes engine, model and forward protocol unchanged."
+  "interpretation": "Already inspected archive, unvalidated prior-season transfer, no historical FanDuel prices or historical profitability. Separate model and research cohort; frozen Points/Threes engine, model and forward protocol unchanged.",
+  "revision": "Operational lineup eligibility change only. Numerical features, fitting windows, parameters and support minimums unchanged from v1. Frozen v1 source/model/protocols retained under audits/2026-10-19-first-team-projections/baseline-v1.",
+  "projectedScenario": "ESPN depth-chart projections expire after six hours; NBA expected lineups after five minutes. Single source origin and capture time, exact fixture/date/season and current-roster identities required. Out/Doubtful and scenario-excluded players block the whole five. Questionable/unconfirmed availability remains provisional. Probability/EV assumes the exact projected five starts; no probability of starting or unconditional EV is claimed. Historical final-box diagnostics do not validate projected-lineup availability."
 }

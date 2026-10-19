@@ -1,7 +1,7 @@
 /* Separate competing-outcome model. Historical grades never become probabilities. */
-(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./ev_probability.js'):root.FTBEV,typeof module==='object'&&module.exports?require('./lineups.js'):root.FTBLineups);if(typeof module==='object'&&module.exports)module.exports=api;else root.FTBEVFirstTeam=api;})(typeof window==='object'?window:this,function(E,L){
+(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./ev_probability.js'):root.FTBEV,typeof module==='object'&&module.exports?require('./lineups.js'):root.FTBLineups,typeof module==='object'&&module.exports?require('./lineup_projections.js'):root.FTBProjectedLineups);if(typeof module==='object'&&module.exports)module.exports=api;else root.FTBEVFirstTeam=api;})(typeof window==='object'?window:this,function(E,L,Q){
  'use strict';
- const VERSION='ev-first-team-v1',TARGET='first-team-score-including-free-throws',clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const VERSION='ev-first-team-v1.1',TARGET='first-team-score-including-free-throws',clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  function newState(){return {players:{},teams:{},league:{starts:0,wins:0,games:0,other:0,roles:{}},seen:new Set(),through:null};}
  const box=()=>({starts:0,wins:0});
  function verifiedGames(data,supplement){
@@ -30,7 +30,7 @@
   const rows=players.map(p=>{const r=s.players[team+'|'+String(p.id)],last=r?.history.at(-1),role=last?.role,base=s.league.roles[role],rate=base?.starts?(base.wins+1)/(base.starts+5):leagueRate;
    const ratio=b=>b?.starts?Math.exp(clamp(Math.log(Math.max(.01,((b.wins+20*rate)/(b.starts+20))/rate)),-.7,.7)):1;
    return {id:String(p.id),name:p.name||String(p.id),team,n:r?.starts||0,wins:r?.wins||0,losses:r?r.starts-r.wins:0,history:r?.history||[],role,roleSource:last?.roleSource,through:last?.date,historySeasons:[...new Set((r?.history||[]).map(h=>h.season))],teams:[team],leagueRate,positionRate:rate,offenseRatio:ratio(own.own[role]),defenseRatio:ratio(def.allowed[role])};});
-  const short=rows.find(p=>p.n<20);if(short)return {reason:`Each confirmed starter needs 20 prior starts with ${team}; ${short.name} has ${short.n}`};
+  const short=rows.find(p=>p.n<20);if(short)return {reason:`Each lineup player needs 20 prior starts with ${team}; ${short.name} has ${short.n}`};
   if(rows.some(p=>!p.role))return {reason:'Starter G/F/C history is unavailable'};
   return {players:rows,other,team,opponent,teamGames:own.games,opponentGames:def.games,through:s.through};
  }
@@ -45,11 +45,17 @@
   if(players.some(p=>roster.filter(r=>String(r.id)===p.id&&r.team===team).length!==1))return {reason:'Confirmed starters do not match the current roster'};
   return {players};
  }
+ function lineupForEV(team,fixture,roster,lineupContext,confirmed,now=Date.now()){
+  const view=Q.teamView(team,fixture,{...lineupContext,confirmed:confirmed??lineupContext?.confirmed??{}},now);
+  if(view.kind==='unavailable')return {reason:'Awaiting a complete, fresh projected or NBA confirmed lineup for '+team};
+  if(view.players.some(p=>roster.filter(r=>String(r.id)===String(p.id)&&r.team===team&&r.name===p.name).length!==1))return {reason:'Lineup players do not match the current roster'};
+  return {players:view.players,kind:view.kind,provisional:view.kind==='projected',label:view.label};
+ }
  function quoteState(q,fixture,now){
   if(q.market!=='first-team-basket'||q.marketType!=='FIRST_TEAM_BASKET_SCORER'||q.marketName!=='First Team Basket Scorer'||q.period!=='team-first-score'||q.side!=='yes'||q.line!==null||q.scoringDefinition!==TARGET||q.settlement!=='starter-required')return 'identity-mismatch';
   return E.quoteState({...q,market:'points',period:'full-game'},fixture,now);
  }
- function evaluateQuotes({snapshot,fixtures,rosters,state,model,confirmed={},eligibility={},now=Date.now()}){
+ function evaluateQuotes({snapshot,fixtures,rosters,state,model,confirmed,lineupContext,eligibility={},now=Date.now()}){
   const rows=[],audit=[],pending=[],seen=new Set();
   for(const fixture of fixtures){const entry=snapshot?.fixtures?.[fixture.id],predictions={};for(const q of entry?.quotes||[]){if(q.market!=='first-team-basket')continue;let reason=null;const status=quoteState(q,fixture,now),roster=rosters[q.team]||[],player=roster.filter(p=>String(p.id)===q.playerId&&p.team===q.team&&p.name===q.player);
    if(seen.has(q.key)){audit.push({player:q.player,market:q.market,reason:'Duplicate offered selection'});continue;}seen.add(q.key);
@@ -59,12 +65,12 @@
    else if(!/^https:\/\/sportsbook\.fanduel\.com\//.test(q.source||'')||!Number.isInteger(q.american)||Math.abs(q.american)<100||!Number.isFinite(q.decimal)||q.decimal<=1||Math.abs(q.decimal-(q.american>0?1+q.american/100:1+100/Math.abs(q.american)))>1e-6)reason='Offered price/source mismatch';
    else if(eligibility[q.playerId]?.excluded)reason=eligibility[q.playerId].reason||'Unavailable player';
    if(reason){audit.push({key:q.key,player:q.player,market:q.market,reason,status});continue;}
-   if(!predictions[q.team]){const lineup=confirmedLineup(q.team,fixture,roster,confirmed,now),blocked=lineup.players?.find(p=>eligibility[p.id]?.excluded||eligibility[p.id]?.provisional);predictions[q.team]=lineup.reason?lineup:blocked?{reason:'Confirmed lineup availability is excluded or unresolved'}:state?{...predictTeam(state,q.team,q.team===fixture.home?fixture.away:fixture.home,lineup.players,model),confirmedLineup:lineup.players}:{reason:'Verified First Team Basket history unavailable'};}
+   if(!predictions[q.team]){const lineup=lineupForEV(q.team,fixture,roster,lineupContext,confirmed,now),blocked=lineup.players?.find(p=>eligibility[p.id]?.excluded||['OUT','DOUBTFUL'].includes(p.availability)||lineup.kind==='confirmed'&&eligibility[p.id]?.provisional);predictions[q.team]=lineup.reason?lineup:blocked?{reason:'Lineup availability is excluded or unresolved'+(eligibility[blocked.id]?.reason?': '+eligibility[blocked.id].reason:'')}:state?{...predictTeam(state,q.team,q.team===fixture.home?fixture.away:fixture.home,lineup.players,model),lineup:lineup.players,lineupBasis:lineup.kind,provisional:lineup.provisional}:{reason:'Verified First Team Basket history unavailable'};}
    const pred=predictions[q.team],f=pred.features?.players.find(p=>p.id===q.playerId);
-   if(pred.reason)reason=pred.reason;else if(!f)reason='Player is not in the five NBA confirmed starters';else if(f.wins<3||f.losses<5)reason='Needs three prior starter first-score wins and five losses';
+   if(pred.reason)reason=pred.reason;else if(!f)reason='Player is not in the current '+pred.lineupBasis+' five';else if(f.wins<3||f.losses<5)reason='Needs three prior starter first-score wins and five losses';
    if(reason){audit.push({key:q.key,player:q.player,market:q.market,reason,status});pending.push({quote:q,reason});continue;}
-   const win=pred.probabilities[q.playerId],p={win,loss:1-win,push:0};rows.push({quote:q,probabilities:p,ev:E.expectedValue(p,q.decimal),breakEven:1/q.decimal,conditionalWin:win,projection:null,features:{...f,history:undefined,otherFirstScorerProbability:pred.other,lineupProbabilities:pred.probabilities,teamGames:pred.features.teamGames,opponentGames:pred.features.opponentGames},confirmedLineup:pred.confirmedLineup,provisional:false,availability:'Five NBA confirmed starters; probability conditional on this lineup',status,modelVersion:model.version,modelHash:model.modelHash,engineHash:model.engineHash,protocolHash:model.protocolHash,forwardProtocolHash:model.forwardProtocolHash,rulesProfileHash:model.rulesProfileHash});
+   const win=pred.probabilities[q.playerId],p={win,loss:1-win,push:0};rows.push({quote:q,probabilities:p,ev:E.expectedValue(p,q.decimal),breakEven:1/q.decimal,conditionalWin:win,projection:null,features:{...f,history:undefined,otherFirstScorerProbability:pred.other,lineupProbabilities:pred.probabilities,teamGames:pred.features.teamGames,opponentGames:pred.features.opponentGames},lineupBasis:pred.lineupBasis,...(pred.provisional?{projectedLineup:pred.lineup}:{confirmedLineup:pred.lineup}),provisional:pred.provisional,availability:pred.provisional?'Projected lineup · provisional. Probability and EV assume these exact five start; their chance of starting is not modeled. Not a finalized First Team Basket pick.':'Five NBA confirmed starters; probability conditional on this lineup',status,modelVersion:model.version,modelHash:model.modelHash,engineHash:model.engineHash,protocolHash:model.protocolHash,forwardProtocolHash:model.forwardProtocolHash,rulesProfileHash:model.rulesProfileHash});
   }}rows.sort((a,b)=>b.ev-a.ev||a.quote.key.localeCompare(b.quote.key));return {rows,audit,pending};
  }
- return {VERSION,TARGET,newState,verifiedGames,validGame,addGame,buildState,features,distribution,predictTeam,confirmedLineup,quoteState,evaluateQuotes};
+ return {VERSION,TARGET,newState,verifiedGames,validGame,addGame,buildState,features,distribution,predictTeam,confirmedLineup,lineupForEV,quoteState,evaluateQuotes};
 });

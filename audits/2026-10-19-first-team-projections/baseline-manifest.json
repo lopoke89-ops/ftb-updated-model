@@ -1,0 +1,11 @@
+{
+  "originalCommit": "a79422d40aee40f952bdd218ba00efb98973b808",
+  "sha256": {
+    "ev_first_team.js": "34ddc3fd55c4a8dc472d413cba096ee6e96cae6dc850ae2c204471b14733ba78",
+    "ev_first_team_model.js": "aa61b14d28338304268c570783838abd14ebe7e262bf19846a7c2149b789d1d3",
+    "ev_first_team_model.json": "c5cbb21edc0853f7a932bc1fccdf32f3912b2729113faa0480b136088e71c916",
+    "FIRST_TEAM_EV_FORWARD_PROTOCOL.json": "88ea2559e8284c903c4504ec12c3387ea9ea2fd04462767dc77d2900d92ed722",
+    "FIRST_TEAM_EV_PROTOCOL.json": "b5b63fdd875aa1244b55860ea9647cd8b9d77bccb6ad1e88b39a156ae6fc86d2",
+    "FIRST_TEAM_EV_RULES.json": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828"
+  }
+}
