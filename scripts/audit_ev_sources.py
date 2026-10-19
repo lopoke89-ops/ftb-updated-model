@@ -53,10 +53,10 @@ def main():
     args = parser.parse_args()
     start = time.monotonic()
     args.output.mkdir(parents=True, exist_ok=True)
-    data = json.loads((SOURCE / 'analyst_data.json').read_text(encoding='utf-8'))
-    supplement = json.loads((SOURCE / 'parlay_data.json').read_text(encoding='utf-8'))
-    official = json.loads((SOURCE / 'official_boxscores.json').read_text(encoding='utf-8'))
-    manifest = json.loads((args.library / 'manifest.json').read_text(encoding='utf-8'))
+    data = json.loads((SOURCE / 'analyst_data.json').read_text(encoding='utf-8', newline='\n'))
+    supplement = json.loads((SOURCE / 'parlay_data.json').read_text(encoding='utf-8', newline='\n'))
+    official = json.loads((SOURCE / 'official_boxscores.json').read_text(encoding='utf-8', newline='\n'))
+    manifest = json.loads((args.library / 'manifest.json').read_text(encoding='utf-8', newline='\n'))
     docs = {r['espn_game_id']: r for r in manifest['documents']}
     identities = defaultdict(set)
     for game in data['games']:
@@ -117,7 +117,7 @@ def main():
               'games': len(tasks), 'phaseCounts': dict(Counter(g['phase'] for g in data['games'])), 'playedRows': played,
               'zeroPrintedMinuteAppearances': zero_minutes, 'statComparisons': comparisons, 'databaseIntegrity': integrity,
               'elapsedSeconds': round(time.monotonic()-start, 2), 'differences': differences, 'documents': document_results}
-    (args.output / 'source-reconciliation.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    (args.output / 'source-reconciliation.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({k: v for k, v in report.items() if k != 'documents'}), flush=True)
     return bool(differences)
 

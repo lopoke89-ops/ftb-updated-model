@@ -38,7 +38,7 @@ def main():
     result={'checkedAt':datetime.now(timezone.utc).isoformat(),'status':'passed' if not differences else 'failed','snapshotCapturedAt':snapshot['checkedAt'],
             'quotesReplayed':replayed,'matchingTwoWayPairs':paired,'sourceEnvelopes':len(envelopes),'currentRosterProof':rosters,'differences':differences,
             'interpretation':'Minimal captured source fields replay exactly through the parser against independently retrieved current rosters. This does not prove historic market executability or source stability after capture. No vig removal for overlapping milestones.'}
-    (OUT/'price-replay.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    (OUT/'price-replay.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8', newline='\n')
     print(json.dumps({k:v for k,v in result.items() if k!='currentRosterProof'}))
     return bool(differences)
 

@@ -35,7 +35,7 @@ if __name__ == '__main__':
     client = AuditedClient()
     snapshot = fd.capture(client)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / 'live-price-snapshot.json').write_text(json.dumps(snapshot, separators=(',', ':')) + '\n', encoding='utf-8')
-    (OUT / 'live-market-evidence.json').write_text(json.dumps({'scope': 'Public accepted-market fields and original response hashes. Public app identifier, request query and all account operations excluded. This projection is not the original complete response.', 'capturedAt': snapshot['checkedAt'], 'envelopes': client.envelopes}, separators=(',', ':')) + '\n', encoding='utf-8')
+    (OUT / 'live-price-snapshot.json').write_text(json.dumps(snapshot, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
+    (OUT / 'live-market-evidence.json').write_text(json.dumps({'scope': 'Public accepted-market fields and original response hashes. Public app identifier, request query and all account operations excluded. This projection is not the original complete response.', 'capturedAt': snapshot['checkedAt'], 'envelopes': client.envelopes}, separators=(',', ':')) + '\n', encoding='utf-8', newline='\n')
     quotes = [q for f in snapshot['fixtures'].values() for q in f['quotes']]
     print(json.dumps({'checkedAt': snapshot['checkedAt'], 'fixtures': len(snapshot['fixtures']), 'quotes': len(quotes), 'errors': snapshot['errors'], 'sourceEnvelopes': len(client.envelopes), 'marketIssues': sum(len(f['issues']) for f in snapshot['fixtures'].values())}), flush=True)

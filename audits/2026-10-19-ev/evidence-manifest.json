@@ -16,12 +16,12 @@
     "bytes": 164795
   },
   "live-market-evidence.json": {
-    "sha256": "a43ba6d18c63299fd95b34983e028eb6b9c2bd19b380c4a4f220ce0c9cf16dd0",
-    "bytes": 827821
+    "sha256": "2433549ca11775069ba1e1c48a6dbd8071a8155e1b378cbad0f3293f09c0e473",
+    "bytes": 827820
   },
   "live-price-snapshot.json": {
-    "sha256": "c83042ddfe68a28232ac1a79d87fb4e9dec2b5d5c45c160dd702501e5a937159",
-    "bytes": 1478458
+    "sha256": "c6ca0520bc4b3fd7ec2612281f4b6b38810de379aeb3b3772c84c7195c691e48",
+    "bytes": 1478457
   },
   "model-diagnostics.json": {
     "sha256": "2531525f6c54d07310d43df8e246ab701c845b93ad5535a1e8290483147e14db",
@@ -32,23 +32,23 @@
     "bytes": 133573
   },
   "opening-reconciliation.json": {
-    "sha256": "66867981685703d1bba81ec2722fd52ab051b5cc1397c5052b894d181504b1d9",
-    "bytes": 3829
+    "sha256": "4830856e45623e0d290dce39d3a7d15de6038625ec57ade7a4893579a7cf076f",
+    "bytes": 3697
   },
   "price-replay.json": {
-    "sha256": "cbe34928b4b43e9079d8dee6d5db4b8d2470d4e369a018151fd8e98007807429",
-    "bytes": 57027
+    "sha256": "b40f1274c59d123d093e9072a4d468843840a893b2e86d9a32ad9e1482d3a21e",
+    "bytes": 54574
   },
   "record-audit.json": {
     "sha256": "a2758ec9da7b005d68ee78b1d7c588ac1e01a0110b1101d0cc39d78ed084fb86",
     "bytes": 673
   },
   "season-totals.json": {
-    "sha256": "a4e131d7b8aae0bf13fa27dcc11ae2162554d20aab34ed0be07fa5a16bfe0f3b",
-    "bytes": 473
+    "sha256": "4ba415801c96e527cb7cd0b128da5d7d329fb0cf2f1872ff33db154e61a76668",
+    "bytes": 459
   },
   "source-reconciliation.json": {
-    "sha256": "da0311271d09b20239480c74eb6183ceec1e420054d786fbfb0ec0352cd27df6",
-    "bytes": 535981
+    "sha256": "74d16147c4faa8d9fd00bab095eee5473c3249c4091bbb2aa5648583479be0a3",
+    "bytes": 524063
   }
 }
