@@ -103,7 +103,10 @@ def capture_projections(now=None, fetcher=fetch, lookahead_days=7):
 
 
 def git(*args, data=None, check=True):
-    return subprocess.run(['git', *args], input=data, capture_output=True, check=check)
+    result = subprocess.run(['git', *args], input=data, capture_output=True)
+    if check and result.returncode:
+        raise RuntimeError('git '+args[0]+' failed: '+result.stderr.decode(errors='replace').strip())
+    return result
 
 
 def publish(record):
@@ -123,7 +126,9 @@ def publish(record):
                     raise ValueError('Unexpected file in capture branch')
                 entries[name] = metadata.split()[2]
         entries.update(blobs)
-        tree = git('mktree',data=''.join(f'100644 blob {blob}\t{name}\n' for name,blob in sorted(entries.items())).encode()).stdout.decode().strip()
+        # A sparse/partial checkout may not have the unchanged remote cache blob.
+        # Its hash comes from the fetched parent tree; the server already has it.
+        tree = git('mktree','--missing',data=''.join(f'100644 blob {blob}\t{name}\n' for name,blob in sorted(entries.items())).encode()).stdout.decode().strip()
         args = ['commit-tree',tree,'-m','Refresh sourced lineup context']
         if parent.returncode==0:
             args += ['-p',parent.stdout.decode().strip()]
@@ -140,6 +145,7 @@ def run(watch=False, max_minutes=240, lookahead_days=7, fetcher=fetch, publisher
     last_projection = None
     watching = False
     while True:
+        failed = False
         now = clock()
         day = now.astimezone(ZoneInfo('America/Chicago')).date().isoformat()
         records = {}
@@ -150,7 +156,9 @@ def run(watch=False, max_minutes=240, lookahead_days=7, fetcher=fetch, publisher
                     records[PROJECTIONS] = projection
                 last_projection = monotonic()
                 print(json.dumps({'projectionTeams':len(projection['teams']),'errors':projection['errors']}),flush=True)
+                failed = bool(projection['errors']) and not projection['teams']
         except Exception as error:
+            failed = True
             print(json.dumps({'projectionError':str(error),'checkedAt':clock().isoformat()}),flush=True)
         try:
             schedule = fetcher(schedule_url(day))
@@ -161,15 +169,17 @@ def run(watch=False, max_minutes=240, lookahead_days=7, fetcher=fetch, publisher
                 records[NAME] = official
             remaining = bool(pregame(schedule,now))
         except Exception as error:
+            failed = True
             print(json.dumps({'error':str(error),'checkedAt':clock().isoformat(),'retained':'last verified captures'}),flush=True)
             remaining = watching
         if records:
             try:
                 print(json.dumps({'published':list(records),'commit':publisher(records),'checkedAt':clock().isoformat()}),flush=True)
             except Exception as error:
+                failed = True
                 print(json.dumps({'publishError':str(error),'checkedAt':clock().isoformat(),'retained':'last verified captures'}),flush=True)
         if not watch or not watching or not remaining or monotonic()+300>=deadline:
-            break
+            return failed
         sleeper(300)
 
 
@@ -183,4 +193,5 @@ if __name__ == '__main__':
         parser.error('--max-minutes must be between 1 and 330')
     os.environ.update(GIT_AUTHOR_NAME='FTB lineup collector',GIT_AUTHOR_EMAIL='41898282+github-actions[bot]@users.noreply.github.com',
                       GIT_COMMITTER_NAME='FTB lineup collector',GIT_COMMITTER_EMAIL='41898282+github-actions[bot]@users.noreply.github.com')
-    run(args.watch,args.max_minutes,args.lookahead_days)
+    if run(args.watch,args.max_minutes,args.lookahead_days):
+        raise SystemExit(1)

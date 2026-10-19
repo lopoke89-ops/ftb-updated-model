@@ -25,6 +25,8 @@ GitHub scheduled starts remain best effort and can be delayed. The active worker
 
 The `nba-live-lineups` branch stores `live-lineups.json` and `projected-lineups.json`. Publishing either preserves the other. Neither uses or replaces the separate final-gamebook archive branch.
 
+The publisher supports the workflow's sparse checkout: unchanged cache blobs are referenced from the fetched parent tree without requiring them to be downloaded locally. A run ending with an unresolved source/publication failure reports failure instead of a successful empty update. Publication was checked against the actual branch contents after rollout.
+
 ## Grading and evidence
 
 Projections add lineup context and labels. They do not change historical grades, historical PDF positions, ranking weights, or readiness thresholds. First Team Basket selections remain provisional until the existing NBA confirmation and availability requirements are met. A depth-chart position is not substituted for a historical gamebook position.
@@ -35,6 +37,6 @@ The local server's lineup capture extension validates the two new source kinds w
 
 ## Verification
 
-Fifteen focused JavaScript checks cover source/season/roster identity, unique-player assignment, Out/Doubtful/Questionable handling, expiry, fixture mismatch, official precedence, stale cloud captures, preserved source capture times, and timer/visibility cleanup. Integration checks exercise the panel in both actual UI entry points and the selection-evidence download. Seven collector checks cover projection capture, invalid seasons, worker retry/handoff, preservation of both capture files, and independent publication when an official source fails.
+Fifteen focused JavaScript checks cover source/season/roster identity, unique-player assignment, Out/Doubtful/Questionable handling, expiry, fixture mismatch, official precedence, stale cloud captures, preserved source capture times, and timer/visibility cleanup. Integration checks exercise the panel in both actual UI entry points and the selection-evidence download. Eight collector checks cover projection capture, invalid seasons, worker retry/handoff, preservation of both capture files in sparse checkouts, independent publication when an official source fails, and failure reporting.
 
 Live ESPN responses resolved five distinct current-roster players for all six opening-night teams during implementation. The ordinary JavaScript and Python regression checks also passed. Interactive browser verification was unavailable in the implementation session; the preview was queued in the app.

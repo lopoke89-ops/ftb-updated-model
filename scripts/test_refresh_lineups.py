@@ -34,7 +34,8 @@ class LineupBridge(unittest.TestCase):
             return {'games':[]}
         def sleep(seconds):sleeps.append(seconds);elapsed[0]+=seconds
         with patch.object(feed,'capture_projections',return_value={'teams':{},'errors':[]}):
-            feed.run(True,11,1,fetch,published.append,lambda:start+timedelta(seconds=elapsed[0]),lambda:elapsed[0],sleep)
+            failed=feed.run(True,11,1,fetch,published.append,lambda:start+timedelta(seconds=elapsed[0]),lambda:elapsed[0],sleep)
+        self.assertFalse(failed)
         self.assertEqual(sleeps,[300,300]);self.assertEqual(nba_calls[0],3);self.assertEqual(len(published),2)
 
     def test_projection_publish_preserves_the_existing_official_capture(self):
@@ -44,7 +45,9 @@ class LineupBridge(unittest.TestCase):
             if args[0]=='hash-object':output=b'new-projection-blob\n'
             if args[0]=='rev-parse':output=b'old-parent\n'
             if args[0]=='ls-tree':output=b'100644 blob official-blob\tlive-lineups.json\n'
-            if args[0]=='mktree':trees.append(data);output=b'new-tree\n'
+            if args[0]=='mktree':
+                self.assertIn('--missing',args,'partial checkout does not contain the unchanged remote cache blob')
+                trees.append(data);output=b'new-tree\n'
             if args[0]=='commit-tree':output=b'new-commit\n'
             return CompletedProcess(args,0,output,b'')
         with patch.object(feed,'git',side_effect=git):
@@ -61,6 +64,13 @@ class LineupBridge(unittest.TestCase):
         with patch.object(feed,'capture_projections',return_value={'teams':{'BOS':{}},'errors':[]}):
             feed.run(False,1,1,fetch,records.append,lambda:now)
         self.assertEqual(len(records),1);self.assertEqual(set(records[0]),{feed.PROJECTIONS})
+
+    def test_publication_failure_returns_a_failed_run_instead_of_false_success(self):
+        now=datetime(2026,10,18,22,tzinfo=timezone.utc)
+        def fail(records):raise RuntimeError('publication unavailable')
+        with patch.object(feed,'capture_projections',return_value={'teams':{'BOS':{}},'errors':[]}):
+            failed=feed.run(False,1,1,lambda url:{'events':[]},fail,lambda:now)
+        self.assertTrue(failed)
 
     def test_only_pregame_fixtures_within_two_hours_trigger_nba_request(self):
         now=datetime(2026,10,20,22,tzinfo=timezone.utc)
