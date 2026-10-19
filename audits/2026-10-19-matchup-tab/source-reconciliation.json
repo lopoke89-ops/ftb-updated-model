@@ -1,0 +1,358 @@
+{
+  "status": "PASS",
+  "games": 1322,
+  "scopeCases": 102,
+  "checks": {
+    "comparisons": 351756,
+    "playedAppearances": 28716,
+    "scopedSeries": 1224
+  },
+  "roleSources": {
+    "gamebook position": 13220,
+    "dated box-score fallback": 15495,
+    "unknown": 1
+  },
+  "differences": [],
+  "differenceCount": 0,
+  "authorityBoxHash": "84900ba444c3feec7b1b28d0108b56054dbaf408e7db7c84e3f76fdfb601e847",
+  "authorityOpeningHash": "fa88e08ca1046e9672ab87ae5f30d8816fd30d35ae79d3824c740df1b973dc8c",
+  "evidenceHash": "8d2652cc2026af472a61bf645a0e80e231bb19c6d029b6a842742fa49df5cffa",
+  "samples": [
+    {
+      "fixture": "401909088",
+      "direction": "BOS production vs opponents against DET",
+      "series": "production",
+      "team": "BOS",
+      "games": 89,
+      "through": "2026-05-02",
+      "positionPoints": {
+        "G": {
+          "points": 5075,
+          "minutes": 11198.816666666668,
+          "per48": 21.752298233890784,
+          "perGame": 57.02247191011236
+        },
+        "F": {
+          "points": 3468,
+          "minutes": 6491.333333333333,
+          "per48": 25.64403820478587,
+          "perGame": 38.96629213483146
+        },
+        "C": {
+          "points": 1621,
+          "minutes": 3720.1,
+          "per48": 20.91556678583909,
+          "perGame": 18.213483146067414
+        }
+      }
+    },
+    {
+      "fixture": "401909088",
+      "direction": "BOS production vs opponents against DET",
+      "series": "allowance",
+      "team": "DET",
+      "games": 96,
+      "through": "2026-05-17",
+      "positionPoints": {
+        "G": {
+          "points": 5059,
+          "minutes": 10913.366666666667,
+          "per48": 22.250878891634418,
+          "perGame": 52.697916666666664
+        },
+        "F": {
+          "points": 3813,
+          "minutes": 8431.266666666666,
+          "per48": 21.707770283626818,
+          "perGame": 39.71875
+        },
+        "C": {
+          "points": 1562,
+          "minutes": 3845.633333333333,
+          "per48": 19.496398512598706,
+          "perGame": 16.270833333333332
+        }
+      }
+    },
+    {
+      "fixture": "401909088",
+      "direction": "DET production vs opponents against BOS",
+      "series": "production",
+      "team": "DET",
+      "games": 96,
+      "through": "2026-05-17",
+      "positionPoints": {
+        "C": {
+          "points": 2192,
+          "minutes": 3889.9,
+          "per48": 27.048510244479292,
+          "perGame": 22.833333333333332
+        },
+        "F": {
+          "points": 3361,
+          "minutes": 7778.2,
+          "per48": 20.741045486102184,
+          "perGame": 35.010416666666664
+        },
+        "G": {
+          "points": 5573,
+          "minutes": 11522.433333333332,
+          "per48": 23.215929505631046,
+          "perGame": 58.052083333333336
+        }
+      }
+    },
+    {
+      "fixture": "401909088",
+      "direction": "DET production vs opponents against BOS",
+      "series": "allowance",
+      "team": "BOS",
+      "games": 89,
+      "through": "2026-05-02",
+      "positionPoints": {
+        "G": {
+          "points": 4502,
+          "minutes": 9883.583333333334,
+          "per48": 21.864134971290778,
+          "perGame": 50.58426966292135
+        },
+        "C": {
+          "points": 1547,
+          "minutes": 3654.55,
+          "per48": 20.318780698033958,
+          "perGame": 17.382022471910112
+        },
+        "F": {
+          "points": 3464,
+          "minutes": 7872.166666666667,
+          "per48": 21.12150403319713,
+          "perGame": 38.92134831460674
+        }
+      }
+    },
+    {
+      "fixture": "401909089",
+      "direction": "PHI production vs opponents against NYK",
+      "series": "production",
+      "team": "PHI",
+      "games": 94,
+      "through": "2026-05-10",
+      "positionPoints": {
+        "G": {
+          "points": 5358,
+          "minutes": 10368.033333333333,
+          "per48": 24.80547580544044,
+          "perGame": 57.0
+        },
+        "C": {
+          "points": 2034,
+          "minutes": 4214.766666666666,
+          "per48": 23.1642716480944,
+          "perGame": 21.638297872340427
+        },
+        "F": {
+          "points": 3353,
+          "minutes": 8177.4,
+          "per48": 19.68156137647663,
+          "perGame": 35.670212765957444
+        }
+      }
+    },
+    {
+      "fixture": "401909089",
+      "direction": "PHI production vs opponents against NYK",
+      "series": "allowance",
+      "team": "NYK",
+      "games": 102,
+      "through": "2026-06-13",
+      "positionPoints": {
+        "G": {
+          "points": 5238,
+          "minutes": 11302.416666666666,
+          "per48": 22.245154059972425,
+          "perGame": 51.35294117647059
+        },
+        "F": {
+          "points": 4174,
+          "minutes": 9361.916666666666,
+          "per48": 21.40074592987547,
+          "perGame": 40.92156862745098
+        },
+        "C": {
+          "points": 1649,
+          "minutes": 3915.95,
+          "per48": 20.212719774256566,
+          "perGame": 16.166666666666668
+        }
+      }
+    },
+    {
+      "fixture": "401909089",
+      "direction": "NYK production vs opponents against PHI",
+      "series": "production",
+      "team": "NYK",
+      "games": 102,
+      "through": "2026-06-13",
+      "positionPoints": {
+        "G": {
+          "points": 6212,
+          "minutes": 12154.633333333333,
+          "per48": 24.531879475316682,
+          "perGame": 60.90196078431372
+        },
+        "F": {
+          "points": 3568,
+          "minutes": 7857.466666666666,
+          "per48": 21.796338090309007,
+          "perGame": 34.98039215686274
+        },
+        "C": {
+          "points": 2094,
+          "minutes": 4568.216666666666,
+          "per48": 22.00245901938393,
+          "perGame": 20.529411764705884
+        }
+      }
+    },
+    {
+      "fixture": "401909089",
+      "direction": "NYK production vs opponents against PHI",
+      "series": "allowance",
+      "team": "PHI",
+      "games": 94,
+      "through": "2026-05-10",
+      "positionPoints": {
+        "G": {
+          "points": 5215,
+          "minutes": 10742.866666666667,
+          "per48": 23.301043172834067,
+          "perGame": 55.47872340425532
+        },
+        "F": {
+          "points": 3952,
+          "minutes": 8289.783333333333,
+          "per48": 22.88310711779761,
+          "perGame": 42.04255319148936
+        },
+        "C": {
+          "points": 1690,
+          "minutes": 3727.55,
+          "per48": 21.762283537444166,
+          "perGame": 17.97872340425532
+        }
+      }
+    },
+    {
+      "fixture": "401909090",
+      "direction": "OKC production vs opponents against SAS",
+      "series": "production",
+      "team": "OKC",
+      "games": 97,
+      "through": "2026-05-30",
+      "positionPoints": {
+        "G": {
+          "points": 7048,
+          "minutes": 13264.65,
+          "per48": 25.504178398977736,
+          "perGame": 72.65979381443299
+        },
+        "F": {
+          "points": 3055,
+          "minutes": 7305.783333333334,
+          "per48": 20.07176962543373,
+          "perGame": 31.49484536082474
+        },
+        "C": {
+          "points": 1390,
+          "minutes": 2934.95,
+          "per48": 22.732925603502615,
+          "perGame": 14.329896907216495
+        }
+      }
+    },
+    {
+      "fixture": "401909090",
+      "direction": "OKC production vs opponents against SAS",
+      "series": "allowance",
+      "team": "SAS",
+      "games": 106,
+      "through": "2026-06-13",
+      "positionPoints": {
+        "G": {
+          "points": 5774,
+          "minutes": 12350.0,
+          "per48": 22.44145748987854,
+          "perGame": 54.471698113207545
+        },
+        "F": {
+          "points": 4010,
+          "minutes": 8972.366666666667,
+          "per48": 21.452533891095253,
+          "perGame": 37.83018867924528
+        },
+        "C": {
+          "points": 1897,
+          "minutes": 4217.9,
+          "per48": 21.58799402546291,
+          "perGame": 17.89622641509434
+        }
+      }
+    },
+    {
+      "fixture": "401909090",
+      "direction": "SAS production vs opponents against OKC",
+      "series": "production",
+      "team": "SAS",
+      "games": 106,
+      "through": "2026-06-13",
+      "positionPoints": {
+        "G": {
+          "points": 4878,
+          "minutes": 9073.633333333333,
+          "per48": 25.804877869578156,
+          "perGame": 46.0188679245283
+        },
+        "C": {
+          "points": 2529,
+          "minutes": 4392.933333333333,
+          "per48": 27.633471939782073,
+          "perGame": 23.858490566037737
+        },
+        "F": {
+          "points": 5117,
+          "minutes": 12073.666666666666,
+          "per48": 20.34311587200795,
+          "perGame": 48.27358490566038
+        }
+      }
+    },
+    {
+      "fixture": "401909090",
+      "direction": "SAS production vs opponents against OKC",
+      "series": "allowance",
+      "team": "OKC",
+      "games": 97,
+      "through": "2026-05-30",
+      "positionPoints": {
+        "G": {
+          "points": 4810,
+          "minutes": 10513.15,
+          "per48": 21.9610678055578,
+          "perGame": 49.58762886597938
+        },
+        "F": {
+          "points": 4052,
+          "minutes": 9099.766666666666,
+          "per48": 21.373734857670343,
+          "perGame": 41.77319587628866
+        },
+        "C": {
+          "points": 1610,
+          "minutes": 3892.4333333333334,
+          "per48": 19.853904584107628,
+          "perGame": 16.5979381443299
+        }
+      }
+    }
+  ]
+}

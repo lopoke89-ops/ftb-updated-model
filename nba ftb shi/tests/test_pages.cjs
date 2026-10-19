@@ -10,6 +10,7 @@ function render(overrides={},published=true,response={canonical,analysis:archive
   const window={__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:A,FTBLineups:require('../lineups.js'),...(published?{__FTB_HOSTING__:{mode:'github-pages',publishedDate:'2026-10-09'}}:{})};
   const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date,Intl,Number,String,Set,Object,JSON,AbortSignal});
   window.React=context.React;vm.runInContext(fs.readFileSync(path.join(base,'lineup_projections.js'),'utf8'),context);
+  window.FTBMatchup=require('../matchup.js');vm.runInContext(fs.readFileSync(path.join(base,'matchup_ui.js'),'utf8'),context);
   for(const file of ['ev_probability.js','ev_model.js','ev_ui.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(base,'analyst_ui.js'),'utf8'),context);
   const tree=window.FTBAnalystApp(),buttons=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type==='button'&&typeof n.children[0]==='string')buttons.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
@@ -52,6 +53,14 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
     const roster={BOS:[{id:'1',name:'Player',team:'BOS'}],DET:[]},r=render({tab:'ev',data:current,season:'2026-27',mode:'upcoming',date:fixture.date,schedule:[fixture],rosters:roster});
     const found=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type===r.window.FTBEVPanel)found.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
     assert.equal(found.length,1);assert.equal(found[0].props.mode,'upcoming');assert.equal(found[0].props.rosters,roster);assert.equal(found[0].props.archiveData,archive);assert.equal(found[0].props.liveContext.upcoming,true);
+  });
+  await test('Matchup receives raw selected-season evidence and exact fixture filters without a shared team snapshot',()=>{
+    const fixtures=[{id:'1',date:'2026-10-20',away:'BOS',home:'DET'},{id:'2',date:'2026-10-20',away:'OKC',home:'SAS'}];
+    const r=render({tab:'matchup',data:current,season:'2026-27',mode:'upcoming',date:'2026-10-20',schedule:fixtures,gameId:'2',phase:'regular-season',period:'5',historyScope:'head-to-head',basis:'current'});
+    const nodes=[];function walk(n){if(!n||typeof n!=='object')return;nodes.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(r.tree);
+    const p=nodes.find(n=>n.type===r.window.FTBMatchupPanel);assert(p);assert.equal(p.props.data,current);assert.equal(p.props.archiveData,archive);assert.equal(p.props.fixtures.length,1);assert.equal(p.props.fixtures[0].id,'2');
+    assert.deepEqual(JSON.parse(JSON.stringify(p.props.options)),{date:'2026-10-20',mode:'upcoming',phase:'regular-season',window:'5',basis:'current',headToHead:true});
+    for(const label of ['Grading basis','Scoring target'])assert.equal(nodes.find(n=>n.props?.['aria-label']===label).props.disabled,true);
   });
   console.log(JSON.stringify({passed:count}));
 })().catch(error=>{console.error(error);process.exitCode=1;});

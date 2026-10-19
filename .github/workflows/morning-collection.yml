@@ -77,6 +77,8 @@ jobs:
           node "nba ftb shi/tests/test_music.cjs"
           node "nba ftb shi/tests/test_analyst.cjs"
           node "nba ftb shi/tests/test_scouting.cjs"
+          node "nba ftb shi/tests/test_matchup.cjs"
+          node "nba ftb shi/tests/test_matchup_ui.cjs"
           node "nba ftb shi/tests/test_readiness.cjs"
           node "nba ftb shi/tests/test_parlay.cjs"
           node "nba ftb shi/tests/test_live_refresh.cjs"

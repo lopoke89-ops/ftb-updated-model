@@ -1,0 +1,581 @@
+{
+  "checkedAt": "2026-10-19T15:32:44.599Z",
+  "preview": "matchup-final",
+  "checks": [
+    {
+      "filter": "fixture",
+      "value": "401909088",
+      "shown": [
+        {
+          "against": "DET",
+          "production": "BOS",
+          "values": "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "BOS",
+          "production": "DET",
+          "values": "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        }
+      ]
+    },
+    {
+      "filter": "fixture",
+      "value": "401909089",
+      "shown": [
+        {
+          "against": "NYK",
+          "production": "PHI",
+          "values": "Guards24.8122.25Forwards19.6821.40Centers23.1620.21Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "PHI",
+          "production": "NYK",
+          "values": "Guards24.5323.30Forwards21.8022.88Centers22.0021.76Unknown roleUnavailableUnavailable"
+        }
+      ]
+    },
+    {
+      "filter": "fixture",
+      "value": "401909090",
+      "shown": [
+        {
+          "against": "SAS",
+          "production": "OKC",
+          "values": "Guards25.5022.44Forwards20.0721.45Centers22.7321.59Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "OKC",
+          "production": "SAS",
+          "values": "Guards25.8021.96Forwards20.3421.37Centers27.6319.85Unknown roleUnavailableUnavailable"
+        }
+      ]
+    },
+    {
+      "filter": "fixture",
+      "value": "all",
+      "shown": [
+        {
+          "against": "DET",
+          "production": "BOS",
+          "values": "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "BOS",
+          "production": "DET",
+          "values": "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "NYK",
+          "production": "PHI",
+          "values": "Guards24.8122.25Forwards19.6821.40Centers23.1620.21Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "PHI",
+          "production": "NYK",
+          "values": "Guards24.5323.30Forwards21.8022.88Centers22.0021.76Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "SAS",
+          "production": "OKC",
+          "values": "Guards25.5022.44Forwards20.0721.45Centers22.7321.59Unknown roleUnavailableUnavailable"
+        },
+        {
+          "against": "OKC",
+          "production": "SAS",
+          "values": "Guards25.8021.96Forwards20.3421.37Centers27.6319.85Unknown roleUnavailableUnavailable"
+        }
+      ]
+    },
+    {
+      "filter": "metric",
+      "value": "points",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Points by position: BOS production versus opponents against DET; per 48 player-min",
+          "Points by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "blocks",
+      "shown": {
+        "charts": [
+          "Guards0.800.69Forwards0.771.27Centers1.972.25Unknown roleUnavailableUnavailable",
+          "Guards0.840.55Forwards1.460.82Centers2.301.59Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Blocks by position: BOS production versus opponents against DET; per 48 player-min",
+          "Blocks by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "rebounds",
+      "shown": {
+        "charts": [
+          "Guards7.145.83Forwards9.878.73Centers14.5712.88Unknown roleUnavailableUnavailable",
+          "Guards5.976.15Forwards10.618.57Centers14.7713.08Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Rebounds by position: BOS production versus opponents against DET; per 48 player-min",
+          "Rebounds by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "offensiveRebounds",
+      "shown": {
+        "charts": [
+          "Guards1.831.32Forwards1.802.33Centers5.654.64Unknown roleUnavailableUnavailable",
+          "Guards1.241.47Forwards3.202.02Centers5.384.12Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Offensive rebounds by position: BOS production versus opponents against DET; per 48 player-min",
+          "Offensive rebounds by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "defensiveRebounds",
+      "shown": {
+        "charts": [
+          "Guards5.314.51Forwards8.076.40Centers8.928.24Unknown roleUnavailableUnavailable",
+          "Guards4.734.68Forwards7.416.55Centers9.398.96Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Defensive rebounds by position: BOS production versus opponents against DET; per 48 player-min",
+          "Defensive rebounds by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "assists",
+      "shown": {
+        "charts": [
+          "Guards5.585.48Forwards4.723.90Centers3.203.64Unknown roleUnavailableUnavailable",
+          "Guards6.976.36Forwards4.153.58Centers3.063.74Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "Assists by position: BOS production versus opponents against DET; per 48 player-min",
+          "Assists by position: DET production versus opponents against BOS; per 48 player-min"
+        ]
+      }
+    },
+    {
+      "filter": "metric",
+      "value": "firstTeam",
+      "shown": {
+        "charts": [
+          "Guards34.83%36.46%Forwards35.96%40.63%Centers29.21%22.92%Unknown roleUnavailableUnavailable",
+          "Guards30.21%38.20%Forwards33.33%42.70%Centers36.46%19.10%Unknown roleUnavailableUnavailable"
+        ],
+        "labels": [
+          "First Team Basket by position: BOS production versus opponents against DET; %",
+          "First Team Basket by position: DET production versus opponents against BOS; %"
+        ]
+      }
+    },
+    {
+      "filter": "firstTeamDefinition",
+      "value": "including-free-throws",
+      "shown": [
+        "Guards34.83%36.46%Forwards35.96%40.63%Centers29.21%22.92%Unknown roleUnavailableUnavailable",
+        "Guards30.21%38.20%Forwards33.33%42.70%Centers36.46%19.10%Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "firstTeamDefinition",
+      "value": "field-goals",
+      "shown": [
+        "Guards35.96%39.58%Forwards35.96%39.58%Centers28.09%20.83%Unknown roleUnavailableUnavailable",
+        "Guards33.33%35.96%Forwards35.42%43.82%Centers31.25%20.22%Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "normalization",
+      "value": "per48",
+      "shown": [
+        "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+        "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "normalization",
+      "value": "perGame",
+      "shown": [
+        "Guards57.0252.70Forwards38.9739.72Centers18.2116.27Unknown roleUnavailableUnavailable",
+        "Guards58.0550.58Forwards35.0138.92Centers22.8317.38Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "normalization",
+      "value": "share",
+      "shown": [
+        "Guards49.93%48.49%Forwards34.12%36.54%Centers15.95%14.97%Unknown roleUnavailableUnavailable",
+        "Guards50.09%47.32%Forwards30.21%36.41%Centers19.70%16.26%Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "roles",
+      "value": "strict",
+      "shown": [
+        "Point guardsUnavailable0.18%Shooting guardsUnavailableUnavailableSmall forwardsUnavailableUnavailablePower forwardsUnavailableUnavailableCenters15.95%14.97%Unknown role84.05%84.85%",
+        "Point guardsUnavailable0.00%Shooting guardsUnavailableUnavailableSmall forwardsUnavailableUnavailablePower forwardsUnavailableUnavailableCenters19.70%16.26%Unknown role80.30%83.74%"
+      ]
+    },
+    {
+      "filter": "roles",
+      "value": "broad",
+      "shown": [
+        "Guards49.93%48.49%Forwards34.12%36.54%Centers15.95%14.97%Unknown roleUnavailableUnavailable",
+        "Guards50.09%47.32%Forwards30.21%36.41%Centers19.70%16.26%Unknown roleUnavailableUnavailable"
+      ]
+    },
+    {
+      "filter": "competition",
+      "value": "regular-season",
+      "shown": {
+        "charts": [
+          "Guards21.8822.41Forwards25.7321.90Centers21.0419.77Unknown roleUnavailableUnavailable",
+          "Guards23.3521.79Forwards20.7321.52Centers28.9719.92Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 82 team games · through 2026-04-12 · 883 played appearances · 19730.3 player-minutes",
+          "Opponents vs DET · 82 team games · through 2026-04-12 · 877 played appearances · 19805.3 player-minutes",
+          "DET production · 82 team games · through 2026-04-12 · 930 played appearances · 19805.4 player-minutes",
+          "Opponents vs BOS · 82 team games · through 2026-04-12 · 912 played appearances · 19730.3 player-minutes"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "competition",
+      "value": "playoffs",
+      "shown": {
+        "charts": [
+          "Guards20.3221.39Forwards24.5220.41Centers19.6417.87Unknown roleUnavailableUnavailable",
+          "Guards22.4322.75Forwards20.8216.55Centers16.2524.51Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 7 team games · through 2026-05-02 · 83 played appearances · 1680.0 player-minutes",
+          "Opponents vs DET · 14 team games · through 2026-05-17 · 145 played appearances · 3385.0 player-minutes",
+          "DET production · 14 team games · through 2026-05-17 · 156 played appearances · 3385.1 player-minutes",
+          "Opponents vs BOS · 7 team games · through 2026-05-02 · 76 played appearances · 1680.0 player-minutes"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "competition",
+      "value": "regular-and-playoffs",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 89 team games · through 2026-05-02 · 966 played appearances · 21410.3 player-minutes",
+          "Opponents vs DET · 96 team games · through 2026-05-17 · 1022 played appearances · 23190.3 player-minutes",
+          "DET production · 96 team games · through 2026-05-17 · 1086 played appearances · 23190.5 player-minutes",
+          "Opponents vs BOS · 89 team games · through 2026-05-02 · 988 played appearances · 21410.3 player-minutes"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "competition",
+      "value": "play-in",
+      "shown": {
+        "charts": [],
+        "samples": [
+          "BOS production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs DET · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "DET production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs BOS · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes"
+        ],
+        "unavailable": [
+          "Comparison unavailable: BOS has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: DET has no completed games in this scope. Broader history is not substituted."
+        ]
+      }
+    },
+    {
+      "filter": "competition",
+      "value": "nba-cup-final",
+      "shown": {
+        "charts": [],
+        "samples": [
+          "BOS production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs DET · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "DET production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs BOS · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes"
+        ],
+        "unavailable": [
+          "Comparison unavailable: BOS has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: DET has no completed games in this scope. Broader history is not substituted."
+        ]
+      }
+    },
+    {
+      "filter": "competition",
+      "value": "all",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 89 team games · through 2026-05-02 · 966 played appearances · 21410.3 player-minutes",
+          "Opponents vs DET · 96 team games · through 2026-05-17 · 1022 played appearances · 23190.3 player-minutes",
+          "DET production · 96 team games · through 2026-05-17 · 1086 played appearances · 23190.5 player-minutes",
+          "Opponents vs BOS · 89 team games · through 2026-05-02 · 988 played appearances · 21410.3 player-minutes"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "window",
+      "value": "5",
+      "shown": {
+        "charts": [
+          "Guards19.8924.47Forwards24.7916.15Centers18.9623.47Unknown roleUnavailableUnavailable",
+          "Guards21.6721.54Forwards20.5315.30Centers19.2630.20Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 5 team games · through 2026-05-02 · 59 played appearances · 1200.0 player-minutes",
+          "Opponents vs DET · 5 team games · through 2026-05-17 · 58 played appearances · 1225.0 player-minutes",
+          "DET production · 5 team games · through 2026-05-17 · 59 played appearances · 1225.0 player-minutes",
+          "Opponents vs BOS · 5 team games · through 2026-05-02 · 55 played appearances · 1200.0 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "window",
+      "value": "10",
+      "shown": {
+        "charts": [
+          "Guards21.5221.75Forwards23.1018.98Centers22.4819.78Unknown roleUnavailableUnavailable",
+          "Guards23.2523.78Forwards20.9318.33Centers16.2821.25Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 10 team games · through 2026-05-02 · 111 played appearances · 2400.0 player-minutes",
+          "Opponents vs DET · 10 team games · through 2026-05-17 · 104 played appearances · 2425.0 player-minutes",
+          "DET production · 10 team games · through 2026-05-17 · 111 played appearances · 2425.1 player-minutes",
+          "Opponents vs BOS · 10 team games · through 2026-05-02 · 104 played appearances · 2400.0 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "window",
+      "value": "20",
+      "shown": {
+        "charts": [
+          "Guards22.2121.99Forwards23.4920.78Centers22.8818.13Unknown roleUnavailableUnavailable",
+          "Guards22.3023.24Forwards21.5219.85Centers20.9219.68Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 20 team games · through 2026-05-02 · 219 played appearances · 4800.0 player-minutes",
+          "Opponents vs DET · 20 team games · through 2026-05-17 · 215 played appearances · 4825.0 player-minutes",
+          "DET production · 20 team games · through 2026-05-17 · 233 played appearances · 4825.2 player-minutes",
+          "Opponents vs BOS · 20 team games · through 2026-05-02 · 214 played appearances · 4800.0 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "window",
+      "value": "0",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 89 team games · through 2026-05-02 · 966 played appearances · 21410.3 player-minutes",
+          "Opponents vs DET · 96 team games · through 2026-05-17 · 1022 played appearances · 23190.3 player-minutes",
+          "DET production · 96 team games · through 2026-05-17 · 1086 played appearances · 23190.5 player-minutes",
+          "Opponents vs BOS · 89 team games · through 2026-05-02 · 988 played appearances · 21410.3 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "opponentHistory",
+      "value": "head-to-head",
+      "shown": {
+        "charts": [
+          "Guards20.5620.56Forwards27.2627.26Centers11.8911.89Unknown roleUnavailableUnavailable",
+          "Guards24.5524.55Forwards20.0020.00Centers21.2521.25Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 4 team games · through 2026-01-19 · 43 played appearances · 960.0 player-minutes",
+          "Opponents vs DET · 4 team games · through 2026-01-19 · 43 played appearances · 960.0 player-minutes",
+          "DET production · 4 team games · through 2026-01-19 · 42 played appearances · 960.1 player-minutes",
+          "Opponents vs BOS · 4 team games · through 2026-01-19 · 42 played appearances · 960.1 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "opponentHistory",
+      "value": "all-opponents",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "samples": [
+          "BOS production · 89 team games · through 2026-05-02 · 966 played appearances · 21410.3 player-minutes",
+          "Opponents vs DET · 96 team games · through 2026-05-17 · 1022 played appearances · 23190.3 player-minutes",
+          "DET production · 96 team games · through 2026-05-17 · 1086 played appearances · 23190.5 player-minutes",
+          "Opponents vs BOS · 89 team games · through 2026-05-02 · 988 played appearances · 21410.3 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "seasonHistory",
+      "value": "current",
+      "shown": {
+        "charts": [],
+        "scope": [
+          "2026-27 · selected-season history · All competitions · includes Play-in & Cup final · all games in scope · all opponents"
+        ],
+        "unavailable": [
+          "Comparison unavailable: BOS has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: DET has no completed games in this scope. Broader history is not substituted."
+        ]
+      }
+    },
+    {
+      "filter": "seasonHistory",
+      "value": "archive",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "scope": [
+          "2025-26 · prior-season history · historical team rosters · All competitions · includes Play-in & Cup final · all games in scope · all opponents"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "seasonHistory",
+      "value": "auto",
+      "shown": {
+        "charts": [
+          "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+          "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable"
+        ],
+        "scope": [
+          "2025-26 · prior-season history · historical team rosters · All competitions · includes Play-in & Cup final · all games in scope · all opponents"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "filter": "historicalPregame",
+      "value": "2025-10-21",
+      "shown": {
+        "unavailable": [
+          "Comparison unavailable: HOU has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: OKC has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: GSW has no completed games in this scope. Broader history is not substituted.",
+          "Comparison unavailable: LAL has no completed games in this scope. Broader history is not substituted."
+        ]
+      }
+    },
+    {
+      "filter": "historicalPregame",
+      "value": "2025-10-23",
+      "shown": {
+        "fixtures": [
+          "OKC @ IND",
+          "DEN @ GSW"
+        ],
+        "samples": [
+          "OKC production · 1 team games · through 2025-10-21 · 11 played appearances · 290.0 player-minutes",
+          "Opponents vs IND · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "IND production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs OKC · 1 team games · through 2025-10-21 · 9 played appearances · 290.0 player-minutes",
+          "DEN production · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes",
+          "Opponents vs GSW · 1 team games · through 2025-10-21 · 9 played appearances · 240.0 player-minutes",
+          "GSW production · 1 team games · through 2025-10-21 · 11 played appearances · 240.0 player-minutes",
+          "Opponents vs DEN · 0 team games · through unavailable · 0 played appearances · 0.0 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "seasonReview",
+      "value": "2025-10-23",
+      "shown": {
+        "reviewNotice": [
+          "Season review uses the complete verified season, including the selected game when present. Choose Historical pregame research to exclude selected-day and later results.",
+          "Season review uses the complete verified season, including the selected game when present. Choose Historical pregame research to exclude selected-day and later results."
+        ],
+        "samples": [
+          "OKC production · 97 team games · through 2026-05-30 · 1104 played appearances · 23505.4 player-minutes",
+          "Opponents vs IND · 82 team games · through 2026-04-12 · 907 played appearances · 19755.2 player-minutes",
+          "IND production · 82 team games · through 2026-04-12 · 916 played appearances · 19755.1 player-minutes",
+          "Opponents vs OKC · 97 team games · through 2026-05-30 · 1076 played appearances · 23505.3 player-minutes",
+          "DEN production · 88 team games · through 2026-04-30 · 916 played appearances · 21370.2 player-minutes",
+          "Opponents vs GSW · 84 team games · through 2026-04-17 · 891 played appearances · 20285.3 player-minutes",
+          "GSW production · 84 team games · through 2026-04-17 · 944 played appearances · 20285.4 player-minutes",
+          "Opponents vs DEN · 88 team games · through 2026-04-30 · 925 played appearances · 21370.2 player-minutes"
+        ]
+      }
+    },
+    {
+      "filter": "visibleReconciliation",
+      "shown": "BOS production vs opponents against DET\n\nBOS production · 89 team games · through 2026-05-02 · 966 played appearances · 21410.3 player-minutes\n\nOpponents vs DET · 96 team games · through 2026-05-17 · 1022 played appearances · 23190.3 player-minutes\n\nBOS production\nOpponents vs DET\nReference shown in table\nGuards\n21.75\n22.25\nForwards\n25.64\n21.71\nCenters\n20.92\n19.50\nUnknown role\nUnavailable\nUnavailable\n\nPoints per 48 player-min · common scale within this comparison\n\nNo recorded position is above the league reference on both sides of this comparison.\n\nValues, denominators & source games\nPoints · per 48 player-min\nPosition\tBOS production\tOpponents vs DET\tLeague reference\tProduction numerator / denominator\tOpposing numerator / denominator\nGuards\t21.75\t22.25\t23.28\t5075 / 11198.82 player-min × 48 · 494 appearances in 89 games\t5059 / 10913.37 player-min × 48 · 471 appearances in 96 games\nForwards\t25.64\t21.71\t22.74\t3468 / 6491.33 player-min × 48 · 286 appearances in 89 games\t3813 / 8431.27 player-min × 48 · 377 appearances in 96 games\nCenters\t20.92\t19.50\t22.19\t1621 / 3720.10 player-min × 48 · 186 appearances in 89 games\t1562 / 3845.63 player-min × 48 · 174 appearances in 96 games\nUnknown role\tUnavailable\tUnavailable\t0.00\tNo recorded appearances\tNo recorded appearances\nBOS source games · 2025-10-22–2026-05-02\nDET source games · 2025-10-22–2026-05-17"
+    },
+    {
+      "filter": "responsive",
+      "value": "390px",
+      "shown": {
+        "directions": [
+          {
+            "team": "BOS",
+            "values": "Guards21.7522.25Forwards25.6421.71Centers20.9219.50Unknown roleUnavailableUnavailable",
+            "width": 345
+          },
+          {
+            "team": "DET",
+            "values": "Guards23.2221.86Forwards20.7421.12Centers27.0520.32Unknown roleUnavailableUnavailable",
+            "width": 345
+          }
+        ],
+        "methodologyOpen": false,
+        "page": 387,
+        "viewport": 387
+      }
+    },
+    {
+      "filter": "responsive",
+      "value": "desktop",
+      "shown": {
+        "directions": [
+          {
+            "left": 187.5,
+            "team": "BOS",
+            "width": 444
+          },
+          {
+            "left": 645.5,
+            "team": "DET",
+            "width": 444
+          }
+        ],
+        "page": 1277,
+        "viewport": 1277
+      }
+    }
+  ]
+}
