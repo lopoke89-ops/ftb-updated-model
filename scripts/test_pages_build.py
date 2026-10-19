@@ -51,6 +51,8 @@ class Publication(unittest.TestCase):
             history = pages.read(output / 'data/history.json')
             self.assertEqual(len(history['analysis']['games']), 1322)
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['meta']['season'], '2026-27')
+            from parlay_journal import release_hashes
+            self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['parlayCodeHashes'],release_hashes())
             self.assertFalse(any(p.suffix in ('.xlsx', '.py', '.exe', '.gz') for p in output.rglob('*')))
             self.assertFalse((output / 'cache').exists())
             for relative, expected in manifest['files'].items():

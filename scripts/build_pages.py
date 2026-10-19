@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
+ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
           'analyst_data.js', 'analyst_evaluation.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
@@ -219,7 +219,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     published_at = datetime.now(timezone.utc).isoformat()
     hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at,
                'dataVersion':current['meta']['evidenceContentHash'],
-               'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'analyst_ui.js')},
+               'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'lineup_projections.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'analyst_ui.js')},
                'researchProtocolHash':digest(ROOT/'PARLAY_RESEARCH_PROTOCOL.json')}
     current = {**current, 'publication': hosting}
     marker = '<script src="analyst_ui.js"></script>'

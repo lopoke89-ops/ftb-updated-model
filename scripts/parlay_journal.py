@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
 MARKETS = {'first-team-basket', 'points', 'threes'}
 TARGETS = {'first-team-score-including-free-throws', 'first-team-made-field-goal'}
-CODE_FILES = ('parlay.js','scouting_history.js','lineups.js','parlay_transition.js','parlay_research.js','parlay_research_config.js','parlay_ui.js','analyst_ui.js')
+CODE_FILES = ('parlay.js','scouting_history.js','lineups.js','lineup_projections.js','parlay_transition.js','parlay_research.js','parlay_research_config.js','parlay_ui.js','analyst_ui.js')
 
 def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))

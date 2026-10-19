@@ -19,6 +19,7 @@ they are required for a full source rebuild and are not hosted on this site.
 - Historical review and dated pregame research, keeping selected-game and later results out of pregame evidence.
 - Separate 2026–27 history, with prior-season scouting available when the new season has no completed sample.
 - Browser requests for ESPN schedules, current rosters, injury reports and play-by-play. Provider availability is shown in the app. Rosters do not confirm upcoming starters.
+- Sourced advance depth-chart projections and game-day NBA expected/confirmed lineups in a shared, collapsible panel above Picks and Parlay. See [lineup context and refresh policy](LINEUP_CONTEXT.md).
 - **Reload verified history**, using a coherent published JSON snapshot.
 
 The Python game collector, workbook rebuild/import, capture archives and saved research journal run in the local application. Their write controls are disabled on Pages. The website does not have a shared database or collect new completed games automatically. Historical grades describe observed performance; 2026–27 forecast probabilities remain withheld until evaluated for that season.
@@ -40,6 +41,7 @@ node "nba ftb shi/tests/test_browser.cjs"
 node "nba ftb shi/tests/test_analyst.cjs"
 node "nba ftb shi/tests/test_scouting.cjs"
 node "nba ftb shi/tests/test_pages.cjs"
+node "nba ftb shi/tests/test_lineup_projections.cjs"
 python -m unittest discover -s scripts -p 'test_*.py'
 python scripts/build_pages.py
 python -m http.server 8002 --bind 127.0.0.1 --directory _site
