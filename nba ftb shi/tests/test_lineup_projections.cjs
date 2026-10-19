@@ -9,6 +9,16 @@ const parse=(data=chart(),extra={})=>Q.parseDepth(data,{team:'BOS',fixture,roste
 const response=data=>({ok:true,json:async()=>data});
 let passed=0;async function test(name,fn){await fn();passed++;console.log('PASS '+name);}
 (async()=>{
+  await test('all 30 teams are supported and Sacramento resolves a complete projected five',()=>{
+    const teams='ATL BOS BKN CHA CHI CLE DAL DEN DET GSW HOU IND LAC LAL MEM MIA MIL MIN NOP NYK OKC ORL PHI PHX POR SAC SAS TOR UTA WAS'.split(' ');
+    assert.deepEqual(Object.keys(Q.TEAM_IDS).sort(),teams.sort());
+    assert.equal(new Set(Object.values(Q.TEAM_IDS)).size,30);
+    assert.equal(Q.depthUrl('SAC'),'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/23/depthcharts');
+    const source=chart();source.team={id:'23',abbreviation:'SAC'};
+    const game={...fixture,home:'SAC'};
+    const players=Object.values(Q.parseDepth(source,{team:'SAC',fixture:game,roster:roster.map(p=>({...p,team:'SAC'})),capturedAt,now}));
+    assert.equal(players.length,5);assert(players.every(p=>p.team==='SAC'&&Q.validProjection(p,game,now)));
+  });
   await test('advance projection maps five current-roster IDs to the selected fixture',()=>{
     const players=Object.values(parse());assert.equal(players.length,5);assert(players.every(p=>p.status==='projected'&&p.fixtureId==='game'&&p.date===fixture.date&&p.source===Q.depthUrl('BOS')));
     assert.deepEqual(players.map(p=>p.position),Q.POS);assert(players.every(p=>!L.validConfirmation(p,fixture,now)));
