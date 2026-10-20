@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "scripts/audit_full_game_pbp.py",
+      "--database",
+      ".pbp/archive.sqlite",
+      "--library",
+      "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\nba_gamebook_library\\2025-26",
+      "--output",
+      "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\deployment_2026-10-09\\ftb-updated-model\\audits\\2026-10-19-full-game-pbp\\ledger_independent_audit.json"
+    ],
+    "exitCode": 0,
+    "output": "{\"games\":1322,\"events\":689825,\"periodCounts\":{\"6\":9,\"4\":1262,\"5\":51},\"checks\":404680,\"acceptedComponentGames\":{\"fgm\":1322,\"fga\":1322,\"three_pm\":1322,\"three_pa\":1322,\"ftm\":1322,\"fta\":1322,\"pts\":1322,\"ast\":1322,\"stl\":1322,\"blk\":1322,\"tov\":1322,\"oreb\":1322,\"dreb\":1322,\"reb\":1322},\"withheldComponentGames\":{},\"integrity\":\"ok\",\"foreignKeys\":[],\"method\":\"Independent text/result recount from stored credits, compared with the library final-box extracts. Identity mappings and rebound links remain shared evidence, not independently proven defender or possession assignments.\"}\n"
+  },
+  {
+    "command": [
+      "scripts/audit_full_game_openings.py"
+    ],
+    "exitCode": 0,
+    "output": "{'checks': 29084, 'eligibleGames': 1322, 'differences': 0}\n"
+  },
+  {
+    "command": [
+      "scripts/audit_matchup_shooting.py"
+    ],
+    "exitCode": 0,
+    "output": "{\"scopeCases\": 96, \"comparisons\": 133632, \"differences\": 0, \"source\": \"official_boxscores.json, PDF hash-linked immutable extracts; historical raw positions only when PDF role absent\"}\n"
+  },
+  {
+    "command": [
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts"
+    ],
+    "exitCode": 0,
+    "output": "{\"checkedAt\": \"2026-10-19T02:00:00+00:00\", \"fixtures\": 1, \"quotes\": 1, \"issues\": []}\n{\"checkedAt\": \"2026-10-19T02:00:00+00:00\", \"fixtures\": 1, \"quotes\": 1, \"issues\": []}\n{\"projectionTeams\": 1, \"errors\": []}\n{\"error\": \"NBA source unavailable\", \"checkedAt\": \"2026-10-20T22:00:00+00:00\", \"retained\": \"last verified captures\"}\n{\"published\": [\"projected-lineups.json\"], \"commit\": null, \"checkedAt\": \"2026-10-20T22:00:00+00:00\"}\n{\"projectionTeams\": 1, \"errors\": []}\n{\"publishError\": \"publication unavailable\", \"checkedAt\": \"2026-10-18T22:00:00+00:00\", \"retained\": \"last verified captures\"}\n{\"projectionTeams\": 0, \"errors\": []}\n{\"error\": \"temporary source failure\", \"checkedAt\": \"2026-10-20T22:00:00+00:00\", \"retained\": \"last verified captures\"}\n{\"projectionTeams\": 0, \"errors\": []}\n{\"published\": [\"live-lineups.json\"], \"commit\": null, \"checkedAt\": \"2026-10-20T22:05:00+00:00\"}\n{\"projectionTeams\": 0, \"errors\": []}\n{\"published\": [\"live-lineups.json\"], \"commit\": null, \"checkedAt\": \"2026-10-20T22:10:00+00:00\"}\n.............................................................................\n----------------------------------------------------------------------\nRan 77 tests in 39.786s\n\nOK\n"
+  },
+  {
+    "command": [
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "nba ftb shi/tests",
+      "-p",
+      "test_opening_gamebooks.py"
+    ],
+    "exitCode": 0,
+    "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.034s\n\nOK\n"
+  },
+  {
+    "command": [
+      "scripts/build_pages.py",
+      "--output",
+      ".build-tests/pbp-public-candidate"
+    ],
+    "exitCode": 0,
+    "output": "{\n  \"publishedDate\": \"2026-10-19\",\n  \"publishedAt\": \"2026-10-20T02:36:34.783870+00:00\",\n  \"collection\": null,\n  \"archiveThrough\": \"2026-06-13\",\n  \"archiveGames\": 1322,\n  \"firstScores\": 2644,\n  \"firstFreeThrows\": 249,\n  \"phaseCounts\": {\n    \"regular-season\": 1230,\n    \"playoffs\": 85,\n    \"play-in\": 6,\n    \"nba-cup-final\": 1\n  },\n  \"currentSeasonGames\": 0,\n  \"canonicalWorkbookHash\": \"b692daf47ce45a416a9d0cb8225f93047b9a6a553f8eb8fd93f1980ec7974420\",\n  \"modelCodeHash\": \"0802a57953dd0e670937089143813ab3ea2af7fd7c03e29d14a592d2c532c120\",\n  \"openingContentHash\": \"fa88e08ca1046e9672ab87ae5f30d8816fd30d35ae79d3824c740df1b973dc8c\"\n}\nPublished assets: 65\n"
+  }
+]

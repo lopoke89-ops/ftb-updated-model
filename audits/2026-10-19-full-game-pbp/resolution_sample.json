@@ -1,0 +1,53 @@
+[
+  {
+    "game": "401809942",
+    "status": "partial",
+    "issues": [
+      {
+        "kind": "unresolved context participant",
+        "sequence": 66,
+        "page": 9,
+        "role": "fouler",
+        "token": "Yang",
+        "candidates": []
+      }
+    ],
+    "identity": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401809942",
+      "sha256": "e0172654881c33561d495e0ffd2abe9219afebeb2faf1d354de2e2c1835e6f66",
+      "capturedAt": "2026-10-20T02:09:13.385574+00:00",
+      "resolvedRoles": 9,
+      "path": ".pbp\\identity_sources\\401809942.json"
+    }
+  },
+  {
+    "game": "401810298",
+    "status": "verified",
+    "issues": [],
+    "identity": null
+  },
+  {
+    "game": "401809837",
+    "status": "verified",
+    "issues": [],
+    "identity": null
+  },
+  {
+    "game": "401809838",
+    "status": "verified",
+    "issues": [],
+    "identity": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401809838",
+      "sha256": "2362e8daaeffd600c34589c362570d285db5b4fe6d446ca6773adf30b055dae8",
+      "capturedAt": "2026-10-20T02:09:13.263352+00:00",
+      "resolvedRoles": 27,
+      "path": ".pbp\\identity_sources\\401809838.json"
+    }
+  },
+  {
+    "game": "401810872",
+    "status": "verified",
+    "issues": [],
+    "identity": null
+  }
+]

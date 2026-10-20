@@ -1,0 +1,37 @@
+[
+  {
+    "suite": "matchup",
+    "exitCode": 0,
+    "seconds": 7.31,
+    "output": "PASS every fixture owns two correctly keyed comparisons and distinct opponent records\nPASS appearance roles stay broad or unknown without invented five-position assignments\nPASS season totals reconcile all six box-score metrics without losing unknown roles\nPASS per-minute, per-game and share denominators are independently reproducible\nPASS all competition and rolling filters select only each team\u2019s own sample\nPASS head-to-head is the exact unordered pair and correctly identical event comparison\nPASS historical pregame excludes selected day and future values or current roster changes\nPASS automatic descriptive history switches as soon as both teams have eligible evidence\nPASS current-only and empty head-to-head never silently substitute broader samples\nPASS blocks are credited to blocker and assists to passer, not the opposing player\nPASS played zero-minute rows, DNPs, missing minutes and missing counts remain distinct\nPASS unverified counts, duplicate games and duplicate identities fail explicitly\nPASS first-team FT and FG targets change only opening counts, and missing evidence is unavailable\nPASS traded players retain each appearance\u2019s team and role\nPASS invalid scope, date and failed evidence validation do not yield estimates\n{\"passed\":15}\n",
+    "errors": ""
+  },
+  {
+    "suite": "matchup_ui",
+    "exitCode": 0,
+    "seconds": 25.89,
+    "output": "PASS both directions and fixture keys render from actual selected teams\nPASS charts contain only position rows with two bars, not shared evidence or next charts\nPASS every metric has independent labels, rates and correct attribution\nPASS strict mode reveals unknown coverage without relabeling broad positions\nPASS current-only empty samples and absent fixtures produce explicit unavailable states\nPASS rate, role and metric selectors update their own control states\nPASS first-team FT and FG control and global scope are independent from full-game scoring\nPASS methodology is available in a collapsed disclosure without burying charts on phones\n{\"passed\":8}\n",
+    "errors": ""
+  },
+  {
+    "suite": "matchup_shooting",
+    "exitCode": 0,
+    "seconds": 0.08,
+    "output": "PASS pooled shooting, zero attempts, paired missing counts, box independence, pregame cutoff\n",
+    "errors": ""
+  },
+  {
+    "suite": "matchup_event_coverage",
+    "exitCode": 0,
+    "seconds": 0.52,
+    "output": "PASS event manifest binds both selected-season review and prior-season fallback\n",
+    "errors": ""
+  },
+  {
+    "suite": "matchup_roles",
+    "exitCode": 0,
+    "seconds": 1.31,
+    "output": "PASS 13210 historical starter roles; broad totals preserved, invalid role set rejected, source unchanged\n",
+    "errors": ""
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "captureSources": 75,
+  "roleResolutionMethods": {
+    "unique same-game team abbreviation": 745296,
+    "unresolved same-game abbreviation": 18815,
+    "printed technical recipient absent from full same-game player roster; retained as named non-player, no player ID inferred": 159,
+    "same-game period/clock/action/role provider event-ID crosswalk; PDF statistics unchanged": 1196,
+    "explicit printed team technical subtype; no individual player credit": 54,
+    "unique same-game full roster technical recipient, including nonparticipants": 5,
+    "unique possible credited actor in official period box": 857
+  },
+  "sourceFormatInterpretations": {
+    "teamHeavesNoPlayerFGA": 1153,
+    "printedTeamReboundColumnCorrections": 5,
+    "precreditedTechnicalSnapshots": 10
+  },
+  "differences": []
+}

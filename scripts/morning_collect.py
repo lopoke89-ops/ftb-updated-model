@@ -15,6 +15,8 @@ from zoneinfo import ZoneInfo
 
 from archive_store import ROOT, ReleaseArchive, read, save, overlay
 import official_gamebooks as boxes
+import pbp_collect
+import pbp_identity
 
 SOURCE = ROOT / 'nba ftb shi'
 SPEC = importlib.util.spec_from_file_location('nba_opening_parser', SOURCE / 'build_opening_gamebook_data.py')
@@ -173,6 +175,13 @@ def ingest(f, state, fetcher, store, force=False):
     if record.get('sha256'):
         record['archiveUrl'] = store.content_file(library / record['pdf_path'], state / '_runtime/uploads', SEASON, f['date'])
     record['identitySource'] = {'url':summary_url,'sha256':digest(summary,True),'capturedAt':stamp()}
+    identity_path=library/'identity_sources'/(f['id']+'.json')
+    save(identity_path,summary)
+    identity_meta={'url':summary_url,'sha256':hashlib.sha256(identity_path.read_bytes()).hexdigest(),'capturedAt':record['identitySource']['capturedAt'],'purpose':'identity crosswalk only; NBA PDF remains statistics authority'}
+    save(identity_path.with_suffix('.source.json'),identity_meta)
+    try: identity_meta['archiveUrl']=store.content_file(identity_path,state/'_runtime/uploads',SEASON,f['date'])
+    except Exception as exc: identity_meta['archiveError']=str(exc)
+    record['pbpIdentitySource']=identity_meta
     save(library / 'records' / (f['id'] + '.json'), record)
     if record['verification_status'] != 'verified':
         raise ValueError(record.get('error') or json.dumps(record.get('issues')))
@@ -233,7 +242,7 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
     work = {d:b for d,b in status['batches'].items() if not b.get('complete')}
     if not requested or not requested.get('complete') or force:
         work[target_day] = requested or {}
-    if not work:
+    if not work and not games:
         return {'publish_needed':status.get('publishedKey')!=status.get('readyKey'),
                 'pending':0,'skipped':True,'target_day':target_day}
     errors = []
@@ -272,6 +281,9 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
                 errors.append({'date':workday,'fixtureId':f['id'],'error':str(exc)})
         status['batches'][workday] = {'fixtures':list(fixtures.values()),'pending':pending,
                                      'scheduleVerified':schedule_ok,'complete':schedule_ok and not pending,'checkedAt':stamp()}
+    pbp_manifest,pbp_changed = pbp_collect.update(state,list(games.values()),digest(sorted(games.values(),key=lambda g:(g['date'],g['id'])),True),force=force)
+    if not work and not pbp_changed:
+        return {'publish_needed':status.get('publishedKey')!=status.get('readyKey'),'pending':0,'skipped':True,'target_day':target_day}
     pending = [p for batch in status['batches'].values() for p in batch.get('pending',[])]
     records = [read(state/'library/records'/(gid+'.json')) for gid in games]
     if digest(list(games.values()),True) != before and records:
@@ -291,8 +303,14 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
                   'pending':pending,'unresolvedScheduleDates':[d for d,b in status['batches'].items() if not b.get('scheduleVerified')],
                   'databaseUrl':status.get('databaseUrl'), 'databaseChecks':status.get('databaseChecks'),
                   'archive':'Original PDFs retained as hash-named GitHub release assets', 'lastAttempt':stamp()}}
+    try:
+        health['playByPlayArchive']=pbp_collect.archive(state,store,SEASON,target_day)
+    except Exception as exc:
+        health['playByPlayArchiveError']=str(exc)
     payload, manifest = payload_for(list(games.values()),health)
     folder = state/'seasons'/SEASON
+    save(folder/'play_by_play/versions'/(pbp_manifest['contentHash']+'.json'),pbp_manifest)
+    manifest['playByPlay']={'contentHash':pbp_manifest['contentHash'],'statusCounts':pbp_manifest['statusCounts']}
     save(folder/'versions'/manifest['activeVersion'],payload)
     save(folder/'manifest.json',manifest)
     status['readyKey'] = digest({'version':manifest['activeVersion'],'health':health},True)

@@ -58,6 +58,10 @@ def new_source(folder):
 
 
 class MorningCollection(unittest.TestCase):
+    def setUp(self):
+        patcher=patch("pbp_collect.urlopen",side_effect=OSError("Offline collector fixture; PDF unavailable"))
+        patcher.start();self.addCleanup(patcher.stop)
+
     def test_postgame_roles_require_same_game_five_pdf_starters_and_never_confirm_pregame(self):
         game = copy.deepcopy(GAME)
         for team, box in game['teams'].items():

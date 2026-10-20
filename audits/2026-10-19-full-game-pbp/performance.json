@@ -1,0 +1,11 @@
+{
+  "parserVersion": "full-game-pbp-v10",
+  "archiveGames": 1322,
+  "events": 689825,
+  "fullCachedPageBackfillSeconds": 86.78,
+  "unchangedSummarySeconds": 17.53,
+  "manifestBytes": 4951501,
+  "databaseBytes": 11896500224,
+  "compressedBytes": 1758845107,
+  "note": "Local timings; immutable source PDFs and all development revisions are retained. Raw SQLite is not loaded by the browser."
+}

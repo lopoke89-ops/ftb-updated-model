@@ -1,0 +1,10 @@
+{
+  "file": "full-game-pbp-2025-26.sqlite.gz",
+  "databaseHash": "272ce5be0347403ebc78bade3f7e340f2569e42bb75d837ba83abbb706063c74",
+  "archiveHash": "ed6f3de873fcf54573ff4fcc3cc421a46c4dd2421586d0089b9b47ce6422c827",
+  "databaseBytes": 11896500224,
+  "compressedBytes": 1758845107,
+  "gzipRoundTripHashVerified": true,
+  "includes": "All immutable PDFs, captured identity evidence, current ledger and retained development revisions",
+  "url": "https://github.com/lopoke89-ops/ftb-updated-model/releases/download/full-game-pbp-2025-26-v10/full-game-pbp-2025-26.sqlite.gz"
+}

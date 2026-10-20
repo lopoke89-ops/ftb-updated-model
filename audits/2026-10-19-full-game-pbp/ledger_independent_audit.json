@@ -1,0 +1,63 @@
+{
+  "games": 1322,
+  "events": 689825,
+  "periodCounts": {
+    "6": 9,
+    "4": 1262,
+    "5": 51
+  },
+  "checks": 404680,
+  "differences": [],
+  "acceptedComponentGames": {
+    "fgm": 1322,
+    "fga": 1322,
+    "three_pm": 1322,
+    "three_pa": 1322,
+    "ftm": 1322,
+    "fta": 1322,
+    "pts": 1322,
+    "ast": 1322,
+    "stl": 1322,
+    "blk": 1322,
+    "tov": 1322,
+    "oreb": 1322,
+    "dreb": 1322,
+    "reb": 1322
+  },
+  "withheldComponentGames": {},
+  "sameSampleBoxTotals": {
+    "fgm": 110338,
+    "fga": 234876,
+    "three_pm": 34938,
+    "three_pa": 97353,
+    "ftm": 48714,
+    "fta": 62296,
+    "pts": 304328,
+    "ast": 70096,
+    "stl": 22192,
+    "blk": 12858,
+    "tov": 36416,
+    "oreb": 30054,
+    "dreb": 85444,
+    "reb": 115498
+  },
+  "sameSampleEventTotals": {
+    "fgm": 110338,
+    "fga": 234876,
+    "three_pm": 34938,
+    "three_pa": 97353,
+    "ftm": 48714,
+    "fta": 62296,
+    "pts": 304328,
+    "ast": 70096,
+    "stl": 22192,
+    "blk": 12858,
+    "tov": 36416,
+    "oreb": 30054,
+    "dreb": 85444,
+    "reb": 115498
+  },
+  "integrity": "ok",
+  "foreignKeys": [],
+  "method": "Independent text/result recount from stored credits, compared with the library final-box extracts. Identity mappings and rebound links remain shared evidence, not independently proven defender or possession assignments."
+}

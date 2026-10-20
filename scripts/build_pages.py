@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'matchup.js', 'matchup_ui.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
+ASSETS = ('play_by_play_manifest.js', 'analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'matchup.js', 'matchup_ui.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
           'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_service.js', 'ev_archive.js', 'ev_grading.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
@@ -24,6 +24,24 @@ def read(path):
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def validate_play_by_play(manifest,analysis):
+    require(manifest['schemaVersion']==1,'Unsupported PBP schema')
+    require(manifest['parserHash']==digest(ROOT/'scripts/full_game_pbp.py'),'PBP parser/hash mismatch; rebuild summaries')
+    require(manifest.get('identityResolverHash')==digest(ROOT/'scripts/pbp_identity.py'),'PBP identity resolver/hash mismatch; rebuild summaries')
+    body={k:v for k,v in manifest.items() if k not in ('contentHash','attempts','lastRestoreError')}
+    require(hashlib.sha256(json.dumps(body,sort_keys=True,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()).hexdigest()==manifest['contentHash'],'PBP summary content hash mismatch')
+    require(manifest['parentEvidenceContentHash']==analysis['meta']['evidenceContentHash'],'PBP parent mismatch')
+    require(manifest['expected']==len(analysis['games']) and set(manifest['games'])=={g['id'] for g in analysis['games']},'PBP expected-game accounting mismatch')
+    for g in analysis['games']:
+        r=manifest['games'][g['id']]
+        require(r['status'] in ('verified','partial','quarantined','pending'),'Invalid PBP status')
+        if r.get('sourceHash'):
+            expected=g.get('sourceHash') or next(p['statsSourceHash'] for b in g['teams'].values() for p in b['players'] if p['played'])
+            require(r['sourceHash']==expected,'PBP PDF/box source mismatch')
+        require(all(isinstance(v,bool) for v in r['components'].values()),'Invalid component acceptance')
+        if r['status']=='verified': require(bool(r['components']) and all(r['components'].values()) and r['discrepancies']==0,'Unverified game labeled verified')
 
 
 def version_asset_references(html, folder):
@@ -231,6 +249,19 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
         target = output / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / relative, target)
+    pbp_manifest=read(source/'play_by_play_manifest.json')
+    validate_play_by_play(pbp_manifest,history['analysis'])
+    require(javascript_payload(source/'play_by_play_manifest.js','__FTB_PLAY_BY_PLAY__')==pbp_manifest,'PBP browser manifest mismatch')
+    current_manifest=read(source/'seasons/2026-27/manifest.json')
+    pbp_pointer=current_manifest.get('playByPlay',{}).get('contentHash')
+    if pbp_pointer:
+        require(bool(re.fullmatch('[a-f0-9]{64}',pbp_pointer)),'Invalid PBP manifest pointer')
+        current_pbp=read(source/'seasons/2026-27/play_by_play/versions'/(pbp_pointer+'.json'))
+        if current_pbp.get('parserHash')==digest(ROOT/'scripts/full_game_pbp.py') and current_pbp.get('identityResolverHash')==digest(ROOT/'scripts/pbp_identity.py') and current_pbp.get('parentEvidenceContentHash')==current['meta']['evidenceContentHash']:
+            validate_play_by_play(current_pbp,current)
+            current={**current,'playByPlay':current_pbp}
+        else:
+            current={**current,'playByPlayUnavailable':'Event summary rebuild pending for this parser/box revision; verified boxes remain available'}
     published_at = datetime.now(timezone.utc).isoformat()
     hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at,
                'dataVersion':current['meta']['evidenceContentHash'],

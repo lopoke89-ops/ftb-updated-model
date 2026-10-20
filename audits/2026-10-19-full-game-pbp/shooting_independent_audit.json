@@ -1,0 +1,6 @@
+{
+  "scopeCases": 96,
+  "comparisons": 133632,
+  "differences": [],
+  "source": "official_boxscores.json, PDF hash-linked immutable extracts; historical raw positions only when PDF role absent"
+}

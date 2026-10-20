@@ -1,0 +1,28 @@
+{
+  "BOSGuardThrees": {
+    "threeMade": 817,
+    "threeAttempted": 2264,
+    "minutesSeconds": 671929
+  },
+  "BOSGuard3PPercent": 36.08657243816254,
+  "BOSGuard3PMper48": 3.5017985531209397,
+  "OpposingGuardThreesAgainstDET": {
+    "threeMade": 643,
+    "threeAttempted": 1959,
+    "minutesSeconds": 654802
+  },
+  "PHILastFiveAssistsByRecordedRole": {
+    "G": 64,
+    "C": 19,
+    "F": 24
+  },
+  "PHIGameIds": [
+    "401869412",
+    "401871159",
+    "401871160",
+    "401871161",
+    "401871162"
+  ],
+  "differences": 0,
+  "method": "Independent sums of official_boxscores, with NBA final-box roles and historical appearance fallback; compared to actual browser cells and event-context text."
+}

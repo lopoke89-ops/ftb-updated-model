@@ -1,0 +1,52 @@
+[
+  {
+    "file": "analyst.js",
+    "sha256": "0802a57953dd0e670937089143813ab3ea2af7fd7c03e29d14a592d2c532c120",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "analyst_data.json",
+    "sha256": "e0893aebd1793953267d69ddf94b6bfd25df1511e50fa52da4c9b85396744c0a",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "parlay.js",
+    "sha256": "6c11a604064a31eb276d3afe9fccbe247b492f9eca5ff4b9cc504ec97315d9a6",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "parlay_data.json",
+    "sha256": "3aa1ae600224014323cb66d846f15359c209342ac59efffc24dcf536211b856f",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "parlay_research_config.json",
+    "sha256": "9fca985501aa760a08f552beeb48471c6ff34a38d787060c0f542b8871cf668c",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "ev_probability.js",
+    "sha256": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "ev_model.js",
+    "sha256": "b51875ff0c19f8459e8a3a00fb79590a6bf34950962823ec005daa2d2e3884d0",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "ev_first_team_model.js",
+    "sha256": "6e7ce5e9aea62a665fde5fb8dc779d2fd21a3413176426b822510dc1262ea53c",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "ev_service.js",
+    "sha256": "098486ddae573636b37a763357c12ef6935ec1b112e2e9c385bf85e9cf64fb15",
+    "unchangedFromHead": true
+  },
+  {
+    "file": "opening_data.json",
+    "sha256": "fc93e68c8f5657b6123d00f5e631d24f330950aa18321ba16a07087d38210639",
+    "unchangedFromHead": true
+  }
+]

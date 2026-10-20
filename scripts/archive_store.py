@@ -72,7 +72,7 @@ def overlay(state, source):
 
 def persist(state):
     state = Path(state).resolve()
-    (state / '.gitignore').write_text('library/pdf/\nlibrary/text/opening_quarter/\nlibrary/gamebooks.sqlite\n_runtime/\n*.stage\n', encoding='utf-8')
+    (state / '.gitignore').write_text('library/pdf/\nlibrary/text/opening_quarter/\nlibrary/gamebooks.sqlite\nlibrary/play_by_play.sqlite\nlibrary/identity_sources/\n_runtime/\n*.stage\n', encoding='utf-8')
     scratch = ROOT / '.build-tests'
     scratch.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=scratch) as temporary:
@@ -129,7 +129,8 @@ class ReleaseArchive:
 
     def content_file(self, path, runtime, season, day):
         path = Path(path)
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        with path.open('rb') as source:
+            digest = hashlib.file_digest(source, 'sha256').hexdigest()
         name = path.stem + '-' + digest + path.suffix
         target = Path(runtime) / name
         target.parent.mkdir(parents=True, exist_ok=True)

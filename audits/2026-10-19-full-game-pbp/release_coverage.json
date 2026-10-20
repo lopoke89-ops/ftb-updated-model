@@ -1,0 +1,32 @@
+{
+  "parserVersion": "full-game-pbp-v10",
+  "contentHash": "350990ed9dacd893bac9b21402bc2e98b312a4193455bce8c15c69a2a11a5924",
+  "statusCounts": {
+    "verified": 1322
+  },
+  "components": {
+    "ast": 1322,
+    "blk": 1322,
+    "dreb": 1322,
+    "fga": 1322,
+    "fgm": 1322,
+    "fta": 1322,
+    "ftm": 1322,
+    "oreb": 1322,
+    "pts": 1322,
+    "reb": 1322,
+    "stl": 1322,
+    "three_pa": 1322,
+    "three_pm": 1322,
+    "tov": 1322
+  },
+  "events": 689825,
+  "requiredDiscrepancies": 0,
+  "requiredUnresolvedContext": 0,
+  "sourcePDFs": 1322,
+  "sourcePDFBytes": 159045415,
+  "identityCaptures": 75,
+  "parserHash": "0b67a569b517bc6d5806b4ae9a65f562f0b3c50eff9ec6d39dc9346528045ea8",
+  "identityResolverHash": "981ffa22d9ba37a4e933023a0ecce117e3900ab84a58e3c010b3e74f77e60078",
+  "retainedRevisions": 13220
+}

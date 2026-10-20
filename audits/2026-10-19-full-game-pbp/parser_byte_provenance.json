@@ -1,0 +1,9 @@
+{
+  "method": "Restore newline bytes only when SHA-256 proves an exact match to the retained original parser hash; current release source uses canonical LF.",
+  "repairedHistoricalParsers": [
+    "8b7d7881f205bd36fd131dec25423e96e76c689140b948e2aab2384e0eaa2cf8",
+    "c6e12005dfbf1c8121211480c09d986376c3ae493aa04df98b6dde565f867f9e",
+    "39f4f29b50f6b46d88819ebc0cc95d56d8be4d40ecc2c767c32066ec06258314",
+    "278822fde2ad7b32496654c3fa20fd349a52a95a9b796b997ae7896a3a2c35d6"
+  ]
+}

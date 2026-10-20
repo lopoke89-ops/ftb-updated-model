@@ -1,0 +1,19 @@
+{
+  "unchangedHashMatches": true,
+  "forcedRetryNoDuplicates": true,
+  "activePointersUnchanged": true,
+  "before": {
+    "sources": 1322,
+    "revisions": 13220,
+    "events": 6902740,
+    "active": 1322
+  },
+  "after": {
+    "sources": 1322,
+    "revisions": 13220,
+    "events": 6902740,
+    "active": 1322
+  },
+  "unchangedRun": "{\"databaseBytes\":11896500224,\"discrepancies\":0,\"integrity\":\"ok\",\"manifestBytes\":4951501,\"runtimeSeconds\":17.53,\"statusCounts\":{\"verified\":1322}}\n",
+  "forcedTraceRun": "{\"elapsedSeconds\":1.12,\"game\":\"401809234\",\"processed\":1,\"scheduled\":1,\"status\":\"verified\"}\n{\"databaseBytes\":11896500224,\"discrepancies\":0,\"integrity\":\"ok\",\"manifestBytes\":4388,\"runtimeSeconds\":18.05,\"statusCounts\":{\"verified\":1}}\n"
+}
