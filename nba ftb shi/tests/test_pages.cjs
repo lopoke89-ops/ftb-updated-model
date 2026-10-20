@@ -69,6 +69,13 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
     for(const [key,value] of Object.entries({season:'2026-27',mode:'upcoming',date:'2026-10-19',gameId:'all',phase:'all',period:'0',basis:'auto',historyScope:'all-opponents',expanded:null,error:null}))assert.equal(r.changes[key],value,key);
     assert.equal(Object.keys(r.changes.scenario).length,0);assert(!('tab' in r.changes));
   });
+  await test('season-only switches reload fixtures and Today refreshes an already-current slate',async()=>{
+    const response={events:[{id:'opening',date:'2026-10-20T19:00Z',season:{year:2027,type:2},status:{type:{state:'pre',shortDetail:'3:00 PM EDT'}},competitions:[{competitors:[{homeAway:'home',team:{abbreviation:'DET'}},{homeAway:'away',team:{abbreviation:'BOS'}}]}]}]};
+    class Clock extends Date{constructor(...args){super(...(args.length?args:['2026-10-20T06:00:00Z']));}static now(){return Date.parse('2026-10-20T06:00:00Z');}}
+    const r=render({season:'2026-27',mode:'upcoming',date:'2026-10-20'},true,response,Clock),scheduleEffect=r.effects.find(e=>e.deps?.includes('upcoming')&&e.deps.includes('2026-27'));
+    assert(scheduleEffect,'A season-only switch must refresh the cleared schedule');scheduleEffect.fn();await new Promise(setImmediate);assert.equal(r.changes.schedule[0].id,'opening');assert.equal(r.changes.schedule[0].season,'2026-27');
+    const requests=r.requests.length;r.button('Today · Upcoming').props.onClick();await new Promise(setImmediate);assert.equal(r.requests.length,requests+1);assert.equal(r.changes.schedule.length,1);assert.equal(r.changes.schedule[0].home,'DET');
+  });
   await test('scheduled labels use Central daylight and standard time without rewriting game status',()=>{
     const format=render().window.FTBAnalystUI.scheduleLabel;
     assert.match(format({status:'pre',statusText:'3:00 PM EDT',scheduledTipoff:'2026-10-20T19:00Z'}),/2:00 PM CT/);

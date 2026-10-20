@@ -81,7 +81,9 @@
       try{const r=await fetch(serviceUrl('/api/seasons/2026-27'),{cache:'no-store'});if(!r.ok)throw Error('Season history unavailable');const d=await r.json();H.validateCollectedSeason(d);if(token!==seasonSeq.current)return;setData(d);setSeasonHealth({...d.health,publication:d.publication||null});if(d.health?.lastFailedAttempt)setError('The last collection attempt failed; verified history retained. Inspect selected-season health.');updateSource('season history',{status:'verified in progress',lastSuccess:new Date().toISOString(),error:null});}catch(e){if(token===seasonSeq.current){setError(e.message);updateSource('season history',{status:'unavailable',error:e.message});}}}
     useEffect(()=>{loadSeason();},[season]);
     function showToday(){
-      setSeason('2026-27');setMode('upcoming');setDate(today());setGameId('all');setPhase('all');setPeriod('0');setHistoryBasis('auto');setHistoryScope('all-opponents');setScenario({});setExpanded(null);setError(null);
+      const day=today(),alreadyToday=season==='2026-27'&&mode==='upcoming'&&selectedDate===day;
+      setSeason('2026-27');setMode('upcoming');setDate(day);setGameId('all');setPhase('all');setPeriod('0');setHistoryBasis('auto');setHistoryScope('all-opponents');setScenario({});setExpanded(null);setError(null);
+      if(alreadyToday)loadSchedule(true);
     }
     async function collectSelectedDay(){if(publishedSite){setError('Morning NBA PDF collection runs automatically in the cloud; use the collection workflow for manual retries.');return;}setBusy(true);setError(null);try{const r=await fetch('/api/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({season,date:selectedDate})});const j=await r.json();if(!r.ok)throw Error(j.error);await loadSeason();}catch(e){setError(e.message);}finally{setBusy(false);}}
     async function updateJournal(settle=false){if(publishedSite){setJournalStatus(null);return;}try{if(settle){const r=await fetch('/api/settle',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(!r.ok)throw Error('Outcome update unavailable');}const r=await fetch('/api/journal-status',{cache:'no-store'});if(!r.ok)throw Error('Journal service unavailable');setJournalStatus(await r.json());}catch(e){setJournalMessage(e.message);}}
@@ -96,7 +98,7 @@
         if(token!==scheduleSeq.current)return;setSchedule(games);updateSource('schedule',{status:'fresh',lastSuccess:new Date().toISOString(),error:null});archive('schedule',url,json);return true;
       }catch(e){if(token===scheduleSeq.current)updateSource('schedule',{status:'unavailable',error:e.message});return false;}
     }
-    useEffect(()=>{loadSchedule();},[selectedDate,mode]);
+    useEffect(()=>{loadSchedule();},[selectedDate,mode,season]);
     useEffect(()=>{if(mode!=='upcoming')loadSchedule();},[data]);
     async function loadRosters(){const token=++rosterSeq.current;if(mode!=='upcoming'){setRosters({});return;}updateSource('rosters',{status:'loading'});
       const teams=[...new Set(schedule.flatMap(g=>[g.home,g.away]))];const teamIds={ATL:1,BOS:2,BKN:17,CHA:30,CHI:4,CLE:5,DAL:6,DEN:7,DET:8,GSW:9,HOU:10,IND:11,LAC:12,LAL:13,MEM:29,MIA:14,MIL:15,MIN:16,NOP:3,NYK:18,OKC:25,ORL:19,PHI:20,PHX:21,POR:22,SAC:23,SAS:24,TOR:28,UTA:26,WAS:27};

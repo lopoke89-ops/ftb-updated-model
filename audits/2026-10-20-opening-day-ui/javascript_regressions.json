@@ -1,9 +1,9 @@
 [
   {
     "suite": "test_pages.cjs",
-    "passed": 14,
+    "passed": 15,
     "exitCode": 0,
-    "verification": "Focused run completed before candidate build"
+    "verification": "15 checks passed after adding season-only schedule reload and already-Today refresh coverage."
   },
   {
     "suite": "test_ev_ui.cjs",
