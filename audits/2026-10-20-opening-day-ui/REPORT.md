@@ -2,7 +2,7 @@
 
 Base release: 4d9c3bd. This change implements three presentation improvements without changing selection or probability engines.
 
-- Upcoming Parlay cards say “Research eligible” or “Provisional research” and immediately show prior/current-season evidence and whether the player has NBA starter confirmation. Existing eligibility reasons and detailed lineup sources remain visible.
+- Upcoming Parlay cards say “Research eligible” or “Provisional research” and immediately show prior/current-season evidence and whether the player has NBA starter confirmation. The label follows the fixture season even when the older season was selected explicitly rather than loaded as automatic fallback. Existing eligibility reasons and detailed lineup sources remain visible.
 - Empty EV views distinguish refreshing prices, expired prices awaiting a capture, source failure, unavailable market captures, display filters, and unsupported evidence. The original five-minute expiry, immutable capture timestamps, commit-addressed feed loading, and bounded 30-second catch-up remain unchanged.
 - A Today · Upcoming button remains outside the collapsible filters. It uses the America/Chicago calendar date, selects the latest supported season, all matchups, automatic history, all competitions/opponents and the full sample, and clears temporary exclusions/expanded cards. It preserves the selected tab and scoring definition. Scheduled matchup labels use America/Chicago conversion and CT labels; live/final/postponed/canceled/delayed/TBD states retain their meaning.
 

@@ -15,7 +15,7 @@
     "suite": "test_parlay.cjs",
     "passed": 44,
     "exitCode": 0,
-    "verification": "Focused run completed before candidate build"
+    "verification": "44 checks passed again after adding explicit prior-season selection coverage."
   },
   {
     "suite": "test_analyst.cjs",
