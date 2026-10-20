@@ -1,5 +1,7 @@
 library/pdf/
 library/text/opening_quarter/
 library/gamebooks.sqlite
+library/play_by_play.sqlite
+library/identity_sources/
 _runtime/
 *.stage
