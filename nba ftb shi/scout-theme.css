@@ -53,6 +53,7 @@ small{color:#94a3b8}
 .filter-panel[open]>summary{border-bottom:1px solid #161f35;margin-bottom:9px}
 .filter-panel .analysis-controls{padding:0 10px 8px;margin-bottom:7px}
 .filter-panel .matchup-chips{padding:0 10px 3px}
+.date-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-bottom:7px}.today-shortcut{padding:7px 11px;border:1px solid #334566;border-radius:7px;background:#111c30;color:#cbd5e1;font-size:12px;white-space:nowrap;min-height:34px}.today-shortcut:hover{background:#1e2d4a}.research-readiness .research-context{display:block;color:#fbbf24;font-weight:600;margin-top:2px}.research-readiness small{display:block;color:#94a3b8}
 .date-caption{font-size:12px;font-weight:700;letter-spacing:1.5px;color:#64748b;text-transform:uppercase;margin:5px 0 7px}
 .matchup-chips{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 7px}
 .matchup-chips button,.sort-chips button{padding:3px 10px;border-radius:18px;border-color:#161f35;font-size:13px;color:#94a3b8;white-space:nowrap}

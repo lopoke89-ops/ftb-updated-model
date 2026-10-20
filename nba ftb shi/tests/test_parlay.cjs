@@ -115,6 +115,15 @@ test('Parlay UI renders six slots and separate season comparison tables',()=>{
   const positions=nodes.find(n=>n.props?.['aria-label']==='Position comparison');assert.equal(positions.props.value,'auto');assert.equal(positions.children.length,3);
   assert(nodes.some(n=>n.type==='strong'&&n.children[0]==='G/F/C comparison'));
 });
+test('upcoming research cards qualify historical evidence and unconfirmed lineups without changing selection rules',()=>{
+  const w={FTBParlay:P,FTBParlayTransition:require('../parlay_transition.js'),__FTB_PARLAY_DATA__:extra};
+  const context=vm.createContext({window:w,React:{createElement:(type,props,...children)=>({type,props,children}),useState:value=>[value,()=>{}],useMemo:fn=>fn(),useEffect:()=>{},useRef:()=>({current:null})}});
+  vm.runInContext(fs.readFileSync(path.join(base,'parlay_ui.js'),'utf8'),context);
+  const current={meta:{season:'2026-27',asOfDate:null},games:[]},fixture={id:'future',home:'SAS',away:'NYK',date:'2026-10-20',scheduledTipoff:'2026-10-21T01:30Z',status:'pre',phase:'regular-season'},tree=w.FTBParlayPanel({A,H,data:current,supplement:{games:{}},archiveData:data,archiveSupplement:extra,options:{mode:'upcoming',date:fixture.date,positionReferences:refs},phase:'all',period:0,teams:['SAS','NYK'],fixtures:[fixture],rosters:regular.snapshot.rosters,acrossStints:false,excludedIds:[],trusted:true,liveContext:{upcoming:true,date:fixture.date,today:fixture.date,now:Date.parse('2026-10-20T15:00Z'),fresh:true,injuries:{}}});
+  const cards=[];function visit(n){if(!n||typeof n!=='object')return;if(n.props?.className==='analyst-notice research-readiness')cards.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(visit):visit(c);}visit(tree);
+  assert(cards.length>0);const text=JSON.stringify(cards);assert.match(text,/Prior-season evidence · lineup unconfirmed/);assert.match(text,/Research eligible/);assert.match(text,/Provisional research/);assert(!text.includes('NBA-confirmed starter'));assert(!text.includes('Eligible selection'));
+});
+
 test('upcoming first basket remains provisional without confirmed starters',()=>{
   const slots=rank(regular,'SAS','NYK',{upcoming:true,eligibility:{}});
   assert(slots[0].pick.provisional);assert(!slots[0].pick.finalized);

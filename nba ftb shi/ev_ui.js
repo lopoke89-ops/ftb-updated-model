@@ -62,6 +62,18 @@
     const inScope=q=>q&&(market==='all'||q.market===market)&&(side==='all'||q.side===side),offeredQuotes=fixtures.flatMap(f=>Array.isArray(snapshot?.fixtures?.[f.id]?.quotes)?snapshot.fixtures[f.id].quotes:[]),quoteByKey=new Map(offeredQuotes.filter(Boolean).map(q=>[q.key,q])),scopedRows=evaluated.rows.filter(r=>inScope(r.quote)),scopedAudit=evaluated.audit.filter(a=>market==='all'&&side==='all'||inScope(a.quote||quoteByKey.get(a.key)||a));
     let rows=scopedRows.filter(r=>(!positiveOnly||r.ev>0)&&(provisional||!r.provisional));
     if(bestOnly){const seen=new Set();rows=rows.filter(r=>{const key=r.quote.fixtureId+'|'+r.quote.playerId+'|'+r.quote.market;if(seen.has(key))return false;seen.add(key);return true;});}
+    function emptyMessage(){
+      const quotes=offeredQuotes.filter(inScope),fixtureById=new Map(fixtures.map(f=>[f.id,f]));
+      const errors=quotes.map(q=>V.offerError(q,fixtureById.get(q.fixtureId),now)),expired=quotes.filter((q,i)=>errors[i]==='Quote stale'&&now-Date.parse(q.capturedAt)>E.MAX_AGE).length,fresh=errors.filter(error=>!error).length;
+      if(!fixtures.length)return 'No selected upcoming fixtures.';
+      if(source.status==='checking')return expired&&!fresh?'Prices expired · checking for a newer capture…':'Refreshing prices… Quotes must pass the existing freshness and evidence checks before estimates appear.';
+      if(source.status==='unavailable')return 'Odds refresh unavailable. The previous capture keeps its original age; use Refresh odds to retry. Expired prices remain excluded.';
+      if(!snapshot)return 'No FanDuel capture available yet.';
+      if(scopedRows.length)return 'No estimates match these filters.';
+      if(expired&&!fresh)return `Prices expired — waiting for the next capture. ${expired} offers in this market/type scope are older than five minutes. Automatic catch-up checks for a newer capture; Refresh odds checks now. Expired prices remain excluded.`;
+      if(!quotes.length)return 'No captured offers for the selected market and bet type. See collector coverage below.';
+      return 'No supported estimates in this scope. Check lineup, availability and historical-evidence exclusions below.'+(expired?` ${expired} expired offers also remain excluded.`:'');
+    }
     function record(results,filters){
       return {schemaVersion:4,recordType:'experimental-ev-snapshot',serviceVersion:V.VERSION,serviceCodeHash:window.__FTB_HOSTING__?.evServiceCodeHash||null,publication:window.__FTB_HOSTING__||null,capturedAt:new Date().toISOString(),modelVersion:model.version,modelHash:model.modelHash,engineHash:model.engineHash,protocolHash:model.protocolHash,forwardProtocolHash:model.forwardProtocolHash,rulesProfileHash:model.rulesProfileHash,
         archiveEvidenceHash:archiveData.meta.evidenceContentHash,currentEvidenceHash:data.meta.evidenceContentHash,source:{url:SOURCE,bookmaker:'fanduel',region:'TN',checkedAt:snapshot?.checkedAt,transport:source},
@@ -93,7 +105,7 @@
             h('label',null,'Bet type ',h('select',{'aria-label':'EV bet type',value:side,onChange:e=>setSide(e.target.value)},h('option',{value:'all'},'All offered types'),h('option',{value:'over',disabled:market==='first-team-basket'},'Over'),h('option',{value:'under',disabled:market==='first-team-basket'},'Under'),h('option',{value:'at-least',disabled:market==='first-team-basket'},'Milestones'),h('option',{value:'yes',disabled:['points','threes'].includes(market)},'First team scorer'))),
             ...[[positiveOnly,setPositive,'Positive estimated EV only'],[provisional,setProvisional,'Include provisional availability / role'],[bestOnly,setBest,'Best offer per player / prop']].map(([checked,setter,label])=>h('label',{key:label},h('input',{type:'checkbox',checked,onChange:e=>setter(e.target.checked)}),label)))),
         h('p',{className:'ev-note'},'Highest estimated conditional EV first. Estimates assume participation and ordinary full-game settlement. Unsupported tail lines, insufficient current-team samples, and projected role changes are withheld. Future-game availability remains provisional. Prior-season transfer and live injury effects remain unvalidated. Large differences from bookmaker prices can reflect model error; no profitable advantage is established.'),
-        !rows.length&&h('div',{className:'analyst-notice',role:'status'},!fixtures.length?'No selected upcoming fixtures.':!snapshot?'No FanDuel capture available yet.':evaluated.rows.length?'No estimates match these filters.':'No fresh, supported offers for this scope. Check the withheld evidence below; stale quotes do not produce fresh EV.'),
+        !rows.length&&h('div',{className:'analyst-notice',role:'status'},emptyMessage()),
         h('div',{className:'ev-table-wrap'},h('table',{className:'ev-table'},h('thead',null,h('tr',null,['Player / bet','FanDuel','Model win / push','Break-even¹','Conditional EV','Evidence / availability'].map(s=>h('th',{key:s,scope:'col'},s)))),
           h('tbody',null,rows.map(r=>h('tr',{key:r.quote.key,style:{'--team-color':teamColors[r.quote.team]||'#64748b'}},
             h('th',{scope:'row'},h('strong',{className:'player-name'},r.quote.player),h('small',null,r.quote.team+' · '+label(r.quote)),h('a',{href:r.quote.source,target:'_blank',rel:'noreferrer'},'FanDuel market')),

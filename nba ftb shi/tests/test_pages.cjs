@@ -3,12 +3,12 @@ const A=require('../analyst.js'),H=require('../scouting_history.js'),base=path.j
 const archive=JSON.parse(fs.readFileSync(path.join(base,'analyst_data.json'))),canonical=JSON.parse(fs.readFileSync(path.join(base,'merged_dataset.json'))),report=JSON.parse(fs.readFileSync(path.join(base,'analyst_evaluation.json')));
 const manifest=JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/manifest.json'))),current={...JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/versions',manifest.activeVersion))),health:manifest};
 const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope','lineups'];
-function render(overrides={},published=true,response={canonical,analysis:archive,evaluation:report}){
+function render(overrides={},published=true,response={canonical,analysis:archive,evaluation:report},clock=Date){
   const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};
   const defaults=[archive,archive,'auto',canonical,report,'data','review','2026-06-13','all','0',A.DEFAULT_TARGET,'2025-26',[],'all',{}, {},null,{},null,false,null,'grade',40,{},false,'',Date.now(),'history',null,null,'all-opponents',{confirmed:{},projected:{},issues:[]}];
   const values=defaults.map((v,i)=>names[i] in overrides?overrides[names[i]]:v),changes={},requests=[],effects=[];let index=0;
   const window={__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:A,FTBLineups:require('../lineups.js'),...(published?{__FTB_HOSTING__:{mode:'github-pages',publishedDate:'2026-10-09'}}:{})};
-  const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date,Intl,Number,String,Set,Object,JSON,AbortSignal});
+  const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date:clock,Intl,Number,String,Set,Object,JSON,AbortSignal});
   window.React=context.React;vm.runInContext(fs.readFileSync(path.join(base,'lineup_projections.js'),'utf8'),context);
   window.FTBMatchup=require('../matchup.js');vm.runInContext(fs.readFileSync(path.join(base,'matchup_ui.js'),'utf8'),context);
   for(const file of ['ev_probability.js','ev_model.js','ev_ui.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context);
@@ -61,6 +61,23 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
     const p=nodes.find(n=>n.type===r.window.FTBMatchupPanel);assert(p);assert.equal(p.props.data,current);assert.equal(p.props.archiveData,archive);assert.equal(p.props.fixtures.length,1);assert.equal(p.props.fixtures[0].id,'2');
     assert.deepEqual(JSON.parse(JSON.stringify(p.props.options)),{date:'2026-10-20',mode:'upcoming',phase:'regular-season',window:'5',basis:'current',headToHead:true});
     for(const label of ['Grading basis','Scoring target'])assert.equal(nodes.find(n=>n.props?.['aria-label']===label).props.disabled,true);
+  });
+  await test('Today shortcut uses the Chicago date and restores the full upcoming research scope',()=>{
+    class Clock extends Date{constructor(...args){super(...(args.length?args:['2026-10-20T03:00:00Z']));}static now(){return Date.parse('2026-10-20T03:00:00Z');}}
+    const r=render({tab:'matchup',phase:'playoffs',period:'5',historyScope:'head-to-head',basis:'archive',scenario:{one:'out'},expanded:'one'},true,{},Clock);
+    r.button('Today · Upcoming').props.onClick();
+    for(const [key,value] of Object.entries({season:'2026-27',mode:'upcoming',date:'2026-10-19',gameId:'all',phase:'all',period:'0',basis:'auto',historyScope:'all-opponents',expanded:null,error:null}))assert.equal(r.changes[key],value,key);
+    assert.equal(Object.keys(r.changes.scenario).length,0);assert(!('tab' in r.changes));
+  });
+  await test('scheduled labels use Central daylight and standard time without rewriting game status',()=>{
+    const format=render().window.FTBAnalystUI.scheduleLabel;
+    assert.match(format({status:'pre',statusText:'3:00 PM EDT',scheduledTipoff:'2026-10-20T19:00Z'}),/2:00 PM CT/);
+    assert.match(format({status:'pre',scheduledTipoff:'2026-12-20T19:00Z'}),/1:00 PM CT/);
+    assert.match(format({status:'pre',scheduledTipoff:'2026-10-21T01:30Z'}),/10\/20.*8:30 PM CT/);
+    for(const text of ['Postponed','Canceled','Time TBD'])assert.equal(format({status:'pre',statusText:text,scheduledTipoff:'2026-10-20T19:00Z'}),text);
+    assert.equal(format({status:'post',statusText:'Final',scheduledTipoff:'2026-10-20T19:00Z'}),'Final');
+    assert.equal(format({status:'in',statusText:'Q3 5:00',scheduledTipoff:'2026-10-20T19:00Z'}),'Q3 5:00');
+    assert.equal(format({status:'pre',statusText:'Scheduled',scheduledTipoff:null}),'Scheduled');
   });
   console.log(JSON.stringify({passed:count}));
 })().catch(error=>{console.error(error);process.exitCode=1;});
