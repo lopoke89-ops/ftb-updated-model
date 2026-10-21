@@ -4,6 +4,8 @@
 
 NBA first team score research, including made free throws. The published app preserves the v5 design and the corrected 2025–26 canonical dataset through June 13, 2026.
 
+The website opens in Today · Upcoming on the current Chicago date with the 2026–27 season selected. Use the filters to browse future dates or switch to historical season review.
+
 Player appearances and box-score statistics now use all 1,322 downloaded NBA
 gamebook final boxes as the authority. Parlay shows the full stat line with
 regular season and playoffs separated. See [the statistical source policy](nba%20ftb%20shi/OFFICIAL_STATS_POLICY.md)

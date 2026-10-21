@@ -3,22 +3,36 @@ const A=require('../analyst.js'),H=require('../scouting_history.js'),base=path.j
 const archive=JSON.parse(fs.readFileSync(path.join(base,'analyst_data.json'))),canonical=JSON.parse(fs.readFileSync(path.join(base,'merged_dataset.json'))),report=JSON.parse(fs.readFileSync(path.join(base,'analyst_evaluation.json')));
 const manifest=JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/manifest.json'))),current={...JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/versions',manifest.activeVersion))),health:manifest};
 const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope','lineups','starterScope'];
-function render(overrides={},published=true,response={canonical,analysis:archive,evaluation:report},clock=Date){
+function render(overrides={},published=true,response={canonical,analysis:archive,evaluation:report},clock=Date,useInitialState=false){
   const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};
   const defaults=[archive,archive,'auto',canonical,report,'data','review','2026-06-13','all','0',A.DEFAULT_TARGET,'2025-26',[],'all',{}, {},null,{},null,false,null,'grade',40,{},false,'',Date.now(),'history',null,null,'all-opponents',{confirmed:{},projected:{},issues:[]}];
   defaults.push('confirmed');
-  const values=defaults.map((v,i)=>names[i] in overrides?overrides[names[i]]:v),changes={},requests=[],effects=[];let index=0;
+  const values=defaults.map((v,i)=>names[i] in overrides?overrides[names[i]]:v),changes={},requests=[],effects=[],initialState={};let index=0;
   const window={__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:A,FTBLineups:require('../lineups.js'),...(published?{__FTB_HOSTING__:{mode:'github-pages',publishedDate:'2026-10-09'}}:{})};
-  const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date:clock,Intl,Number,String,Set,Object,JSON,AbortSignal});
+  const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;if(useInitialState)values[i]=typeof initial==='function'?initial():initial;initialState[names[i]]=values[i];return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>/2026-27(?:\.json)?$/.test(url)?current:response};},Date:clock,Intl,Number,String,Set,Object,JSON,AbortSignal});
   window.React=context.React;vm.runInContext(fs.readFileSync(path.join(base,'lineup_projections.js'),'utf8'),context);
   window.FTBMatchup=require('../matchup.js');vm.runInContext(fs.readFileSync(path.join(base,'matchup_ui.js'),'utf8'),context);
   for(const file of ['ev_probability.js','ev_model.js','ev_ui.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(base,'analyst_ui.js'),'utf8'),context);
   const tree=window.FTBAnalystApp(),buttons=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type==='button'&&typeof n.children[0]==='string')buttons.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
-  return {window,tree,requests,effects,changes,fixture,button:label=>{const found=buttons.find(b=>b.children[0]===label);assert(found,label);return found;}};
+  return {window,tree,requests,effects,changes,initialState,fixture,button:label=>{const found=buttons.find(b=>b.children[0]===label);assert(found,label);return found;}};
 }
 let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+name);}
 (async()=>{
+  await test('fresh loads open upcoming Picks on the Chicago date and fetch that slate and season',async()=>{
+    class Clock extends Date{constructor(...args){super(...(args.length?args:['2026-10-22T03:00:00Z']));}static now(){return Date.parse('2026-10-22T03:00:00Z');}}
+    const response={events:[{id:'today',date:'2026-10-22T01:30Z',season:{year:2027,type:2},status:{type:{state:'pre'}},competitions:[{competitors:[{homeAway:'home',team:{abbreviation:'SA'}},{homeAway:'away',team:{abbreviation:'OKC'}}]}]}]};
+    for(const published of [true,false]){
+      const r=render({},published,response,Clock,true);
+      for(const [key,value] of Object.entries({tab:'picks',mode:'upcoming',date:'2026-10-21',season:'2026-27',gameId:'all',phase:'all',period:'0',basis:'auto'}))assert.equal(r.initialState[key],value,key);
+      r.effects.find(e=>e.deps?.length===1&&e.deps[0]==='2026-27').fn();
+      r.effects.find(e=>e.deps?.includes('upcoming')&&e.deps.includes('2026-10-21')&&e.deps.includes('2026-27')).fn();
+      await new Promise(setImmediate);
+      assert(r.requests.some(q=>q.url===(published?'data/seasons/2026-27.json':'/api/seasons/2026-27')));
+      assert(r.requests.some(q=>q.url.includes('scoreboard?dates=20261021&')));
+      assert.equal(r.changes.data,current);assert.equal(r.changes.sources['season history'].status,'verified in progress');assert.equal(r.changes.schedule[0].id,'today');
+    }
+  });
   await test('static reads resolve underneath the GitHub project URL',()=>{const r=render(),ui=r.window.FTBAnalystUI;assert(ui.publishedSite);for(const [input,expected] of [['/api/history','data/history.json'],['/api/seasons/2026-27','data/seasons/2026-27.json']])assert.equal(new URL(ui.serviceUrl(input),'https://example.github.io/ftb-updated-model/ftb-scout.html').pathname,'/ftb-updated-model/'+expected);});
   await test('local app retains its Python service routes',()=>{const ui=render({},false).window.FTBAnalystUI;assert(!ui.publishedSite);assert.equal(ui.serviceUrl('/api/history'),'/api/history');assert.equal(ui.serviceUrl('/api/seasons/2026-27'),'/api/seasons/2026-27');});
   await test('published reload atomically adopts coherent canonical analysis and evaluation',async()=>{const r=render();await r.button('Reload verified history').props.onClick();assert.equal(r.requests.length,1);assert.equal(r.requests[0].url,'data/history.json');assert.equal(r.changes.canonical,canonical);assert.equal(r.changes.archive,archive);assert.equal(r.changes.report,report);assert.equal(r.changes.sources.history.status,'verified');});
