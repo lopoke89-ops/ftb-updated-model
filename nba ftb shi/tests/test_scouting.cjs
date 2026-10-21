@@ -72,15 +72,18 @@ test('injury identity supports profile links and rejects ambiguous links',()=>{
   const p=H.parseInjuries({injuries:[{injuries:[{athlete:{links:[{href:'/id/42/name'}]},status:'Out'},{athlete:{displayName:'Unresolved'},status:'Out'}]}]},'capture');
   assert.equal(p.entries['42'].status,'OUT');assert.equal(p.unresolved,1);assert.equal(p.total,2);assert.throws(()=>H.parseInjuries({}));
 });
-test('UI shows prior history while the forecast receives only the empty new season',()=>{
+test('confirmed starter cards show prior history while forecasts receive only the empty new season',()=>{
   const rows=[{id:'5104157',name:'Victor Wembanyama',team:'SAS',rawPosition:'C'},{id:'rookie',name:'New Rookie',team:'SAS',rawPosition:'G'}];
-  const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};
-  const states=[empty,archive,'auto',canonical,report,'picks','upcoming','2026-10-20','all','0',A.DEFAULT_TARGET,'2026-27',[fixture],'all',{SAS:rows,OKC:[]},{},null,{},null,false,null,'probability',40,{},false,'',Date.now(),'history',null,null,'all-opponents'];
+  rows.push(...['3','4','5'].map(id=>({id,name:'Unseen '+id,team:'SAS',rawPosition:'G'})));
+  const now=Date.parse('2026-10-20T18:45Z'),L=require('../lineups.js'),Q=require('../lineup_projections.js');
+  const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre',scheduledTipoff:'2026-10-20T19:00Z'};
+  const lineups={confirmed:Object.fromEntries(rows.map((p,i)=>[p.id,{id:p.id,name:p.name,nbaId:String(i+1),team:'SAS',position:['C','PG','SG','SF','PF'][i],status:'confirmed',fixtureId:fixture.id,date:fixture.date,source:L.urlFor(fixture.date),capturedAt:new Date(now-1000).toISOString()}])),projected:{},issues:[]};
+  const states=[empty,archive,'auto',canonical,report,'picks','upcoming','2026-10-20','all','0',A.DEFAULT_TARGET,'2026-27',[fixture],'all',{SAS:rows,OKC:[]},{},null,{},null,false,null,'probability',40,{},false,'',now,'history',null,null,'all-opponents',lineups,'confirmed'];
   let index=0;const calls=[];
-  const context=vm.createContext({window:{__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:{...A,distribution:(s,t,o)=>{calls.push(s);return A.distribution(s,t,o);}}},React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>[index<states.length?states[index++]:initial,()=>{}],useEffect:()=>{},useMemo:fn=>fn(),useRef:()=>({current:0})},Date,Intl,Number,String,Set,Object,JSON});
+  const context=vm.createContext({window:{__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:Q,FTBAnalyst:{...A,distribution:(s,t,o)=>{calls.push(s);return A.distribution(s,t,o);}}},React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>[index<states.length?states[index++]:initial,()=>{}],useEffect:()=>{},useMemo:fn=>fn(),useRef:()=>({current:0})},Date,Intl,Number,String,Set,Object,JSON});
   vm.runInContext(fs.readFileSync(path.join(base,'analyst_ui.js'),'utf8'),context);
   const tree=context.window.FTBAnalystApp(),cards=[];function walk(n){if(!n||typeof n!=='object')return;if(n.type?.name==='PlayerCard')cards.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
-  assert.equal(cards.length,2);const p=cards.find(n=>n.props.p.id==='5104157').props.p;
+  assert.equal(cards.length,5);assert(cards.every(n=>n.props.p.confirmation));const p=cards.find(n=>n.props.p.id==='5104157').props.p;
   assert.equal(p.teamFtbMade,32);assert.equal(p.statsSeason,'2025-26');assert(p.forecastWithheld);assert.equal(p.probability,undefined);
   assert.equal(p.gradeBasis,'history');assert(p.historicalGrade.rated);assert.equal(p.historicalGrade.letter,'S');assert.equal(index,states.length);
   assert(calls.length);assert(calls.every(s=>s.games.length===0));assert(cards.find(n=>n.props.p.id==='rookie').props.p.teamFtbMade===null);
@@ -252,28 +255,30 @@ test('new-team head-to-head is no record rather than the player previous-team se
   assert(pg);const p=H.playerEvidence(s,pg.id,'BOS',true);assert(!p.hasHistory);assert.equal(p.teamFtbMade,null);assert.equal(p.ppg,null);assert.equal(p.scoutingDetail.starts||0,0);
 });
 function renderUI(overrides={}){
-  const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};
-  const rows=[{id:'5104157',name:'Victor Wembanyama',team:'SAS',rawPosition:'C'}];
-  const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope'];
-  const initial=[empty,archive,'auto',canonical,report,'picks','upcoming','2026-10-20','regular-and-playoffs','0',A.DEFAULT_TARGET,'2026-27',[fixture],'all',{SAS:rows,OKC:[]},{},null,{},null,false,null,'grade',40,{},false,'',Date.now(),'history',null,null,'head-to-head'];
+  const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre',scheduledTipoff:'2026-10-20T19:00Z'};
+  const now=Date.parse('2026-10-20T18:45Z'),L=require('../lineups.js'),Q=require('../lineup_projections.js');
+  const rows=[{id:'5104157',name:'Victor Wembanyama',team:'SAS',rawPosition:'C'},...['3','4','5','6'].map(id=>({id,name:'Unseen '+id,team:'SAS',rawPosition:'G'}))];
+  const lineups={confirmed:Object.fromEntries(rows.map((p,i)=>[p.id,{id:p.id,name:p.name,nbaId:String(i+1),team:'SAS',position:['C','PG','SG','SF','PF'][i],status:'confirmed',fixtureId:fixture.id,date:fixture.date,source:L.urlFor(fixture.date),capturedAt:new Date(now-1000).toISOString()}])),projected:{},issues:[]};
+  const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope','lineups','starterScope'];
+  const initial=[empty,archive,'auto',canonical,report,'picks','upcoming','2026-10-20','regular-and-playoffs','0',A.DEFAULT_TARGET,'2026-27',[fixture],'all',{SAS:rows,OKC:[]},{},null,{},null,false,null,'grade',40,{},false,'',now,'history',null,null,'head-to-head',lineups,'confirmed'];
   const states=initial.map((v,i)=>names[i] in overrides?overrides[names[i]]:v),calls=[];let index=0;
-  const context=vm.createContext({window:{__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:{...A,distribution:(s,t,o)=>{calls.push(s);return A.distribution(s,t,o);}}},React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>[index<states.length?states[index++]:initial,()=>{}],useEffect:()=>{},useMemo:fn=>fn(),useRef:()=>({current:0})},Date,Intl,Number,String,Set,Object,JSON});
+  const context=vm.createContext({window:{__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:Q,FTBAnalyst:{...A,distribution:(s,t,o)=>{calls.push(s);return A.distribution(s,t,o);}}},React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>[index<states.length?states[index++]:initial,()=>{}],useEffect:()=>{},useMemo:fn=>fn(),useRef:()=>({current:0})},Date,Intl,Number,String,Set,Object,JSON});
   vm.runInContext(fs.readFileSync(path.join(base,'analyst_ui.js'),'utf8'),context);
   const tree=context.window.FTBAnalystApp(),cards=[],text=[];function walk(n){if(typeof n==='string'){text.push(n);return;}if(!n||typeof n!=='object')return;if(n.type?.name==='PlayerCard')cards.push(n.props.p);for(const c of n.children||[])Array.isArray(c)?c.forEach(walk):walk(c);}walk(tree);
   assert.equal(index,names.length);return {cards,calls,tree,text:text.join(' ')};
 }
 test('UI head-to-head recomputes grades and keeps the current-season forecast input separate',()=>{
-  const r=renderUI(),p=r.cards[0];assert.equal(p.teamFtbMade,2);assert.equal(p.scoutingDetail.starts,9);assert.equal(p.gp,12);assert.equal(p.ppg,283/12);
+  const r=renderUI(),p=r.cards.find(p=>p.id==='5104157');assert.equal(p.teamFtbMade,2);assert.equal(p.scoutingDetail.starts,9);assert.equal(p.gp,12);assert.equal(p.ppg,283/12);
   assert(p.headToHead);assert.equal(p.opponent,'OKC');assert.equal(p.statsSeason,'2025-26');assert.equal(p.gradeBasis,'history');assert.equal(p.historicalGrade.letter,'B');
   assert(p.forecastWithheld);assert.equal(p.probability,undefined);assert(r.calls.every(s=>s.games.length===0));assert(r.text.includes('12 matching historical fixtures'));
 });
 test('UI changing competition and period recomputes head-to-head counts and grade eligibility',()=>{
-  const regular=renderUI({phase:'regular-season'}).cards[0],playoffs=renderUI({phase:'playoffs'}).cards[0],last5=renderUI({period:'5'}).cards[0];
+  const regular=renderUI({phase:'regular-season'}).cards.find(p=>p.id==='5104157'),playoffs=renderUI({phase:'playoffs'}).cards.find(p=>p.id==='5104157'),last5=renderUI({period:'5'}).cards.find(p=>p.id==='5104157');
   assert.equal(regular.gp,5);assert.equal(regular.scoutingDetail.starts,2);assert.equal(regular.historicalGrade.letter,'NR');
   assert.equal(playoffs.gp,7);assert.equal(playoffs.scoutingDetail.starts,7);assert.equal(last5.gp,5);assert.equal(last5.scoutingDetail.starts,5);
 });
 test('UI current-only history cannot fall back to archive when head-to-head is empty',()=>{
-  const r=renderUI({basis:'current'}),p=r.cards[0];assert.equal(p.statsSeason,'2026-27');assert.equal(p.teamFtbMade,null);assert.equal(p.ppg,null);assert.equal(p.historicalGrade.letter,'NR');assert(r.text.includes('No matching meetings in this scope'));
+  const r=renderUI({basis:'current'}),p=r.cards.find(p=>p.id==='5104157');assert.equal(p.statsSeason,'2026-27');assert.equal(p.teamFtbMade,null);assert.equal(p.ppg,null);assert.equal(p.historicalGrade.letter,'NR');assert(r.text.includes('No matching meetings in this scope'));
 });
 test('UI removes old matchup history immediately when date no longer matches schedule',()=>{
   const r=renderUI({date:'2026-10-21'});assert.equal(r.cards.length,0);assert(r.text.includes('needs a scheduled matchup'));

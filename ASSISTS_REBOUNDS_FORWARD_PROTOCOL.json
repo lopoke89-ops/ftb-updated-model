@@ -1,0 +1,13 @@
+{
+  "version": "ev-assists-rebounds-forward-v1",
+  "declaredOn": "2026-10-21",
+  "status": "declared after opening night; new-market prospective records only from declaration onward",
+  "markets": [
+    "assists",
+    "rebounds"
+  ],
+  "primaryUnit": "One player-market-fixture over/under pair at the first supported verified capture within 15 minutes before the earlier advertised tipoff; retain all alternate offers but do not count them as independent trials.",
+  "selection": "Highest positive supported EV per player-market-fixture, deterministic quote-key ties. Preserve negative offers and original filters.",
+  "validation": "Probability evaluation before returns; same-contract no-vig market and frozen season/recent baselines; fixture-cluster uncertainty. No calibrated-edge or profit claim from retrospective archive diagnostics.",
+  "receiptGap": "Browser-local editable records do not establish externally witnessed issuance. Existing trusted receipt and prospective promotion requirements apply; no backdated opening-night cohort."
+}

@@ -17,6 +17,7 @@ from archive_store import ROOT, ReleaseArchive, read, save, overlay
 import official_gamebooks as boxes
 import pbp_collect
 import pbp_identity
+import opening_paths
 
 SOURCE = ROOT / 'nba ftb shi'
 SPEC = importlib.util.spec_from_file_location('nba_opening_parser', SOURCE / 'build_opening_gamebook_data.py')
@@ -132,6 +133,17 @@ def official_game(g, record, events):
                       'firstFieldGoalAttempts':known(events['firstFieldGoalAttempts']),
                       'orderedEvents':events['orderedEvents'],'source':'NBA official first-quarter play-by-play',
                       'sourceUrl':record['source_url'],'sourceHash':record['sha256']})
+    return apply_fixture_review(result)
+
+
+def apply_fixture_review(game):
+    """Explicit, source-bound identity reviews; never overwrite the observed feed time."""
+    reviews_path=ROOT/'FIXTURE_IDENTITY_REVIEWS.json'
+    result={k:v for k,v in game.items() if k!='fixtureReview'}
+    if reviews_path.exists():
+        for review in read(reviews_path).get('reviews',[]):
+            if review['fixtureId']==game['id'] and review['gamebookSourceHash']==game.get('sourceHash') and all(review[k]==game[k] for k in ('date','home','away','phase')) and review['finalFeedTipoff']==game['scheduledTipoff']:
+                result['fixtureReview']=review
     return result
 
 
@@ -212,7 +224,8 @@ def payload_for(games, health):
                 phaseCounts=dict(Counter(g['phase'] for g in games)), openingCoverage=len(games),
                 evidenceContentHash=content, scoringDefinition=TARGET, ingestionStatus='NBA-PDF-verified-in-progress',
                 historicalInjuries='unavailable', pregameLineupAnnouncements='unavailable',
-                sourceCaptureMeaning='Final NBA gamebooks captured after games; not pregame lineup evidence')
+                sourceCaptureMeaning='Final NBA gamebooks captured after games; not pregame lineup evidence',
+                fixtureReviewPolicyHash=hashlib.sha256((ROOT/'FIXTURE_IDENTITY_REVIEWS.json').read_bytes()).hexdigest())
     shooting = {g['id']:{t:{p['id']:p for p in b['players'] if p['played']} for t,b in g['teams'].items()} for g in games}
     openings = {g['id']:{**g['opening'], 'firstScores':g['firstScores'], 'firstFieldGoals':g['firstFieldGoals'],
                          'source':g['source'], 'sourceHash':g['sourceHash'],'date':g['date'],'phase':g['phase']} for g in games}
@@ -236,7 +249,8 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
     overlay(state, source)
     manifest = read(source/'seasons'/SEASON/'manifest.json')
     previous = read(source/'seasons'/SEASON/'versions'/manifest['activeVersion'])
-    games = {g['id']:g for g in previous['games']}
+    games = {g['id']:apply_fixture_review(g) for g in previous['games']}
+    paths_pending=bool(games) and previous.get('openingPaths',{}).get('builderHash')!=opening_paths.CODE_HASH
     store = store or ReleaseArchive()
     requested = status['batches'].get(target_day)
     work = {d:b for d,b in status['batches'].items() if not b.get('complete')}
@@ -282,7 +296,7 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
         status['batches'][workday] = {'fixtures':list(fixtures.values()),'pending':pending,
                                      'scheduleVerified':schedule_ok,'complete':schedule_ok and not pending,'checkedAt':stamp()}
     pbp_manifest,pbp_changed = pbp_collect.update(state,list(games.values()),digest(sorted(games.values(),key=lambda g:(g['date'],g['id'])),True),force=force)
-    if not work and not pbp_changed:
+    if not work and not pbp_changed and not paths_pending:
         return {'publish_needed':status.get('publishedKey')!=status.get('readyKey'),'pending':0,'skipped':True,'target_day':target_day}
     pending = [p for batch in status['batches'].values() for p in batch.get('pending',[])]
     records = [read(state/'library/records'/(gid+'.json')) for gid in games]
@@ -302,12 +316,19 @@ def collect(state, source=SOURCE, target_day=None, force=False, fetcher=fetch_js
                   'targetDate':target_day,'targetComplete':status['batches'].get(target_day,{}).get('complete',False),
                   'pending':pending,'unresolvedScheduleDates':[d for d,b in status['batches'].items() if not b.get('scheduleVerified')],
                   'databaseUrl':status.get('databaseUrl'), 'databaseChecks':status.get('databaseChecks'),
-                  'archive':'Original PDFs retained as hash-named GitHub release assets', 'lastAttempt':stamp()}}
+                  'archive':'Original PDFs retained as hash-named GitHub release assets' if getattr(store,'public_archive',True) else 'Original PDFs retained locally; no archive upload performed', 'lastAttempt':stamp()}}
     try:
         health['playByPlayArchive']=pbp_collect.archive(state,store,SEASON,target_day)
     except Exception as exc:
         health['playByPlayArchiveError']=str(exc)
     payload, manifest = payload_for(list(games.values()),health)
+    # Opening paths can remain verified when a later full-game event is incomplete.
+    try:
+        refs={gid:read(state/'library/records'/(gid+'.json')).get('opening',{}) for gid in games}
+        paths=opening_paths.build(state/'library/play_by_play.sqlite',list(games.values()),refs,payload['meta']['evidenceContentHash'])
+        payload['openingPaths']=paths
+    except Exception as exc:
+        payload['openingPaths']={'version':opening_paths.VERSION,'games':{},'reason':'Opening paths unavailable: '+str(exc)}
     folder = state/'seasons'/SEASON
     save(folder/'play_by_play/versions'/(pbp_manifest['contentHash']+'.json'),pbp_manifest)
     manifest['playByPlay']={'contentHash':pbp_manifest['contentHash'],'statusCounts':pbp_manifest['statusCounts']}

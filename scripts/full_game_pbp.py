@@ -13,13 +13,14 @@ import sqlite3
 import time
 import unicodedata
 import pbp_identity
+import gamebook_text
 from official_gamebooks import TEAM_NAMES
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 'full-game-pbp-v10'
+VERSION = 'full-game-pbp-v11'
 CODE_HASH = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 IDENTITY_RESOLVER_HASH = hashlib.sha256(Path(pbp_identity.__file__).read_bytes()).hexdigest()
 SCHEMA = 1
@@ -48,9 +49,9 @@ def pages_from_pdf(raw, cached=None):
             page=doc[i]; tp=page.get_textpage(); text=tp.get_text_range(); tp.close(); page.close()
             if 'OFFICIAL PLAY-BY-PLAY' in text[:600]: indexes.append(i)
             if re.search(r'\d+(?:st|nd|rd|th) (?:QUARTER|OT|OVERTIME) ONLY',text[:300]): boxes.append({'page':i+1,'text':text,'box':True})
-    if cached: return boxes+[p for p in cached if not p.get('box')]
+    if cached and all(not p.get('textCodeHash') or p['textCodeHash']==gamebook_text.CODE_HASH for p in cached): return boxes+[p for p in cached if not p.get('box')]
     reader=PdfReader(__import__('io').BytesIO(raw))
-    return boxes+[{'page':i+1,'text':reader.pages[i].extract_text(extraction_mode='layout')} for i in indexes]
+    return boxes+[{'page':i+1,**gamebook_text.extract(raw,i,reader.pages[i].extract_text(extraction_mode='layout'))} for i in indexes]
 
 def period_number(text):
     m=re.search(r'(\d+)(?:st|nd|rd|th) (QUARTER|OVERTIME|OT)',text,re.I)
@@ -363,10 +364,11 @@ def connect(path):
     ''')
     with db:
         db.execute('INSERT OR IGNORE INTO parsers VALUES(?,?,?)',(CODE_HASH,VERSION,Path(__file__).read_text(encoding='utf-8')))
+        db.execute('INSERT OR IGNORE INTO parsers VALUES(?,?,?)',(gamebook_text.CODE_HASH,gamebook_text.VERSION,Path(gamebook_text.__file__).read_text(encoding='utf-8')))
         db.execute('INSERT OR IGNORE INTO parsers VALUES(?,?,?)',(IDENTITY_RESOLVER_HASH,'identity-resolver-v1',Path(pbp_identity.__file__).read_text(encoding='utf-8')))
     return db
 
-def revision_id(game,record): return sha(packed([game['id'],record['sha256'],VERSION,CODE_HASH,IDENTITY_RESOLVER_HASH,SCHEMA,record.get('pbpIdentitySource',{}).get('sha256'),sha(packed(record['player_rows']).encode())]).encode())
+def revision_id(game,record): return sha(packed([game['id'],record['sha256'],VERSION,CODE_HASH,IDENTITY_RESOLVER_HASH,gamebook_text.CODE_HASH,SCHEMA,record.get('pbpIdentitySource',{}).get('sha256'),sha(packed(record['player_rows']).encode())]).encode())
 def store_result(db,library,parsed):
     game,record,pages,events,result,error=parsed; gid=game['id']; rid=revision_id(game,record)
     with db:
@@ -439,7 +441,7 @@ def summary(db,expected,parent_hash=None):
     for g in expected:
         if g['id'] not in games:
             games[g['id']]={'date':g['date'],'status':'pending','components':{},'reason':(db.execute('SELECT error FROM attempts WHERE game_id=?',(g['id'],)).fetchone() or ['No active extraction'])[0]}
-    body={'schemaVersion':SCHEMA,'parserVersion':VERSION,'parserHash':CODE_HASH,'identityResolverHash':IDENTITY_RESOLVER_HASH,'parentEvidenceContentHash':parent_hash,'expected':len(expected),'statusCounts':dict(Counter(g['status'] for g in games.values())),'games':games}
+    body={'schemaVersion':SCHEMA,'parserVersion':VERSION,'parserHash':CODE_HASH,'identityResolverHash':IDENTITY_RESOLVER_HASH,'textExtractorHash':gamebook_text.CODE_HASH,'parentEvidenceContentHash':parent_hash,'expected':len(expected),'statusCounts':dict(Counter(g['status'] for g in games.values())),'games':games}
     body['componentVerifiedGames']={k:sum(bool(g['components'].get(k)) for g in games.values()) for k in STATS}
     body['contentHash']=sha(packed(body).encode())
     return body,discrepancies

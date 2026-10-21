@@ -1,0 +1,1 @@
+Public official NBA gamebook regression fixtures downloaded October 21, 2026. Original PDF bytes retained; expected values are from the independent opening-night review. These three small fixtures exercise malformed glyph spacing, wrapped clock rows, both columns, and explicit source omissions. Full archive remains outside this repository.

@@ -36,7 +36,9 @@ def update(state,games,parent_hash=None,force=False):
     for g in games:
         path=library/'records'/(g['id']+'.json')
         try:
-            r=json.loads(path.read_text(encoding='utf-8')); rid=pbp.revision_id(g,r)
+            r=json.loads(path.read_text(encoding='utf-8'))
+            if r.get('verification_status')!='verified':raise ValueError('Latest box extraction is unresolved; retain independently verified earlier source')
+            rid=pbp.revision_id(g,r)
             found=db.execute('SELECT result FROM revisions WHERE id=?',(rid,)).fetchone()
             # Partial work is independently retryable; unchanged successful components stay intact.
             if found and not force and json.loads(found[0])['status']=='verified': continue
@@ -79,7 +81,7 @@ def update(state,games,parent_hash=None,force=False):
         record_path=library/'records'/(g['id']+'.json')
         if r.get('revision') and record_path.exists():
             source_record=json.loads(record_path.read_text(encoding='utf-8'))
-            if r['revision']!=pbp.revision_id(g,source_record):
+            if source_record.get('verification_status')=='verified' and r['revision']!=pbp.revision_id(g,source_record):
                 manifest['games'][g['id']]={'date':g['date'],'status':'pending','components':{},'previousRevision':r['revision'],'previousSourceHash':r.get('sourceHash'),'reason':'Parser or identity evidence revision changed; previous event interpretation withheld pending extraction'}
     for g in games:
         r=manifest['games'][g['id']]
@@ -87,6 +89,9 @@ def update(state,games,parent_hash=None,force=False):
         record_path=library/'records'/(g['id']+'.json')
         record=json.loads(record_path.read_text(encoding='utf-8')) if record_path.exists() else {}
         expected_opening=record.get('opening')
+        if not expected_opening and record.get('verification_status')!='verified':
+            retained=db.execute('SELECT metadata FROM sources WHERE hash=?',(r.get('sourceHash'),)).fetchone()
+            if retained:expected_opening=json.loads(retained[0]).get('opening')
         events=[json.loads(row[0]) for row in db.execute('SELECT event FROM events WHERE revision=? ORDER BY sequence',(r['revision'],))]
         try:
             _,opening_differences=compare_openings(events,expected_opening,(g['home'],g['away'])) if expected_opening else (0,[{'reason':'independent opening extract unavailable'}])

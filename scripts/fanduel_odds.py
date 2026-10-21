@@ -22,8 +22,8 @@ SITE = 'https://sportsbook.fanduel.com'
 API = 'https://api.sportsbook.fanduel.com/sbapi/'
 TEAMS = {'ATL':1,'BOS':2,'BKN':17,'CHA':30,'CHI':4,'CLE':5,'DAL':6,'DEN':7,'DET':8,'GSW':9,'HOU':10,'IND':11,'LAC':12,'LAL':13,'MEM':29,'MIA':14,'MIL':15,'MIN':16,'NOP':3,'NYK':18,'OKC':25,'ORL':19,'PHI':20,'PHX':21,'POR':22,'SAC':23,'SAS':24,'TOR':28,'UTA':26,'WAS':27}
 ALIASES = {'GS':'GSW','NY':'NYK','SA':'SAS','NO':'NOP','WSH':'WAS','UTAH':'UTA','PHO':'PHX'}
-TABS = ('player-points','player-threes','quick-bets')
-TAB_MARKET = {'player-points':'points','player-threes':'threes','quick-bets':'first-team-basket'}
+TABS = ('player-points','player-threes','player-assists','player-rebounds','quick-bets')
+TAB_MARKET = {'player-points':'points','player-threes':'threes','player-assists':'assists','player-rebounds':'rebounds','quick-bets':'first-team-basket'}
 
 def utc():
     return datetime.now(timezone.utc)
@@ -154,6 +154,12 @@ def market_contract(market):
         return 'points','ou',None
     if re.fullmatch(r'PLAYER_[A-Z]+_TOTAL_MADE_3_POINT_FIELD_GOALS',kind):
         return 'threes','ou',None
+    for stat in ('ASSISTS','REBOUNDS'):
+        if re.fullmatch(r'PLAYER_[A-Z]+_TOTAL_'+stat,kind):
+            return stat.lower(),'ou',None
+        extra = re.fullmatch(r'TO_RECORD_(\d+)\+_'+stat,kind)
+        if extra:
+            return stat.lower(),'at-least',int(extra[1])
     match = re.fullmatch(r'TO_SCORE_(\d+)\+_POINTS',kind)
     if match:
         return 'points','at-least',int(match[1])
@@ -167,7 +173,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
     if not identity or identity['name']!=event['name'] or identity['openDate']!=event['openDate'] or identity.get('inPlay') is True:
         raise ValueError('FanDuel event identity/status changed')
     cards = payload.get('layout',{}).get('cards',{})
-    title = {'player-points':'Player Points','player-threes':'Player Threes','quick-bets':'Quick Bets'}[tab]
+    title = {'player-points':'Player Points','player-threes':'Player Threes','player-assists':'Player Assists','player-rebounds':'Player Rebounds','quick-bets':'Quick Bets'}[tab]
     tabs = payload.get('layout',{}).get('tabs',{})
     if not any(t.get('title')==title for t in tabs.values()):
         return [],['Market not yet offered: '+title]
@@ -182,7 +188,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
             raise ValueError('Market fixture/sport/status mismatch')
         prop,kind,target = contract
         if kind=='at-least':
-            expected_name = 'To Score '+str(target)+'+ Points' if prop=='points' else str(target)+'+ Made Threes'
+            expected_name = 'To Score '+str(target)+'+ Points' if prop=='points' else str(target)+'+ Made Threes' if prop=='threes' else 'To Record '+str(target)+'+ '+prop.title()
             if market.get('marketName','').casefold()!=expected_name.casefold():
                 issues.append('Milestone target/name mismatch')
                 continue
@@ -196,7 +202,7 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
                     if not side or not name.endswith(' '+side.title()):
                         raise ValueError('Over/under side is ambiguous')
                     name = name[:-(len(side)+1)]
-                    expected = ' - Points' if prop=='points' else ' - Made Threes'
+                    expected = ' - Points' if prop=='points' else ' - Made Threes' if prop=='threes' else ' - '+prop.title()
                     if market['marketName']!=name+expected:
                         raise ValueError('Market/player label mismatch')
                     line = runner['handicap']
@@ -292,7 +298,7 @@ def capture(client=None, previous=None, now=None, days=3):
         if fid not in entries and iso(old['fixture']['scheduledTipoff'])>now and errors:
             entries[fid] = {**old,'checkedAt':utc().isoformat(),'issues':['Schedule unavailable; previous capture retained'],'quotes':[{**q,'captureState':'cached'} for q in old.get('quotes',[])]}
     return {'schemaVersion':1,'bookmaker':'fanduel','region':'TN','checkedAt':utc().isoformat(),'lookaheadDays':days,'fixtures':entries,'errors':errors,'listingHash':listing_hash,
-            'meaning':'Full-game Points/Threes and First Team Basket prices. First Team Basket includes free throws and requires the selected player to start; ACTIVE is not starter confirmation. Original capture times are immutable.'}
+            'meaning':'Full-game Points/Threes/Assists/Rebounds and First Team Basket prices. First Team Basket includes free throws and requires the selected player to start; ACTIVE is not starter confirmation. Original capture times are immutable.'}
 
 def git(*args,data=None,check=True):
     result = subprocess.run(['git',*args],input=data,capture_output=True)

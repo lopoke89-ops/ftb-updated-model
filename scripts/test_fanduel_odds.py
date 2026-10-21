@@ -73,6 +73,22 @@ class Contracts(unittest.TestCase):
         q,issues=self.parse(payload('TO_SCORE_20+_POINTS','To Score 20+ Points',[runner('Jabari Smith')]),ROSTER+[{'id':'3','name':'Jabari Smith Sr.','team':'BOS'}])
         self.assertFalse(q);self.assertTrue(issues)
 
+    def test_assists_rebounds_ordinary_and_milestone_contracts_are_separate(self):
+        for market in ('assists','rebounds'):
+            tab='player-'+market
+            q,issues=self.parse(payload('PLAYER_A_TOTAL_'+market.upper(),'Player One - '+market.title(),[runner(line=4.5)],'Player '+market.title()),tab=tab)
+            self.assertFalse(issues);self.assertEqual((q[0]['market'],q[0]['line']),(market,4.5))
+            q,issues=self.parse(payload('TO_RECORD_6+_'+market.upper(),'To Record 6+ '+market.title(),[runner('Player One',line=0)],'Player '+market.title()),tab=tab)
+            self.assertFalse(issues);self.assertEqual((q[0]['market'],q[0]['side'],q[0]['line']),(market,'at-least',6))
+            self.assertIn('tab='+tab,q[0]['source'])
+
+    def test_assists_rebounds_reject_combos_quarters_and_wrong_labels(self):
+        for market in ('assists','rebounds'):
+            for kind in ('PLAYER_A_1ST_QUARTER_'+market.upper(),'TO_RECORD_10+_PTS_+_REB_+_AST'):
+                self.assertFalse(self.parse(payload(kind,tab='Player '+market.title()),tab='player-'+market)[0])
+            q,issues=self.parse(payload('TO_RECORD_6+_'+market.upper(),'To Record 8+ '+market.title(),[runner('Player One')],'Player '+market.title()),tab='player-'+market)
+            self.assertFalse(q);self.assertIn('Milestone target/name mismatch',issues)
+
     def test_price_and_side_disagreements_are_withheld(self):
         p=payload();p['attachments']['markets']['m']['runners'][0]['winRunnerOdds']['trueOdds']['decimalOdds']['decimalOdds']=3
         self.assertIn('price mismatch',self.parse(p)[1][0])

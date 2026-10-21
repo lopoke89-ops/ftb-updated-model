@@ -1,0 +1,1024 @@
+{
+  "version": "ev-assists-rebounds-v1",
+  "experimental": true,
+  "phase": "regular-season",
+  "archiveEvidenceHash": "8d2652cc2026af472a61bf645a0e80e231bb19c6d029b6a842742fa49df5cffa",
+  "archiveThrough": "2026-06-13",
+  "engineHash": "0e735e9a566395354fe5163d2627c149a7a7c1d338ad601a8ef7cc256cd308c5",
+  "trainerHash": "da33b5625f9cfbc31074721be8d59375a6d95e4e77655124736620c2a738d11d",
+  "protocolHash": "4f6cb6b5ecfdff4f71341e08f9c63ea7cc5e8f8839955c8ae7afb148986d6987",
+  "forwardProtocolHash": "10f9d7241f8bb453abdb511db6215c8c1faf6d29025362f380b1286baf866368",
+  "rulesProfileHash": "4f5b68d3b14f855f459aa7405ab880be16ec49bfb6a085b8c4ce170be9c4e43a",
+  "protocol": {
+    "version": "ev-assists-rebounds-v1",
+    "declaredOn": "2026-10-21",
+    "status": "experimental-retrospective-development; not a verified prospective record",
+    "markets": [
+      "assists",
+      "rebounds"
+    ],
+    "phase": "regular-season",
+    "period": "full-game",
+    "developmentEnd": "2025-12-15",
+    "calibrationStart": "2025-12-16",
+    "calibrationEnd": "2026-02-15",
+    "diagnosticStart": "2026-02-16",
+    "diagnosticEnd": "2026-04-12",
+    "minimumSameTeamAppearances": 20,
+    "minimumTeamGames": 10,
+    "minimumKnownRoleMinutes": 0.8,
+    "recentAppearances": 20,
+    "sameDateCutoff": "all selected-day games excluded",
+    "source": "NBA official final gamebooks; rebounds are player OREB+DREB, excluding team rebounds",
+    "meanCandidates": [
+      "season-mean",
+      "recent-mean",
+      "exposure-rate"
+    ],
+    "defensePowers": [
+      0,
+      0.25,
+      0.5
+    ],
+    "alphaGrid": [
+      0.04,
+      0.16,
+      0.4,
+      0.8
+    ],
+    "calibration": "positive-slope logistic CDF; calibration dates only; each appearance has total weight one",
+    "thresholdOffsets": {
+      "assists": [
+        -3,
+        -1,
+        0,
+        1,
+        3
+      ],
+      "rebounds": [
+        -4,
+        -2,
+        0,
+        2,
+        4
+      ]
+    },
+    "exactLineSupport": {
+      "minimumWins": 5,
+      "minimumLosses": 5,
+      "outsideCalibrationRange": "withhold"
+    },
+    "validation": {
+      "sameObservationBaselines": [
+        "calibrated same-team season mean",
+        "calibrated recent-20 mean"
+      ],
+      "minimumDiagnosticFixtures": 200,
+      "minimumDiagnosticAppearances": 1000,
+      "report": [
+        "Brier",
+        "log loss",
+        "weighted calibration error",
+        "fixture-cluster paired intervals",
+        "coverage",
+        "source identity checks"
+      ],
+      "bootstrapReplicates": 1000,
+      "seed": 20261021,
+      "releaseGate": "Both Brier and log loss no worse than the calibrated season-mean baseline on identical supported observations; finite monotone probabilities and all source/contract/integration tests pass. Failure withholds this market EV.",
+      "interpretation": "An experimental engineering release is not model promotion. Archive already inspected. No historical odds-profit claim; prospective validation required before edge/calibration claims."
+    },
+    "basketballLimitations": [
+      "No potential-assist or rebound-chance tracking; minutes and credited production are observed proxies",
+      "No defender assignments inferred from position",
+      "No injury/on-off minutes multiplier",
+      "Prior-season role transfer remains provisional"
+    ],
+    "preserve": [
+      "existing points/threes/FTB model parameters",
+      "saved historical research",
+      "existing Parlay rankings for its original three markets"
+    ],
+    "newParlayPolicy": "Separate descriptive assists/rebounds slots; no probability or joint-parlay EV. Equal offense/allowance/opportunity weights; opportunity is historical minutes and credited-stat rate, never invented attempts/conversion.",
+    "newParlayMinimumAppearances": 5,
+    "newParlayMinimumTeamGames": 5,
+    "newParlayScopeReason": "Descriptive new Parlay cards preserve the existing last-5/10/20 controls and five-game minimum. Probability-model minimum remains 20 same-team appearances and 10 team games."
+  },
+  "markets": {
+    "assists": {
+      "meanMode": "recent-mean",
+      "defensePower": 0.5,
+      "offensePower": 0,
+      "alpha": 0.04,
+      "dispersionBlend": 0,
+      "developmentNll": 1.8479131720726392,
+      "calibration": {
+        "a": 0.859376597638892,
+        "b": 0.023932393851567983,
+        "method": "positive-slope logistic CDF calibration; later dates only"
+      },
+      "baseline": {
+        "meanMode": "season-mean",
+        "defensePower": 0,
+        "offensePower": 0,
+        "alpha": 0.04,
+        "dispersionBlend": 0,
+        "developmentNll": 1.8607524698011253,
+        "calibration": {
+          "a": 0.8654797486729665,
+          "b": -0.020794140684621553,
+          "method": "positive-slope logistic CDF calibration; later dates only"
+        }
+      },
+      "recentBaseline": {
+        "meanMode": "recent-mean",
+        "defensePower": 0,
+        "offensePower": 0,
+        "alpha": 0.04,
+        "dispersionBlend": 0,
+        "developmentNll": 1.8511710383835493,
+        "calibration": {
+          "a": 0.8568804687212002,
+          "b": 0.02702183951285256,
+          "method": "positive-slope logistic CDF calibration; later dates only"
+        }
+      },
+      "enabled": true,
+      "withheldReason": null,
+      "developmentAppearances": 909,
+      "calibrationAppearances": 7553,
+      "diagnostic": {
+        "appearances": 7098,
+        "fixtures": 411,
+        "brier": 0.15597113212495287,
+        "logLoss": 0.4746109421135192,
+        "bins": [
+          {
+            "n": 935,
+            "meanPrediction": 0.07061544959903188,
+            "observed": 0.059893048128342244
+          },
+          {
+            "n": 2147,
+            "meanPrediction": 0.15019062423502197,
+            "observed": 0.1471821145784816
+          },
+          {
+            "n": 2056,
+            "meanPrediction": 0.24942172508968355,
+            "observed": 0.23443579766536965
+          },
+          {
+            "n": 2028,
+            "meanPrediction": 0.3514717606275539,
+            "observed": 0.3328402366863905
+          },
+          {
+            "n": 2821,
+            "meanPrediction": 0.453262926255261,
+            "observed": 0.4757178305565402
+          },
+          {
+            "n": 3359,
+            "meanPrediction": 0.5502454623671823,
+            "observed": 0.5370646025602858
+          },
+          {
+            "n": 3731,
+            "meanPrediction": 0.6514072669093838,
+            "observed": 0.6577325113910479
+          },
+          {
+            "n": 3899,
+            "meanPrediction": 0.750464944622927,
+            "observed": 0.7517312131315722
+          },
+          {
+            "n": 4332,
+            "meanPrediction": 0.8510893438740085,
+            "observed": 0.8538781163434903
+          },
+          {
+            "n": 7230,
+            "meanPrediction": 0.9608621609322425,
+            "observed": 0.9497925311203319
+          }
+        ],
+        "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns.",
+        "uncalibrated": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.1564699275579619,
+          "logLoss": 0.47856696416995637,
+          "bins": [
+            {
+              "n": 1656,
+              "meanPrediction": 0.06311262582070269,
+              "observed": 0.08454106280193237
+            },
+            {
+              "n": 2211,
+              "meanPrediction": 0.14828584200254802,
+              "observed": 0.1754862053369516
+            },
+            {
+              "n": 1890,
+              "meanPrediction": 0.2492877766117198,
+              "observed": 0.2619047619047619
+            },
+            {
+              "n": 1852,
+              "meanPrediction": 0.3525304888949193,
+              "observed": 0.37257019438444927
+            },
+            {
+              "n": 2583,
+              "meanPrediction": 0.45204462845360593,
+              "observed": 0.4878048780487805
+            },
+            {
+              "n": 2872,
+              "meanPrediction": 0.5501910796383535,
+              "observed": 0.5421309192200557
+            },
+            {
+              "n": 3182,
+              "meanPrediction": 0.651063316526527,
+              "observed": 0.6348208673790069
+            },
+            {
+              "n": 3594,
+              "meanPrediction": 0.7503530989549058,
+              "observed": 0.7301057317751809
+            },
+            {
+              "n": 4167,
+              "meanPrediction": 0.8521436761008913,
+              "observed": 0.830093592512599
+            },
+            {
+              "n": 8531,
+              "meanPrediction": 0.9648179012728001,
+              "observed": 0.936935880904935
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "meanBaseline": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.15959537157754095,
+          "logLoss": 0.4844504072320964,
+          "bins": [
+            {
+              "n": 694,
+              "meanPrediction": 0.07696387067575185,
+              "observed": 0.07060518731988473
+            },
+            {
+              "n": 2475,
+              "meanPrediction": 0.15331731496978254,
+              "observed": 0.1406060606060606
+            },
+            {
+              "n": 1705,
+              "meanPrediction": 0.2458604998130467,
+              "observed": 0.2498533724340176
+            },
+            {
+              "n": 1781,
+              "meanPrediction": 0.3560102298050724,
+              "observed": 0.3250982594048287
+            },
+            {
+              "n": 3066,
+              "meanPrediction": 0.45081212483509425,
+              "observed": 0.45955642530984997
+            },
+            {
+              "n": 3431,
+              "meanPrediction": 0.5499034181691901,
+              "observed": 0.5473622850480909
+            },
+            {
+              "n": 3798,
+              "meanPrediction": 0.65090920870993,
+              "observed": 0.6487625065824117
+            },
+            {
+              "n": 4097,
+              "meanPrediction": 0.7508524042232626,
+              "observed": 0.7483524530144008
+            },
+            {
+              "n": 4273,
+              "meanPrediction": 0.8499327760267708,
+              "observed": 0.8364146969342382
+            },
+            {
+              "n": 7218,
+              "meanPrediction": 0.9616552342888549,
+              "observed": 0.9466611249653644
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "recentBaseline": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.15641935184318675,
+          "logLoss": 0.4758802423262919,
+          "bins": [
+            {
+              "n": 931,
+              "meanPrediction": 0.07109759640087618,
+              "observed": 0.06337271750805586
+            },
+            {
+              "n": 2130,
+              "meanPrediction": 0.15028521859356372,
+              "observed": 0.14507042253521127
+            },
+            {
+              "n": 2076,
+              "meanPrediction": 0.24959254260604544,
+              "observed": 0.2384393063583815
+            },
+            {
+              "n": 1980,
+              "meanPrediction": 0.3507538010126527,
+              "observed": 0.32727272727272727
+            },
+            {
+              "n": 2858,
+              "meanPrediction": 0.4529198987784609,
+              "observed": 0.47830650804758573
+            },
+            {
+              "n": 3407,
+              "meanPrediction": 0.5504822963183807,
+              "observed": 0.5456413266803639
+            },
+            {
+              "n": 3717,
+              "meanPrediction": 0.6515774836943842,
+              "observed": 0.6483723432875975
+            },
+            {
+              "n": 3926,
+              "meanPrediction": 0.7502573143123882,
+              "observed": 0.7582781456953642
+            },
+            {
+              "n": 4342,
+              "meanPrediction": 0.8513871779492765,
+              "observed": 0.8502994011976048
+            },
+            {
+              "n": 7171,
+              "meanPrediction": 0.960893307427845,
+              "observed": 0.9496583461163017
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "beatsMeanBaseline": true
+      },
+      "supportedDiagnostic": {
+        "appearances": 7059,
+        "fixtures": 411,
+        "brier": 0.19798853044378562,
+        "logLoss": 0.5810411971511431,
+        "bins": [
+          {
+            "n": 546,
+            "meanPrediction": 0.06794268093886804,
+            "observed": 0.06227106227106227
+          },
+          {
+            "n": 1586,
+            "meanPrediction": 0.154004966316176,
+            "observed": 0.15699873896595207
+          },
+          {
+            "n": 1974,
+            "meanPrediction": 0.2500860789154434,
+            "observed": 0.23505572441742653
+          },
+          {
+            "n": 2025,
+            "meanPrediction": 0.35153062537592505,
+            "observed": 0.3333333333333333
+          },
+          {
+            "n": 2820,
+            "meanPrediction": 0.45326911727121205,
+            "observed": 0.47588652482269506
+          },
+          {
+            "n": 3356,
+            "meanPrediction": 0.5502462409181271,
+            "observed": 0.5372467222884386
+          },
+          {
+            "n": 3700,
+            "meanPrediction": 0.6512755239546469,
+            "observed": 0.6581081081081082
+          },
+          {
+            "n": 3664,
+            "meanPrediction": 0.7492034351392223,
+            "observed": 0.7516375545851528
+          },
+          {
+            "n": 2944,
+            "meanPrediction": 0.8464259120336379,
+            "observed": 0.8508831521739131
+          },
+          {
+            "n": 952,
+            "meanPrediction": 0.9324455681979269,
+            "observed": 0.8823529411764706
+          }
+        ],
+        "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns.",
+        "meanBaseline": {
+          "appearances": 7059,
+          "fixtures": 411,
+          "brier": 0.20263368278550292,
+          "logLoss": 0.5915702752525703,
+          "bins": [
+            {
+              "n": 239,
+              "meanPrediction": 0.07594134754743032,
+              "observed": 0.07112970711297072
+            },
+            {
+              "n": 1930,
+              "meanPrediction": 0.15755865018146187,
+              "observed": 0.1461139896373057
+            },
+            {
+              "n": 1670,
+              "meanPrediction": 0.24626380715758284,
+              "observed": 0.2497005988023952
+            },
+            {
+              "n": 1781,
+              "meanPrediction": 0.3560102298050724,
+              "observed": 0.3250982594048287
+            },
+            {
+              "n": 3066,
+              "meanPrediction": 0.45081212483509425,
+              "observed": 0.45955642530984997
+            },
+            {
+              "n": 3431,
+              "meanPrediction": 0.5499034181691901,
+              "observed": 0.5473622850480909
+            },
+            {
+              "n": 3788,
+              "meanPrediction": 0.6508515033518341,
+              "observed": 0.6488912354804647
+            },
+            {
+              "n": 3978,
+              "meanPrediction": 0.7503219874730489,
+              "observed": 0.7491201608848668
+            },
+            {
+              "n": 3214,
+              "meanPrediction": 0.8453197683602233,
+              "observed": 0.8304293714996889
+            },
+            {
+              "n": 470,
+              "meanPrediction": 0.9201476304839503,
+              "observed": 0.8765957446808511
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "recentBaseline": {
+          "appearances": 7059,
+          "fixtures": 411,
+          "brier": 0.19855583143701347,
+          "logLoss": 0.5824169347331201,
+          "bins": [
+            {
+              "n": 534,
+              "meanPrediction": 0.06777816553353065,
+              "observed": 0.06741573033707865
+            },
+            {
+              "n": 1580,
+              "meanPrediction": 0.15396999537011258,
+              "observed": 0.15379746835443037
+            },
+            {
+              "n": 1990,
+              "meanPrediction": 0.250308732370934,
+              "observed": 0.23969849246231156
+            },
+            {
+              "n": 1978,
+              "meanPrediction": 0.35078906805578736,
+              "observed": 0.3276036400404449
+            },
+            {
+              "n": 2857,
+              "meanPrediction": 0.45292440173390114,
+              "observed": 0.4784739236961848
+            },
+            {
+              "n": 3404,
+              "meanPrediction": 0.5504763334297834,
+              "observed": 0.545828437132785
+            },
+            {
+              "n": 3686,
+              "meanPrediction": 0.6514333870921747,
+              "observed": 0.6486706456863809
+            },
+            {
+              "n": 3690,
+              "meanPrediction": 0.7489589782538537,
+              "observed": 0.7574525745257452
+            },
+            {
+              "n": 2931,
+              "meanPrediction": 0.846428339327078,
+              "observed": 0.8437393381098601
+            },
+            {
+              "n": 917,
+              "meanPrediction": 0.9324412801691333,
+              "observed": 0.8865866957470011
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        }
+      }
+    },
+    "rebounds": {
+      "meanMode": "exposure-rate",
+      "defensePower": 0.25,
+      "offensePower": 0,
+      "alpha": 0.04,
+      "dispersionBlend": 0,
+      "developmentNll": 2.210317019253625,
+      "calibration": {
+        "a": 0.8447061615539959,
+        "b": 0.017176248999899814,
+        "method": "positive-slope logistic CDF calibration; later dates only"
+      },
+      "baseline": {
+        "meanMode": "season-mean",
+        "defensePower": 0,
+        "offensePower": 0,
+        "alpha": 0.04,
+        "dispersionBlend": 0,
+        "developmentNll": 2.2146648984417454,
+        "calibration": {
+          "a": 0.8371882450849525,
+          "b": -0.02924071959359759,
+          "method": "positive-slope logistic CDF calibration; later dates only"
+        }
+      },
+      "recentBaseline": {
+        "meanMode": "recent-mean",
+        "defensePower": 0,
+        "offensePower": 0,
+        "alpha": 0.04,
+        "dispersionBlend": 0,
+        "developmentNll": 2.2108481923145313,
+        "calibration": {
+          "a": 0.8379774871331988,
+          "b": 0.031001598026227227,
+          "method": "positive-slope logistic CDF calibration; later dates only"
+        }
+      },
+      "enabled": true,
+      "withheldReason": null,
+      "developmentAppearances": 909,
+      "calibrationAppearances": 7553,
+      "diagnostic": {
+        "appearances": 7098,
+        "fixtures": 411,
+        "brier": 0.1414525903269331,
+        "logLoss": 0.44180864474719383,
+        "bins": [
+          {
+            "n": 3360,
+            "meanPrediction": 0.06173100516628258,
+            "observed": 0.054464285714285715
+          },
+          {
+            "n": 2941,
+            "meanPrediction": 0.14885432732812276,
+            "observed": 0.1499489969398164
+          },
+          {
+            "n": 2810,
+            "meanPrediction": 0.25030506229806343,
+            "observed": 0.23843416370106763
+          },
+          {
+            "n": 2389,
+            "meanPrediction": 0.34778581169359163,
+            "observed": 0.35789033068229387
+          },
+          {
+            "n": 1681,
+            "meanPrediction": 0.44608669090403624,
+            "observed": 0.41225461035098154
+          },
+          {
+            "n": 2338,
+            "meanPrediction": 0.5543882345867815,
+            "observed": 0.5731394354148845
+          },
+          {
+            "n": 3216,
+            "meanPrediction": 0.6498376387747657,
+            "observed": 0.6731965174129353
+          },
+          {
+            "n": 3047,
+            "meanPrediction": 0.7518247316720292,
+            "observed": 0.7597637020019692
+          },
+          {
+            "n": 4558,
+            "meanPrediction": 0.8546256698078101,
+            "observed": 0.8611232996928477
+          },
+          {
+            "n": 7498,
+            "meanPrediction": 0.9541071673939983,
+            "observed": 0.9405174713256869
+          }
+        ],
+        "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns.",
+        "uncalibrated": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.14201925094379422,
+          "logLoss": 0.4469025400120635,
+          "bins": [
+            {
+              "n": 4508,
+              "meanPrediction": 0.04960637042145127,
+              "observed": 0.06987577639751552
+            },
+            {
+              "n": 2867,
+              "meanPrediction": 0.14833040299301364,
+              "observed": 0.18381583536798046
+            },
+            {
+              "n": 2554,
+              "meanPrediction": 0.24724774640224573,
+              "observed": 0.28191072826938135
+            },
+            {
+              "n": 1999,
+              "meanPrediction": 0.34788877565363685,
+              "observed": 0.376688344172086
+            },
+            {
+              "n": 1321,
+              "meanPrediction": 0.44872878915654546,
+              "observed": 0.42240726722180166
+            },
+            {
+              "n": 1963,
+              "meanPrediction": 0.5539874426977407,
+              "observed": 0.5674987264391238
+            },
+            {
+              "n": 2764,
+              "meanPrediction": 0.6515983703255084,
+              "observed": 0.6613603473227206
+            },
+            {
+              "n": 2700,
+              "meanPrediction": 0.7502215400870746,
+              "observed": 0.7237037037037037
+            },
+            {
+              "n": 3829,
+              "meanPrediction": 0.8546178519513546,
+              "observed": 0.8255419169495952
+            },
+            {
+              "n": 9333,
+              "meanPrediction": 0.9601944883122547,
+              "observed": 0.9331404693024751
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "meanBaseline": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.1438058099896981,
+          "logLoss": 0.4495431819887203,
+          "bins": [
+            {
+              "n": 3267,
+              "meanPrediction": 0.0655310084399538,
+              "observed": 0.058463422099785736
+            },
+            {
+              "n": 2809,
+              "meanPrediction": 0.14554420898342005,
+              "observed": 0.15485938056247775
+            },
+            {
+              "n": 3083,
+              "meanPrediction": 0.25263801169487365,
+              "observed": 0.2458644177748946
+            },
+            {
+              "n": 3016,
+              "meanPrediction": 0.34282943673750416,
+              "observed": 0.3411803713527852
+            },
+            {
+              "n": 344,
+              "meanPrediction": 0.42582992079366433,
+              "observed": 0.40988372093023256
+            },
+            {
+              "n": 3249,
+              "meanPrediction": 0.5634648675553015,
+              "observed": 0.5789473684210527
+            },
+            {
+              "n": 3436,
+              "meanPrediction": 0.6432427146712598,
+              "observed": 0.6542491268917345
+            },
+            {
+              "n": 2380,
+              "meanPrediction": 0.7569037888753969,
+              "observed": 0.7819327731092437
+            },
+            {
+              "n": 4833,
+              "meanPrediction": 0.8511355174739443,
+              "observed": 0.8584729981378026
+            },
+            {
+              "n": 7421,
+              "meanPrediction": 0.9517589749707138,
+              "observed": 0.9359924538471904
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "recentBaseline": {
+          "appearances": 7098,
+          "fixtures": 411,
+          "brier": 0.14207351002708682,
+          "logLoss": 0.44374817366244,
+          "bins": [
+            {
+              "n": 3273,
+              "meanPrediction": 0.06073175102439415,
+              "observed": 0.05346776657500764
+            },
+            {
+              "n": 3008,
+              "meanPrediction": 0.1484870892785483,
+              "observed": 0.15059840425531915
+            },
+            {
+              "n": 2705,
+              "meanPrediction": 0.24981878408326041,
+              "observed": 0.23696857670979668
+            },
+            {
+              "n": 2405,
+              "meanPrediction": 0.3488301623942526,
+              "observed": 0.3501039501039501
+            },
+            {
+              "n": 1886,
+              "meanPrediction": 0.44714561535846425,
+              "observed": 0.4268292682926829
+            },
+            {
+              "n": 2276,
+              "meanPrediction": 0.5533405706893677,
+              "observed": 0.5694200351493849
+            },
+            {
+              "n": 3086,
+              "meanPrediction": 0.6504170626866292,
+              "observed": 0.6717433570965652
+            },
+            {
+              "n": 3247,
+              "meanPrediction": 0.7512126835445485,
+              "observed": 0.7622420696027102
+            },
+            {
+              "n": 4489,
+              "meanPrediction": 0.8552094653988975,
+              "observed": 0.8625529071062598
+            },
+            {
+              "n": 7463,
+              "meanPrediction": 0.9549751374395842,
+              "observed": 0.9388985662602171
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "beatsMeanBaseline": true
+      },
+      "supportedDiagnostic": {
+        "appearances": 7093,
+        "fixtures": 411,
+        "brier": 0.18450803083497663,
+        "logLoss": 0.5495403126364646,
+        "bins": [
+          {
+            "n": 1268,
+            "meanPrediction": 0.06483984630333149,
+            "observed": 0.07176656151419558
+          },
+          {
+            "n": 2135,
+            "meanPrediction": 0.15470861474884945,
+            "observed": 0.15831381733021077
+          },
+          {
+            "n": 2710,
+            "meanPrediction": 0.2508942817780471,
+            "observed": 0.24059040590405903
+          },
+          {
+            "n": 2382,
+            "meanPrediction": 0.3478730169258072,
+            "observed": 0.3581024349286314
+          },
+          {
+            "n": 1681,
+            "meanPrediction": 0.44608669090403624,
+            "observed": 0.41225461035098154
+          },
+          {
+            "n": 2335,
+            "meanPrediction": 0.5543463387186025,
+            "observed": 0.5730192719486081
+          },
+          {
+            "n": 3199,
+            "meanPrediction": 0.6497917389300979,
+            "observed": 0.673648015004689
+          },
+          {
+            "n": 2940,
+            "meanPrediction": 0.751141776581945,
+            "observed": 0.7598639455782313
+          },
+          {
+            "n": 3118,
+            "meanPrediction": 0.8488845689454864,
+            "observed": 0.8556767158434894
+          },
+          {
+            "n": 1132,
+            "meanPrediction": 0.9303798142308964,
+            "observed": 0.8939929328621908
+          }
+        ],
+        "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns.",
+        "meanBaseline": {
+          "appearances": 7093,
+          "fixtures": 411,
+          "brier": 0.1876229422269015,
+          "logLoss": 0.5577786550954636,
+          "bins": [
+            {
+              "n": 1068,
+              "meanPrediction": 0.07328762231421024,
+              "observed": 0.0749063670411985
+            },
+            {
+              "n": 2074,
+              "meanPrediction": 0.15160287159367158,
+              "observed": 0.16634522661523626
+            },
+            {
+              "n": 3013,
+              "meanPrediction": 0.25306379173550164,
+              "observed": 0.2472618652505808
+            },
+            {
+              "n": 3015,
+              "meanPrediction": 0.3428247148551709,
+              "observed": 0.3409618573797678
+            },
+            {
+              "n": 344,
+              "meanPrediction": 0.42582992079366433,
+              "observed": 0.40988372093023256
+            },
+            {
+              "n": 3249,
+              "meanPrediction": 0.5634648675553015,
+              "observed": 0.5789473684210527
+            },
+            {
+              "n": 3422,
+              "meanPrediction": 0.6431279652165474,
+              "observed": 0.6545879602571596
+            },
+            {
+              "n": 2309,
+              "meanPrediction": 0.7565745402988688,
+              "observed": 0.7843222174101343
+            },
+            {
+              "n": 3607,
+              "meanPrediction": 0.8440422493042905,
+              "observed": 0.8461325200998059
+            },
+            {
+              "n": 799,
+              "meanPrediction": 0.9226207808839838,
+              "observed": 0.8898623279098874
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        },
+        "recentBaseline": {
+          "appearances": 7093,
+          "fixtures": 411,
+          "brier": 0.18530592987115485,
+          "logLoss": 0.5518225857759081,
+          "bins": [
+            {
+              "n": 1271,
+              "meanPrediction": 0.06233884182622787,
+              "observed": 0.07002360346184107
+            },
+            {
+              "n": 2150,
+              "meanPrediction": 0.15424696338004884,
+              "observed": 0.16279069767441862
+            },
+            {
+              "n": 2568,
+              "meanPrediction": 0.25062416444823304,
+              "observed": 0.24026479750778817
+            },
+            {
+              "n": 2397,
+              "meanPrediction": 0.34891300377538537,
+              "observed": 0.3504380475594493
+            },
+            {
+              "n": 1886,
+              "meanPrediction": 0.44714561535846425,
+              "observed": 0.4268292682926829
+            },
+            {
+              "n": 2272,
+              "meanPrediction": 0.5532941645647281,
+              "observed": 0.5695422535211268
+            },
+            {
+              "n": 3069,
+              "meanPrediction": 0.6503982274678628,
+              "observed": 0.6722059302704464
+            },
+            {
+              "n": 3056,
+              "meanPrediction": 0.7501100220101286,
+              "observed": 0.7594895287958116
+            },
+            {
+              "n": 2944,
+              "meanPrediction": 0.8493070368011296,
+              "observed": 0.8515625
+            },
+            {
+              "n": 1287,
+              "meanPrediction": 0.9335576187213539,
+              "observed": 0.891996891996892
+            }
+          ],
+          "interpretation": "One total weight per player appearance; threshold observations are correlated. Reliability bins count thresholds. No independent-trial intervals or historical price returns."
+        }
+      }
+    }
+  },
+  "modelHash": "e70040d39db9a03e08710cb4701798721930c0bec91945fdc78e1a3557d56d86"
+}

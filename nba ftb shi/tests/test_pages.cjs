@@ -2,10 +2,11 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const A=require('../analyst.js'),H=require('../scouting_history.js'),base=path.join(__dirname,'..');
 const archive=JSON.parse(fs.readFileSync(path.join(base,'analyst_data.json'))),canonical=JSON.parse(fs.readFileSync(path.join(base,'merged_dataset.json'))),report=JSON.parse(fs.readFileSync(path.join(base,'analyst_evaluation.json')));
 const manifest=JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/manifest.json'))),current={...JSON.parse(fs.readFileSync(path.join(base,'seasons/2026-27/versions',manifest.activeVersion))),health:manifest};
-const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope','lineups'];
+const names=['data','archive','basis','canonical','report','tab','mode','date','phase','period','target','season','schedule','gameId','rosters','injuries','pbp','sources','error','busy','expanded','sort','limit','scenario','showOut','journalMessage','now','gradeBasis','health','journal','historyScope','lineups','starterScope'];
 function render(overrides={},published=true,response={canonical,analysis:archive,evaluation:report},clock=Date){
   const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};
   const defaults=[archive,archive,'auto',canonical,report,'data','review','2026-06-13','all','0',A.DEFAULT_TARGET,'2025-26',[],'all',{}, {},null,{},null,false,null,'grade',40,{},false,'',Date.now(),'history',null,null,'all-opponents',{confirmed:{},projected:{},issues:[]}];
+  defaults.push('confirmed');
   const values=defaults.map((v,i)=>names[i] in overrides?overrides[names[i]]:v),changes={},requests=[],effects=[];let index=0;
   const window={__FTB_ANALYST_DATA__:archive,__FTB_MERGED__:canonical,__FTB_ANALYST_EVALUATION__:report,FTBScoutingHistory:H,FTBAnalyst:A,FTBLineups:require('../lineups.js'),...(published?{__FTB_HOSTING__:{mode:'github-pages',publishedDate:'2026-10-09'}}:{})};
   const context=vm.createContext({window,React:{createElement:(type,props,...children)=>({type,props,children}),Fragment:'fragment',useState:initial=>{const i=index++;return[values[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??values[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:()=>({current:0})},fetch:async(url,options)=>{requests.push({url,options});return{ok:true,json:async()=>url.includes('2026-27.json')?current:response};},Date:clock,Intl,Number,String,Set,Object,JSON,AbortSignal});
@@ -22,7 +23,7 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
   await test('local app retains its Python service routes',()=>{const ui=render({},false).window.FTBAnalystUI;assert(!ui.publishedSite);assert.equal(ui.serviceUrl('/api/history'),'/api/history');assert.equal(ui.serviceUrl('/api/seasons/2026-27'),'/api/seasons/2026-27');});
   await test('published reload atomically adopts coherent canonical analysis and evaluation',async()=>{const r=render();await r.button('Reload verified history').props.onClick();assert.equal(r.requests.length,1);assert.equal(r.requests[0].url,'data/history.json');assert.equal(r.changes.canonical,canonical);assert.equal(r.changes.archive,archive);assert.equal(r.changes.report,report);assert.equal(r.changes.sources.history.status,'verified');});
   await test('mismatched published evaluation retains the last verified dataset',async()=>{const r=render({},true,{canonical,analysis:archive,evaluation:{...report,evidenceContentHash:'wrong'}});await r.button('Reload verified history').props.onClick();assert.equal(r.changes.canonical,undefined);assert.equal(r.changes.archive,undefined);assert.equal(r.changes.report,undefined);assert.match(r.changes.error,/last verified history retained/);});
-  await test('published current-season loader reads a separate versioned snapshot',async()=>{const r=render({data:current,season:'2026-27'});r.effects.find(e=>e.deps.length===1&&e.deps[0]==='2026-27').fn();await new Promise(setImmediate);assert.equal(r.requests.length,1);assert.equal(r.requests[0].url,'data/seasons/2026-27.json');assert.equal(r.changes.data.meta.season,'2026-27');assert.equal(r.changes.data.games.length,0);assert.equal(r.changes.health.evidenceContentHash,manifest.evidenceContentHash);});
+  await test('published current-season loader reads a separate versioned snapshot',async()=>{const r=render({data:current,season:'2026-27'});r.effects.find(e=>e.deps.length===1&&e.deps[0]==='2026-27').fn();await new Promise(setImmediate);assert.equal(r.requests.length,1);assert.equal(r.requests[0].url,'data/seasons/2026-27.json');assert.equal(r.changes.data.meta.season,'2026-27');assert.equal(r.changes.data.games.length,current.games.length);assert.equal(r.changes.health.evidenceContentHash,manifest.evidenceContentHash);});
   await test('published collection rebuild import and settlement controls are disabled',async()=>{const r=render({data:current,season:'2026-27'});for(const label of ['Collect selected day','Rebuild from canonical workbook','Import canonical JSON','Update completed basketball outcomes'])assert.equal(r.button(label).props.disabled,true,label);for(const label of ['Collect selected day','Rebuild from canonical workbook','Update completed basketball outcomes'])await r.button(label).props.onClick();assert.equal(r.requests.length,0);});
   await test('published journal panel never requests a local backend',async()=>{const r=render();r.effects.find(e=>e.deps.length===1&&e.deps[0]==='data').fn();await new Promise(setImmediate);assert.equal(r.requests.length,0);assert.equal(r.changes.journal,null);});
   await test('published forecast recording is guarded even when its handler is invoked',async()=>{const fixture={id:'future',date:'2026-10-20',home:'SAS',away:'OKC',season:'2026-27',phase:'regular-season',status:'pre'};const r=render({tab:'picks',data:current,season:'2026-27',mode:'upcoming',date:fixture.date,schedule:[fixture],gameId:'future',rosters:{SAS:[],OKC:[]}});const b=r.button('Record pregame forecast');assert(b.props.disabled);await b.props.onClick();assert.equal(r.requests.length,0);assert.match(r.changes.journalMessage,/local app/);});
@@ -85,6 +86,46 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
     assert.equal(format({status:'post',statusText:'Final',scheduledTipoff:'2026-10-20T19:00Z'}),'Final');
     assert.equal(format({status:'in',statusText:'Q3 5:00',scheduledTipoff:'2026-10-20T19:00Z'}),'Q3 5:00');
     assert.equal(format({status:'pre',statusText:'Scheduled',scheduledTipoff:null}),'Scheduled');
+  });
+  const feedNow=Date.parse('2026-10-20T18:30Z'),feedFixture={id:'feed',date:'2026-10-20',home:'DET',away:'BOS',season:'2026-27',phase:'regular-season',status:'pre',scheduledTipoff:'2026-10-20T19:00Z'};
+  const box=archive.games.find(g=>g.teams.BOS).teams.BOS,feedRoster=box.players.map(p=>({id:p.id,name:p.name,team:'BOS',rawPosition:p.rawPosition||''})),five=box.players.filter(p=>p.played&&p.starter).map((p,i)=>({id:p.id,name:p.name,team:'BOS',position:['PG','SG','SF','PF','C'][i],status:'confirmed',nbaId:String(i+1),fixtureId:feedFixture.id,date:feedFixture.date,capturedAt:new Date(feedNow).toISOString(),source:require('../lineups.js').urlFor(feedFixture.date)}));
+  const feedLineups={confirmed:Object.fromEntries(five.map(p=>[p.id,p])),projected:{},issues:[]},feedOptions={tab:'picks',data:current,season:'2026-27',mode:'upcoming',date:feedFixture.date,schedule:[feedFixture],now:feedNow,rosters:{BOS:feedRoster},lineups:feedLineups};
+  const feedSelect=render().window.FTBAnalystUI.starterFeed;
+  function nodes(tree){const all=[];function walk(n){if(Array.isArray(n))return n.forEach(walk);if(!n||typeof n!=='object')return;all.push(n);(n.children||[]).forEach(walk);}walk(tree);return all;}
+  const cardNames=r=>nodes(r.tree).filter(n=>n.type?.name==='PlayerCard').map(n=>n.props.p.name);
+  await test('upcoming Picks shows only the same complete NBA-confirmed five as the shared lineup panel',()=>{
+    const r=render(feedOptions),names=cardNames(r);assert.equal(names.length,5);assert.equal(names.sort().join('|'),five.map(p=>p.name).sort().join('|'));
+    const scope=nodes(r.tree).find(n=>n.props?.['aria-label']==='Starter feed');assert.equal(scope.props.value,'confirmed');scope.props.onChange({target:{value:'projected'}});assert.equal(r.changes.starterScope,'projected');assert.equal(r.changes.expanded,null);
+    const top=nodes(r.tree).find(n=>n.type?.name==='TopResearch');assert(five.some(p=>p.id===top.props.p.id));
+  });
+  await test('projected fives require explicit opt-in and cannot enter the default starter feed',()=>{
+    const projected=Object.fromEntries(five.map(p=>[p.id,{...p,status:'projected',origin:'espn-depth',season:feedFixture.season,source:'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/2/depthcharts'}]));
+    assert.equal(cardNames(render({...feedOptions,lineups:{confirmed:{},projected}})).length,0);
+    const r=render({...feedOptions,starterScope:'projected',lineups:{confirmed:{},projected}});assert.equal(cardNames(r).length,5);
+    assert(nodes(r.tree).filter(n=>n.type?.name==='PlayerCard').every(n=>/unconfirmed/.test(n.props.p.lineupStatus)));
+  });
+  await test('fresh confirmation replaces the projected five, including a changed fifth starter',()=>{
+    const bench=feedRoster.find(p=>!five.some(s=>s.id===p.id));assert(bench);
+    const replaced=five.map((p,i)=>i===4?{...p,id:bench.id,name:bench.name}:p),projected=Object.fromEntries(five.map(p=>[p.id,{...p,status:'projected',origin:'espn-depth',season:feedFixture.season,source:'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/2/depthcharts'}]));
+    const selected=feedSelect(feedRoster,[feedFixture],{confirmed:Object.fromEntries(replaced.map(p=>[p.id,p])),projected},feedNow,{includeProjected:true});
+    assert(selected.players.some(p=>p.id===bench.id));assert(!selected.players.some(p=>p.id===five[4].id));assert.equal(selected.confirmedTeams,1);assert.equal(selected.projectedTeams,0);
+  });
+  await test('expired, partial, mismatched and roster-unresolved confirmations fail closed',()=>{
+    assert.equal(feedSelect(feedRoster,[feedFixture],feedLineups,feedNow+300001).players.length,0);
+    const partial={...feedLineups,confirmed:Object.fromEntries(five.slice(0,4).map(p=>[p.id,p]))};assert.equal(feedSelect(feedRoster,[feedFixture],partial,feedNow).players.length,0);
+    const wrong={...feedLineups,confirmed:Object.fromEntries(five.map(p=>[p.id,{...p,fixtureId:'other'}]))};assert.equal(feedSelect(feedRoster,[feedFixture],wrong,feedNow).players.length,0);
+    assert.equal(feedSelect(feedRoster.filter(p=>p.id!==five[0].id),[feedFixture],feedLineups,feedNow).players.length,0);
+  });
+  await test('tipoff, completed games and unavailable schedules close the pregame cards',()=>{
+    for(const fixture of [{...feedFixture,status:'post'},{...feedFixture,scheduledTipoff:new Date(feedNow).toISOString()},{...feedFixture,scheduledTipoff:null},{...feedFixture,statusText:'Postponed'}])assert.equal(feedSelect(feedRoster,[fixture],feedLineups,feedNow).players.length,0);
+  });
+  await test('scenario assumptions and Show excluded cannot promote a bench player into the starter feed',()=>{
+    const bench=feedRoster.find(p=>!five.some(s=>s.id===p.id));const r=render({...feedOptions,showOut:true,scenario:{[bench.id]:'starter'}});assert.equal(cardNames(r).length,5);assert(!cardNames(r).includes(bench.name));
+    assert.equal(cardNames(render({...feedOptions,lineups:{confirmed:{},projected:{}},scenario:{[bench.id]:'starter'}})).length,0);
+  });
+  await test('main-feed filtering leaves historical research and other tabs on their existing roster scope',()=>{
+    const r=render({tab:'picks'});assert(!nodes(r.tree).some(n=>n.props?.['aria-label']==='Starter feed'));assert(cardNames(r).length>5);
+    for(const tab of ['parlay','ev','matchup'])assert(!nodes(render({...feedOptions,tab}).tree).some(n=>n.props?.['aria-label']==='Starter feed'));
   });
   console.log(JSON.stringify({passed:count}));
 })().catch(error=>{console.error(error);process.exitCode=1;});

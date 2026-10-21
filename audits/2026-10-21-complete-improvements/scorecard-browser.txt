@@ -1,0 +1,40 @@
+Daily research scorecard
+
+Primary daily view prefers the latest saved full supported-offer pregame snapshot for each fixture, preserving earlier-game records when later snapshots show only another game. Filters and timestamp are preserved. Other snapshots are appendices, not extra bets. One illustrative unit per acted selection at its recorded odds; pushes count as action with zero profit, voids have zero action, pending/review/invalid are excluded from returns and never losses. Editable browser research is not authenticated issuance or account settlement. Same-game picks and alternate lines are correlated. No combined-parlay EV.
+
+2026-10-20
+
+Latest saved supported pregame snapshot per fixture; 3 fixtures. Full supported universes recorded. · latest capture Oct 20, 1:08 AM CT
+
+Market totals · displayed selections
+Market / type	Selections	Wins	Losses	Pushes	Voids	Unresolved	Illustrative net units
+First Team Basket	5	2	3	0	0	0	6.700
+Points	31	7	24	0	0	0	-8.470
+Made threes	27	11	16	0	0	0	1.527
+Bet types · displayed selections
+Market / type	Selections	Wins	Losses	Pushes	Voids	Unresolved	Illustrative net units
+First Team Basket · First team score	5	2	3	0	0	0	6.700
+Points · Alternative ladder / milestone	22	2	20	0	0	0	-8.800
+Points · Under	9	5	4	0	0	0	0.330
+Made threes · Alternative ladder / milestone	14	2	12	0	0	0	-1.000
+Made threes · Under	13	9	4	0	0	0	2.527
+Saved capture coverage
+Original prices and lineup assumptions
+2026-10-21
+
+Latest saved supported pregame snapshot per fixture; 11 fixtures. Full supported universes recorded. · latest capture Oct 21, 9:44 AM CT
+
+Market totals · displayed selections
+Market / type	Selections	Wins	Losses	Pushes	Voids	Unresolved	Illustrative net units
+First Team Basket	4	0	0	0	0	4	Unavailable
+Points	77	0	0	0	0	77	Unavailable
+Made threes	64	0	0	0	0	64	Unavailable
+Bet types · displayed selections
+Market / type	Selections	Wins	Losses	Pushes	Voids	Unresolved	Illustrative net units
+First Team Basket · First team score	4	0	0	0	0	4	Unavailable
+Points · Alternative ladder / milestone	62	0	0	0	0	62	Unavailable
+Points · Under	15	0	0	0	0	15	Unavailable
+Made threes · Alternative ladder / milestone	39	0	0	0	0	39	Unavailable
+Made threes · Under	25	0	0	0	0	25	Unavailable
+Saved capture coverage
+Original prices and lineup assumptions

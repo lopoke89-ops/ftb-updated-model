@@ -1,0 +1,300 @@
+{
+  "originalOutcomesUnchanged": true,
+  "latestCounts": {
+    "win": 134,
+    "loss": 210,
+    "push": 0,
+    "void": 0,
+    "pending": 0,
+    "review": 0,
+    "invalid": 0
+  },
+  "scorecard": {
+    "version": "ev-daily-research-scorecard-v1",
+    "days": [
+      {
+        "date": "2026-10-20",
+        "primarySnapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+        "capturedAt": "2026-10-20T06:08:58.993Z",
+        "snapshots": [
+          {
+            "fixtureId": "401909088",
+            "snapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+            "capturedAt": "2026-10-20T06:08:58.993Z",
+            "filters": {
+              "selection": "all supported offers before display filters",
+              "market": "all",
+              "side": "all",
+              "positiveOnly": true,
+              "provisional": true,
+              "bestOnly": true
+            },
+            "completeSupportedUniverse": true
+          },
+          {
+            "fixtureId": "401909089",
+            "snapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+            "capturedAt": "2026-10-20T06:08:58.993Z",
+            "filters": {
+              "selection": "all supported offers before display filters",
+              "market": "all",
+              "side": "all",
+              "positiveOnly": true,
+              "provisional": true,
+              "bestOnly": true
+            },
+            "completeSupportedUniverse": true
+          },
+          {
+            "fixtureId": "401909090",
+            "snapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+            "capturedAt": "2026-10-20T06:08:58.993Z",
+            "filters": {
+              "selection": "all supported offers before display filters",
+              "market": "all",
+              "side": "all",
+              "positiveOnly": true,
+              "provisional": true,
+              "bestOnly": true
+            },
+            "completeSupportedUniverse": true
+          }
+        ],
+        "filters": {
+          "selection": "all supported offers before display filters",
+          "market": "all",
+          "side": "all",
+          "positiveOnly": true,
+          "provisional": true,
+          "bestOnly": true
+        },
+        "modelVersions": [
+          "ev-props-v1.1",
+          "ev-first-team-v1.1"
+        ],
+        "universe": "Latest saved supported pregame snapshot per fixture; 3 fixtures. Full supported universes recorded.",
+        "allSupported": {
+          "selections": 344,
+          "counts": {
+            "win": 134,
+            "loss": 210,
+            "push": 0,
+            "void": 0,
+            "pending": 0,
+            "review": 0,
+            "invalid": 0
+          },
+          "decisiveHitRate": 0.38953488372093026,
+          "illustrativeNetUnits": -74.05587766923578,
+          "illustrativeUnitsAtRisk": 344,
+          "illustrativeROI": -0.2152787141547552,
+          "unresolved": 0,
+          "settlement": "unverified"
+        },
+        "displayed": {
+          "selections": 63,
+          "counts": {
+            "win": 20,
+            "loss": 43,
+            "push": 0,
+            "void": 0,
+            "pending": 0,
+            "review": 0,
+            "invalid": 0
+          },
+          "decisiveHitRate": 0.31746031746031744,
+          "illustrativeNetUnits": -0.24306679063194592,
+          "illustrativeUnitsAtRisk": 63,
+          "illustrativeROI": -0.0038582030259039033,
+          "unresolved": 0,
+          "settlement": "unverified"
+        },
+        "byMarket": {
+          "first-team-basket": {
+            "selections": 5,
+            "counts": {
+              "win": 2,
+              "loss": 3,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.4,
+            "illustrativeNetUnits": 6.7,
+            "illustrativeUnitsAtRisk": 5,
+            "illustrativeROI": 1.34,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "points": {
+            "selections": 31,
+            "counts": {
+              "win": 7,
+              "loss": 24,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.22580645161290322,
+            "illustrativeNetUnits": -8.469984917043739,
+            "illustrativeUnitsAtRisk": 31,
+            "illustrativeROI": -0.2732253199046367,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "threes": {
+            "selections": 27,
+            "counts": {
+              "win": 11,
+              "loss": 16,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.4074074074074074,
+            "illustrativeNetUnits": 1.5269181264117955,
+            "illustrativeUnitsAtRisk": 27,
+            "illustrativeROI": 0.05655252320043687,
+            "unresolved": 0,
+            "settlement": "unverified"
+          }
+        },
+        "byMarketAndBetType": {
+          "first-team-basket / yes": {
+            "selections": 5,
+            "counts": {
+              "win": 2,
+              "loss": 3,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.4,
+            "illustrativeNetUnits": 6.7,
+            "illustrativeUnitsAtRisk": 5,
+            "illustrativeROI": 1.34,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "points / at-least": {
+            "selections": 22,
+            "counts": {
+              "win": 2,
+              "loss": 20,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.09090909090909091,
+            "illustrativeNetUnits": -8.8,
+            "illustrativeUnitsAtRisk": 22,
+            "illustrativeROI": -0.4,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "points / under": {
+            "selections": 9,
+            "counts": {
+              "win": 5,
+              "loss": 4,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.5555555555555556,
+            "illustrativeNetUnits": 0.3300150829562589,
+            "illustrativeUnitsAtRisk": 9,
+            "illustrativeROI": 0.03666834255069543,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "threes / at-least": {
+            "selections": 14,
+            "counts": {
+              "win": 2,
+              "loss": 12,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.14285714285714285,
+            "illustrativeNetUnits": -1,
+            "illustrativeUnitsAtRisk": 14,
+            "illustrativeROI": -0.07142857142857142,
+            "unresolved": 0,
+            "settlement": "unverified"
+          },
+          "threes / under": {
+            "selections": 13,
+            "counts": {
+              "win": 9,
+              "loss": 4,
+              "push": 0,
+              "void": 0,
+              "pending": 0,
+              "review": 0,
+              "invalid": 0
+            },
+            "decisiveHitRate": 0.6923076923076923,
+            "illustrativeNetUnits": 2.5269181264117955,
+            "illustrativeUnitsAtRisk": 13,
+            "illustrativeROI": 0.19437831741629197,
+            "unresolved": 0,
+            "settlement": "unverified"
+          }
+        }
+      }
+    ],
+    "allSavedUniqueContracts": {
+      "selections": 370,
+      "counts": {
+        "win": 144,
+        "loss": 226,
+        "push": 0,
+        "void": 0,
+        "pending": 0,
+        "review": 0,
+        "invalid": 0
+      },
+      "decisiveHitRate": 0.3891891891891892,
+      "illustrativeNetUnits": -81.2879935800908,
+      "illustrativeUnitsAtRisk": 370,
+      "illustrativeROI": -0.21969727994619134,
+      "unresolved": 0,
+      "settlement": "unverified"
+    },
+    "everDisplayedUniqueContracts": {
+      "selections": 78,
+      "counts": {
+        "win": 23,
+        "loss": 55,
+        "push": 0,
+        "void": 0,
+        "pending": 0,
+        "review": 0,
+        "invalid": 0
+      },
+      "decisiveHitRate": 0.2948717948717949,
+      "illustrativeNetUnits": -9.712297559862712,
+      "illustrativeUnitsAtRisk": 78,
+      "illustrativeROI": -0.12451663538285529,
+      "unresolved": 0,
+      "settlement": "unverified"
+    },
+    "interpretation": "Primary daily view prefers the latest saved full supported-offer pregame snapshot for each fixture, preserving earlier-game records when later snapshots show only another game. Filters and timestamp are preserved. Other snapshots are appendices, not extra bets. One illustrative unit per acted selection at its recorded odds; pushes count as action with zero profit, voids have zero action, pending/review/invalid are excluded from returns and never losses. Editable browser research is not authenticated issuance or account settlement. Same-game picks and alternate lines are correlated. No combined-parlay EV."
+  }
+}

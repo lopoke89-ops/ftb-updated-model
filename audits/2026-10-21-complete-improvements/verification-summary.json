@@ -1,0 +1,67 @@
+{
+  "baseCommit": "3a3d6a375f4d6adc31c2e6cc2518bd086ec90253",
+  "pythonSuite": {
+    "passed": 88,
+    "log": ".build-tests/complete-improvements-python-final.log"
+  },
+  "openingGamebookSuite": {
+    "passed": 8
+  },
+  "newRealPdfFocusedRerun": {
+    "passed": 7
+  },
+  "javascriptPublicationCommands": 28,
+  "javascriptFailures": [],
+  "frozenFilesUnchanged": {
+    "nba ftb shi\\ev_probability.js": true,
+    "nba ftb shi\\ev_model.json": true,
+    "nba ftb shi\\ev_first_team.js": true,
+    "nba ftb shi\\ev_first_team_model.json": true,
+    "nba ftb shi\\parlay.js": true,
+    "nba ftb shi\\scouting_history.js": true
+  },
+  "build": {
+    "path": ".build-tests\\complete-improvements-final-v3-20261021",
+    "assets": 77,
+    "currentGames": 3,
+    "publishedAt": "2026-10-21T15:04:26.998216+00:00",
+    "manifestSHA256": "5341301b22b3d7e25115c6b5c0b9014dc0049f1a7d3f919d738c9c5d89a6bb38",
+    "sourceFilesMatch": {
+      "parlay_ui.js": true,
+      "ev_ui.js": true,
+      "opening_paths.js": true,
+      "opening_paths_data.js": true,
+      "ev_scorecard.js": true,
+      "ev_grading.js": true
+    },
+    "containsReplay": false
+  },
+  "browser": {
+    "desktop": true,
+    "responsiveViewport": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 387,
+      "openingTableWidth": 700,
+      "openingTableContainerWidth": 323
+    },
+    "physicalPhoneTest": false,
+    "pregameSameDayExcluded": true,
+    "threeCurrentMatchups": true,
+    "staleLiveQuotesExcluded": true
+  },
+  "gitDiffCheck": true,
+  "deployment": {
+    "mainPushed": false,
+    "websiteDeployed": false,
+    "publicSourceArchiveUploaded": true,
+    "durableStatePushed": false,
+    "mergedDurableStateCandidate": ".pbp/20261021-release-durable-state",
+    "olderBatchesRetained": 11
+  },
+  "currentEventStatus": {
+    "verified": 2,
+    "partial": 1,
+    "discrepancyEntries": 17
+  }
+}

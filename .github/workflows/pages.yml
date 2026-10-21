@@ -46,6 +46,10 @@ jobs:
           node "nba ftb shi/tests/test_ev_ui.cjs"
           node "nba ftb shi/tests/test_ev_grading.cjs"
           node "nba ftb shi/tests/test_ev_first_team.cjs"
+          node "nba ftb shi/tests/test_opening_paths.cjs"
+          node "nba ftb shi/tests/test_additional_markets.cjs"
+          node "nba ftb shi/tests/test_ev_scorecard.cjs"
+          node scripts/audit_ev_additional.cjs
           node --check "nba ftb shi/parlay.js"
           node --check "nba ftb shi/parlay_ui.js"
           node "nba ftb shi/tests/test_parlay.cjs"

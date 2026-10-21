@@ -117,7 +117,7 @@
         accumulate(against[k],oppRows,k,o.positions,oppFirst);
       }
     }
-    return {team,games:games.length,gameIds:games.map(g=>String(g.id)),sources,roleCoverage,againstRoleCoverage,events:{own:eventHistory(games,team,o),against:eventHistory(games,team,o,true)},from:games[0]?.date||null,through:games.at(-1)?.date||null,own,against};
+    return {openingPathGames:games,openingPaths:o.openingPaths,firstTarget:o.firstTarget,team,games:games.length,gameIds:games.map(g=>String(g.id)),sources,roleCoverage,againstRoleCoverage,events:{own:eventHistory(games,team,o),against:eventHistory(games,team,o,true)},from:games[0]?.date||null,through:games.at(-1)?.date||null,own,against};
   }
   function value(series,pos,rate='per48'){
     const b=series.buckets[pos];
@@ -170,7 +170,7 @@
         cache.set(key,{all,reference});
       }
       const {all,reference}=cache.get(key);
-      const eventOptions={...o,playByPlay:source.playByPlay?.parentEvidenceContentHash===source.meta.evidenceContentHash?source.playByPlay:null};
+      const eventOptions={...o,openingPaths:source.openingPaths,playByPlay:source.playByPlay?.parentEvidenceContentHash===source.meta.evidenceContentHash?source.playByPlay:null};
       const away=aggregate(teamGames(all,f.away,f.home,o),f.away,eventOptions),home=aggregate(teamGames(all,f.home,f.away,o),f.home,eventOptions);
       comparisons.push({fixture:f,season:source.meta.season,isArchive:fallback||source.meta.season<(f.season||data.meta.season),scopeMode,positions:o.positions,headToHead:!!o.headToHead,reference,
         directions:[{production:away,allowance:home,reference,positions:o.positions},{production:home,allowance:away,reference,positions:o.positions}],

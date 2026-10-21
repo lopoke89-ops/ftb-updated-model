@@ -18,6 +18,7 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request,urlopen
 from pypdf import PdfReader
+import gamebook_text
 
 ROOT=Path(__file__).resolve().parent.parent
 STAT_COLUMNS=['fgm','fga','three_pm','three_pa','ftm','fta','oreb','dreb','reb','ast','pf','stl','tov','blk','plus_minus','pts']
@@ -129,11 +130,16 @@ def collect_one(g,out,seed,identities,force=False):
     existing={}
     if meta.exists() and pdf.exists():
         existing=read(meta)
+        if existing.get('sha256')==hashlib.sha256(pdf.read_bytes()).hexdigest():
+            versions=out/'source_versions';versions.mkdir(exist_ok=True)
+            archived=versions/(existing['sha256']+'.pdf')
+            if not archived.exists():shutil.copyfile(pdf,archived)
+            if not (versions/(existing['sha256']+'.json')).exists():save(versions/(existing['sha256']+'.json'),existing)
         if not force and existing.get('team_totals') and existing.get('status')=='downloaded' and existing.get('verification_status')=='verified' and all(r.get('espn_player_id') for r in existing.get('player_rows',[]) if r['played']) and hashlib.sha256(pdf.read_bytes()).hexdigest()==existing['sha256']:return existing
     try:
         pdf.parent.mkdir(parents=True,exist_ok=True)
         origin='existing library'
-        if force or not pdf.exists() or existing.get('verification_status') not in (None,'verified'):
+        if force or not pdf.exists():
             cached=seed/filename
             if cached.exists():
                 shutil.copyfile(cached,pdf);origin='reused prior NBA audit capture'
@@ -154,8 +160,12 @@ def collect_one(g,out,seed,identities,force=False):
                 time.sleep(.1)
         payload=pdf.read_bytes()
         if not payload.startswith(b'%PDF'):raise ValueError('Saved response is not PDF')
+        versions=out/'source_versions';versions.mkdir(exist_ok=True)
+        archived=versions/(hashlib.sha256(payload).hexdigest()+'.pdf')
+        if not archived.exists():archived.write_bytes(payload)
         reader=PdfReader(pdf)
-        text=reader.pages[0].extract_text(extraction_mode='layout')
+        extraction=gamebook_text.extract(payload,0,reader.pages[0].extract_text(extraction_mode='layout'),kind='final-box')
+        text=extraction['text']
         if 'FINAL BOX' not in text:raise ValueError('First page is not a final box score')
         expected=date.fromisoformat(g['date']).strftime('%B %d, %Y').replace(' 0',' ')
         if expected not in text:raise ValueError('Official report date does not match fixture')
@@ -170,9 +180,9 @@ def collect_one(g,out,seed,identities,force=False):
             ids=[r['espn_player_id'] for r in rows]
             if any(not pid for pid in ids) or len(set(ids))!=len(ids):issues.append(dict(kind='Unresolved or duplicate played identity',team=team))
         textpath=out/'text'/'final_boxes'/(filename[:-4]+'.txt');textpath.parent.mkdir(parents=True,exist_ok=True);textpath.write_text(text,encoding='utf-8')
-        result=dict(**base,status='downloaded',verification_status='verified' if not issues else 'needs-review',captured_at=now(),capture_origin=origin,
+        result=dict(**base,status='downloaded',verification_status='verified' if not issues else 'needs-review',captured_at=existing.get('captured_at') if existing.get('sha256')==hashlib.sha256(payload).hexdigest() and existing.get('captured_at') else now(),checked_at=now(),capture_origin=origin,
                     sha256=hashlib.sha256(payload).hexdigest(),bytes=len(payload),pages=len(reader.pages),final_box_text_path=str(textpath.relative_to(out)).replace('\\','/'),issues=issues,player_rows=box,
-                    team_totals=totals,score_differences=[dict(team=t,espn=g['teams'][t]['points'],nba=totals[t]['pts']) for t in totals if g['teams'][t]['points']!=totals[t]['pts']])
+                    team_totals=totals,text_extraction={k:v for k,v in extraction.items() if k!='text'},score_differences=[dict(team=t,espn=g['teams'][t]['points'],nba=totals[t]['pts']) for t in totals if g['teams'][t]['points']!=totals[t]['pts']])
         result.update(away_score=totals[g['away']]['pts'],home_score=totals[g['home']]['pts'])
     except Exception as e:result=dict(**base,status='unavailable',verification_status='unavailable',checked_at=now(),error=type(e).__name__+': '+str(e))
     save(meta,result);return result

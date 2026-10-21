@@ -17,6 +17,11 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 TARGET = 'first-team-score-including-free-throws'
 PDFIUM_LOCK = threading.Lock()
+# Shared PDF text fallback, also importable when this builder is run standalone.
+import importlib.util
+_text_spec = importlib.util.spec_from_file_location('nba_gamebook_text', BASE.parent/'scripts/gamebook_text.py')
+gamebook_text = importlib.util.module_from_spec(_text_spec)
+_text_spec.loader.exec_module(gamebook_text)
 
 
 def norm(value):
@@ -42,7 +47,7 @@ def quarter_pages(pdf, cache, expected_hash):
     cached = None
     if cache.exists():
         result = read(cache)
-        if result['sha256'] == expected_hash:
+        if result['sha256'] == expected_hash and all(not p.get('textCodeHash') or p['textCodeHash']==gamebook_text.CODE_HASH for p in result['pages']):
             cached = result['pages']
             if any('End of 1st QUARTER' in p['text'] for p in cached if not p.get('box')):
                 return cached
@@ -68,11 +73,11 @@ def quarter_pages(pdf, cache, expected_hash):
     if cached and {p['page']-1 for p in cached if not p.get('box')} == set(indexes):
         return cached
     reader = PdfReader(pdf)
-    pages = [{'page': index + 1, 'text': reader.pages[index].extract_text(extraction_mode='layout')} for index in indexes]
+    pages = [{'page': index + 1, **gamebook_text.extract(raw,index,reader.pages[index].extract_text(extraction_mode='layout'))} for index in indexes]
     # The first-quarter box disambiguates rare same-team abbreviated surnames.
-    pages.insert(0, {'page': 2, 'box': True, 'text': reader.pages[1].extract_text(extraction_mode='layout')})
+    pages.insert(0, {'page': 2, 'box': True, **gamebook_text.extract(raw,1,reader.pages[1].extract_text(extraction_mode='layout'),kind='quarter-box')})
     cache.parent.mkdir(parents=True, exist_ok=True)
-    cache.write_text(json.dumps({'sha256': expected_hash, 'pages': pages}, ensure_ascii=False), encoding='utf-8')
+    cache.write_text(json.dumps({'sha256': expected_hash, 'textCodeHash':gamebook_text.CODE_HASH, 'pages': pages}, ensure_ascii=False), encoding='utf-8')
     return pages
 
 

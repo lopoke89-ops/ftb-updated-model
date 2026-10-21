@@ -1,0 +1,38 @@
+{
+  "localOnly": true,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "javascriptWorkflowCommandsPassed": 27,
+  "publicationTestsPassed": 10,
+  "previousFullPythonSuitePassed": 79,
+  "frozenOriginalFilesUnchanged": [
+    "nba ftb shi\\ev_probability.js",
+    "nba ftb shi\\ev_model.json",
+    "nba ftb shi\\ev_first_team.js",
+    "nba ftb shi\\ev_first_team_model.json",
+    "nba ftb shi\\parlay.js",
+    "nba ftb shi\\scouting_history.js"
+  ],
+  "publishedPackageAssetsIncludingManifest": 75,
+  "buildManifest": ".build-tests/assists-rebounds-release-20261021/deployment-manifest.json",
+  "preview": "http://127.0.0.1:8783/",
+  "previewTransport": "Explicitly marked local replay of real captured prices, not published odds branch or authenticated receipt",
+  "browserChecks": [
+    "Assists EV filter",
+    "Rebounds EV filter",
+    "Daily unresolved results remain unavailable, not losses",
+    "ATL/ORL descriptive samples and rebound splits",
+    "Last 5/10/20 team games",
+    "GSW/LAL second matchup",
+    "Head-to-head insufficient sample explicit",
+    "Current-only missing season explicit"
+  ],
+  "limitations": [
+    "Retrospective validation is not proof of an actionable betting edge",
+    "Large deviations from bookmaker prices require continued prospective review",
+    "No current-season PDF importer correction in this extension",
+    "No mobile device browser test performed"
+  ],
+  "openingNightRegression": "245 saved snapshots; 344 latest supported offers retain 134 wins/210 losses; displayed 63 retain 20 wins/43 losses/-0.24306679 illustrative units"
+}

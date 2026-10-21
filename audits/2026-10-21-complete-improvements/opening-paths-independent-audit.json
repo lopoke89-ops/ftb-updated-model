@@ -1,0 +1,15 @@
+{
+  "checks": 54364,
+  "totals": {
+    "teamTargets": 5288,
+    "initialAttempts": 5288,
+    "misses": 5659,
+    "offensiveRebounds": 1130,
+    "printedPutbacks": 213,
+    "rebounderScoredNext": 689
+  },
+  "failures": [],
+  "dataHash": "818ee73a8cee6ea375dbc1b52a92505b258d055bb2ca51f7b2dfcbe221796ecb",
+  "auditorHash": "0322d8e243c36d57b47bb5ccb886b0ecf69a081fed8fd3d8e3d67b91f4404595",
+  "method": "Independently query active source actions, reconstruct prefix counts and stop-at-next-attempt/turnover links; do not import production path helpers."
+}

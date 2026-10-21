@@ -1,0 +1,137 @@
+[
+  {
+    "command": "node --check \"nba ftb shi/analyst_ui.js\"",
+    "exitCode": 0,
+    "lastOutput": null
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_browser.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":16}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_music.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":20}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_analyst.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":28}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_scouting.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":49}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_matchup.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":15}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_matchup_ui.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":8}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_matchup_shooting.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "PASS pooled shooting, zero attempts, paired missing counts, box independence, pregame cutoff"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_matchup_event_coverage.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "PASS event manifest binds both selected-season review and prior-season fallback"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_matchup_roles.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "PASS 13210 historical starter roles; broad totals preserved, invalid role set rejected, source unchanged"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_readiness.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":12}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_pages.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":22}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":13}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev_service.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":5}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev_ui.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":27}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev_grading.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":10}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev_first_team.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":23}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_additional_markets.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":18}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_ev_scorecard.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":8}"
+  },
+  {
+    "command": "node scripts/audit_ev_additional.cjs",
+    "exitCode": 0,
+    "lastOutput": "{\"market\":\"rebounds\",\"appearances\":7093,\"fixtures\":411,\"thresholdObservations\":22900,\"brier\":0.18450803083500905,\"logLoss\":0.5495403126365613,\"weightedCalibrationError\":0.011807291820464924,\"reliability\":[{\"weight\":297.4333333333313,\"meanPrediction\":0.069927951404012,\"observed\":0.10484142104673376},{\"weight\":890.7500000000273,\"meanPrediction\":0.1518280750051099,\"observed\":0.14538310412573216},{\"weight\":914.2833333333547,\"meanPrediction\":0.25039804685604705,\"observed\":0.24912044041780773},{\"weight\":1121.5500000000195,\"meanPrediction\":0.35042499210731376,\"observed\":0.3301086294265301},{\"weight\":770.1166666666763,\"meanPrediction\":0.44489339670168293,\"observed\":0.4370982751531075},{\"weight\":505.0999999999927,\"meanPrediction\":0.5532544291570897,\"observed\":0.5859565762555322},{\"weight\":771.8166666666754,\"meanPrediction\":0.6534396906445594,\"observed\":0.6448422552851351},{\"weight\":877.5666666666853,\"meanPrediction\":0.7483950061019852,\"observed\":0.7568655752649255},{\"weight\":627.2333333333345,\"meanPrediction\":0.8442710306963495,\"observed\":0.8375936653026421},{\"weight\":317.14999999999765,\"meanPrediction\":0.9340738321218929,\"observed\":0.9249566451206066}],\"gatePassed\":true}"
+  },
+  {
+    "command": "node --check \"nba ftb shi/parlay.js\"",
+    "exitCode": 0,
+    "lastOutput": null
+  },
+  {
+    "command": "node --check \"nba ftb shi/parlay_ui.js\"",
+    "exitCode": 0,
+    "lastOutput": null
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_parlay.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":44}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_live_refresh.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "Live refresh and availability checks passed"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_lineup_projections.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":16}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_transition.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "{\"passed\":10}"
+  },
+  {
+    "command": "node \"nba ftb shi/tests/test_transition_export.cjs\"",
+    "exitCode": 0,
+    "lastOutput": "PASS actual UI JSON download payload matches recoverable browser record, six market slots, target contract and research metadata"
+  }
+]

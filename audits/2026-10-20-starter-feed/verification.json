@@ -1,0 +1,25 @@
+{
+  "baseCommit": "3a3d6a3",
+  "deployment": "not pushed or deployed",
+  "checks": {
+    "pageIntegration": 22,
+    "sharedLineups": 16,
+    "firstTeamEV": 23,
+    "parlay": 44,
+    "liveRefresh": "passed",
+    "publication": "passed",
+    "syntax": "passed"
+  },
+  "browser": {
+    "date": "2026-10-21",
+    "confirmedCards": 0,
+    "projectedCards": 10,
+    "teams": {
+      "ATL": 5,
+      "ORL": 5
+    },
+    "confirmationAvailability": "No live confirmed five available; confirmed behavior checked with deterministic integration fixtures"
+  },
+  "uiHash": "dcaa874814a70b71a4a906888795311613402adb895adfa2af14066ca0e04a99",
+  "frozenAnalystHash": "0802a57953dd0e670937089143813ab3ea2af7fd7c03e29d14a592d2c532c120"
+}

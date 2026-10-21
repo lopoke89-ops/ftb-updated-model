@@ -11,10 +11,10 @@ const props={archiveData:archive,data:{meta:{season:'2026-27',evidenceContentHas
 function nodes(tree){const out=[];function visit(n){if(!n||typeof n!=='object')return;out.push(n);for(const c of n.children||[])Array.isArray(c)?c.forEach(visit):visit(c);}visit(tree);return out;}
 const oddsCommit='7'.repeat(40),oddsRef={ref:'refs/heads/nba-live-odds',object:{type:'commit',sha:oddsCommit}};
 function render(values={},overrides={},response=snapshot,reference=oddsRef){
- const names=['snapshot','source','market','side','positive','provisional','best','message','clock'],changes={},effects=[],downloads=[],saved=[],requests=[],timers=[];let index=0,clockNow=now;
- const defaults=[snapshot,{status:'loaded',lastSuccess:new Date(now).toISOString(),captureAt:snapshot.checkedAt,commit:oddsCommit},'all','all',true,true,true,'',now];
+ const names=['snapshot','source','market','side','positive','provisional','best','message','clock','scorecard'],changes={},effects=[],downloads=[],saved=[],requests=[],timers=[];let index=0,clockNow=now;
+ const defaults=[snapshot,{status:'loaded',lastSuccess:new Date(now).toISOString(),captureAt:snapshot.checkedAt,commit:oddsCommit},'all','all',true,true,true,'',now,null];
  class Clock extends Date{constructor(...a){super(...(a.length?a:[clockNow]));}static now(){return clockNow;}}
- const window={FTBEV:E,FTBEVService:require('../ev_service.js'),FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:Q,__FTB_EV_MODEL__:model,FTBEVFirstTeam:overrides.__firstTeam,__FTB_EV_FIRST_TEAM_MODEL__:overrides.__firstModel,__FTB_PARLAY_DATA__:overrides.__supplement,FTBEVGrading:require('../ev_grading.js'),FTBEVArchive:{save:async r=>{saved.push(r);return 'id';},all:async()=>saved}};
+ const window={FTBEV:E,FTBEVAdditional:overrides.__additionalEngine,__FTB_EV_ADDITIONAL_MODEL__:overrides.__additionalModel,FTBEVService:require('../ev_service.js'),FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:Q,__FTB_EV_MODEL__:model,FTBEVFirstTeam:overrides.__firstTeam,__FTB_EV_FIRST_TEAM_MODEL__:overrides.__firstModel,__FTB_PARLAY_DATA__:overrides.__supplement,FTBEVGrading:require('../ev_grading.js'),FTBEVScorecard:require('../ev_scorecard.js'),FTBEVArchive:{save:async r=>{saved.push(r);return 'id';},all:async()=>saved}};
  const context=vm.createContext({window,React:{Fragment:'fragment',createElement:(type,props,...children)=>({type,props,children}),useState:()=>{const i=index++;return [names[i] in values?values[names[i]]:defaults[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??defaults[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:value=>({current:value})},Date:Clock,Set,Map,URL:{createObjectURL:blob=>{downloads.push(blob);return 'blob:ev';},revokeObjectURL:()=>{}},Blob,AbortSignal,document:{createElement:()=>({click(){}})},fetch:async url=>{requests.push(url);return{ok:true,json:async()=>url.startsWith('https://api.github.com/')?reference:response};},setTimeout:(fn,ms)=>{timers.push({fn,ms});return timers.length;},clearTimeout:()=>{}});
  vm.runInContext(fs.readFileSync(path.join(__dirname,'../ev_ui.js'),'utf8'),context);const tree=window.FTBEVPanel({...props,...overrides}),all=nodes(tree);
  return {tree,all,changes,effects,downloads,saved,requests,timers,advance:ms=>{clockNow+=ms;},button:label=>{const b=all.find(n=>n.type==='button'&&n.children[0]===label);assert(b,label);return b;},bodyRows:all.filter(n=>n.type==='tbody').flatMap(n=>n.children.flat()).filter(Boolean)};
@@ -85,6 +85,27 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
    await window.FTBEVArchive.save({...record,schemaVersion:4,results:[],offeredQuotes:[snapshot.fixtures.future.quotes[0]],audit:[{reason:'Insufficient evidence'}]});assert.equal(records.size,4);
    await assert.rejects(()=>window.FTBEVArchive.save({...record,capturedAt:new Date(now+300001).toISOString()}),/stale/);
    await assert.rejects(()=>window.FTBEVArchive.save({...record,capturedAt:'invalid'}),/closed/);
+ });
+ await test('Assists and Rebounds use separate engines, filters, detail fields and saved model identities',async()=>{
+   const X=require('../ev_additional.js'),additional=require('../ev_additional_model.json'),stamp='a'.repeat(64);
+   const extended={...archive,games:archive.games.map((g,i)=>({...g,boxScoreSource:'NBA official final box',sourceHash:stamp,teams:Object.fromEntries(Object.entries(g.teams).map(([team,b])=>[team,{...b,players:b.players.map(p=>({...p,statsSourceHash:stamp,assists:i%8,rebounds:2+i%9,offensiveRebounds:1,defensiveRebounds:1+i%9}))}]))}))};
+   const offers=['assists','rebounds'].map((m,i)=>{const line=m==='assists'?3.5:6.5,marketId='747.'+(10+i),selectionId=String(10+i);return {...quote,market:m,side:'over',line,marketId,selectionId,key:['123',marketId,selectionId,line,'over'].join('|'),marketType:'PLAYER_A_TOTAL_'+m.toUpperCase(),marketName:'Player 1 - '+m[0].toUpperCase()+m.slice(1),source:'https://sportsbook.fanduel.com/basketball/nba/game-123?tab=player-'+m};});
+   const captured={...snapshot,fixtures:{future:{...snapshot.fixtures.future,quotes:[...snapshot.fixtures.future.quotes,...offers]}}},context={archiveData:extended,__additionalEngine:X,__additionalModel:additional};
+   for(const m of ['assists','rebounds']){
+     const r=render({snapshot:captured,market:m,positive:false},context);assert.equal(r.bodyRows.length,1);
+     assert(r.all.some(n=>n.type==='option'&&n.props.value===m));
+     assert.match(JSON.stringify(r.tree),/Credited production and player minutes/);
+     r.button('Save EV evidence').props.onClick();
+     assert.equal(r.downloads.length,1);
+     const evidence=JSON.parse(await r.downloads[0].text());assert.equal(evidence.models.additionalCounts.modelHash,additional.modelHash);assert.equal(evidence.results[0].modelVersion,additional.version);assert.equal(evidence.results[0].modelHash,additional.modelHash);assert.equal(evidence.results[0].features.market,m);
+     const select=r.all.find(n=>n.type==='select'&&n.props['aria-label']==='EV market');select.props.onChange({target:{value:'first-team-basket'}});assert.equal(r.changes.side,undefined);
+     const five=Object.fromEntries(['PG','SG','SF','PF','C'].map((position,i)=>{const id=i===2?'1':String(20+i);return [id,{id,team:'BOS',position,status:'projected',origin:'espn-depth',fixtureId:fixture.id,date:fixture.date,season:fixture.season,capturedAt:new Date(now).toISOString(),source:'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/2/depthcharts'}];}));
+     const changed=render({snapshot:captured,market:m,positive:false},{...context,liveContext:{...props.liveContext,lineupContext:{confirmed:{},projected:five}}});assert.equal(changed.bodyRows.length,0);assert.match(JSON.stringify(changed.tree),/Projected role differs/);
+
+   }
+ });
+ await test('points ladder details expose historical exposure, variance and price arithmetic without changing estimates',()=>{
+   const r=render(),serialized=JSON.stringify(r.tree);assert.match(serialized,/Points ladder · opportunity and distribution audit/);assert.match(serialized,/not a game-specific minutes forecast/);assert.match(serialized,/fitted dispersion/);assert.match(serialized,/Long prices amplify forecast errors/);
  });
  console.log(JSON.stringify({passed:count}));
 })().catch(e=>{console.error(e);process.exitCode=1;});

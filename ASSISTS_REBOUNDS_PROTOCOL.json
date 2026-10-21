@@ -1,0 +1,95 @@
+{
+  "version": "ev-assists-rebounds-v1",
+  "declaredOn": "2026-10-21",
+  "status": "experimental-retrospective-development; not a verified prospective record",
+  "markets": [
+    "assists",
+    "rebounds"
+  ],
+  "phase": "regular-season",
+  "period": "full-game",
+  "developmentEnd": "2025-12-15",
+  "calibrationStart": "2025-12-16",
+  "calibrationEnd": "2026-02-15",
+  "diagnosticStart": "2026-02-16",
+  "diagnosticEnd": "2026-04-12",
+  "minimumSameTeamAppearances": 20,
+  "minimumTeamGames": 10,
+  "minimumKnownRoleMinutes": 0.8,
+  "recentAppearances": 20,
+  "sameDateCutoff": "all selected-day games excluded",
+  "source": "NBA official final gamebooks; rebounds are player OREB+DREB, excluding team rebounds",
+  "meanCandidates": [
+    "season-mean",
+    "recent-mean",
+    "exposure-rate"
+  ],
+  "defensePowers": [
+    0,
+    0.25,
+    0.5
+  ],
+  "alphaGrid": [
+    0.04,
+    0.16,
+    0.4,
+    0.8
+  ],
+  "calibration": "positive-slope logistic CDF; calibration dates only; each appearance has total weight one",
+  "thresholdOffsets": {
+    "assists": [
+      -3,
+      -1,
+      0,
+      1,
+      3
+    ],
+    "rebounds": [
+      -4,
+      -2,
+      0,
+      2,
+      4
+    ]
+  },
+  "exactLineSupport": {
+    "minimumWins": 5,
+    "minimumLosses": 5,
+    "outsideCalibrationRange": "withhold"
+  },
+  "validation": {
+    "sameObservationBaselines": [
+      "calibrated same-team season mean",
+      "calibrated recent-20 mean"
+    ],
+    "minimumDiagnosticFixtures": 200,
+    "minimumDiagnosticAppearances": 1000,
+    "report": [
+      "Brier",
+      "log loss",
+      "weighted calibration error",
+      "fixture-cluster paired intervals",
+      "coverage",
+      "source identity checks"
+    ],
+    "bootstrapReplicates": 1000,
+    "seed": 20261021,
+    "releaseGate": "Both Brier and log loss no worse than the calibrated season-mean baseline on identical supported observations; finite monotone probabilities and all source/contract/integration tests pass. Failure withholds this market EV.",
+    "interpretation": "An experimental engineering release is not model promotion. Archive already inspected. No historical odds-profit claim; prospective validation required before edge/calibration claims."
+  },
+  "basketballLimitations": [
+    "No potential-assist or rebound-chance tracking; minutes and credited production are observed proxies",
+    "No defender assignments inferred from position",
+    "No injury/on-off minutes multiplier",
+    "Prior-season role transfer remains provisional"
+  ],
+  "preserve": [
+    "existing points/threes/FTB model parameters",
+    "saved historical research",
+    "existing Parlay rankings for its original three markets"
+  ],
+  "newParlayPolicy": "Separate descriptive assists/rebounds slots; no probability or joint-parlay EV. Equal offense/allowance/opportunity weights; opportunity is historical minutes and credited-stat rate, never invented attempts/conversion.",
+  "newParlayMinimumAppearances": 5,
+  "newParlayMinimumTeamGames": 5,
+  "newParlayScopeReason": "Descriptive new Parlay cards preserve the existing last-5/10/20 controls and five-game minimum. Probability-model minimum remains 20 same-team appearances and 10 team games."
+}

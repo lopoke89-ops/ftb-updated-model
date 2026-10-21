@@ -1,0 +1,64 @@
+[
+  {
+    "gameId": "401909089",
+    "oldSourceHash": "0dd4d2328fd0130e322e026c1e7fd4af2ec10cf71d2c1b3d33ddb1dbebf0bd0d",
+    "newSourceHash": "5868ddc85c4a582f74af13d2d859c554bb10a8f666c2101099717142038e840f",
+    "changes": [],
+    "previousOriginalRetained": true
+  },
+  {
+    "gameId": "401909090",
+    "oldSourceHash": "8aee55d6cdc80fa022500787ba2307360211a52b40470423379489f9f6cb2288",
+    "newSourceHash": "1e4d8c53b0500b388fae1efb7924cbbb0e07d894394d85325dc0099e3fdccc6e",
+    "changes": [
+      {
+        "name": "Shai Gilgeous-Alexander",
+        "changes": {
+          "dreb": {
+            "old": 3,
+            "new": 4
+          },
+          "reb": {
+            "old": 5,
+            "new": 6
+          },
+          "stl": {
+            "old": 2,
+            "new": 3
+          }
+        }
+      },
+      {
+        "name": "Alex Caruso",
+        "changes": {
+          "dreb": {
+            "old": 7,
+            "new": 6
+          },
+          "reb": {
+            "old": 7,
+            "new": 6
+          },
+          "stl": {
+            "old": 2,
+            "new": 1
+          }
+        }
+      },
+      {
+        "name": "Jared McCain",
+        "changes": {
+          "dreb": {
+            "old": 3,
+            "new": 2
+          },
+          "reb": {
+            "old": 3,
+            "new": 2
+          }
+        }
+      }
+    ],
+    "previousOriginalRetained": true
+  }
+]

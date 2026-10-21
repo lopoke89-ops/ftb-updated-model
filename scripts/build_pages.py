@@ -11,8 +11,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
-ASSETS = ('play_by_play_manifest.js', 'analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'matchup.js', 'matchup_ui.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_data.js',
-          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_service.js', 'ev_archive.js', 'ev_grading.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
+ASSETS = ('opening_paths.js', 'opening_paths_data.js', 'play_by_play_manifest.js', 'analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'matchup.js', 'matchup_ui.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_additional.js', 'parlay_additional_ui.js', 'parlay_data.js',
+          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_additional.js', 'ev_additional_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_service.js', 'ev_archive.js', 'ev_grading.js', 'ev_scorecard.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -30,6 +30,7 @@ def validate_play_by_play(manifest,analysis):
     require(manifest['schemaVersion']==1,'Unsupported PBP schema')
     require(manifest['parserHash']==digest(ROOT/'scripts/full_game_pbp.py'),'PBP parser/hash mismatch; rebuild summaries')
     require(manifest.get('identityResolverHash')==digest(ROOT/'scripts/pbp_identity.py'),'PBP identity resolver/hash mismatch; rebuild summaries')
+    require(manifest.get('textExtractorHash')==digest(ROOT/'scripts/gamebook_text.py'),'PBP text extractor/hash mismatch; rebuild summaries')
     body={k:v for k,v in manifest.items() if k not in ('contentHash','attempts','lastRestoreError')}
     require(hashlib.sha256(json.dumps(body,sort_keys=True,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()).hexdigest()==manifest['contentHash'],'PBP summary content hash mismatch')
     require(manifest['parentEvidenceContentHash']==analysis['meta']['evidenceContentHash'],'PBP parent mismatch')
@@ -186,7 +187,12 @@ def validate(source):
         require(opening['meta']['parentEvidenceContentHash'] == current_hash and digest_value(opening['games']) == opening['meta']['contentHash'], 'Current opening hash mismatch')
         require(set(p['games']) == set(opening['games']) == {g['id'] for g in current['games']}, 'Current supplemental coverage mismatch')
         for g in current['games']:
-            require(g.get('boxScoreSource') == 'NBA official final box' and g.get('archivedSource', '').startswith('https://github.com/'), 'Current game lacks archived NBA authority')
+            require(g.get('boxScoreSource') == 'NBA official final box' and (g.get('archivedSource') or '').startswith('https://github.com/'), 'Current game lacks archived NBA authority')
+            if g.get('fixtureReview'):
+                review=g['fixtureReview'];require(review in read(ROOT/'FIXTURE_IDENTITY_REVIEWS.json')['reviews'],'Unrecognized fixture identity review')
+                require(review['gamebookSourceHash']==g['sourceHash'] and all(review[k]==g[k] for k in ('home','away','date','phase')) and review['finalFeedTipoff']==g['scheduledTipoff'],'Stale fixture identity review')
+                evidence=review['evidence'];require(digest(ROOT/evidence['savedSnapshotFixturePath'])==evidence['savedSnapshotFixtureHash'],'Fixture review saved evidence changed')
+                frozen=read(ROOT/evidence['savedSnapshotFixturePath']);require(frozen['id']==evidence['savedSnapshotId'] and any(f['id']==g['id'] and f['scheduledTipoff']==review['originalScheduledTipoff'] for f in frozen['fixtures']),'Fixture review original contract mismatch')
             require(opening['games'][g['id']]['sourceHash'] == g['sourceHash'], 'Current opening PDF mismatch')
             for team, box in g['teams'].items():
                 played = [r for r in box['players'] if r['played']]
@@ -233,6 +239,24 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     require(ev['trainerHash'] == digest(ROOT / 'scripts/train_ev.cjs'), 'EV trainer changed; regenerate its separate diagnostics')
     require(ev['archiveEvidenceHash'] == history['analysis']['meta']['evidenceContentHash'], 'EV archive provenance mismatch')
     require(json.loads((source / 'ev_model.js').read_text(encoding='utf-8').removeprefix('window.__FTB_EV_MODEL__=').strip().removesuffix(';')) == ev, 'EV browser model/configuration mismatch')
+    opening_paths=read(source/'opening_paths_data.json')
+    require(opening_paths['version']=='opening-paths-v1' and opening_paths['builderHash']==digest(ROOT/'scripts/opening_paths.py'),'Opening paths builder changed; rebuild source paths')
+    require(opening_paths['parentEvidenceContentHash']==history['analysis']['meta']['evidenceContentHash'],'Opening paths parent evidence mismatch')
+    require(set(opening_paths['games'])=={g['id'] for g in history['analysis']['games']},'Opening paths game coverage mismatch')
+    require(hashlib.sha256(json.dumps({k:v for k,v in opening_paths.items() if k!='contentHash'},sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==opening_paths['contentHash'],'Opening paths content mismatch')
+    require(javascript_payload(source/'opening_paths_data.js','__FTB_OPENING_PATHS__')==opening_paths,'Opening paths browser data mismatch')
+    additional = read(source / 'ev_additional_model.json')
+    require(additional['version']=='ev-assists-rebounds-v1' and set(additional['markets'])=={'assists','rebounds'}, 'Additional count model/version mismatch')
+    require(additional['engineHash']==digest(source/'ev_additional.js') and additional['trainerHash']==digest(ROOT/'scripts/train_ev_additional.cjs'), 'Additional count engine/trainer changed; regenerate separate diagnostics')
+    for field,filename in [('protocolHash','ASSISTS_REBOUNDS_PROTOCOL.json'),('forwardProtocolHash','ASSISTS_REBOUNDS_FORWARD_PROTOCOL.json'),('rulesProfileHash','ASSISTS_REBOUNDS_RULES.json')]:
+        require(additional[field]==digest(ROOT/filename), 'Additional count protocol/rules changed')
+    require(additional['archiveEvidenceHash']==history['analysis']['meta']['evidenceContentHash'], 'Additional count archive evidence mismatch')
+    require(json.loads((source/'ev_additional_model.js').read_text(encoding='utf-8').removeprefix('window.__FTB_EV_ADDITIONAL_MODEL__=').strip().removesuffix(';'))==additional, 'Additional count browser model mismatch')
+    raw=(source/'ev_additional_model.js').read_text(encoding='utf-8').removeprefix('window.__FTB_EV_ADDITIONAL_MODEL__=').strip().removesuffix(';')
+    require(hashlib.sha256((raw.rsplit(',"modelHash":',1)[0]+'}').encode()).hexdigest()==additional['modelHash'], 'Additional count model content hash mismatch')
+    additional_validation=read(ROOT/'audits/2026-10-21-assists-rebounds/validation.json')
+    require(additional_validation['modelHash']==additional['modelHash'] and additional_validation['status']=='passed-experimental-validation', 'Separate assists/rebounds validation unavailable or stale')
+    require(additional_validation['engineHash']==additional['engineHash'] and additional_validation['trainerHash']==additional['trainerHash'] and additional_validation['protocolHash']==additional['protocolHash'] and additional_validation['auditorHash']==digest(ROOT/'scripts/audit_ev_additional.cjs'), 'Additional count independent audit changed; rerun validation')
     require(not output.exists() or not any(output.iterdir()), 'Output must be a new or empty directory')
     output.mkdir(parents=True, exist_ok=True)
     for name in ASSETS:
@@ -265,8 +289,9 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     published_at = datetime.now(timezone.utc).isoformat()
     hosting = {'mode': 'github-pages', 'publishedDate': published_date, 'publishedAt': published_at,
                'dataVersion':current['meta']['evidenceContentHash'],
-               'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'lineup_projections.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'analyst_ui.js')},
+               'parlayCodeHashes': {name: digest(source / name) for name in ('parlay.js', 'scouting_history.js', 'lineups.js', 'lineup_projections.js', 'parlay_transition.js', 'parlay_research.js', 'parlay_research_config.js', 'parlay_ui.js', 'parlay_additional.js', 'parlay_additional_ui.js', 'opening_paths.js', 'analyst_ui.js')},
                'researchProtocolHash':digest(ROOT/'PARLAY_RESEARCH_PROTOCOL.json'),
+               'additionalEVModelHash':additional['modelHash'],'additionalEVEngineHash':additional['engineHash'],'additionalEVProtocolHash':additional['protocolHash'],
                'evModelHash':ev['modelHash'],'evEngineHash':ev['engineHash'],'evProtocolHash':ev['protocolHash'],'firstTeamEVModelHash':first['modelHash'],'evServiceVersion':'ev-service-v1','evServiceCodeHash':digest(source / 'ev_service.js')}
     current = {**current, 'publication': hosting}
     marker = '<script src="analyst_ui.js"></script>'
@@ -275,7 +300,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     html = version_asset_references(html, output)
     for name in ('index.html', 'ftb-scout.html'):
         (output / name).write_text(html, encoding='utf-8', newline='\n')
-    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev), ('ev-first-team-model.json',first), ('first-team-ev-protocol.json',read(ROOT/'FIRST_TEAM_EV_PROTOCOL.json')), ('first-team-ev-forward-protocol.json',read(ROOT/'FIRST_TEAM_EV_FORWARD_PROTOCOL.json')), ('first-team-ev-rules.json',read(ROOT/'FIRST_TEAM_EV_RULES.json')), ('ev-forward-protocol.json',read(ROOT/'EV_FORWARD_PROTOCOL.json')), ('ev-rules-profile.json',read(ROOT/'EV_RULES_PROFILE.json'))]:
+    for name, payload in [('history.json', history), ('seasons/2026-27.json', current), ('ev-model.json', ev), ('ev-additional-model.json', additional), ('ev-additional-protocol.json',read(ROOT/'ASSISTS_REBOUNDS_PROTOCOL.json')), ('ev-additional-forward-protocol.json',read(ROOT/'ASSISTS_REBOUNDS_FORWARD_PROTOCOL.json')), ('ev-additional-rules.json',read(ROOT/'ASSISTS_REBOUNDS_RULES.json')), ('ev-additional-validation.json',additional_validation), ('ev-first-team-model.json',first), ('first-team-ev-protocol.json',read(ROOT/'FIRST_TEAM_EV_PROTOCOL.json')), ('first-team-ev-forward-protocol.json',read(ROOT/'FIRST_TEAM_EV_FORWARD_PROTOCOL.json')), ('first-team-ev-rules.json',read(ROOT/'FIRST_TEAM_EV_RULES.json')), ('ev-forward-protocol.json',read(ROOT/'EV_FORWARD_PROTOCOL.json')), ('ev-rules-profile.json',read(ROOT/'EV_RULES_PROFILE.json'))]:
         target = output / 'data' / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(payload, separators=(',', ':'), ensure_ascii=False, allow_nan=False), encoding='utf-8')

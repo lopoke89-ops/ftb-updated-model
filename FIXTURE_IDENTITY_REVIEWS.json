@@ -1,0 +1,52 @@
+{
+  "version": "fixture-identity-reviews-v1",
+  "reviews": [
+    {
+      "schemaVersion": 1,
+      "status": "resolved-same-fixture",
+      "fixtureId": "401909090",
+      "date": "2026-10-20",
+      "home": "SAS",
+      "away": "OKC",
+      "phase": "regular-season",
+      "originalScheduledTipoff": "2026-10-21T01:30Z",
+      "finalFeedTipoff": "2026-10-21T01:50Z",
+      "gamebookSourceHash": "8aee55d6cdc80fa022500787ba2307360211a52b40470423379489f9f6cb2288",
+      "reason": "Reviewed same-event 20-minute start delay: original saved pregame listing was 8:30 PM CT; final-feed listing is 8:50 PM CT. Event ID, Chicago date, both teams, Frost Bank Center and official NBA PDF agree. Printed first-period start is 8:52 PM CT. This explicit review applies only to these exact timestamps and PDF hash; all other fixture mismatches still require review.",
+      "evidence": {
+        "savedSnapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+        "savedSnapshotFixturePath": "scripts/fixtures/points_ladder_audit.json",
+        "savedSnapshotFixtureHash": "8ea9ea40f63a050579537910d011854cf97e9b387ab6aa12027dbaed49f20eab",
+        "finalFeedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909090",
+        "nbaPdfUrl": "https://statsdmz.nba.com/pdfs/20261020/20261020_OKCSAS_book.pdf",
+        "nbaPdfPage": 9,
+        "printedStartTime": "8:52 PM",
+        "venue": "Frost Bank Center"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "status": "resolved-same-fixture",
+      "fixtureId": "401909090",
+      "date": "2026-10-20",
+      "home": "SAS",
+      "away": "OKC",
+      "phase": "regular-season",
+      "originalScheduledTipoff": "2026-10-21T01:30Z",
+      "finalFeedTipoff": "2026-10-21T01:50Z",
+      "gamebookSourceHash": "1e4d8c53b0500b388fae1efb7924cbbb0e07d894394d85325dc0099e3fdccc6e",
+      "reason": "Reviewed same-event 20-minute start delay: original saved pregame listing was 8:30 PM CT; final-feed listing is 8:50 PM CT. Event ID, Chicago date, both teams, Frost Bank Center and official NBA PDF agree. Printed first-period start is 8:52 PM CT. This explicit review applies only to these exact timestamps and PDF hash; all other fixture mismatches still require review. The October 21 revised PDF was separately inspected: the venue, first-period 8:52 PM start, teams and both first scorers still match; rebound corrections do not alter this identity review.",
+      "evidence": {
+        "savedSnapshotId": "b5346d3880e1bdd56de5c2e3445c12e3d81c812e13f7f8718ab3706ffc5758d2",
+        "savedSnapshotFixturePath": "scripts/fixtures/points_ladder_audit.json",
+        "savedSnapshotFixtureHash": "8ea9ea40f63a050579537910d011854cf97e9b387ab6aa12027dbaed49f20eab",
+        "finalFeedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909090",
+        "nbaPdfUrl": "https://statsdmz.nba.com/pdfs/20261020/20261020_OKCSAS_book.pdf",
+        "nbaPdfPage": 9,
+        "printedStartTime": "8:52 PM",
+        "venue": "Frost Bank Center",
+        "supersedesGamebookHash": "8aee55d6cdc80fa022500787ba2307360211a52b40470423379489f9f6cb2288"
+      }
+    }
+  ]
+}

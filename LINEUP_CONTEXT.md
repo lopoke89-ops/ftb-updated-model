@@ -6,6 +6,26 @@ The panel shows a source link, capture/check time, and the provider's update tim
 
 ## Status and source policy
 
+### Upcoming Picks starter feed
+
+Upcoming Picks defaults to **Confirmed starters only**. It uses the same complete
+five-player team view and NBA confirmation validator as the shared lineup panel,
+Parlay and EV. Every identity must still match the current roster. The card list
+and its leading-player highlight both use this restricted set; historical grades
+and their denominators are unchanged.
+
+Before confirmation, the feed lists the teams awaiting fresh NBA evidence.
+**Include projected starters · unconfirmed** explicitly opts into the current
+projected five. Complete NBA confirmations take precedence and replace changed
+projected starters. Neither previous-game starters nor manual scenario assumptions
+can add players to either feed. Availability/scenario exclusions still apply;
+Show excluded players cannot bring a bench player into the starter feed.
+
+Confirmations expire under the existing five-minute rule. Partial lineups,
+unresolved roster joins and unavailable sources withhold the affected team.
+Pregame cards close at scheduled tipoff or when the fixture is no longer pregame.
+Historical review and the other tabs retain their existing research scope.
+
 - **Depth-chart projection · unconfirmed** uses ESPN's current team depth chart. It is a derived projection, not an announced game lineup. The browser binds it to the selected scheduled fixture and current roster.
 - **NBA expected starters · unconfirmed** uses a complete, active, five-position expected lineup in the NBA daily feed on game day. It takes precedence over a depth-chart projection when complete and consistent with reported availability.
 - **NBA confirmed starters** uses the existing official confirmation validator. All five must resolve to current roster identities, belong to the selected matchup/date, be explicitly confirmed and active, and have a capture no more than five minutes old before scheduled tipoff.

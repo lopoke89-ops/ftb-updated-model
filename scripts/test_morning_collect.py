@@ -54,6 +54,10 @@ def fake_ingest(f, state, fetcher, store, force=False):
 def new_source(folder):
     source = folder/'source'
     shutil.copytree(collect.SOURCE/'seasons/2026-27',source/'seasons/2026-27')
+    # Tests start from the retained empty season, independent of real backfills.
+    empty_version='4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945.json'
+    empty=archive_store.read(source/'seasons/2026-27/versions'/empty_version)
+    archive_store.save(source/'seasons/2026-27/manifest.json',{**empty['meta'],'activeVersion':empty_version})
     return source
 
 
