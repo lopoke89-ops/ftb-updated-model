@@ -1,8 +1,9 @@
 {
-  "version": "ev-first-team-forward-v1.1",
-  "declaredOn": "2026-10-19",
+  "version": "ev-first-team-forward-v1.2",
+  "declaredOn": "2026-10-21",
   "season": "2026-27",
-  "modelVersion": "ev-first-team-v1.1",
+  "modelVersion": "ev-first-team-v1.2",
+  "releaseStatus": "WITHHELD. This protocol defines a future cohort only; the repaired model currently issues no probability or EV. No earlier record is reassigned to this cohort. Independent replay alone does not establish forecast quality or satisfy the prospective promotion criteria.",
   "market": "first-team-basket",
   "phase": "regular-season",
   "checkpoint": "First eligible verified price/confirmed-lineup capture in the last 15 minutes before the earlier advertised tipoff. Freeze the original price, source times, full five, probability and model/rules/protocol hashes; later revisions never replace that primary record.",
@@ -38,5 +39,5 @@
     "evaluation": "Report lineup availability, exact-five accuracy, selected-player start rate, voids, coverage and all lineup mismatches. Conditional Brier/log loss/calibration only when the frozen five matches actual PDF starters, with fixture clustering. Always disclose this condition-selected sample and its coverage; do not compare it to a differently selected confirmed cohort as a head-to-head accuracy test. Selected nonstarters void; selected starter ordinary contract outcome still reported if other starters differ, but probabilityEvaluationEligible=false.",
     "promotion": "No projected-lineup promotion or public edge claim from current diagnostics. Define a dedicated unconditional model and validation plan before such a claim."
   },
-  "versioning": "v1 frozen records and protocols remain unchanged. v1.1 is an operational scenario addition; fitting and diagnostics are numerically identical. Original projected forecasts remain frozen when confirmation changes the five."
+  "versioning": "v1/v1.1 artifacts and receipts remain frozen, with temporal-leakage forecast evidence invalidated. Their ordinary statistical outcomes remain gradeable but cannot count as valid probability evidence. v1.2 repairs immutable earlier-date features and refits the same inspected archive; it starts a separate cohort only after a later explicit release. Original projected forecasts remain frozen when confirmation changes the five."
 }

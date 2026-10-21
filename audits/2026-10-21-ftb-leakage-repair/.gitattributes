@@ -1,0 +1,2 @@
+# The old trainer/policies are evidence: preserve their original line endings too.
+baseline-v1.1/* -text whitespace=cr-at-eol

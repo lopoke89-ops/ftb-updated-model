@@ -226,6 +226,8 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
     history, current, html = validate(source)
     ev = read(source / 'ev_model.json')
     first = read(source / 'ev_first_team_model.json')
+    require(first.get('version') == 'ev-first-team-v1.2' and first.get('enabled') is False and first.get('withheldReason'), 'First Team Basket probabilities must remain withheld pending a separately reviewed release')
+    require(first.get('featureSnapshotChecks') == {'strictlyEarlierDates':True,'immutable':True,'retainedLineups':424,'unchangedAfterArchiveReplay':True}, 'First Team Basket immutable chronological feature checks missing')
     require(first['engineHash'] == digest(source / 'ev_first_team.js'), 'First Team Basket engine changed; regenerate its separate diagnostics')
     require(first['trainerHash'] == digest(ROOT / 'scripts/train_first_team_ev.cjs'), 'First Team Basket trainer changed; regenerate diagnostics')
     for field, filename in [('protocolHash','FIRST_TEAM_EV_PROTOCOL.json'),('forwardProtocolHash','FIRST_TEAM_EV_FORWARD_PROTOCOL.json'),('rulesProfileHash','FIRST_TEAM_EV_RULES.json')]:
