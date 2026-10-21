@@ -1,0 +1,814 @@
+{
+  "status": "passed-experimental-validation",
+  "generatedAt": "2026-10-21T15:11:09.102Z",
+  "modelHash": "e70040d39db9a03e08710cb4701798721930c0bec91945fdc78e1a3557d56d86",
+  "engineHash": "0e735e9a566395354fe5163d2627c149a7a7c1d338ad601a8ef7cc256cd308c5",
+  "trainerHash": "da33b5625f9cfbc31074721be8d59375a6d95e4e77655124736620c2a738d11d",
+  "auditorHash": "cae13a9fe3328c1bce078cdcc33f2188506ba9e32f4a1dcd96f46800fc619f89",
+  "protocolHash": "4f6cb6b5ecfdff4f71341e08f9c63ea7cc5e8f8839955c8ae7afb148986d6987",
+  "checks": {
+    "rows": 28716,
+    "featureReconstructions": 31120,
+    "sameDayExcluded": 31120
+  },
+  "sourceTotals": {
+    "assists": 70096,
+    "rebounds": 115498,
+    "offensiveRebounds": 30054,
+    "defensiveRebounds": 85444
+  },
+  "frozenOriginalsUnchanged": true,
+  "markets": {
+    "assists": {
+      "selected": {
+        "appearances": 7059,
+        "fixtures": 411,
+        "thresholdObservations": 23567,
+        "brier": 0.19798853044382098,
+        "logLoss": 0.5810411971512468,
+        "weightedCalibrationError": 0.010577288616501052,
+        "reliability": [
+          {
+            "weight": 257.31666666666626,
+            "meanPrediction": 0.06873383385450076,
+            "observed": 0.12442515706975849
+          },
+          {
+            "weight": 873.183333333353,
+            "meanPrediction": 0.15456241549602162,
+            "observed": 0.15538928441907607
+          },
+          {
+            "weight": 1150.383333333357,
+            "meanPrediction": 0.2513447409429905,
+            "observed": 0.25343726004374767
+          },
+          {
+            "weight": 1158.8000000000213,
+            "meanPrediction": 0.3487854681540936,
+            "observed": 0.34728454723276
+          },
+          {
+            "weight": 1051.3500000000276,
+            "meanPrediction": 0.44990168891749677,
+            "observed": 0.46416512103484187
+          },
+          {
+            "weight": 887.7000000000181,
+            "meanPrediction": 0.5464735509546156,
+            "observed": 0.52399459276781
+          },
+          {
+            "weight": 615.5500000000005,
+            "meanPrediction": 0.6481124324679478,
+            "observed": 0.6668020469498745
+          },
+          {
+            "weight": 541.6333333333276,
+            "meanPrediction": 0.748945410010059,
+            "observed": 0.7624469198104487
+          },
+          {
+            "weight": 394.1499999999959,
+            "meanPrediction": 0.8451400669080975,
+            "observed": 0.842995475495794
+          },
+          {
+            "weight": 128.93333333333368,
+            "meanPrediction": 0.9313341333699154,
+            "observed": 0.9379524301964841
+          }
+        ]
+      },
+      "seasonMean": {
+        "appearances": 7059,
+        "fixtures": 411,
+        "thresholdObservations": 23567,
+        "brier": 0.20263368278553912,
+        "logLoss": 0.591570275252676,
+        "weightedCalibrationError": 0.011750256824240687,
+        "reliability": [
+          {
+            "weight": 115.65000000000039,
+            "meanPrediction": 0.08171935964096748,
+            "observed": 0.1232166018158231
+          },
+          {
+            "weight": 958.0166666666908,
+            "meanPrediction": 0.15608713716486453,
+            "observed": 0.17515352899218437
+          },
+          {
+            "weight": 1250.316666666682,
+            "meanPrediction": 0.24926096517349766,
+            "observed": 0.25608179261253394
+          },
+          {
+            "weight": 1159.1500000000265,
+            "meanPrediction": 0.34923482066153233,
+            "observed": 0.36141425469811395
+          },
+          {
+            "weight": 1092.2000000000255,
+            "meanPrediction": 0.4502866343739105,
+            "observed": 0.4520997375327924
+          },
+          {
+            "weight": 939.6333333333536,
+            "meanPrediction": 0.5487605055003063,
+            "observed": 0.537230834722746
+          },
+          {
+            "weight": 570.18333333333,
+            "meanPrediction": 0.6445828522483481,
+            "observed": 0.6744322001695341
+          },
+          {
+            "weight": 459.83333333332666,
+            "meanPrediction": 0.7505223804013451,
+            "observed": 0.7473722363175108
+          },
+          {
+            "weight": 459.0666666666619,
+            "meanPrediction": 0.8425265341040369,
+            "observed": 0.8547415045018885
+          },
+          {
+            "weight": 54.950000000000095,
+            "meanPrediction": 0.9236680877000547,
+            "observed": 0.9299363057324839
+          }
+        ]
+      },
+      "recentMean": {
+        "appearances": 7059,
+        "fixtures": 411,
+        "thresholdObservations": 23567,
+        "brier": 0.19855583143704894,
+        "logLoss": 0.5824169347332241,
+        "weightedCalibrationError": 0.011488299506075536,
+        "reliability": [
+          {
+            "weight": 248.44999999999968,
+            "meanPrediction": 0.06870496121154869,
+            "observed": 0.12162071510028852
+          },
+          {
+            "weight": 866.9000000000194,
+            "meanPrediction": 0.15452993364015852,
+            "observed": 0.16097589110623695
+          },
+          {
+            "weight": 1154.9000000000235,
+            "meanPrediction": 0.2511815580030609,
+            "observed": 0.24942996507633577
+          },
+          {
+            "weight": 1161.0000000000216,
+            "meanPrediction": 0.3484179619110303,
+            "observed": 0.35396210163651015
+          },
+          {
+            "weight": 1061.2166666666942,
+            "meanPrediction": 0.4496643804157474,
+            "observed": 0.4579020935090051
+          },
+          {
+            "weight": 903.1166666666862,
+            "meanPrediction": 0.5466890865213759,
+            "observed": 0.5197925701736404
+          },
+          {
+            "weight": 600.4166666666656,
+            "meanPrediction": 0.6489989690783549,
+            "observed": 0.6744760582928465
+          },
+          {
+            "weight": 545.2166666666615,
+            "meanPrediction": 0.7488245031816053,
+            "observed": 0.757833277290372
+          },
+          {
+            "weight": 391.5833333333293,
+            "meanPrediction": 0.8451290526619888,
+            "observed": 0.846307725047884
+          },
+          {
+            "weight": 126.20000000000036,
+            "meanPrediction": 0.93147001674586,
+            "observed": 0.9330427892234547
+          }
+        ]
+      },
+      "gatePassed": true,
+      "pairedIntervals": {
+        "seasonBrier": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.00617774317337672,
+          "upper": -0.003046393565807891,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "seasonLogLoss": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.01433853286356358,
+          "upper": -0.006599956026568563,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "recentBrier": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.0008195184773127757,
+          "upper": -0.0003413290643818383,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "recentLogLoss": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.001997770839401597,
+          "upper": -0.0007702136860501666,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        }
+      },
+      "byRole": {
+        "G": {
+          "appearances": 3153,
+          "fixtures": 411,
+          "thresholdObservations": 11321,
+          "brier": 0.19678780875881494,
+          "logLoss": 0.5785424940267844,
+          "weightedCalibrationError": 0.016437366414994867,
+          "reliability": [
+            {
+              "weight": 117.76666666666686,
+              "meanPrediction": 0.06718609826758276,
+              "observed": 0.13204075856212827
+            },
+            {
+              "weight": 377.7333333333288,
+              "meanPrediction": 0.15286370758979428,
+              "observed": 0.1441051888457485
+            },
+            {
+              "weight": 466.08333333332644,
+              "meanPrediction": 0.25206783330384097,
+              "observed": 0.25678526729841267
+            },
+            {
+              "weight": 539.3333333333279,
+              "meanPrediction": 0.3485351371002818,
+              "observed": 0.3296971569839343
+            },
+            {
+              "weight": 506.6333333333261,
+              "meanPrediction": 0.44967654808501606,
+              "observed": 0.4476939272320608
+            },
+            {
+              "weight": 376.96666666666266,
+              "meanPrediction": 0.5457427269004806,
+              "observed": 0.5063666106640784
+            },
+            {
+              "weight": 270.9333333333329,
+              "meanPrediction": 0.6486381566630733,
+              "observed": 0.6742125984251981
+            },
+            {
+              "weight": 234.59999999999954,
+              "meanPrediction": 0.748586766216975,
+              "observed": 0.7622193805058265
+            },
+            {
+              "weight": 194.56666666666598,
+              "meanPrediction": 0.8479309522780208,
+              "observed": 0.8360459139969179
+            },
+            {
+              "weight": 68.38333333333348,
+              "meanPrediction": 0.9317770789855124,
+              "observed": 0.9283451133317084
+            }
+          ]
+        },
+        "F": {
+          "appearances": 2647,
+          "fixtures": 411,
+          "thresholdObservations": 8423,
+          "brier": 0.19940034892716418,
+          "logLoss": 0.5838610371938916,
+          "weightedCalibrationError": 0.01338249708214666,
+          "reliability": [
+            {
+              "weight": 92.25000000000009,
+              "meanPrediction": 0.0703911774526954,
+              "observed": 0.11219512195121942
+            },
+            {
+              "weight": 329.38333333333156,
+              "meanPrediction": 0.15476437154412936,
+              "observed": 0.1557455851844366
+            },
+            {
+              "weight": 441.08333333332973,
+              "meanPrediction": 0.25167878223907086,
+              "observed": 0.2666162856603081
+            },
+            {
+              "weight": 440.7999999999968,
+              "meanPrediction": 0.3502021783565009,
+              "observed": 0.36169086509377146
+            },
+            {
+              "weight": 378.2833333333303,
+              "meanPrediction": 0.44970281571196313,
+              "observed": 0.4683438339868746
+            },
+            {
+              "weight": 337.2333333333321,
+              "meanPrediction": 0.5460555981452173,
+              "observed": 0.5281704062469129
+            },
+            {
+              "weight": 230.91666666666686,
+              "meanPrediction": 0.6477000826664429,
+              "observed": 0.6605557560447486
+            },
+            {
+              "weight": 202.0166666666668,
+              "meanPrediction": 0.7507209442714395,
+              "observed": 0.7574457553007167
+            },
+            {
+              "weight": 149.18333333333325,
+              "meanPrediction": 0.8424163881226493,
+              "observed": 0.8535359177745521
+            },
+            {
+              "weight": 45.85000000000003,
+              "meanPrediction": 0.9319098691272255,
+              "observed": 0.9432933478735005
+            }
+          ]
+        },
+        "C": {
+          "appearances": 1259,
+          "fixtures": 405,
+          "thresholdObservations": 3823,
+          "brier": 0.19802728496898384,
+          "logLoss": 0.5813702633608117,
+          "weightedCalibrationError": 0.024837111459881663,
+          "reliability": [
+            {
+              "weight": 47.30000000000004,
+              "meanPrediction": 0.06935501174074178,
+              "observed": 0.12931642001409432
+            },
+            {
+              "weight": 166.06666666666655,
+              "meanPrediction": 0.15802570921423012,
+              "observed": 0.18034925732637497
+            },
+            {
+              "weight": 243.21666666666704,
+              "meanPrediction": 0.24935326004314548,
+              "observed": 0.2231206742958952
+            },
+            {
+              "weight": 178.66666666666686,
+              "meanPrediction": 0.3460458750075172,
+              "observed": 0.364832089552239
+            },
+            {
+              "weight": 166.43333333333322,
+              "meanPrediction": 0.4510390468358608,
+              "observed": 0.5048067294211902
+            },
+            {
+              "weight": 173.5000000000001,
+              "meanPrediction": 0.5488738041344949,
+              "observed": 0.5541786743515844
+            },
+            {
+              "weight": 113.6999999999999,
+              "meanPrediction": 0.6476971486778442,
+              "observed": 0.6618293755496936
+            },
+            {
+              "weight": 105.01666666666657,
+              "meanPrediction": 0.7463310661359165,
+              "observed": 0.7725757816219659
+            },
+            {
+              "weight": 50.40000000000007,
+              "meanPrediction": 0.8424280473974948,
+              "observed": 0.8386243386243382
+            },
+            {
+              "weight": 14.7,
+              "meanPrediction": 0.9274778352643172,
+              "observed": 0.9659863945578231
+            }
+          ]
+        }
+      }
+    },
+    "rebounds": {
+      "selected": {
+        "appearances": 7093,
+        "fixtures": 411,
+        "thresholdObservations": 22900,
+        "brier": 0.18450803083500905,
+        "logLoss": 0.5495403126365613,
+        "weightedCalibrationError": 0.011807291820464924,
+        "reliability": [
+          {
+            "weight": 297.4333333333313,
+            "meanPrediction": 0.069927951404012,
+            "observed": 0.10484142104673376
+          },
+          {
+            "weight": 890.7500000000273,
+            "meanPrediction": 0.1518280750051099,
+            "observed": 0.14538310412573216
+          },
+          {
+            "weight": 914.2833333333547,
+            "meanPrediction": 0.25039804685604705,
+            "observed": 0.24912044041780773
+          },
+          {
+            "weight": 1121.5500000000195,
+            "meanPrediction": 0.35042499210731376,
+            "observed": 0.3301086294265301
+          },
+          {
+            "weight": 770.1166666666763,
+            "meanPrediction": 0.44489339670168293,
+            "observed": 0.4370982751531075
+          },
+          {
+            "weight": 505.0999999999927,
+            "meanPrediction": 0.5532544291570897,
+            "observed": 0.5859565762555322
+          },
+          {
+            "weight": 771.8166666666754,
+            "meanPrediction": 0.6534396906445594,
+            "observed": 0.6448422552851351
+          },
+          {
+            "weight": 877.5666666666853,
+            "meanPrediction": 0.7483950061019852,
+            "observed": 0.7568655752649255
+          },
+          {
+            "weight": 627.2333333333345,
+            "meanPrediction": 0.8442710306963495,
+            "observed": 0.8375936653026421
+          },
+          {
+            "weight": 317.14999999999765,
+            "meanPrediction": 0.9340738321218929,
+            "observed": 0.9249566451206066
+          }
+        ]
+      },
+      "seasonMean": {
+        "appearances": 7093,
+        "fixtures": 411,
+        "thresholdObservations": 22900,
+        "brier": 0.1876229422269345,
+        "logLoss": 0.5577786550955618,
+        "weightedCalibrationError": 0.009740935677066851,
+        "reliability": [
+          {
+            "weight": 200.066666666666,
+            "meanPrediction": 0.07843200415235012,
+            "observed": 0.11096301232922387
+          },
+          {
+            "weight": 1007.7000000000389,
+            "meanPrediction": 0.15680324139738866,
+            "observed": 0.1550891469021804
+          },
+          {
+            "weight": 700.4666666666751,
+            "meanPrediction": 0.2455937143007398,
+            "observed": 0.22494527457884936
+          },
+          {
+            "weight": 1239.1333333333412,
+            "meanPrediction": 0.3546429371435441,
+            "observed": 0.3439097218485999
+          },
+          {
+            "weight": 1029.9000000000372,
+            "meanPrediction": 0.43645063604774637,
+            "observed": 0.4247014273230197
+          },
+          {
+            "weight": 121.25000000000026,
+            "meanPrediction": 0.5627765611868407,
+            "observed": 0.5630240549828176
+          },
+          {
+            "weight": 935.5166666666884,
+            "meanPrediction": 0.6589230144835613,
+            "observed": 0.6601343286240967
+          },
+          {
+            "weight": 1001.6166666666901,
+            "meanPrediction": 0.7468763654866377,
+            "observed": 0.7530325973010207
+          },
+          {
+            "weight": 600.6833333333335,
+            "meanPrediction": 0.8459114303995562,
+            "observed": 0.8239227546405367
+          },
+          {
+            "weight": 256.66666666666526,
+            "meanPrediction": 0.926254127586822,
+            "observed": 0.9244805194805199
+          }
+        ]
+      },
+      "recentMean": {
+        "appearances": 7093,
+        "fixtures": 411,
+        "thresholdObservations": 22900,
+        "brier": 0.1853059298711875,
+        "logLoss": 0.5518225857760052,
+        "weightedCalibrationError": 0.010274802445059555,
+        "reliability": [
+          {
+            "weight": 345.03333333332967,
+            "meanPrediction": 0.0668661211129143,
+            "observed": 0.1078156699835776
+          },
+          {
+            "weight": 846.9500000000227,
+            "meanPrediction": 0.1512785696314235,
+            "observed": 0.14975303540153473
+          },
+          {
+            "weight": 951.2833333333573,
+            "meanPrediction": 0.25130501250792553,
+            "observed": 0.2508015487849683
+          },
+          {
+            "weight": 1073.500000000022,
+            "meanPrediction": 0.3499716015232129,
+            "observed": 0.3315944729079251
+          },
+          {
+            "weight": 745.6833333333424,
+            "meanPrediction": 0.4458974470781295,
+            "observed": 0.43584184528731296
+          },
+          {
+            "weight": 575.0999999999975,
+            "meanPrediction": 0.552449680013083,
+            "observed": 0.5750304294905224
+          },
+          {
+            "weight": 776.633333333343,
+            "meanPrediction": 0.651986146502053,
+            "observed": 0.6542340872998682
+          },
+          {
+            "weight": 826.7500000000157,
+            "meanPrediction": 0.7485589001639547,
+            "observed": 0.7557302691260825
+          },
+          {
+            "weight": 630.3166666666679,
+            "meanPrediction": 0.8448403755574687,
+            "observed": 0.8353208704619279
+          },
+          {
+            "weight": 321.7499999999975,
+            "meanPrediction": 0.9363641673555232,
+            "observed": 0.9267547267547278
+          }
+        ]
+      },
+      "gatePassed": true,
+      "pairedIntervals": {
+        "seasonBrier": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.004218051607717433,
+          "upper": -0.0020592090189790312,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "seasonLogLoss": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.01111063891200723,
+          "upper": -0.0052474230497016865,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "recentBrier": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.0010924824974857701,
+          "upper": -0.00050586592154137,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        },
+        "recentLogLoss": {
+          "clusters": 411,
+          "replicates": 1000,
+          "lower": -0.003056643262541499,
+          "upper": -0.0014607332523565329,
+          "interpretation": "Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive"
+        }
+      },
+      "byRole": {
+        "G": {
+          "appearances": 3156,
+          "fixtures": 411,
+          "thresholdObservations": 8935,
+          "brier": 0.18264670927718285,
+          "logLoss": 0.5450025582589836,
+          "weightedCalibrationError": 0.013298512990430025,
+          "reliability": [
+            {
+              "weight": 137.63333333333304,
+              "meanPrediction": 0.0676955408496449,
+              "observed": 0.09263744248001958
+            },
+            {
+              "weight": 405.3666666666631,
+              "meanPrediction": 0.15018430719777487,
+              "observed": 0.13029356138475587
+            },
+            {
+              "weight": 389.5333333333311,
+              "meanPrediction": 0.25249831034835435,
+              "observed": 0.25594728735238875
+            },
+            {
+              "weight": 569.4666666666639,
+              "meanPrediction": 0.3500066689505569,
+              "observed": 0.32752868180754113
+            },
+            {
+              "weight": 341.83333333333246,
+              "meanPrediction": 0.44366572485625094,
+              "observed": 0.43105802047781655
+            },
+            {
+              "weight": 161.00000000000006,
+              "meanPrediction": 0.5545449261282875,
+              "observed": 0.5949275362318839
+            },
+            {
+              "weight": 324.8666666666667,
+              "meanPrediction": 0.6542906670541868,
+              "observed": 0.6475477118817995
+            },
+            {
+              "weight": 428.44999999999675,
+              "meanPrediction": 0.7492483656806237,
+              "observed": 0.7536079667016817
+            },
+            {
+              "weight": 281.51666666666694,
+              "meanPrediction": 0.8432841818771534,
+              "observed": 0.8434669350541723
+            },
+            {
+              "weight": 116.33333333333337,
+              "meanPrediction": 0.9305935904463046,
+              "observed": 0.9184813753581663
+            }
+          ]
+        },
+        "F": {
+          "appearances": 2668,
+          "fixtures": 411,
+          "thresholdObservations": 8781,
+          "brier": 0.1874771694621311,
+          "logLoss": 0.5564747209215934,
+          "weightedCalibrationError": 0.013493999732489308,
+          "reliability": [
+            {
+              "weight": 114.966666666667,
+              "meanPrediction": 0.0696682610933564,
+              "observed": 0.09582487677587678
+            },
+            {
+              "weight": 305.94999999999817,
+              "meanPrediction": 0.15219272588989322,
+              "observed": 0.16375224709920047
+            },
+            {
+              "weight": 351.3833333333314,
+              "meanPrediction": 0.2502534621388437,
+              "observed": 0.24825688943698865
+            },
+            {
+              "weight": 388.01666666666404,
+              "meanPrediction": 0.35153754042462343,
+              "observed": 0.32910957433100163
+            },
+            {
+              "weight": 290.89999999999964,
+              "meanPrediction": 0.44549921203216264,
+              "observed": 0.4375501317749512
+            },
+            {
+              "weight": 213.7833333333332,
+              "meanPrediction": 0.5510737845451812,
+              "observed": 0.5765962423013957
+            },
+            {
+              "weight": 315.8833333333322,
+              "meanPrediction": 0.6553865239307926,
+              "observed": 0.6325120033767767
+            },
+            {
+              "weight": 312.3833333333325,
+              "meanPrediction": 0.7456029964483554,
+              "observed": 0.7454516352771732
+            },
+            {
+              "weight": 239.68333333333322,
+              "meanPrediction": 0.8463961114365031,
+              "observed": 0.8292191085459982
+            },
+            {
+              "weight": 135.05,
+              "meanPrediction": 0.9350529123722539,
+              "observed": 0.9284215722571896
+            }
+          ]
+        },
+        "C": {
+          "appearances": 1269,
+          "fixtures": 405,
+          "thresholdObservations": 5184,
+          "brier": 0.18289468881694557,
+          "logLoss": 0.5462464998000002,
+          "weightedCalibrationError": 0.017757185818562695,
+          "reliability": [
+            {
+              "weight": 44.8333333333334,
+              "meanPrediction": 0.07744712988760258,
+              "observed": 0.16542750929368008
+            },
+            {
+              "weight": 179.43333333333246,
+              "meanPrediction": 0.15491982907517501,
+              "observed": 0.1481515883336435
+            },
+            {
+              "weight": 173.36666666666613,
+              "meanPrediction": 0.24597206351159454,
+              "observed": 0.23553162853297538
+            },
+            {
+              "weight": 164.06666666666612,
+              "meanPrediction": 0.3492457995275983,
+              "observed": 0.3414262494920784
+            },
+            {
+              "weight": 137.38333333333358,
+              "meanPrediction": 0.44666528178865555,
+              "observed": 0.4511706902826648
+            },
+            {
+              "weight": 130.316666666667,
+              "meanPrediction": 0.5552374100619292,
+              "observed": 0.5902289295306312
+            },
+            {
+              "weight": 131.06666666666703,
+              "meanPrediction": 0.6466383728101192,
+              "observed": 0.6678535096642931
+            },
+            {
+              "weight": 136.7333333333338,
+              "meanPrediction": 0.7520997016469406,
+              "observed": 0.793149683081425
+            },
+            {
+              "weight": 106.03333333333364,
+              "meanPrediction": 0.842087452777596,
+              "observed": 0.8409305249921407
+            },
+            {
+              "weight": 65.76666666666686,
+              "meanPrediction": 0.9382194478408016,
+              "observed": 0.9292954891028888
+            }
+          ]
+        }
+      }
+    }
+  },
+  "interpretation": "Separate retrospective diagnostic and source audit; not untouched prospective evidence, no historical odds ROI, no profitable-edge claim."
+}

@@ -122,16 +122,17 @@
     }
   ],
   "repeatFitByteIdentical": true,
+  "additionalAuditNumericsUnchanged": true,
   "checks": [
     {
       "name": "test_additional_markets",
       "exitCode": 0,
-      "seconds": 6.56
+      "seconds": 6.58
     },
     {
       "name": "test_analyst",
       "exitCode": 0,
-      "seconds": 2.38
+      "seconds": 2.5
     },
     {
       "name": "test_browser",
@@ -141,7 +142,7 @@
     {
       "name": "test_ev",
       "exitCode": 0,
-      "seconds": 0.06
+      "seconds": 0.08
     },
     {
       "name": "test_ev_first_team",
@@ -181,12 +182,12 @@
     {
       "name": "test_matchup",
       "exitCode": 0,
-      "seconds": 6.59
+      "seconds": 6.52
     },
     {
       "name": "test_matchup_event_coverage",
       "exitCode": 0,
-      "seconds": 0.42
+      "seconds": 0.41
     },
     {
       "name": "test_matchup_roles",
@@ -201,7 +202,7 @@
     {
       "name": "test_matchup_ui",
       "exitCode": 0,
-      "seconds": 19.77
+      "seconds": 19.66
     },
     {
       "name": "test_music",
@@ -211,37 +212,37 @@
     {
       "name": "test_opening_paths",
       "exitCode": 0,
-      "seconds": 0.06
+      "seconds": 0.08
     },
     {
       "name": "test_pages",
       "exitCode": 0,
-      "seconds": 9.27
+      "seconds": 9.05
     },
     {
       "name": "test_parlay",
       "exitCode": 0,
-      "seconds": 11.91
+      "seconds": 11.69
     },
     {
       "name": "test_readiness",
       "exitCode": 0,
-      "seconds": 3.28
+      "seconds": 3.23
     },
     {
       "name": "test_scouting",
       "exitCode": 0,
-      "seconds": 22.55
+      "seconds": 22.34
     },
     {
       "name": "test_transition",
       "exitCode": 0,
-      "seconds": 1.33
+      "seconds": 1.31
     },
     {
       "name": "test_transition_export",
       "exitCode": 0,
-      "seconds": 3.92
+      "seconds": 3.86
     },
     {
       "name": "independent-first-team",
@@ -249,19 +250,24 @@
       "seconds": 0.86
     },
     {
+      "name": "additional-market-release-audit",
+      "exitCode": 0,
+      "seconds": 4.47
+    },
+    {
       "name": "python-collector-publication",
       "exitCode": 0,
-      "seconds": 55.81
+      "seconds": 51.91
     },
     {
       "name": "python-opening",
       "exitCode": 0,
-      "seconds": 0.33
+      "seconds": 0.31
     },
     {
       "name": "repeat-fit",
       "exitCode": 0,
-      "seconds": 1.98
+      "seconds": 2.02
     },
     {
       "name": "publication-build",
@@ -269,6 +275,6 @@
       "seconds": 5.38
     }
   ],
-  "buildOutput": "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\deployment_2026-10-09\\ftb-updated-model\\.build-tests\\ftb-repair-1792614214830397400",
+  "buildOutput": "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\deployment_2026-10-09\\ftb-updated-model\\.build-tests\\ftb-repair-1792614981443769500",
   "passed": true
 }

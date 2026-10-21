@@ -45,6 +45,7 @@ for relative in ['nba ftb shi/'+name for name in (
 
 checks = [run(p.stem, ['node', str(p)]) for p in sorted((SOURCE/'tests').glob('test_*.cjs'))]
 checks.append(run('independent-first-team', [sys.executable,'-B',str(OUT/'reference_first_team.py')]))
+checks.append(run('additional-market-release-audit', ['node','scripts/audit_ev_additional.cjs']))
 checks.append(run('python-collector-publication', [sys.executable,'-B','-m','unittest','discover','-s','scripts','-p','test_*.py']))
 checks.append(run('python-opening', [sys.executable,'-B','-m','unittest','discover','-s','nba ftb shi/tests','-p','test_opening_gamebooks.py']))
 target = OUT / 'candidate-model'
@@ -52,8 +53,11 @@ checks.append(run('repeat-fit', ['node','scripts/train_first_team_ev.cjs','--out
 fit_matches = all((SOURCE/name).read_bytes()==(target/name).read_bytes() for name in ['ev_first_team_model.json','ev_first_team_model.js'])
 build_target = ROOT/'.build-tests'/('ftb-repair-'+str(time.time_ns()))
 checks.append(run('publication-build', [sys.executable,'-B','scripts/build_pages.py','--output',str(build_target)]))
+old_additional = json.loads((OUT/'baseline-additional-audit/validation.json').read_text(encoding='utf-8'))
+new_additional = json.loads((ROOT/'audits/2026-10-21-assists-rebounds/validation.json').read_text(encoding='utf-8'))
+additional_numerics_unchanged = all(old_additional[k]==new_additional[k] for k in ['modelHash','engineHash','trainerHash','protocolHash','checks','sourceTotals','markets'])
 report = {'startingRevision':START,'preservedBaseline':preserved,'unchangedEvidenceAndCountModels':unchanged,
-          'repeatFitByteIdentical':fit_matches,'checks':checks,'buildOutput':str(build_target),
-          'passed':all(x['same'] for x in preserved) and all(x['sameAsStart'] for x in unchanged) and fit_matches and all(x['exitCode']==0 for x in checks)}
+          'repeatFitByteIdentical':fit_matches,'additionalAuditNumericsUnchanged':additional_numerics_unchanged,'checks':checks,'buildOutput':str(build_target),
+          'passed':all(x['same'] for x in preserved) and all(x['sameAsStart'] for x in unchanged) and fit_matches and additional_numerics_unchanged and all(x['exitCode']==0 for x in checks)}
 (OUT/'VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 raise SystemExit(0 if report['passed'] else 1)
