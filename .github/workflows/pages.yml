@@ -44,7 +44,9 @@ jobs:
           node "nba ftb shi/tests/test_ev.cjs"
           node "nba ftb shi/tests/test_ev_service.cjs"
           node "nba ftb shi/tests/test_ev_context.cjs"
+          node "nba ftb shi/tests/test_prop_sheet.cjs"
           python3 audits/2026-10-22-ev-context/reference_context.py
+          python3 audits/2026-10-22-prop-rankings/reference_rankings.py
           node "nba ftb shi/tests/test_ev_ui.cjs"
           node "nba ftb shi/tests/test_ev_grading.cjs"
           node "nba ftb shi/tests/test_ev_first_team.cjs"

@@ -1,0 +1,174 @@
+{
+  "countRankCases": 600,
+  "countOpponentAndReferenceSums": 1200,
+  "openingRankCases": 150,
+  "allPassed": true,
+  "rankedCountCases": 600,
+  "openingTeamCoverage": {
+    "ATL": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "BOS": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "BKN": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "CHA": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "CHI": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "CLE": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "DAL": {
+      "accepted": 81,
+      "expected": 82,
+      "other": 0
+    },
+    "DEN": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 1
+    },
+    "DET": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "GSW": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "HOU": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "IND": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "LAC": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 1
+    },
+    "LAL": {
+      "accepted": 81,
+      "expected": 82,
+      "other": 0
+    },
+    "MEM": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "MIA": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "MIL": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "MIN": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "NOP": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "NYK": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 1
+    },
+    "OKC": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "ORL": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "PHI": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "PHX": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "POR": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "SAC": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "SAS": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "TOR": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "UTA": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    },
+    "WAS": {
+      "accepted": 82,
+      "expected": 82,
+      "other": 0
+    }
+  },
+  "unchangedSourceHashes": {
+    "ev_probability.js": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+    "ev_model.json": "0a5189f65fa894c84bace262981561988dd22f4b66478302f7e0c5e67a5e250c",
+    "ev_model.js": "b51875ff0c19f8459e8a3a00fb79590a6bf34950962823ec005daa2d2e3884d0",
+    "ev_additional.js": "0e735e9a566395354fe5163d2627c149a7a7c1d338ad601a8ef7cc256cd308c5",
+    "ev_additional_model.json": "1e2c36c37efaeaddce3b8839fab802ebb271509e71776b012b6941d12e0db452",
+    "ev_additional_model.js": "37aea56198c39157289202f70ad73c29bf306bb338899ded64ae824a7c9e208f",
+    "ev_first_team.js": "bbd96673c96460cb3a71fb6faeea7598b3fc4df412d6299cad0fdb3fa8ea850e",
+    "ev_first_team_model.json": "2453e02a542eac5a245952447a7cc3e476141df1eae410fb19966d740d5adfa6",
+    "ev_first_team_model.js": "8f62d32513e990788c0cdce809568bdf84576bdedb1d22485d109d76ec5b9e4e",
+    "parlay.js": "6c11a604064a31eb276d3afe9fccbe247b492f9eca5ff4b9cc504ec97315d9a6",
+    "parlay_additional.js": "e8b9821978576f6eec18a1e53340889d331381d8c391aaec09e3cfc1c792d8ba",
+    "matchup.js": "0849428b67f68e0cf5ef021fe8a3f152787955b12b1a3ab975c215e18c1d9c1a"
+  },
+  "sharedEvidence": "Retained official box rows, identity IDs, dated five-position records and independently verified opening-event records. Reference uses direct Python sums/comparisons and imports no production feature/rank/model helper. Both use retrospective source records; not proof of pregame capture, causal defense or predictive improvement."
+}
