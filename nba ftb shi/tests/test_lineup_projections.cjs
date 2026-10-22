@@ -97,5 +97,10 @@ let passed=0;async function test(name,fn){await fn();passed++;console.log('PASS 
     target.visibilityState='hidden';tick();assert.equal(calls,1);target.visibilityState='visible';visible();assert.equal(calls,2);
     stop();resolve();await new Promise(setImmediate);tick();assert.equal(calls,2);assert(cleared);assert.equal(visible,null);
   });
+  await test('EV can poll faster while lineup callers keep their five-minute cadence',async()=>{
+    let tick,calls=0,cleared=false;
+    const stop=Q.startRefresh(async()=>{calls++;},{intervalMs:120000,target:null,setTimer:(fn,ms)=>{assert.equal(ms,120000);tick=fn;return 7;},clearTimer:id=>{assert.equal(id,7);cleared=true;}});
+    await tick();await tick();assert.equal(calls,2);stop();await tick();assert.equal(calls,2);assert(cleared);
+  });
   console.log(JSON.stringify({passed}));
 })().catch(error=>{console.error(error);process.exitCode=1;});

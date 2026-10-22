@@ -24,6 +24,9 @@ TEAMS = {'ATL':1,'BOS':2,'BKN':17,'CHA':30,'CHI':4,'CLE':5,'DAL':6,'DEN':7,'DET'
 ALIASES = {'GS':'GSW','NY':'NYK','SA':'SAS','NO':'NOP','WSH':'WAS','UTAH':'UTA','PHO':'PHX'}
 TABS = ('player-points','player-threes','player-assists','player-rebounds','quick-bets')
 TAB_MARKET = {'player-points':'points','player-threes':'threes','player-assists':'assists','player-rebounds':'rebounds','quick-bets':'first-team-basket'}
+# Leave headroom inside the browser's unchanged five-minute price expiry.
+# A five-minute worker plus a five-minute browser poll regularly lost freshness.
+WATCH_INTERVAL_SECONDS = 120
 
 def utc():
     return datetime.now(timezone.utc)
@@ -344,13 +347,13 @@ def run(watch=False,output=None,max_minutes=240):
             now = utc()
             future = [iso(f['fixture']['scheduledTipoff']) for f in snapshot['fixtures'].values() if iso(f['fixture']['scheduledTipoff'])>now]
             watching = watching or bool(future)
-            if not watch or output or not watching or not future or time.monotonic()+300>=deadline:
+            if not watch or output or not watching or not future or time.monotonic()+WATCH_INTERVAL_SECONDS>=deadline:
                 return bool(snapshot['errors']) or any(any(not e.startswith('Market not yet offered:') for e in f['issues']) for f in snapshot['fixtures'].values())
         except Exception as error:
             print(json.dumps({'error':str(error),'checkedAt':utc().isoformat(),'retained':'previous published capture'}),flush=True)
-            if not watch or not watching or time.monotonic()+300>=deadline:
+            if not watch or not watching or time.monotonic()+WATCH_INTERVAL_SECONDS>=deadline:
                 return True
-        time.sleep(max(0,300-(time.monotonic()-cycle_start)))
+        time.sleep(max(0,WATCH_INTERVAL_SECONDS-(time.monotonic()-cycle_start)))
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description=__doc__)
