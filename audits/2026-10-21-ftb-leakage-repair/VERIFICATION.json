@@ -1,0 +1,280 @@
+{
+  "startingRevision": "625a9e9dd56274bdcf1b8cb1ad01329690d257d2",
+  "preservedBaseline": [
+    {
+      "file": "nba ftb shi/ev_first_team.js",
+      "startingSha256": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "preservedSha256": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "same": true
+    },
+    {
+      "file": "nba ftb shi/ev_first_team_model.js",
+      "startingSha256": "6e7ce5e9aea62a665fde5fb8dc779d2fd21a3413176426b822510dc1262ea53c",
+      "preservedSha256": "6e7ce5e9aea62a665fde5fb8dc779d2fd21a3413176426b822510dc1262ea53c",
+      "same": true
+    },
+    {
+      "file": "nba ftb shi/ev_first_team_model.json",
+      "startingSha256": "f3ffb75914b0b08783fc0690026603c08ba9bf2d8c5b22c4b5a723807d212e79",
+      "preservedSha256": "f3ffb75914b0b08783fc0690026603c08ba9bf2d8c5b22c4b5a723807d212e79",
+      "same": true
+    },
+    {
+      "file": "FIRST_TEAM_EV_FORWARD_PROTOCOL.json",
+      "startingSha256": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+      "preservedSha256": "f2007883ca4a1b2007eeea1affd36434254ae50a0cb3e30b776924a5e0b07ba3",
+      "same": true
+    },
+    {
+      "file": "FIRST_TEAM_EV_PROTOCOL.json",
+      "startingSha256": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+      "preservedSha256": "d2a780c66ca2b84b7a6928bb26079cb5c2b44e77950645063d9a01c9bb2955e8",
+      "same": true
+    },
+    {
+      "file": "FIRST_TEAM_EV_RULES.json",
+      "startingSha256": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828",
+      "preservedSha256": "d8d114ff6b5247f6d3e3a740154614f1e95d81d053fd0b7ac21ebeabd321d828",
+      "same": true
+    },
+    {
+      "file": "scripts/train_first_team_ev.cjs",
+      "startingSha256": "b8c8fa1d5b93f98181f90b0d360f17b615e32b2098b739361a4105820415aed5",
+      "preservedSha256": "b8c8fa1d5b93f98181f90b0d360f17b615e32b2098b739361a4105820415aed5",
+      "same": true
+    }
+  ],
+  "unchangedEvidenceAndCountModels": [
+    {
+      "file": "nba ftb shi/analyst_data.json",
+      "sha256": "e0893aebd1793953267d69ddf94b6bfd25df1511e50fa52da4c9b85396744c0a",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/analyst_data.js",
+      "sha256": "f48b1acbb47d04a56ae1fd336160180fa1ea0e9d6e00365823b72f8dc81feb11",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/parlay_data.json",
+      "sha256": "3aa1ae600224014323cb66d846f15359c209342ac59efffc24dcf536211b856f",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/parlay_data.js",
+      "sha256": "24f85c2f486780c88c299aff43d54c42a5b30d239b7f02ea44d675934876d674",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/merged_dataset.json",
+      "sha256": "f854999566de523172922aecca910b94d656e198293eeb8bbbb085372e7ab698",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_probability.js",
+      "sha256": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_model.json",
+      "sha256": "0a5189f65fa894c84bace262981561988dd22f4b66478302f7e0c5e67a5e250c",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_model.js",
+      "sha256": "b51875ff0c19f8459e8a3a00fb79590a6bf34950962823ec005daa2d2e3884d0",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_additional.js",
+      "sha256": "0e735e9a566395354fe5163d2627c149a7a7c1d338ad601a8ef7cc256cd308c5",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_additional_model.json",
+      "sha256": "1e2c36c37efaeaddce3b8839fab802ebb271509e71776b012b6941d12e0db452",
+      "sameAsStart": true
+    },
+    {
+      "file": "nba ftb shi/ev_additional_model.js",
+      "sha256": "37aea56198c39157289202f70ad73c29bf306bb338899ded64ae824a7c9e208f",
+      "sameAsStart": true
+    },
+    {
+      "file": "EV_PROTOCOL.json",
+      "sha256": "e3a9dc03704ccb6ba7c184b84c21da1383f5b2d34504ac957260e5ad3ed2982d",
+      "sameAsStart": true
+    },
+    {
+      "file": "EV_FORWARD_PROTOCOL.json",
+      "sha256": "a564b43bc8c4355564cb62b4020725c445ce775cf829a396747e1cbd29f04703",
+      "sameAsStart": true
+    },
+    {
+      "file": "EV_RULES_PROFILE.json",
+      "sha256": "64e42b6a266969cb56710c9e4ab40a33d1b26b33aac87e129dfc129cb6745ff8",
+      "sameAsStart": true
+    },
+    {
+      "file": "ASSISTS_REBOUNDS_PROTOCOL.json",
+      "sha256": "4f6cb6b5ecfdff4f71341e08f9c63ea7cc5e8f8839955c8ae7afb148986d6987",
+      "sameAsStart": true
+    }
+  ],
+  "repeatFitByteIdentical": true,
+  "additionalAuditNumericsUnchanged": true,
+  "checks": [
+    {
+      "name": "test_additional_markets",
+      "exitCode": 0,
+      "seconds": 6.58
+    },
+    {
+      "name": "test_analyst",
+      "exitCode": 0,
+      "seconds": 2.5
+    },
+    {
+      "name": "test_browser",
+      "exitCode": 0,
+      "seconds": 0.22
+    },
+    {
+      "name": "test_ev",
+      "exitCode": 0,
+      "seconds": 0.08
+    },
+    {
+      "name": "test_ev_first_team",
+      "exitCode": 0,
+      "seconds": 0.11
+    },
+    {
+      "name": "test_ev_grading",
+      "exitCode": 0,
+      "seconds": 0.08
+    },
+    {
+      "name": "test_ev_scorecard",
+      "exitCode": 0,
+      "seconds": 0.06
+    },
+    {
+      "name": "test_ev_service",
+      "exitCode": 0,
+      "seconds": 0.05
+    },
+    {
+      "name": "test_ev_ui",
+      "exitCode": 0,
+      "seconds": 0.27
+    },
+    {
+      "name": "test_lineup_projections",
+      "exitCode": 0,
+      "seconds": 0.08
+    },
+    {
+      "name": "test_live_refresh",
+      "exitCode": 0,
+      "seconds": 0.05
+    },
+    {
+      "name": "test_matchup",
+      "exitCode": 0,
+      "seconds": 6.52
+    },
+    {
+      "name": "test_matchup_event_coverage",
+      "exitCode": 0,
+      "seconds": 0.41
+    },
+    {
+      "name": "test_matchup_roles",
+      "exitCode": 0,
+      "seconds": 0.95
+    },
+    {
+      "name": "test_matchup_shooting",
+      "exitCode": 0,
+      "seconds": 0.05
+    },
+    {
+      "name": "test_matchup_ui",
+      "exitCode": 0,
+      "seconds": 19.66
+    },
+    {
+      "name": "test_music",
+      "exitCode": 0,
+      "seconds": 0.09
+    },
+    {
+      "name": "test_opening_paths",
+      "exitCode": 0,
+      "seconds": 0.08
+    },
+    {
+      "name": "test_pages",
+      "exitCode": 0,
+      "seconds": 9.05
+    },
+    {
+      "name": "test_parlay",
+      "exitCode": 0,
+      "seconds": 11.69
+    },
+    {
+      "name": "test_readiness",
+      "exitCode": 0,
+      "seconds": 3.23
+    },
+    {
+      "name": "test_scouting",
+      "exitCode": 0,
+      "seconds": 22.34
+    },
+    {
+      "name": "test_transition",
+      "exitCode": 0,
+      "seconds": 1.31
+    },
+    {
+      "name": "test_transition_export",
+      "exitCode": 0,
+      "seconds": 3.86
+    },
+    {
+      "name": "independent-first-team",
+      "exitCode": 0,
+      "seconds": 0.86
+    },
+    {
+      "name": "additional-market-release-audit",
+      "exitCode": 0,
+      "seconds": 4.47
+    },
+    {
+      "name": "python-collector-publication",
+      "exitCode": 0,
+      "seconds": 51.91
+    },
+    {
+      "name": "python-opening",
+      "exitCode": 0,
+      "seconds": 0.31
+    },
+    {
+      "name": "repeat-fit",
+      "exitCode": 0,
+      "seconds": 2.02
+    },
+    {
+      "name": "publication-build",
+      "exitCode": 0,
+      "seconds": 5.38
+    }
+  ],
+  "buildOutput": "C:\\Users\\lopok\\Desktop\\scrapper - Copy\\deployment_2026-10-09\\ftb-updated-model\\.build-tests\\ftb-repair-1792614981443769500",
+  "passed": true
+}

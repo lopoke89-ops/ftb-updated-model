@@ -3,7 +3,16 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
 const ROOT=path.resolve(__dirname,'..'),SRC=path.join(ROOT,'nba ftb shi'),OUT=path.join(ROOT,'audits/2026-10-21-assists-rebounds'),X=require(path.join(SRC,'ev_additional.js')),model=require(path.join(SRC,'ev_additional_model.json')),data=require(path.join(SRC,'analyst_data.json'));
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),baseline=JSON.parse(fs.readFileSync(path.join(OUT,'frozen-baseline-hashes.json')));
-for(const [name,value]of Object.entries(baseline))assert.equal(hash(path.join(ROOT,name)),value,'Original frozen file changed: '+name);
+// The leakage repair deliberately retires only these two live FTB files. Verify
+// their original bytes in the preserved baseline; all other freezes remain live.
+const retiredFirstTeam=new Set(['nba ftb shi/ev_first_team.js','nba ftb shi/ev_first_team_model.json']),originalFileChecks=[];
+for(const [name,value]of Object.entries(baseline)){
+ const retired=retiredFirstTeam.has(name),evidence=retired?'audits/2026-10-21-ftb-leakage-repair/baseline-v1.1/'+path.basename(name):name;
+ assert.equal(hash(path.join(ROOT,evidence)),value,'Original frozen file changed: '+name);
+ originalFileChecks.push({original:name,evidence,sha256:value,disposition:retired?'preserved-retired-ftb-baseline':'unchanged-live-file'});
+}
+const repaired=JSON.parse(fs.readFileSync(path.join(SRC,'ev_first_team_model.json')));
+assert.equal(repaired.version,'ev-first-team-v1.2');assert.equal(repaired.enabled,false);assert.equal(repaired.engineHash,hash(path.join(SRC,'ev_first_team.js')));
 const state=X.newState(),rawHistory=new Map(),observations={assists:[],rebounds:[]},fixtures=new Set(),sourceTotals={assists:0,rebounds:0,offensiveRebounds:0,defensiveRebounds:0},checks={rows:0,featureReconstructions:0,sameDayExcluded:0};
 const games=data.games.filter(g=>g.phase==='regular-season').sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));
 for(const g of data.games)for(const team of [g.home,g.away])for(const p of g.teams[team].players)if(p.played){
@@ -46,7 +55,7 @@ function interval(rows,benchmark,metric){
  const group=new Map();for(const r of rows){const g=group.get(r.gameId)||{loss:0,weight:0};g.loss+=r.weight*(r.values.selected[metric]-r.values[benchmark][metric]);g.weight+=r.weight;group.set(r.gameId,g);}
  const clusters=[...group.values()],result=[];for(let i=0;i<1000;i++){let n=0,w=0;for(let j=0;j<clusters.length;j++){const g=clusters[Math.floor(random()*clusters.length)];n+=g.loss;w+=g.weight;}result.push(n/w);}result.sort((a,b)=>a-b);return {clusters:clusters.length,replicates:1000,lower:result[24],upper:result[974],interpretation:'Model loss minus benchmark loss; fixture-cluster exploratory interval on an already inspected archive'};
 }
-const report={status:'passed-experimental-validation',generatedAt:new Date().toISOString(),modelHash:model.modelHash,engineHash:hash(path.join(SRC,'ev_additional.js')),trainerHash:hash(path.join(ROOT,'scripts/train_ev_additional.cjs')),auditorHash:hash(__filename),protocolHash:model.protocolHash,checks,sourceTotals,frozenOriginalsUnchanged:true,markets:{},interpretation:'Separate retrospective diagnostic and source audit; not untouched prospective evidence, no historical odds ROI, no profitable-edge claim.'};
+const report={status:'passed-experimental-validation',generatedAt:new Date().toISOString(),modelHash:model.modelHash,engineHash:hash(path.join(SRC,'ev_additional.js')),trainerHash:hash(path.join(ROOT,'scripts/train_ev_additional.cjs')),auditorHash:hash(__filename),protocolHash:model.protocolHash,checks,sourceTotals,frozenOriginalsUnchanged:false,frozenOriginalsPreserved:true,originalFileChecks,firstTeamRepair:{version:repaired.version,modelHash:repaired.modelHash,enabled:repaired.enabled},markets:{},interpretation:'Separate retrospective diagnostic and source audit; not untouched prospective evidence, no historical odds ROI, no profitable-edge claim. Original count/Parlay files remain unchanged; two retired FTB files are verified in their preserved baseline after the separately versioned leakage repair.'};
 for(const m of X.MARKETS){
  const rows=observations[m],selected=metrics(rows,'selected'),seasonMean=metrics(rows,'seasonMean'),recentMean=metrics(rows,'recentMean'),stored=model.markets[m].supportedDiagnostic;
  for(const k of ['brier','logLoss'])assert(Math.abs(selected[k]-stored[k])<1e-10,'Independent metric mismatch '+m+' '+k);

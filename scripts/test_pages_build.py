@@ -23,6 +23,17 @@ def temporary_output():
 
 
 class Publication(unittest.TestCase):
+    def test_ftb_release_gate_cannot_be_enabled_by_changing_the_model_manifest(self):
+        original = pages.read
+        def altered(path):
+            value = original(path)
+            if path.name == 'ev_first_team_model.json':
+                value['enabled'] = True
+            return value
+        with temporary_output() as folder, patch.object(pages, 'read', side_effect=altered):
+            with self.assertRaisesRegex(ValueError, 'must remain withheld'):
+                pages.build(output=folder/'site')
+
     def test_stale_readiness_model_or_evaluator_blocks_publication(self):
         original = pages.digest
         for changed in ('parlay.js', 'scouting_history.js', 'evaluate_readiness.cjs'):

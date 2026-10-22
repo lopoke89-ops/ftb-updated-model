@@ -46,6 +46,7 @@ jobs:
           node "nba ftb shi/tests/test_ev_ui.cjs"
           node "nba ftb shi/tests/test_ev_grading.cjs"
           node "nba ftb shi/tests/test_ev_first_team.cjs"
+          python3 audits/2026-10-21-ftb-leakage-repair/reference_first_team.py
           node "nba ftb shi/tests/test_opening_paths.cjs"
           node "nba ftb shi/tests/test_additional_markets.cjs"
           node "nba ftb shi/tests/test_ev_scorecard.cjs"

@@ -1,0 +1,11 @@
+{
+  "version": "fanduel-tn-first-team-score-2026-10-19",
+  "source": "https://www.fanduel.com/fanduel-sportsbook-house-rules-tn",
+  "accessedOn": "2026-10-19",
+  "marketType": "FIRST_TEAM_BASKET_SCORER",
+  "marketName": "First Team Basket Scorer",
+  "period": "team-first-score",
+  "scoringDefinition": "first-team-score-including-free-throws",
+  "action": "Selected player must start. Nonstarters void regardless of later participation. A starter wins by scoring their own team's first points; the other team may score earlier. No field-goal-only substitution.",
+  "scope": "Ordinary pregame NBA market only; overtime-period markets, game First Basket, promotions, venue/postponement/suspension exceptions and account settlement are not inferred. NBA PDFs are project outcome authority; exceptional book decisions require separate review."
+}

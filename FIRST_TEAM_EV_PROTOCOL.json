@@ -1,6 +1,9 @@
 {
-  "version": "ev-first-team-v1.1",
-  "status": "experimental-retrospective-diagnostic",
+  "version": "ev-first-team-v1.2",
+  "status": "withheld-repaired-retrospective-diagnostic",
+  "revisionDeclaredOn": "2026-10-21",
+  "priorEvidenceInvalidated": "v1 and v1.1 retained mutable histories: later games entered recent-20 features during fitting and diagnostics. Their numerical forecast evidence is invalid. Original artifacts and saved selections remain preserved.",
+  "snapshotRequirement": "Copy and freeze each history entry, history array, player row and feature object at the strictly earlier-date cutoff. Check all history dates, counts and wins on creation and after the complete archive replay; compare retained feature hashes before fitting.",
   "market": "first-team-basket",
   "scoringDefinition": "first-team-score-including-free-throws",
   "period": "team-first-score",
@@ -20,6 +23,6 @@
   "windowReason": "No complete five-starter lineup met the 20-prior-same-team-start requirement before December 15. This separate first-team model uses later windows selected for sample availability before examining diagnostic scores; the original prop windows are unchanged.",
   "fitting": "Choose shrinkage/recent/positional exponents on development dates only; positive temperature on calibration dates only. Hold entire dates together. Final-box starters in retrospective evaluation define a conditional-known-lineup scenario; historical pregame announcements were not archived.",
   "interpretation": "Already inspected archive, unvalidated prior-season transfer, no historical FanDuel prices or historical profitability. Separate model and research cohort; frozen Points/Threes engine, model and forward protocol unchanged.",
-  "revision": "Operational lineup eligibility change only. Numerical features, fitting windows, parameters and support minimums unchanged from v1. Frozen v1 source/model/protocols retained under audits/2026-10-19-first-team-projections/baseline-v1.",
+  "revision": "Repair feature snapshot aliasing and refit the same declared candidate grid/windows. This archive and previous diagnostic results have already been inspected. No new untouched holdout or prospective evidence is created. Freeze v1.1 source/model/trainer/protocols under audits/2026-10-21-ftb-leakage-repair/baseline-v1.1. Probabilities and EV remain withheld; source-based descriptive FTB research and fresh offered prices remain usable.",
   "projectedScenario": "ESPN depth-chart projections expire after six hours; NBA expected lineups after five minutes. Single source origin and capture time, exact fixture/date/season and current-roster identities required. Out/Doubtful and scenario-excluded players block the whole five. Questionable/unconfirmed availability remains provisional. Probability/EV assumes the exact projected five starts; no probability of starting or unconditional EV is claimed. Historical final-box diagnostics do not validate projected-lineup availability."
 }

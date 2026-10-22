@@ -1,10 +1,10 @@
 {
   "status": "passed-experimental-validation",
-  "generatedAt": "2026-10-21T15:11:09.102Z",
+  "generatedAt": "2026-10-21T20:35:26.955Z",
   "modelHash": "e70040d39db9a03e08710cb4701798721930c0bec91945fdc78e1a3557d56d86",
   "engineHash": "0e735e9a566395354fe5163d2627c149a7a7c1d338ad601a8ef7cc256cd308c5",
   "trainerHash": "da33b5625f9cfbc31074721be8d59375a6d95e4e77655124736620c2a738d11d",
-  "auditorHash": "cae13a9fe3328c1bce078cdcc33f2188506ba9e32f4a1dcd96f46800fc619f89",
+  "auditorHash": "69ee88816b78960ae7148fd16d48b929d2d534ff783e4b8f2e57812c52cda455",
   "protocolHash": "4f6cb6b5ecfdff4f71341e08f9c63ea7cc5e8f8839955c8ae7afb148986d6987",
   "checks": {
     "rows": 28716,
@@ -17,7 +17,51 @@
     "offensiveRebounds": 30054,
     "defensiveRebounds": 85444
   },
-  "frozenOriginalsUnchanged": true,
+  "frozenOriginalsUnchanged": false,
+  "frozenOriginalsPreserved": true,
+  "originalFileChecks": [
+    {
+      "original": "nba ftb shi/ev_probability.js",
+      "evidence": "nba ftb shi/ev_probability.js",
+      "sha256": "106c6968bf6e05dfe6b32fffab2425477e5563dca41107d68b2082edd402a43b",
+      "disposition": "unchanged-live-file"
+    },
+    {
+      "original": "nba ftb shi/ev_model.json",
+      "evidence": "nba ftb shi/ev_model.json",
+      "sha256": "0a5189f65fa894c84bace262981561988dd22f4b66478302f7e0c5e67a5e250c",
+      "disposition": "unchanged-live-file"
+    },
+    {
+      "original": "nba ftb shi/ev_first_team.js",
+      "evidence": "audits/2026-10-21-ftb-leakage-repair/baseline-v1.1/ev_first_team.js",
+      "sha256": "fd0a727ae832c82f545596c161309a145a465e3e7a1731011c03b9d131135b16",
+      "disposition": "preserved-retired-ftb-baseline"
+    },
+    {
+      "original": "nba ftb shi/ev_first_team_model.json",
+      "evidence": "audits/2026-10-21-ftb-leakage-repair/baseline-v1.1/ev_first_team_model.json",
+      "sha256": "f3ffb75914b0b08783fc0690026603c08ba9bf2d8c5b22c4b5a723807d212e79",
+      "disposition": "preserved-retired-ftb-baseline"
+    },
+    {
+      "original": "nba ftb shi/parlay.js",
+      "evidence": "nba ftb shi/parlay.js",
+      "sha256": "6c11a604064a31eb276d3afe9fccbe247b492f9eca5ff4b9cc504ec97315d9a6",
+      "disposition": "unchanged-live-file"
+    },
+    {
+      "original": "nba ftb shi/scouting_history.js",
+      "evidence": "nba ftb shi/scouting_history.js",
+      "sha256": "11a4a7a357de440992aa080a831e3c791289727a2cc272ea05653be418cf6736",
+      "disposition": "unchanged-live-file"
+    }
+  ],
+  "firstTeamRepair": {
+    "version": "ev-first-team-v1.2",
+    "modelHash": "463257d5eeed96f0ff79e233b13c58329d5f3901f64be8c4e3be34d875a6d4de",
+    "enabled": false
+  },
   "markets": {
     "assists": {
       "selected": {
@@ -810,5 +854,5 @@
       }
     }
   },
-  "interpretation": "Separate retrospective diagnostic and source audit; not untouched prospective evidence, no historical odds ROI, no profitable-edge claim."
+  "interpretation": "Separate retrospective diagnostic and source audit; not untouched prospective evidence, no historical odds ROI, no profitable-edge claim. Original count/Parlay files remain unchanged; two retired FTB files are verified in their preserved baseline after the separately versioned leakage repair."
 }
