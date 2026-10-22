@@ -1,0 +1,5 @@
+EV offers currently emphasize estimated probability and EV while the relevant opponent-role evidence and historical workload assumptions live elsewhere. Add a read-only Matchup & opportunity panel to supported points, threes, assists and rebounds rows, covering PG/SG/SF/PF/C with explicitly labeled G/F/C fallback, coverage dates, source links, current availability and a main concern.
+
+The new context does not alter model probabilities, EV, sorting, eligibility, existing Matchup/Parlay calculations or the FTB withholding gate. Pregame records retain the context version and exact descriptive evidence, with unique profiles deduplicated per immutable receipt. Mobile rows stack into labeled cards.
+
+Validation: 11 context and 31 EV UI cases; existing count/FTB/grading/scorecard/page/additional-market checks; 11 Python publication tests; independent Python reconstruction of 60 position/market/opponent cases with 120 exact component comparisons. Frozen engine/model hashes match the released baseline. Desktop/mobile preview used real historical evidence and clearly synthetic offers. Details and limitations: audits/2026-10-22-ev-context/IMPLEMENTATION.md.

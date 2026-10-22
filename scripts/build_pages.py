@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'nba ftb shi'
 ASSETS = ('opening_paths.js', 'opening_paths_data.js', 'play_by_play_manifest.js', 'analyst.js', 'readiness_policy.js', 'readiness_evaluation.js', 'lineups.js', 'lineup_projections.js', 'scouting_history.js', 'matchup.js', 'matchup_ui.js', 'analyst_ui.js', 'parlay.js', 'parlay_transition.js', 'parlay_research_config.js', 'parlay_research.js', 'parlay_ui.js', 'parlay_additional.js', 'parlay_additional_ui.js', 'parlay_data.js',
-          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_additional.js', 'ev_additional_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_service.js', 'ev_archive.js', 'ev_grading.js', 'ev_scorecard.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
+          'analyst_data.js', 'analyst_evaluation.js', 'ev_probability.js', 'ev_model.js', 'ev_additional.js', 'ev_additional_model.js', 'ev_first_team.js', 'ev_first_team_model.js', 'ev_service.js', 'ev_archive.js', 'ev_grading.js', 'ev_scorecard.js', 'ev_context.js', 'ev_ui.js', 'scout-theme.css', 'scout_music.js', 'roundball-rock-8bit.mp3', 'may-brendan-rse.mp3',
           'gym-leader-rse.mp3', 'mt-pyre-peak-rse.mp3', 'surfing-rse.mp3', 'diving-rse.mp3')
 PHASES = {'regular-season': 1230, 'playoffs': 85, 'play-in': 6, 'nba-cup-final': 1}
 TARGET = 'first-team-score-including-free-throws'
@@ -295,6 +295,7 @@ def build(source=SOURCE, output=ROOT / '_site', published_date=None):
                'researchProtocolHash':digest(ROOT/'PARLAY_RESEARCH_PROTOCOL.json'),
                'additionalEVModelHash':additional['modelHash'],'additionalEVEngineHash':additional['engineHash'],'additionalEVProtocolHash':additional['protocolHash'],
                'evModelHash':ev['modelHash'],'evEngineHash':ev['engineHash'],'evProtocolHash':ev['protocolHash'],'firstTeamEVModelHash':first['modelHash'],'evServiceVersion':'ev-service-v1','evServiceCodeHash':digest(source / 'ev_service.js')}
+    hosting['evContextCodeHash'] = digest(source / 'ev_context.js')
     current = {**current, 'publication': hosting}
     marker = '<script src="analyst_ui.js"></script>'
     require(html.count(marker) == 1 and '__FTB_HOSTING__' not in html, 'Hosting insertion marker changed')
