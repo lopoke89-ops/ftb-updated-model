@@ -55,6 +55,7 @@ class Publication(unittest.TestCase):
             self.assertEqual(manifest['firstFreeThrows'], 249)
             self.assertEqual(pages.digest(output / 'scout-theme.css'), pages.digest(pages.SOURCE / 'scout-theme.css'))
             self.assertEqual((output / 'index.html').read_bytes(), (output / 'ftb-scout.html').read_bytes())
+            self.assertIn('ev_context.js',pages.ASSETS)
             html = (output / 'index.html').read_text(encoding='utf-8')
             for name in pages.ASSETS:
                 self.assertIn(name + '?v=' + pages.digest(output / name)[:16] + '"', html)
@@ -65,6 +66,7 @@ class Publication(unittest.TestCase):
             from parlay_journal import release_hashes
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['parlayCodeHashes'],release_hashes())
             ev=pages.read(output / 'data/ev-model.json')
+            self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['evContextCodeHash'],pages.digest(output / 'ev_context.js'))
             self.assertTrue(ev['experimental'])
             self.assertEqual(ev['engineHash'],pages.digest(output / 'ev_probability.js'))
             self.assertEqual(pages.read(output / 'data/seasons/2026-27.json')['publication']['evModelHash'],ev['modelHash'])
