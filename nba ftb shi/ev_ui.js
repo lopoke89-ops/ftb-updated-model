@@ -21,7 +21,14 @@
       h('p',null,'Prior-season transfer and current playing-time assumptions remain unvalidated. Large estimates require review; they are not established betting value.'));
   }
   function contextCard(r){
-    const c=r.researchContext;if(!c)return null;
+    const original=r.researchContext;if(!original)return null;
+    // Select a complete season packet for display; never mix its role, rates or rank.
+    const prior=original.priorSeason,showPrior=original.profile?.ranking?.status!=='ranked'&&prior?.profile?.ranking?.status==='ranked';
+    const ratio=showPrior?prior.profile.opposing.per48/prior.profile.baseline.per48:null;
+    const c=showPrior?{...original,profile:prior.profile,role:prior.role,dataset:{season:prior.season,priorSeason:true},priorSeason:null,
+      status:Number.isFinite(ratio)?'observed':'unavailable',ratio,
+      direction:ratio>1?'Higher observed allowance':ratio<1?'Lower observed allowance':'At comparison rate',
+      mainConcern:'Opponent evidence is from the prior season; today’s personnel may differ.',limitations:[prior.interpretation].filter(Boolean)}:original;
     const a=c.profile?.opposing,b=c.profile?.baseline,number=v=>Number.isFinite(v)?v.toFixed(1):'unavailable';
     return h('section',{className:'ev-context','aria-label':'Matchup and opportunity for '+r.quote.player},
       h('strong',null,'Matchup & opportunity'),
@@ -32,6 +39,10 @@
       c.priorSeason&&h('p',null,`${c.priorSeason.season} separate prior-season research · ${c.priorSeason.role.position} (${c.priorSeason.role.cohort}): ${P?.rankText(c.priorSeason.profile.ranking)||'Rank unavailable'} · ${number(c.priorSeason.profile.opposing.per48)} per 48 player-minutes · ${c.priorSeason.profile.opposing.games} matched games.`),
       c.dataset&&h('small',null,`${c.dataset.season}${c.dataset.priorSeason?' · prior-season research':''} · ${a.games}/${a.expectedGames} opponent team-games with matched observations · through ${a.through||'unavailable'}`),
       c.opportunity&&h('small',null,`${number(c.opportunity.historicalMinutes)} historical minute proxy · ${c.opportunity.appearances??'unknown'} same-team appearances · ${c.opportunity.lineup}`),
+      showPrior&&h('details',{className:'ev-current-season'},
+        h('summary',null,`${original.dataset?.season||'Current season'} · ${original.profile?.opposing.games??0} matched games · rank pending`),
+        h('p',null,'The prior-season rank is featured because this season does not yet meet the rank requirements. Seasons are evaluated separately.'),
+        contextCard({...r,researchContext:{...original,priorSeason:null}})),
       h('p',{className:'ev-context-concern'},'Main concern: '+(c.mainConcern||c.reason)),
       h('details',null,h('summary',null,'Context evidence and limitations'),
         c.role&&h('p',null,'Role basis: '+c.role.source+(c.role.effectiveDate?' · '+c.role.effectiveDate:'')+'. This does not identify a defender.'),
