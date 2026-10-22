@@ -126,11 +126,11 @@
     await Promise.all([depth,official]);
     return {date,checkedAt:new Date(clock()).toISOString(),confirmed,projected,issues,officialStatus};
   }
-  function startRefresh(refresh,{setTimer=setInterval,clearTimer=clearInterval,target=typeof document==='object'?document:null}={}){
+  function startRefresh(refresh,{setTimer=setInterval,clearTimer=clearInterval,target=typeof document==='object'?document:null,intervalMs=300000}={}){
     let busy=false,stopped=false;
     const tick=async()=>{if(stopped||busy||target?.visibilityState==='hidden')return;busy=true;try{await refresh();}catch(_){}finally{busy=false;}};
     const visible=()=>{if(!target||target.visibilityState==='visible')tick();};
-    const timer=setTimer(tick,300000);target?.addEventListener('visibilitychange',visible);
+    const timer=setTimer(tick,intervalMs);target?.addEventListener('visibilitychange',visible);
     return ()=>{stopped=true;clearTimer(timer);target?.removeEventListener('visibilitychange',visible);};
   }
   return {POS,TEAM_IDS,MAX_AGE,OFFICIAL_AGE,LOOKAHEAD,BRIDGE,day,depthUrl,officialUrl,withinHorizon,validProjection,injuryStatus,parseDepth,teamView,playerView,load,startRefresh};

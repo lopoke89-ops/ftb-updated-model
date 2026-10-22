@@ -23,5 +23,5 @@ jobs:
         run: python -m pip install tzdata
       - name: Check price identity and settlement contracts
         run: python -m unittest discover -s scripts -p 'test_fanduel_odds.py'
-      - name: Capture prices and maintain the five-minute pregame worker
+      - name: Capture prices and maintain the two-minute pregame worker
         run: python scripts/fanduel_odds.py --watch

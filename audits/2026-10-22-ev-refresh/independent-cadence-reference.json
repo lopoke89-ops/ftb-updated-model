@@ -1,0 +1,25 @@
+{
+  "method": "Independent arithmetic simulation of every integer-second collector/browser phase offset over one hour. Each read resolves the most recent published capture as of request start. Ten seconds publication delay and ten seconds read delay are assumed. Not a production-helper rerun or uptime guarantee.",
+  "old": {
+    "collectorSeconds": 300,
+    "browserSeconds": 300,
+    "publicationDelaySeconds": 10,
+    "readDelaySeconds": 10,
+    "phasePairs": 90000,
+    "maximumAgeJustBeforeNextReadSeconds": 619,
+    "timeWithoutFreshPriceFraction": 0.5628888888888889
+  },
+  "new": {
+    "collectorSeconds": 120,
+    "browserSeconds": 120,
+    "publicationDelaySeconds": 10,
+    "readDelaySeconds": 10,
+    "phasePairs": 14400,
+    "maximumAgeJustBeforeNextReadSeconds": 259,
+    "timeWithoutFreshPriceFraction": 0.0
+  },
+  "limitations": [
+    "Assumes the active worker succeeds on cadence. Source outages, long captures, worker handoffs, browser suspension and transport/API failures can still expire prices.",
+    "No probability, EV, role, model or five-minute eligibility changes."
+  ]
+}

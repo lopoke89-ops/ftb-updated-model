@@ -165,7 +165,34 @@ class Contracts(unittest.TestCase):
         with patch.object(fd,'Client') as client,patch.object(fd,'capture',side_effect=capture) as captures,patch.object(fd,'publish'),patch.object(fd,'utc',return_value=datetime(2026,10,19,tzinfo=timezone.utc)),patch.object(fd.time,'monotonic',side_effect=lambda:clock['t']),patch.object(fd.time,'sleep',side_effect=sleep):
             client.return_value.json.return_value={}
             self.assertFalse(fd.run(watch=True,max_minutes=10))
-        self.assertEqual(captures.call_count,2)
-        self.assertEqual(clock['sleeps'],[250])
+        self.assertEqual(captures.call_count,5)
+        self.assertEqual(clock['sleeps'],[70]*4)
+
+    def test_watch_recovers_after_failed_cycle_without_renewing_previous_capture(self):
+        clock={'t':0,'sleeps':[]}
+        original={'checkedAt':STAMP,'errors':[],'fixtures':{FIXTURE['id']:{'fixture':FIXTURE,'quotes':[{'capturedAt':STAMP}],'issues':[]}}}
+        incoming=[]
+        def capture(client,previous):
+            incoming.append(copy.deepcopy(previous));clock['t']+=50
+            if len(incoming)==2:raise RuntimeError('source unavailable')
+            return copy.deepcopy(original)
+        def sleep(seconds):
+            clock['sleeps'].append(seconds);clock['t']+=seconds
+        with patch.object(fd,'Client') as client,patch.object(fd,'capture',side_effect=capture),patch.object(fd,'publish') as publish,patch.object(fd,'utc',return_value=datetime(2026,10,19,tzinfo=timezone.utc)),patch.object(fd.time,'monotonic',side_effect=lambda:clock['t']),patch.object(fd.time,'sleep',side_effect=sleep):
+            client.return_value.json.return_value={}
+            self.assertFalse(fd.run(watch=True,max_minutes=6))
+        self.assertEqual(clock['sleeps'],[70,70]);self.assertEqual(publish.call_count,2)
+        self.assertEqual(incoming[1],original);self.assertEqual(incoming[2],original)
+
+    def test_slow_watch_cycles_never_sleep_negative_or_relabel_old_prices(self):
+        clock={'t':0,'sleeps':[]}
+        snapshot={'checkedAt':STAMP,'errors':[],'fixtures':{FIXTURE['id']:{'fixture':FIXTURE,'quotes':[{'capturedAt':STAMP}],'issues':[]}}}
+        def capture(*args):clock['t']+=180;return snapshot
+        def sleep(seconds):clock['sleeps'].append(seconds);clock['t']+=seconds
+        with patch.object(fd,'Client') as client,patch.object(fd,'capture',side_effect=capture),patch.object(fd,'publish') as publish,patch.object(fd,'utc',return_value=datetime(2026,10,19,tzinfo=timezone.utc)),patch.object(fd.time,'monotonic',side_effect=lambda:clock['t']),patch.object(fd.time,'sleep',side_effect=sleep):
+            client.return_value.json.return_value={}
+            self.assertFalse(fd.run(watch=True,max_minutes=6))
+        self.assertEqual(clock['sleeps'],[0]);self.assertEqual(publish.call_count,2)
+        self.assertEqual(publish.call_args.args[0]['fixtures'][FIXTURE['id']]['quotes'][0]['capturedAt'],STAMP)
 
 if __name__=='__main__':unittest.main()
