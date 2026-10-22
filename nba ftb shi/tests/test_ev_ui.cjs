@@ -14,7 +14,7 @@ function render(values={},overrides={},response=snapshot,reference=oddsRef){
  const names=['snapshot','source','market','side','positive','provisional','best','message','clock','scorecard'],changes={},effects=[],downloads=[],saved=[],requests=[],timers=[];let index=0,clockNow=now;
  const defaults=[snapshot,{status:'loaded',lastSuccess:new Date(now).toISOString(),captureAt:snapshot.checkedAt,commit:oddsCommit},'all','all',true,true,true,'',now,null];
  class Clock extends Date{constructor(...a){super(...(a.length?a:[clockNow]));}static now(){return clockNow;}}
- const window={FTBEVContext:overrides.__context===false?null:require('../ev_context.js'),FTBEV:E,FTBEVAdditional:overrides.__additionalEngine,__FTB_EV_ADDITIONAL_MODEL__:overrides.__additionalModel,FTBEVService:require('../ev_service.js'),FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:overrides.__projected||Q,__FTB_EV_MODEL__:model,FTBEVFirstTeam:overrides.__firstTeam,__FTB_EV_FIRST_TEAM_MODEL__:overrides.__firstModel,__FTB_PARLAY_DATA__:overrides.__supplement,FTBEVGrading:require('../ev_grading.js'),FTBEVScorecard:require('../ev_scorecard.js'),FTBEVArchive:{save:async r=>{saved.push(r);return 'id';},all:async()=>saved}};
+ const window={FTBPropSheet:require('../prop_sheet.js'),FTBEVContext:overrides.__context===false?null:require('../ev_context.js'),FTBEV:E,FTBEVAdditional:overrides.__additionalEngine,__FTB_EV_ADDITIONAL_MODEL__:overrides.__additionalModel,FTBEVService:require('../ev_service.js'),FTBScoutingHistory:H,FTBLineups:L,FTBProjectedLineups:overrides.__projected||Q,__FTB_EV_MODEL__:model,FTBEVFirstTeam:overrides.__firstTeam,__FTB_EV_FIRST_TEAM_MODEL__:overrides.__firstModel,__FTB_PARLAY_DATA__:overrides.__supplement,FTBEVGrading:require('../ev_grading.js'),FTBEVScorecard:require('../ev_scorecard.js'),FTBEVArchive:{save:async r=>{saved.push(r);return 'id';},all:async()=>saved}};
  const context=vm.createContext({window,React:{Fragment:'fragment',createElement:(type,props,...children)=>({type,props,children}),useState:()=>{const i=index++;return [names[i] in values?values[names[i]]:defaults[i],next=>{changes[names[i]]=typeof next==='function'?next(changes[names[i]]??defaults[i]):next;}];},useEffect:(fn,deps)=>effects.push({fn,deps}),useMemo:fn=>fn(),useRef:value=>({current:value})},Date:Clock,Set,Map,URL:{createObjectURL:blob=>{downloads.push(blob);return 'blob:ev';},revokeObjectURL:()=>{}},Blob,AbortSignal,document:{createElement:()=>({click(){}})},fetch:async url=>{requests.push(url);return{ok:true,json:async()=>url.startsWith('https://api.github.com/')?reference:response};},setTimeout:(fn,ms)=>{timers.push({fn,ms});return timers.length;},clearTimeout:()=>{}});
  vm.runInContext(fs.readFileSync(path.join(__dirname,'../ev_ui.js'),'utf8'),context);const tree=window.FTBEVPanel({...props,...overrides}),all=nodes(tree);
  return {tree,all,changes,effects,downloads,saved,requests,timers,advance:ms=>{clockNow+=ms;},button:label=>{const b=all.find(n=>n.type==='button'&&n.children[0]===label);assert(b,label);return b;},bodyRows:all.filter(n=>n.type==='tbody').flatMap(n=>n.children.flat()).filter(Boolean)};
@@ -26,8 +26,8 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
    plain.button('Save EV evidence').props.onClick();withContext.button('Save EV evidence').props.onClick();
    const a=JSON.parse(await plain.downloads[0].text()),b=JSON.parse(await withContext.downloads[0].text());
    assert.deepEqual(b.results.map(r=>({key:r.quote.key,p:r.probabilities,ev:r.ev})),a.results.map(r=>({key:r.quote.key,p:r.probabilities,ev:r.ev})));
-   assert(b.results.every(r=>r.researchContext.version==='ev-context-v1'));
-   assert.equal(b.researchContext.version,'ev-context-v1');assert.equal(b.schemaVersion,4);
+   assert(b.results.every(r=>r.researchContext.version==='ev-context-v2'));
+   assert.equal(b.researchContext.version,'ev-context-v2');assert.equal(b.schemaVersion,4);
    assert.equal(withContext.all.filter(n=>n.props?.className==='ev-context').length,2);
    assert(withContext.all.some(n=>n.type==='p'&&String(n.children[0]).includes('PG, SG, SF, PF and C')));
    assert(withContext.all.some(n=>n.props?.className==='ev-context-concern'));
@@ -38,6 +38,18 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
    assert.equal(Object.keys(r.saved[0].contextProfiles).length,2);
    assert(r.saved[0].results.every(row=>!row.researchContext.profile&&r.saved[0].contextProfiles[row.researchContext.profileId]));
    const before=JSON.stringify(r.saved[0]);r.all.find(n=>n.props?.className==='ev-context').children;assert.equal(JSON.stringify(r.saved[0]),before);
+ });
+ await test('saved rank evidence retains separate current and prior-season profiles without rewriting earlier records',async()=>{
+   const current={meta:{season:'2026-27',evidenceContentHash:'recent'},games:[{...archive.games[0],id:'recent',date:'2026-10-18'}]},r=render({}, {data:current});
+   r.button('Save EV evidence').props.onClick();const record=JSON.parse(await r.downloads[0].text());assert(record.results.length>0);
+   for(const row of record.results){const c=row.researchContext;assert(c.priorSeason);assert(!c.profile&&!c.priorSeason.profile);assert(record.contextProfiles[c.profileId]);assert(record.contextProfiles[c.priorSeason.profileId]);assert.equal(c.priorSeason.season,'2025-26');}
+ });
+ await test('matchup sheet remains research when prices expire and does not enter displayed betting selections',async()=>{
+   const r=render();assert(r.all.some(n=>n.props?.className==='prop-sheet'));
+   assert(r.all.filter(n=>n.props?.className==='prop-cell').length>=8);
+   const stale={...snapshot,fixtures:{future:{...snapshot.fixtures.future,quotes:snapshot.fixtures.future.quotes.map(q=>({...q,capturedAt:new Date(now-300001).toISOString()}))}}};
+   const expired=render({snapshot:stale});assert.equal(expired.bodyRows.length,0);assert(expired.all.some(n=>n.props?.className==='prop-sheet'));assert(!expired.all.some(n=>n.props?.className==='prop-offer'));
+   r.button('Save EV evidence').props.onClick();const record=JSON.parse(await r.downloads[0].text());assert.equal(record.displayedSelectionKeys.length,r.bodyRows.length);assert.equal(record.researchContext.sheetVersion,'prop-sheet-v1');
  });
  await test('EV table renders independently priced Points and Threes in descending estimated EV',()=>{const r=render();assert.equal(r.bodyRows.length,2);assert(r.all.some(n=>n.type==='span'&&n.children[0]==='Experimental estimates'));assert(r.all.some(n=>n.type==='th'&&n.children[0]==='Model win / push'));assert(r.all.some(n=>n.type==='details'&&n.props?.className==='ev-filters'));});
  await test('EV polling fetches a replacement before expiry and cleans up on unmount',async()=>{
@@ -81,7 +93,7 @@ let count=0;async function test(name,fn){await fn();count++;console.log('PASS '+
  });
  await test('First Team Basket prices awaiting starters remain visible with no fabricated EV',()=>{
    const fm=JSON.parse(fs.readFileSync(path.join(__dirname,'../ev_first_team_model.json'))),q={...quote,key:'first',market:'first-team-basket'},engine={VERSION:fm.version,modelStatus:()=>fm.withheldReason,verifiedGames:()=>[],buildState:()=>({}),evaluateQuotes:()=>({rows:[],audit:[],pending:[{quote:q,reason:'Awaiting five fresh NBA confirmed starters for BOS'}]})};
-   const r=render({market:'first-team-basket'},{__firstTeam:engine,__firstModel:fm,__supplement:{meta:{openingContentHash:fm.openingEvidenceHash}}});assert.equal(r.bodyRows.length,1);assert(r.all.some(n=>n.type==='details'&&n.props.className==='ev-first-pending'&&n.props.open));assert(r.all.some(n=>n.type==='td'&&String(n.children[0]).includes('Awaiting five')));assert(r.button('Save EV evidence').props.disabled);
+   const r=render({market:'first-team-basket'},{__firstTeam:engine,__firstModel:fm,__supplement:{meta:{openingContentHash:fm.openingEvidenceHash}}});assert.equal(r.bodyRows.length,1);assert(r.all.some(n=>n.type==='details'&&n.props?.className==='ev-first-pending'&&n.props.open));assert(r.all.some(n=>n.type==='td'&&String(n.children[0]).includes('Awaiting five')));assert(r.button('Save EV evidence').props.disabled);
  });
  await test('published FTB gate uses the real engine: prices and leakage notice appear without probability or EV',async()=>{
    const fm=JSON.parse(fs.readFileSync(path.join(__dirname,'../ev_first_team_model.json'))),F=require('../ev_first_team.js'),q=offered({...quote,market:'first-team-basket',period:'team-first-score',side:'yes',line:null}),feed={...snapshot,fixtures:{[fixture.id]:{...snapshot.fixtures[fixture.id],quotes:[q]}}},engine={...F,verifiedGames:()=>[],buildState:()=>({})};
