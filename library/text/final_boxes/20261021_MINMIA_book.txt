@@ -44,7 +44,7 @@ SCORE BY PERIOD 1 2 3 4 FINAL
 Timberwolves 34 35 30 32 131
 HEAT 32 27 22 25 106
 Inactive:Timberwolves - DiVincenzo (Injury/Illness - Right Leg; Achilles Tendon Repair / Surgery), Pullin (G League - Two-Way), Zikarsky (G League - Two-Way)
-Inactive: Heat - Donaldson, Goldin (Information), Johnson
+Inactive: Heat - Donaldson, Goldin (Goldin), Johnson
 Points in the Paint:Timberwolves 38 (19/37), HEAT 54 (27/40)
 2nd Chance Points:Timberwolves 20 (7/19), HEAT 6 (2/5)
 Fast Break Points:Timberwolves 5 (2/7), HEAT 18 (5/7)
