@@ -234,6 +234,76 @@ class MorningCollection(unittest.TestCase):
         e['date']='2026-11-02T06:30Z'
         self.assertEqual(collect.fixture(e)['date'],'2026-11-02')
 
+    def suffix_box(self, roster_name='Jabari Smith', jersey='10', extra=None):
+        # The PDF prints "Jabari Smith Jr." #10; ESPN may list the same player without the suffix.
+        g = copy.deepcopy(GAME)
+        player = next(p for p in g['teams']['HOU']['players'] if p['id']=='4432639')
+        player.update(name=roster_name, jersey=jersey)
+        if jersey is None:
+            del player['jersey']
+        if extra:
+            g['teams']['HOU']['players'].append(extra)
+        text = (FIXTURES/'final_box.txt').read_text(encoding='utf-8')
+        rows, issues = boxes.parse_final_box(text,g,{})
+        return next(r for r in rows if r['nba_name']=='Jabari Smith Jr.'), issues
+
+    def test_generational_suffix_matches_same_game_player_only_with_matching_jersey(self):
+        row, issues = self.suffix_box()
+        self.assertEqual(row['espn_player_id'],'4432639')
+        self.assertIn('generational suffix',row['identity_method'])
+        self.assertFalse(issues)
+        self.assertEqual(boxes.base_name('Bobby Portis Jr.'),boxes.base_name('Bobby Portis'))
+        self.assertEqual(boxes.base_name('Darius Brown II'),boxes.base_name('Darius Brown'))
+        self.assertNotEqual(boxes.base_name('Malik V'),boxes.base_name('Malik'))
+        exact, _ = self.suffix_box(roster_name='Jabari Smith Jr.')
+        self.assertEqual(exact['identity_method'],'exact normalized name in same-game team roster')
+
+    def test_suffix_mismatch_stays_unresolved_without_jersey_or_unique_candidate(self):
+        # An unresolved row is what collect_one reports as 'Unresolved or duplicate played identity'.
+        for kwargs in [dict(jersey='11'), dict(jersey=None), dict(jersey=''),
+                       dict(extra={'id':'999','name':'Jabari Smith Sr.','jersey':'10','rawPosition':'F'})]:
+            row, _ = self.suffix_box(**kwargs)
+            self.assertIsNone(row['espn_player_id'],kwargs)
+            self.assertTrue(row['identity_method'].startswith('unresolved'),kwargs)
+
+    def test_identity_rosters_carry_espn_jersey(self):
+        f = collect.fixture(event('2026-10-20'))
+        summary = {'header':{'id':f['id'],'competitions':[{'competitors':[
+                       {'homeAway':side,'team':{'abbreviation':f[side]}} for side in ('home','away')]}]},
+                   'boxscore':{'players':[{'team':{'abbreviation':f[side]},'statistics':[{'athletes':[
+                       {'athlete':{'id':str(i),'displayName':'Player '+side,'jersey':95 if side=='home' else None}}]}]}
+                       for i, side in enumerate(('home','away'))]}}
+        g = collect.identity_game(f, summary)
+        self.assertEqual(g['teams'][f['home']]['players'][0]['jersey'],'95')
+        self.assertEqual(g['teams'][f['away']]['players'][0]['jersey'],'')
+
+    def exhibition(self, phase=1, visitor='LON'):
+        e = event('2026-10-12','401914130',phase=phase)
+        e['competitions'][0]['competitors'][1]['team']['abbreviation'] = visitor
+        return e
+
+    def test_preseason_exhibition_against_non_nba_club_is_an_excluded_fixture(self):
+        f = collect.fixture(self.exhibition())
+        self.assertEqual((f['phase'],f['away'],f['nonNbaOpponent']),('preseason','LON','LON'))
+        self.assertNotIn('nonNbaOpponent',collect.fixture(event('2026-10-12',phase=1)))
+        for e in [self.exhibition(phase=2), self.exhibition(phase=3), self.exhibition(visitor=GAME['home'])]:
+            with self.assertRaisesRegex(ValueError,'Unknown or duplicate fixture teams'):
+                collect.fixture(e)
+        both = self.exhibition()
+        both['competitions'][0]['competitors'][0]['team']['abbreviation'] = 'MEL'
+        with self.assertRaisesRegex(ValueError,'Unknown or duplicate fixture teams'):
+            collect.fixture(both)
+
+    def test_non_nba_exhibition_no_longer_leaves_schedule_unverified(self):
+        with temporary_output() as folder:
+            events = [self.exhibition(), event('2026-10-12','401898402',phase=1)]
+            result = collect.collect(folder/'state',new_source(folder),'2026-10-12',fetcher=lambda url:{'events':events},
+                                     store=FakeArchive(),ingester=lambda *a,**k:self.fail('excluded fixture'))
+            self.assertEqual((result['pending'],result['schedule_errors']),(0,0))
+            batch = archive_store.read(folder/'state/state.json')['batches']['2026-10-12']
+            self.assertTrue(batch['scheduleVerified'] and batch['complete'])
+            self.assertEqual(sorted(f['id'] for f in batch['fixtures']),['401898402','401914130'])
+
     def checked_snapshot(self,folder):
         source=new_source(folder)
         collect.collect(folder/'state',source,'2026-10-20',fetcher=lambda url:{'events':[event('2026-10-20')]},store=FakeArchive(),ingester=fake_ingest)

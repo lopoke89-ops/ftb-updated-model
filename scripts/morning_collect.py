@@ -56,11 +56,14 @@ def fixture(event, season=SEASON):
     competition = event['competitions'][0]
     sides = {c['homeAway']: c for c in competition['competitors']}
     home, away = (normalize(sides[k]['team']['abbreviation']) for k in ('home','away'))
-    if {home,away} - TEAMS or home == away:
-        raise ValueError('Unknown or duplicate fixture teams')
     notes = ' '.join(n.get('headline','') for n in competition.get('notes',[])).lower()
     kind = event['season']['type']
     phase = 'nba-cup-final' if 'nba cup championship' in notes else 'play-in' if 'play-in' in notes else {1:'preseason',2:'regular-season',3:'playoffs',5:'play-in'}.get(kind)
+    # Preseason exhibitions against one non-NBA club (Portland v London Lions) are listed as excluded
+    # preseason fixtures; an unknown team in any other phase still fails the schedule check.
+    outside = {home,away} - TEAMS
+    if home == away or outside and (phase != 'preseason' or len(outside) > 1):
+        raise ValueError('Unknown or duplicate fixture teams')
     if not phase:
         raise ValueError('Unknown competition phase')
     status = event.get('status', competition.get('status',{})).get('type',{})
@@ -71,7 +74,8 @@ def fixture(event, season=SEASON):
     return dict(id=str(event['id']), date=day, home=home, away=away, phase=phase, season=season,
                 scheduledTipoff=tipoff, completed=bool(status.get('completed')) and not canceled,
                 canceledOrPostponed=canceled, status=detail,
-                expectedPoints={normalize(v['team']['abbreviation']):int(v.get('score',0)) for v in sides.values()})
+                expectedPoints={normalize(v['team']['abbreviation']):int(v.get('score',0)) for v in sides.values()},
+                **({'nonNbaOpponent':outside.pop()} if outside else {}))
 
 
 def identity_game(f, summary):
@@ -90,7 +94,7 @@ def identity_game(f, summary):
                 pid = str(athlete.get('id',''))
                 if not pid or not athlete.get('displayName'):
                     raise ValueError('Summary player identity missing')
-                players[pid] = dict(id=pid, name=athlete['displayName'],
+                players[pid] = dict(id=pid, name=athlete['displayName'], jersey=str(athlete.get('jersey') or ''),
                                     rawPosition=athlete.get('position',{}).get('abbreviation',''))
         teams[team] = dict(players=list(players.values()), points=f['expectedPoints'][team])
     if set(teams) != {f['home'],f['away']}:
