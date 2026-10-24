@@ -42,6 +42,12 @@ def save(path,data):
     tmp.write_text(json.dumps(data,indent=2,ensure_ascii=False,allow_nan=False),encoding='utf-8')
     tmp.replace(path)
 def norm(value):return re.sub('[^a-z0-9]','',unicodedata.normalize('NFKD',value).encode('ascii','ignore').decode().lower())
+SUFFIXES={'jr','sr','ii','iii','iv','v'}
+def base_name(value):
+    """Normalized name without one trailing generational suffix."""
+    words=value.replace('.',' ').replace(',',' ').split()
+    if len(words)>2 and norm(words[-1]) in SUFFIXES:words=words[:-1]
+    return norm(' '.join(words))
 
 def printed_totals(text,g):
     """Read each printed NBA team total, independently of ESPN's final score."""
@@ -103,6 +109,10 @@ def parse_final_box(text,g,identities):
             assert stats['pts']==0 and stats['fgm']==0 and stats['fga']==1 and stats['reb']==1 and stats['plus_minus']==-4
             identity_method='verified same-game suffix crosswalk: jersey and full box agree; https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401810690'
         elif len(identities.get(norm(name),[]))==1:pid=next(iter(identities[norm(name)]));identity_method='unique exact normalized name in stored season identity map'
+        # NBA and ESPN can differ only by a generational suffix (Bobby Portis Jr. / Bobby Portis).
+        # Accept that only for one same-game team candidate whose ESPN jersey equals the printed jersey.
+        elif len(alike:=[p for p in g['teams'][team]['players'] if base_name(p['name'])==base_name(name)])==1 and alike[0].get('jersey') and str(alike[0]['jersey'])==jersey:
+            pid=alike[0]['id'];identity_method='same-game team roster: name equal apart from generational suffix, jersey agrees'
         else:pid=None;identity_method='unresolved; NBA official name retained'
         row=dict(team=team,nba_name=name,jersey=jersey,position=before or None,starter=starter,status=status,
                  played=status=='played',minutes_seconds=seconds,espn_player_id=pid,identity_method=identity_method,**stats)
@@ -127,9 +137,9 @@ def collect_one(g,out,seed,identities,force=False):
     pdf=out/'pdf'/g['date']/filename;meta=out/'records'/(g['id']+'.json')
     base=dict(espn_game_id=g['id'],season=g.get('season',out.name),phase=g['phase'],game_date=g['date'],away=g['away'],home=g['home'],
               away_score=g['teams'][g['away']]['points'],home_score=g['teams'][g['home']]['points'],source_url=url,pdf_path=str(pdf.relative_to(out)).replace('\\','/'))
-    existing={}
-    if meta.exists() and pdf.exists():
-        existing=read(meta)
+    # Fresh collector runners restore records without PDFs; identical re-downloaded bytes keep their first capture time.
+    existing=read(meta) if meta.exists() else {}
+    if existing and pdf.exists():
         if existing.get('sha256')==hashlib.sha256(pdf.read_bytes()).hexdigest():
             versions=out/'source_versions';versions.mkdir(exist_ok=True)
             archived=versions/(existing['sha256']+'.pdf')

@@ -1,7 +1,7 @@
 import copy, hashlib, json, shutil, unittest
 from collections import defaultdict
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 import official_gamebooks as boxes
 import morning_collect as morning
 import full_game_pbp as pbp
@@ -65,6 +65,19 @@ class NewGamebooks(unittest.TestCase):
             library,r,ids=collected(folder,case);again=boxes.collect_one(case['game'],library,folder/'no-seed',ids);self.assertEqual(again,r)
             pdf=library/r['pdf_path'];original=pdf.read_bytes();pdf.write_bytes(original+b'\n');revised=boxes.collect_one(case['game'],library,folder/'no-seed',ids)
             self.assertEqual(revised['verification_status'],'verified');self.assertNotEqual(revised['sha256'],r['sha256']);self.assertEqual((library/'source_versions'/(r['sha256']+'.pdf')).read_bytes(),original);self.assertEqual((library/'source_versions'/(revised['sha256']+'.pdf')).read_bytes(),original+b'\n')
+
+    def test_runner_without_pdf_keeps_first_capture_time_for_identical_download(self):
+        # Collector runners restore records but not PDFs, so every retry downloads the gamebook again.
+        case=CASES[0];payload=(Path(__file__).parent/'fixtures/new_gamebooks'/case['file']).read_bytes()
+        def serve(body):
+            response=MagicMock();response.__enter__.return_value.read.return_value=body;return response
+        with temporary_output() as folder:
+            library,r,ids=collected(folder,case);(library/r['pdf_path']).unlink()
+            with patch('official_gamebooks.urlopen',return_value=serve(payload)):again=boxes.collect_one(case['game'],library,folder/'no-seed',ids)
+            self.assertEqual((again['sha256'],again['captured_at'],again['capture_origin']),(r['sha256'],r['captured_at'],'downloaded from NBA'));self.assertNotEqual(again['checked_at'],r['checked_at'])
+            (library/r['pdf_path']).unlink()
+            with patch('official_gamebooks.urlopen',return_value=serve(payload+b'\n')):revised=boxes.collect_one(case['game'],library,folder/'no-seed',ids)
+            self.assertNotEqual(revised['sha256'],r['sha256']);self.assertNotEqual(revised['captured_at'],r['captured_at'])
 
     def test_stale_fallback_cache_is_replaced_and_changed_pdf_hash_cannot_reuse_events(self):
         case=CASES[1]
