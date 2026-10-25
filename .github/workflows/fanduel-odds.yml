@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '4-59/5 * * * *'
   workflow_dispatch:
+    inputs:
+      max_minutes:
+        description: 'Worker duration in minutes (1-240; use 1 for a single capture)'
+        type: number
+        default: 240
 permissions:
   contents: write
 concurrency:
@@ -24,4 +29,6 @@ jobs:
       - name: Check price identity and settlement contracts
         run: python -m unittest discover -s scripts -p 'test_fanduel_odds.py'
       - name: Capture prices and maintain the two-minute pregame worker
-        run: python scripts/fanduel_odds.py --watch
+        env:
+          WATCH_MAX_MINUTES: ${{ inputs.max_minutes || 240 }}
+        run: python scripts/fanduel_odds.py --watch --max-minutes "$WATCH_MAX_MINUTES"

@@ -109,6 +109,70 @@ class Contracts(unittest.TestCase):
         bad={**EVENT,'openDate':'2026-10-21T19:00:00Z'}
         with self.assertRaises(ValueError):fd.match_event(FIXTURE,{'a':bad})
 
+    def test_unlisted_game_is_expected_but_conflicting_listings_still_fail(self):
+        unrelated={**EVENT,'name':'Chicago Bulls @ Miami Heat'}
+        with self.assertRaises(fd.EventNotOffered):
+            fd.match_event(FIXTURE,{'other':unrelated})
+        for events in [
+            {'a':EVENT,'b':EVENT},
+            {'a':{**EVENT,'openDate':'2026-10-20T20:00:00Z'}},
+            {'a':{**EVENT,'inPlay':True}},
+            {'a':{**EVENT,'competitionId':0}},
+        ]:
+            with self.subTest(events=events):
+                with self.assertRaises(ValueError) as error:
+                    fd.match_event(FIXTURE,events)
+                self.assertNotIsInstance(error.exception,fd.EventNotOffered)
+
+    def test_missing_listing_retains_only_cached_prices_with_original_times(self):
+        old_quote=self.parse(payload())[0][0]
+        class Fake:
+            def fd(self,endpoint,**params):
+                if endpoint!='competition-page':raise AssertionError('Unmatched event must not fetch markets')
+                return {'attachments':{'events':{'other':{**EVENT,'name':'Chicago Bulls @ Miami Heat'}}}},'listing'
+            def json(self,url):
+                team='BOS' if '/2/' in url else 'DET'
+                return {'team':{'id':fd.TEAMS[team]},'athletes':[{'id':str(i),'displayName':team+str(i)} for i in range(6)]}
+        previous={'fixtures':{FIXTURE['id']:{'fixture':FIXTURE,'quotes':[old_quote,{**old_quote,'fixtureId':'wrong-game'}]}}}
+        with patch.object(fd,'schedule',return_value=([FIXTURE],[])):
+            result=fd.capture(Fake(),previous,datetime(2026,10,19,tzinfo=timezone.utc))
+        entry=result['fixtures'][FIXTURE['id']]
+        self.assertEqual(entry['quotes'],[{**old_quote,'captureState':'cached'}])
+        self.assertTrue(all(fd.expected_unavailability(e) for e in entry['issues']))
+        self.assertFalse(entry['captures']);self.assertFalse(result['errors'])
+
+    def test_empty_listing_is_still_a_source_failure(self):
+        class Fake:
+            def fd(self,*args,**params):return {'attachments':{'events':{}}},'listing'
+        with patch.object(fd,'schedule',return_value=([FIXTURE],[])):
+            with self.assertRaisesRegex(ValueError,'FanDuel NBA listing unavailable'):
+                fd.capture(Fake(),{},datetime(2026,10,19,tzinfo=timezone.utc))
+
+    def run_snapshot(self,issues,errors=None,publish_error=None):
+        snapshot={'checkedAt':STAMP,'errors':errors or [],'fixtures':{FIXTURE['id']:{'fixture':FIXTURE,'quotes':[{'capturedAt':STAMP}],'issues':issues}}}
+        with patch.object(fd,'Client'),patch.object(fd,'capture',return_value=snapshot),patch.object(fd,'publish',side_effect=publish_error),patch('builtins.print'):
+            return fd.run()
+
+    def test_successful_capture_with_unposted_games_and_markets_succeeds(self):
+        self.assertFalse(self.run_snapshot([
+            'Event not yet offered: BOS @ DET '+FIXTURE['scheduledTipoff'],
+            'Market not yet offered: Player Points',
+            'First Team Basket not yet offered',
+        ]))
+
+    def test_real_failures_still_fail_even_alongside_expected_missing_offers(self):
+        for issue in [
+            'No unique FanDuel event matching both teams and tipoff',
+            'Player name does not uniquely resolve to current matchup roster: Unknown',
+            'American/decimal price mismatch',
+            'player-points: Requested market tab was not fully loaded',
+            'player-points: Source HTTP 503',
+        ]:
+            with self.subTest(issue=issue):
+                self.assertTrue(self.run_snapshot(['First Team Basket not yet offered',issue]))
+        self.assertTrue(self.run_snapshot([],errors=['Schedule unavailable']))
+        self.assertTrue(self.run_snapshot([],publish_error=RuntimeError('Odds publication failed')))
+
     def test_partial_source_failure_retains_original_quote_times_only_for_failed_market(self):
         old_quote=self.parse(payload())[0][0]
         class Fake:

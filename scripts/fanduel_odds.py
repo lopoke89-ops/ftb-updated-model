@@ -28,6 +28,15 @@ TAB_MARKET = {'player-points':'points','player-threes':'threes','player-assists'
 # A five-minute worker plus a five-minute browser poll regularly lost freshness.
 WATCH_INTERVAL_SECONDS = 120
 
+class EventNotOffered(ValueError):
+    """The schedule extends beyond the events currently listed by FanDuel."""
+
+
+def expected_unavailability(issue):
+    return (issue.startswith(('Event not yet offered:', 'Market not yet offered:'))
+            or issue == 'First Team Basket not yet offered')
+
+
 def utc():
     return datetime.now(timezone.utc)
 
@@ -137,14 +146,18 @@ def match_event(fixture, events):
             values = values+['Los Angeles Clippers','LA Clippers']
         return {normalize(n) for n in values}
     matches=[]
+    same_teams = False
     for event in events.values():
         split = event.get('name','').split(' @ ')
         if len(split)!=2 or normalize(split[0]) not in names('away') or normalize(split[1]) not in names('home'):
             continue
+        same_teams = True
         if event.get('competitionId')!=10547864 or event.get('eventTypeId')!=7522 or event.get('inPlay') is True:
             continue
         if abs((iso(event['openDate'])-iso(fixture['scheduledTipoff'])).total_seconds())<=900:
             matches.append(event)
+    if not matches and not same_teams:
+        raise EventNotOffered('Event not yet offered: '+fixture['away']+' @ '+fixture['home']+' '+fixture['scheduledTipoff'])
     if len(matches)!=1:
         raise ValueError('No unique FanDuel event matching both teams and tipoff')
     return matches[0]
@@ -343,12 +356,15 @@ def run(watch=False,output=None,max_minutes=240):
             previous = snapshot
             quotes = [q for e in snapshot['fixtures'].values() for q in e['quotes']]
             issues = snapshot['errors']+[e for f in snapshot['fixtures'].values() for e in f['issues']]
-            print(json.dumps({'checkedAt':snapshot['checkedAt'],'fixtures':len(snapshot['fixtures']),'quotes':len(quotes),'issues':issues}),flush=True)
+            failures = [e for e in issues if not expected_unavailability(e)]
+            print(json.dumps({'checkedAt':snapshot['checkedAt'],'fixtures':len(snapshot['fixtures']),'quotes':len(quotes),'unavailable':sum(expected_unavailability(e) for e in issues),'issues':issues}),flush=True)
             now = utc()
             future = [iso(f['fixture']['scheduledTipoff']) for f in snapshot['fixtures'].values() if iso(f['fixture']['scheduledTipoff'])>now]
             watching = watching or bool(future)
             if not watch or output or not watching or not future or time.monotonic()+WATCH_INTERVAL_SECONDS>=deadline:
-                return bool(snapshot['errors']) or any(any(not e.startswith('Market not yet offered:') for e in f['issues']) for f in snapshot['fixtures'].values())
+                # Missing offers are normal across the schedule lookahead. Source,
+                # identity, parsing and publication failures must still fail the job.
+                return bool(snapshot['errors']) or bool(failures)
         except Exception as error:
             print(json.dumps({'error':str(error),'checkedAt':utc().isoformat(),'retained':'previous published capture'}),flush=True)
             if not watch or not watching or time.monotonic()+WATCH_INTERVAL_SECONDS>=deadline:
