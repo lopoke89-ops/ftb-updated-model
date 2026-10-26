@@ -68,6 +68,30 @@ class OfficialOpening(unittest.TestCase):
         self.assertEqual(len(e['firstFieldGoalAttempts']['OKC']['athleteIds']), 2)
         self.assertEqual(len(e['firstFieldGoals']['OKC']['athleteIds']), 1)
 
+    def test_real_fused_abbreviation_resolves_first_score(self):
+        # Oct 24 2026 HOU @ ATL prints "J.SmithJr.Tip Layup" with no space; it is Houston's first score.
+        e = parse('401909856')['firstScores']['HOU']
+        self.assertEqual((e['id'], e['clock'], e['text']), ('4432639', '10:01', 'J.SmithJr.Tip Layup'))
+        self.assertIn('fused', e['identityMethod'])
+
+    def test_fused_suffix_and_plain_abbreviations_resolve(self):
+        pages = copy.deepcopy(FIXTURES['401809243']['pages'])
+        okc = parse('401809243')['firstScores']['OKC']
+        token, rest = okc['text'].split(' ', 1)
+        for page in pages:
+            page['text'] = page['text'].replace('J.SmithJr. Putback Layup', 'J.SmithJr.Putback Layup').replace(okc['text'], token + rest)
+        e = parse('401809243', pages)['firstScores']
+        self.assertEqual(e['HOU']['id'], '4432639')
+        self.assertEqual(e['OKC']['id'], okc['id'])
+
+    def test_fused_abbreviation_never_guesses(self):
+        alias = {('HOU', 'jsmith'): {'1'}, ('HOU', 'jsmithjr'): {'1'}, ('ATL', 'jsmithjr'): {'9'}}
+        self.assertEqual(PARSER.glued_actor(alias, 'HOU', 'J.SmithJr.Tip'), {'1'})
+        self.assertEqual(PARSER.glued_actor(alias, 'HOU', 'J.Smithson'), set())  # lower-case continuation: a different name
+        self.assertEqual(PARSER.glued_actor({**alias, ('HOU', 'jsmi'): {'2'}}, 'HOU', 'J.SmithJr.Tip'), {'1'})  # 'J.Smi|th' ends mid-word
+        self.assertEqual(PARSER.glued_actor({**alias, ('HOU', 'jsmith'): {'1', '2'}}, 'HOU', 'J.SmithJr.Tip'), set())  # two J.Smiths qualify
+        self.assertEqual(PARSER.glued_actor(alias, 'BKN', 'J.SmithJr.Tip'), set())  # other teams never count
+
 
 if __name__ == '__main__':
     unittest.main()

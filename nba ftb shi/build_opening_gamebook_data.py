@@ -41,6 +41,28 @@ def aliases(name):
     return result
 
 
+def glued_actor(alias, team, token):
+    """Resolve a printed abbreviation fused to its action word, e.g. 'J.SmithJr.Tip' from 'J.SmithJr.Tip Layup'.
+
+    Used only when the exact token has no match. A player qualifies if one of his aliases is a prefix of the
+    normalized token and the next printed character is an upper-case letter (the start of the fused word).
+    Returns his id only if exactly one player on the team qualifies.
+    """
+    found = set()
+    for (row_team, key), ids in alias.items():
+        if row_team != team or len(key) < 4 or not norm(token).startswith(key) or len(norm(token)) == len(key):
+            continue
+        seen = 0
+        for i, ch in enumerate(token):
+            seen += bool(norm(ch))
+            if seen == len(key):
+                rest = token[i + 1:].lstrip('.')
+                if rest[:1].isupper():
+                    found |= ids
+                break
+    return found if len(found) == 1 else set()
+
+
 def quarter_pages(pdf, cache, expected_hash):
     from pypdf import PdfReader
     import pypdfium2 as pdfium
@@ -143,6 +165,9 @@ def parse_pages(pages, game, record):
                 actor = re.match(r'^(?:MISS\s+)?([^\s]+)', text)
                 token = actor[1] if actor else ''
                 ids = alias.get((team, norm(token)), set())
+                glued = not ids and glued_actor(alias, team, token)
+                if glued:
+                    ids = glued
                 points = deltas[side]
                 if points and 'MISS ' in text:
                     raise ValueError('MISS with scoring delta: ' + game['id'])
@@ -150,7 +175,8 @@ def parse_pages(pages, game, record):
                     'team': team, 'text': text, 'page': page['page'], 'line': lineno,
                     'athleteIds': sorted(ids), 'actorToken': token,
                     'points': points, 'scoringPlay': bool(points), 'isAttempt': is_shot,
-                    'isFreeThrow': is_ft, 'homeScore': new_score[0], 'awayScore': new_score[1]})
+                    'isFreeThrow': is_ft, 'homeScore': new_score[0], 'awayScore': new_score[1],
+                    **({'identityMethod': 'PDF abbreviation fused to the action word; unique team alias prefix'} if glued else {})})
             score = new_score
     # Use first-quarter shooting totals to resolve ambiguous abbreviated actors.
     quarter = {}
