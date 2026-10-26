@@ -18,7 +18,6 @@ POS MIN FG FGA 3P 3PA FT FTA OR DR TOT A PF ST TO BS +/- PTS
 27 Isaiah Crawford  00:49 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -3 0
 8 Jae'Sean Tate  00:49 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3 0
 2 Bruce Thornton  04:20 0 1 0 1 0 0 0 0 0 0 3 1 1 0 -1 0
-36 Marcus Smart  DNP - Coach's Decision
 9 Oscar Tshiebwe  DNP - Coach's Decision
 240:00 43 89 14 35 21 23 13 30 43 27 20 6 14 4 7 121
 48.3% 40% 91.3% TM REB: 12 TOT TO: 16 (23 PTS) TM FGA: 2
@@ -42,8 +41,8 @@ POS MIN FG FGA 3P 3PA FT FTA OR DR TOT A PF ST TO BS +/- PTS
 SCORE BY PERIOD 1 2 3 4 FINAL
 Rockets 30 29 33 29 121
 HAWKS 26 22 33 33 114
-Inactive: Rockets - Adams (Injury/Illness - Left Ankle; Ankle Injury Management), Copeland (G League - Two-Way), Phillips (G League - Two-Way),VanVleet
-(Injury/Illness - Right Knee; Knee Injury Management)
+Inactive: Rockets - Adams (Injury/Illness - Left Ankle; Ankle Injury Management), Copeland (G League - Two-Way), Phillips (G League - Two-Way), Smart
+(Injury/Illness - Left Arm; Forearm Strain),VanVleet (Injury/Illness - Right Knee; Knee Injury Management)
 Inactive: Hawks - Dennis (G League - Two-Way), Gilbert (G League - Two-Way), Gueye (Injury/Illness - Left Foot; Foot Fracture),Veesaar (Injury/Illness - Right
 Knee; ACL Tear), Wilson (G League - Two-Way)
 Points in the Paint: Rockets 46 (23/43), HAWKS 58 (29/44)
