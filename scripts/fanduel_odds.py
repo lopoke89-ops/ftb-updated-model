@@ -205,7 +205,9 @@ def parse_markets(payload, fixture, event, roster, captured_at, tab):
         prop,kind,target = contract
         if kind=='at-least':
             expected_name = 'To Score '+str(target)+'+ Points' if prop=='points' else str(target)+'+ Made Threes' if prop=='threes' else 'To Record '+str(target)+'+ '+prop.title()
-            if market.get('marketName','').casefold()!=expected_name.casefold():
+            short_name = str(target)+'+ '+('Threes' if prop=='threes' else prop.title())
+            accepted_names = {expected_name.casefold(), short_name.casefold()}
+            if market.get('marketName','').casefold() not in accepted_names:
                 issues.append('Milestone target/name mismatch')
                 continue
         for runner in market.get('runners',[]):
